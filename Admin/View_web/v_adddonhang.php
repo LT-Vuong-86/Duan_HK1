@@ -202,9 +202,26 @@
                 <p class="text-danger"><?php echo $loi['masp']?></p> 
             <?php }?>
         </div>
-       
+        <h5>Tên loại sản phẩm</h5>
+        <div id="loaisp" class="form-control row mx-1">
+            
+            <input name="loai_sp" type="text" placeholder="tên loại sản phẩm" 
+            value="<?php echo (isset($tong))?$tong:'' ?>" >
+            <?php if(isset($loi['loai_sp'])){?>
+                <p class="text-danger"><?php echo $loi['loai_sp']?></p> 
+            <?php }?>
+        </div>
+        <h5>Tên loại sản phẩm</h5>
+        <div id="size" class="form-control row mx-1">
+            
+            <input name="size" type="text" placeholder="size" 
+            value="<?php echo (isset($tong))?$tong:'' ?>" >
+            <?php if(isset($loi['size'])){?>
+                <p class="text-danger"><?php echo $loi['size']?></p> 
+            <?php }?>
+        </div>
         <h5>Tổng tiền </h5>
-        <div id="tong" class="form-control row mx-1">
+        <div id="size_name" class="form-control row mx-1">
             
             <input name="tong" type="text" placeholder="Tổng tiền" 
             value="<?php echo (isset($tong))?$tong:'' ?>" >

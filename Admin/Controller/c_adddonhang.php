@@ -9,6 +9,8 @@ if(isset($_SESSION['ss_admin'])){
             $diachi = $_POST['diachi'];
             $slmasp = $_POST['slmasp'];
             $tong=$_POST['tong'];
+            $loai_sp=$_POST['loai_sp'];
+            $size_name=$_POST['size'];
             $ghichu=$_POST['ghichu'];
             $date_oder = date("d/m/y");
             $names = [];
@@ -25,7 +27,12 @@ if(isset($_SESSION['ss_admin'])){
             foreach ($donhang as $key => $value) {
                 $id_dh = $value['id_donhang']+1;
             }
-            
+            if($loai_sp == ''){
+                $loi['loai_sp'] = 'Mục không được để trống';
+            }
+            if($size_name == ''){
+                $loi['size'] = 'Mục không được để trống';
+            }
             if($ten == ''){
                 $loi['ten'] = 'Danh mục không được để trống';
             }
@@ -67,6 +74,8 @@ if(isset($_SESSION['ss_admin'])){
                 $db->insert('ctdonhang',array(
                     'id_donhang'=>$id_dh,
                     'id_sanpham'=>$value,
+                    'size'=>$size_name,
+                    'loai_sp'=>$loai_sp,
                     'soluongsp'=>$slmasp,
                     'ghichu'=>$ghichu,
                     'ngaydat'=>$date_oder

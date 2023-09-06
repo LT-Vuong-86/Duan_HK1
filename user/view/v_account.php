@@ -434,7 +434,7 @@
         </div>
 
     </footer><!--/Footer-->
-    <script>alert('Chức năng này cần đăng nhập')</script>
+    
 <script src="../js/account.js"></script>
 <script src="../js/jquery.js"></script>
    <script>

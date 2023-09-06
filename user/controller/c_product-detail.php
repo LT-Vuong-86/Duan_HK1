@@ -31,12 +31,13 @@
         $db->insert('giohang',array(
             'id_taikhoan'=>$_SESSION['ss_user'],
             'id_sanpham'=>$id,
+            'loai_sp'=>$loai_sp,
+            'size'=>$size_name,
             'soluong'=>$sl,
             'tong'=>$tong
         ));
     }else{
         echo "<script>alert('Chức năng này cần đăng nhập')</script>";
-
     }
     if (isset($_POST['muangay'])) {
         echo $ten;
