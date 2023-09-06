@@ -40,7 +40,7 @@
         <!--/header-middle-->
     </header>
     <!--/header-->
-
+    <form action="" method="post"> 
     <section id="cart_items">
         <div class="container">
             <div class="breadcrumbs">
@@ -55,20 +55,22 @@
                 <div class="col-sm-3">
                         <div class="shopper-info">
                             <p>Thông tin người mua hàng</p>
-                            <form>
-                                <input type="text" name="full_name" value="<?php echo $khachhang[0]['full_name']?>">
-                                <input type="number" name="sdt" value="<?php echo $khachhang[0]['sdt']?>">
-                            </form>
+                            
+                                <input placeholder="Tên khách hàng" type="text" name="full_name" value="<?php if (isset( $khachhang)) {
+                                    echo $khachhang[0]['full_name'];
+                                } ?>">
+                                <input type="number" placeholder="Số điện thoại" name="sdt" value="<?php if (isset( $khachhang)) { echo $khachhang[0]['sdt'];}?>">
+                            
                         </div>
                     </div>
 
                     <div class="col-sm-3">
                         <div class="shopper-info">
                             <p>Địa chỉ người mua</p>
-                            <form>
-                                <input type="email" value="<?php echo $khachhang[0]['email']?>">
-                                <input name="diachi" rows="3" value="<?php echo $khachhang[0]['diachi']?>">
-                            </form>
+                            
+                                <input type="email" placeholder="Email" name="email" value="<?php if (isset( $khachhang)) { echo $khachhang[0]['email'];}?>">
+                                <input name="diachi" rows="3" placeholder="Địa chỉ nhận hàng" value="<?php if (isset( $khachhang)) { echo $khachhang[0]['diachi'];}?>">
+                           
                         </div>
                     </div>
                 </div>
@@ -83,6 +85,8 @@
                             <td class="image">Ảnh</td>
                             <td class="description">Tên sản phẩm</td>
                             <td class="quantity">Số lượng</td>
+                            <td>loại</td>
+                            <td>size</td>
                             <td class="price">Giá</td>
                             <td class="total">Tổng</td>
                         </tr>
@@ -99,10 +103,10 @@
                                     $tongtien = $tongtiensp
                         ?>
                         <tr class="text-center">
-                            <td class="cart_product">
-                                <img style="width:100px" src="<?php echo $value['anh_chinh']?>" alt="">
+                            <td class="">
+                                <img style="width:100px" src="../images/sanpham/<?php echo $value['anh_chinh']?>" alt="">
                             </td>
-                            <td class="cart_description">
+                            <td class="">
                                 <h4><?php echo $value['tensanpham']?></h4>
                             </td>
 
@@ -111,13 +115,15 @@
                                     <p><?php echo $value['sl']?></p>
                                 </div>
                             </td>
+                            <td><div><p><?php echo $value['loai_sp']?></p></div></td>
+                            <td><div><p><?php echo $value['size_name']?></p></div></td>
 
                             <td class="cart_price">
                                 <p><?php echo number_format($value['gia'])?>đ</p>                                
                             </td>
                             
                             <td class="cart_total">
-                                <p class="cart_total_price"><?php echo number_format($value['sl']*$value['gia'])?>đ</p>
+                                <p class="cart_total_price"><?php echo number_format($value['tong'])?>đ</p>
                             </td>
 
                             
@@ -141,7 +147,7 @@
 
                                 
                             </table>
-                            <a class="btn btn-default check_out" name="btn_thanhtoan" href="#">Đồng ý với các quyết định trên</a><br>
+                           <input type="submit"  class="btn btn-default check_out" name="btn_thanhtoan" value="Đồng ý với các quyết định trên"><br>
                         </td>
                     </tr>
                 </table>
@@ -149,7 +155,7 @@
         </div>
     </section>
     <!--/#cart_items-->
-
+    </form>
 
 
     <footer id="footer">

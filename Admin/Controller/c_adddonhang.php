@@ -17,16 +17,16 @@ if(isset($_SESSION['ss_admin'])){
             for ($i = 0; $i < $slmasp; $i++) {
              $names[] = $_POST["masp$i"];
             }
-            $id_kh=0;
-            $khachhang=$db->get('khachhang',array());
-            foreach ($khachhang as $key => $value) {
-                $id_kh = $value['id_kh']+1;
-            }
-            $id_dh=0;
-            $donhang=$db->get('donhang',array());
-            foreach ($donhang as $key => $value) {
-                $id_dh = $value['id_donhang']+1;
-            }
+            // $id_kh=0;
+            // $khachhang=$db->get('khachhang',array());
+            // foreach ($khachhang as $key => $value) {
+            //     $id_kh = $value['id_kh']+1;
+            // }
+            // $id_dh=0;
+            // $donhang=$db->get('donhang',array());
+            // foreach ($donhang as $key => $value) {
+            //     $id_dh = $value['id_donhang']+1;
+            // }
             if($loai_sp == ''){
                 $loi['loai_sp'] = 'Mục không được để trống';
             }
@@ -64,12 +64,13 @@ if(isset($_SESSION['ss_admin'])){
                     'sdt'=>$sdt,
                     'diachi'=>$diachi                   
                 ));    
-
+                $id_kh=$db->insert_id();
                 $db->insert('donhang',array(                    
                     'id_kh'=>$id_kh,
                     'tong'=>$tong,
                     "id_tinhtrang"=>1              
                 )); 
+                $id_dh=$db->insert_id();
                 foreach ($names as $value) {     
                 $db->insert('ctdonhang',array(
                     'id_donhang'=>$id_dh,

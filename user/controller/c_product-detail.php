@@ -16,8 +16,11 @@
     $loai_sp=$_POST['loai_sp'];
     }
     $gia=$product[0]['gia'];
+    if (isset($_POST['loai_sp'])) {
     $sl=$_POST['sl'];
+    
     $tong=$gia*$sl;
+    }
     $loi = array();
    if($size_name == ''){
             $loi['size_name'] = 'vui lòng chọn size';
@@ -26,6 +29,7 @@
             $loi['loai_sp'] = 'vui lòng chọn loại sp';
    }
    if (!$loi) {
+    
     if (isset($_SESSION['ss_user'])) {
        
         $db->insert('giohang',array(
@@ -39,16 +43,65 @@
     }else{
         echo "<script>alert('Chức năng này cần đăng nhập')</script>";
     }
-    if (isset($_POST['muangay'])) {
-        echo $ten;
-        echo $size_name;
-        echo $loai_sp;
-     }
+  
        
     }
-
     
-     }// $loai_sp=$_POST['jehvd'];
+    
+     }
+     if (isset($_POST['muangay'])) {
+        $ten=$product[0]['tensanpham'];
+        if (isset($_POST['size_name'])) {
+            $size_name=$_POST['size_name'];
+        }
+        if (isset($_POST['loai_sp'])) {
+        $loai_sp=$_POST['loai_sp'];
+        }
+        $gia=$product[0]['gia'];
+        if (isset($_POST['loai_sp'])) {
+        $sl=$_POST['sl'];
+        
+        $tong=$gia*$sl;
+        }
+        $loi = array();
+       if($size_name == ''){
+                $loi['size_name'] = 'vui lòng chọn size';
+            }
+        if($loai_sp == ''){
+                $loi['loai_sp'] = 'vui lòng chọn loại sp';
+       }
+       if (!$loi) {
+        if (isset($_SESSION['cart'])){
+            if (isset($_SESSION['cart'][$id])){
+                
+                //Nếu đã có sản phẩm đó rồi thì +1 sản phẩm
+                $_SESSION['cart'][$id]['sl']+=1;
+                $_SESSION['cart'][$id]['loai_sp']=$_SESSION['cart'][$id]['loai_sp'].", ".$loai_sp;
+            }else{
+        $_SESSION['cart'][$id]['id_sanpham'] = $id;
+        $_SESSION['cart'][$id]['tensanpham'] = $product[0]['tensanpham'];
+        $_SESSION['cart'][$id]['gia'] = $product[0]['gia'];
+        $_SESSION['cart'][$id]['sl'] = $sl;
+        $_SESSION['cart'][$id]['anh_chinh'] = $product[0]['anh_chinh'];
+        $_SESSION['cart'][$id]['loai_sp'] = $loai_sp;
+        $_SESSION['cart'][$id]['size_name'] = $size_name;
+        $_SESSION['cart'][$id]['tong'] = $tong;
+        header("location: ?controller=cart");
+            }
+       }else{ $_SESSION['cart'][$id]['id_sanpham'] = $id;
+        $_SESSION['cart'][$id]['tensanpham'] = $product[0]['tensanpham'];
+        $_SESSION['cart'][$id]['gia'] = $product[0]['gia'];
+        $_SESSION['cart'][$id]['sl'] = $sl;
+        $_SESSION['cart'][$id]['anh_chinh'] = $product[0]['anh_chinh'];
+        $_SESSION['cart'][$id]['loai_sp'] = $loai_sp;
+        $_SESSION['cart'][$id]['size_name'] = $size_name;
+        $_SESSION['cart'][$id]['tong'] = $tong;
+        header("location: ?controller=cart");
+
+       }
+    }
+     }
+    // $loai_sp=$_POST['jehvd'];
                           
         // $size_phu = $_POST['size_name'];  
    

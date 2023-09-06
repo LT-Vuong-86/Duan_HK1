@@ -5,7 +5,7 @@
         protected $user = 'root';
         protected $pass = '';
         protected $dtbase = 'du_an';
-        protected $post = '3306';
+        protected $post = '3308';
     //Tạo phương thức kết nối
     public function __construct()
     {
@@ -74,6 +74,14 @@
             $sql = "INSERT INTO $table ($column) VALUES ($value_str)";
             $query = mysqli_query($this->conn, $sql);
             return $query;
+        }
+        function insert_id()
+        {
+          // Lấy kết nối đến cơ sở dữ liệu
+          return $this->conn->insert_id;
+        
+          // Trả về ID của bản ghi mới nhất
+         
         }
 
         public function get_limit($table, $condition=array(), $limit)

@@ -156,7 +156,7 @@
                                     $tongtien+=$value['sl']*$value['gia'];
                         ?>
                         <tr class="text-center">
-                            <td><img class="img-responsive" src="<?php echo $value['anh_chinh']?>" width="100" alt=""></td>
+                            <td><img class="img-responsive" src="../images/sanpham/<?php echo $value['anh_chinh']?>" width="100" alt=""></td>
                             <td><?php echo $value['tensanpham']?></td>
                             <td><?php echo number_format($value['gia'])?>đ</td>
                             <td >
