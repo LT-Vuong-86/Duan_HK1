@@ -223,7 +223,7 @@
                                     <div class="product-image-wrapper">
                                         <div class="single-products">
                                             <div class="productinfo text-center">
-                                                <img class="img-responsive" style="width:100%; height:250px; object-fit: cover;" src="<?php echo $value['anh_chinh']?>" alt="" />
+                                                <img class="img-responsive" style="width:100%; height:250px; object-fit: cover;" src="../images/sanpham/<?php echo $value['anh_chinh']?>" alt="" />
                                                 <h5 style="color: black;"><?php echo $value['tensanpham']?></h5>
                                             </div>
                                             <div>

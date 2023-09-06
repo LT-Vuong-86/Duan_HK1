@@ -5,7 +5,7 @@
         protected $user = 'root';
         protected $pass = '';
         protected $dtbase = 'du_an';
-        protected $post = '3308';
+        protected $post = '3306';
     //Tạo phương thức kết nối
     public function __construct()
     {
