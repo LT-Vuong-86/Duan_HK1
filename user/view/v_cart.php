@@ -144,6 +144,8 @@
                             <td class="description">Tên mặt hàng</td>
                             <td class="price">Đơn giá</td>
                             <td class="quantity">Số lượng</td>
+                            <td class="quantity">loại sản phẩm</td>
+                            <td class="quantity">size</td>
                             <td class="total">Thành tiền</td>
                             <td class="delete"></td>
                         </tr>
@@ -159,9 +161,12 @@
                             <td><img class="img-responsive" src="../images/sanpham/<?php echo $value['anh_chinh']?>" width="100" alt=""></td>
                             <td><?php echo $value['tensanpham']?></td>
                             <td><?php echo number_format($value['gia'])?>đ</td>
-                            <td >
-                                <?php echo $value['sl']?>
-                            </td>
+                            <a href="?controller=xulyCart&method=giam&id=<?php echo $value['id_sanpham']?>"><input style="cursor: pointer;" type="submit"  value="-"> </a>
+                            <?php echo $value['sl']?>
+                            <a href="?controller=xulyCart&method=tang&id=<?php echo $value['id_sanpham']?>"><input style="cursor: pointer;" type="submit"  value="+"></a>
+                        
+                            <td><div><p><?php echo $value['loai_sp']?></p></div></td>
+                            <td><div><p><?php echo $value['size_name']?></p></div></td>
                             <td>
                                 <?php echo number_format($value['gia']*$value['sl'])?>đ
                             </td>
@@ -178,11 +183,48 @@
                                 </a>
                             </td>
                         </tr>
-                        <?php   }  }?>
-
-                        <tr>
+                        <?php   } ?> <tr>
                             <td><a name="btn_xoatoanbo" href="?controller=xulyCart&method=xoatoanbo&id=<?php echo $value['id_sanpham']?>">Xóa toàn bộ</a></td>
-                        </tr>
+                        </tr> <?php }else{if (isset($giohang)) {
+                            $tongtien=0;
+                            foreach ($giohang as $key => $value){    
+                                $tongtien+=$value['tong'];
+                                $sanpham=$db->get('sanpham',array('id_sanpham'=>$value['id_sanpham']));
+                    ?>
+                    <tr class="text-center">
+                        <td><img class="img-responsive" src="../images/sanpham/<?php echo $sanpham[0]['anh_chinh']?>" width="100" alt=""></td>
+                        <td><?php echo $sanpham[0]['tensanpham']?></td>
+                        <td><?php echo number_format($sanpham[0]['gia'])?>đ</td>
+                        
+                        <td >
+                            <a href="?controller=xulyCart&method=giam&id=<?php echo $value['id_sanpham']?>&size=<?php echo $value['size']?>"><input style="cursor: pointer;" type="submit"  value="-"> </a>
+                            <?php echo $value['soluong']?>
+                            <a href="?controller=xulyCart&method=tang&id=<?php echo $value['id_sanpham']?>&size=<?php echo $value['size']?>"><input style="cursor: pointer;" type="submit"  value="+"></a>
+                        </td>
+                       
+                        <td><div><p><?php echo $value['loai_sp']?></p></div></td>
+                        <td><div><p><?php echo $value['size']?></p></div></td>
+                        <td>
+                            <?php echo number_format($value['tong'])?>đ
+                        </td>
+                        <td>
+                            <a style="text-decoration: none;" onclick="return confirm('Xóa sản phẩm này?');" href="?controller=xulyCart&method=xoa&id=<?php echo $value['id_sanpham']?>&loai_sp=<?php echo $value['loai_sp']?>&size=<?php echo $value['size']?>">
+                                <button class="noselect">
+                                    <span class="text">Delete</span>
+                                    <span class="icon">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                                        <path d="M24 20.188l-8.315-8.209 8.2-8.282-3.697-3.697-8.212 8.318-8.31-8.203-3.666 3.666 8.321 8.24-8.206 8.313 3.666 3.666 8.237-8.318 8.285 8.203z"></path>
+                                        </svg>
+                                    </span>
+                                </button>
+                            </a>
+                        </td>
+                    </tr>
+                    <?php   } ?> <tr>
+                            <td><a  href="?controller=xulyCart&method=xoatoanbo&id=<?php echo $value['id_sanpham']?>">Xóa toàn bộ</a></td>
+                        </tr><?php } }?>
+
+                    
                     </tbody>
                 </table>
             </div>

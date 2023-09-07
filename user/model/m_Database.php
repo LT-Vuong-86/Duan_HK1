@@ -110,5 +110,33 @@
 			//Bước 6: Cho hàm trả về giá trị 
 			return $result;
 		}
+        public function delete($table, $condition=array()){
+            $sql ="DELETE FROM $table WHERE ";
+            
+            foreach ($condition as $key => $value){
+                $sql.=" $key = '$value' AND";
+            }
+            $sql = substr($sql, 0,-3);
+            // print_r($sql);
+            // die;
+            //Thực thi câu lệnh
+            $query = mysqli_query($this->conn, $sql);
+            return $query;
+        }
+        public function update($table, $data=array(), $condition=array()){
+            $value_str = '';
+            foreach ($data as $key => $value){
+                $value_str .="$key = '$value',";
+            }
+            $value_str = trim($value_str, ",");
+            $sql = "UPDATE $table SET $value_str WHERE ";
+
+            foreach ($condition as $key => $value){
+                $sql.=" $key = '$value ' AND";
+            }
+            $sql = trim($sql, 'AND');
+            $query = mysqli_query($this->conn, $sql);
+            return $query;
+        }
     }
 ?>
