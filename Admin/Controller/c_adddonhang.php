@@ -14,8 +14,10 @@ if(isset($_SESSION['ss_admin'])){
             $ghichu=$_POST['ghichu'];
             $date_oder = date("d/m/y");
             $names = [];
+            $soluong=[];
             for ($i = 0; $i < $slmasp; $i++) {
              $names[] = $_POST["masp$i"];
+             $soluong[]=$_POST["soluong$i"];
             }
             // $id_kh=0;
             // $khachhang=$db->get('khachhang',array());
@@ -71,13 +73,14 @@ if(isset($_SESSION['ss_admin'])){
                     "id_tinhtrang"=>1              
                 )); 
                 $id_dh=$db->insert_id();
-                foreach ($names as $value) {     
+                for ($i=0; $i < $slmasp; $i++) { 
+                                      
                 $db->insert('ctdonhang',array(
                     'id_donhang'=>$id_dh,
-                    'id_sanpham'=>$value,
+                    'id_sanpham'=>$name[$i],
                     'size'=>$size_name,
                     'loai_sp'=>$loai_sp,
-                    'soluongsp'=>$slmasp,
+                    'soluongsp'=>$soluong[$i],
                     'ghichu'=>$ghichu,
                     'ngaydat'=>$date_oder
                 ));

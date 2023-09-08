@@ -29,11 +29,9 @@
             $loi['loai_sp'] = 'vui lòng chọn loại sp';
    }
    if (!$loi) {
-    
     if (isset($_SESSION['ss_user'])) {
         $giohang=$db->get('giohang',array('id_taikhoan'=>$_SESSION['ss_user'],'id_sanpham'=>$id,'size'=>$size_name));
-        foreach ($giohang as $key => $value) {
-         if (isset($giohang)) {
+         if (!empty($giohang)) {   
          foreach ($giohang as $key => $value) {
              $db->update('giohang',array(
                  'soluong'=>$value['soluong']+$sl,
@@ -48,7 +46,7 @@
             'size'=>$size_name,
             'soluong'=>$sl,
             'tong'=>$tong
-        ));}}
+        ));}
     }else{
         echo "<script>alert('Chức năng này cần đăng nhập')</script>";
     }
@@ -109,14 +107,12 @@
       
     }else{
         if (isset($_SESSION['cart'])){
-            echo "sydvhv";
             if (isset($_SESSION['cart'][$id])){
                
                 //Nếu đã có sản phẩm đó rồi thì +1 sản phẩm
                 $_SESSION['cart'][$id]['sl']+=1;
                 $_SESSION['cart'][$id]['loai_sp']=$_SESSION['cart'][$id]['loai_sp'].", ".$loai_sp;
             }else{
-                echo "ácvi";
         $_SESSION['cart'][$id]['id_sanpham'] = $id;
         $_SESSION['cart'][$id]['tensanpham'] = $product[0]['tensanpham'];
         $_SESSION['cart'][$id]['gia'] = $product[0]['gia'];
@@ -125,7 +121,7 @@
         $_SESSION['cart'][$id]['loai_sp'] = $loai_sp;
         $_SESSION['cart'][$id]['size_name'] = $size_name;
         $_SESSION['cart'][$id]['tong'] = $tong;
-        header("location: ?controller=cart");
+        header("location: ?controller=checkout");
             }
        }else{
          $_SESSION['cart'][$id]['id_sanpham'] = $id;
@@ -136,7 +132,7 @@
         $_SESSION['cart'][$id]['loai_sp'] = $loai_sp;
         $_SESSION['cart'][$id]['size_name'] = $size_name;
         $_SESSION['cart'][$id]['tong'] = $tong;
-        header("location: ?controller=cart");
+        header("location: ?controller=checkout");
 
        }
     }

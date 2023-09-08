@@ -56,11 +56,17 @@
                         <div class="shopper-info">
                             <p>Thông tin người mua hàng</p>
                             
-                                <input placeholder="Tên khách hàng" type="text" name="full_name" value="<?php if (isset( $khachhang)) {
+                                <input placeholder="Tên khách hàng" type="text" required name="full_name" value="<?php if (isset( $khachhang)) {
                                     echo $khachhang[0]['full_name'];
                                 } ?>">
-                                <input type="number" placeholder="Số điện thoại" name="sdt" value="<?php if (isset( $khachhang)) { echo $khachhang[0]['sdt'];}?>">
-                            
+                                <p>
+                                <?php if (isset( $loi['full_name'])) {
+                                    echo  $loi['full_name'];
+                                } ?></p>
+                                <input type="tel" pattern="[0-9]{10}" title="Hãy nhập lại." required placeholder="Số điện thoại" name="sdt" value="<?php if (isset( $khachhang)) { echo $khachhang[0]['sdt'];}?>">
+                                <p><?php if (isset( $loi['sdt'])) {
+                                    echo  $loi['sdt'];
+                                } ?></p>
                         </div>
                     </div>
 
@@ -68,9 +74,19 @@
                         <div class="shopper-info">
                             <p>Địa chỉ người mua</p>
                             
-                                <input type="email" placeholder="Email" name="email" value="<?php if (isset( $khachhang)) { echo $khachhang[0]['email'];}?>">
-                                <input name="diachi" rows="3" placeholder="Địa chỉ nhận hàng" value="<?php if (isset( $khachhang)) { echo $khachhang[0]['diachi'];}?>">
-                           
+                               <input required name="diachi" rows="3" placeholder="Địa chỉ nhận hàng" value="<?php if (isset( $khachhang)) { echo $khachhang[0]['diachi'];}?>">
+                                <p><?php if (isset( $loi['diachi'])) {
+                                    echo  $loi['diachi'];
+                                } ?></p>
+                                <input type="text" placeholder="email" name="email" value="<?php if (isset( $khachhang)) { echo $khachhang[0]['email'];}?>">
+                             
+                        </div>
+                    </div>
+                    <div class="col-sm-3">
+                        <div class="shopper-info">
+                            <p>Ghi chú đơn hàng</p>
+                            <textarea name="ghichu" id="ghichu"  placeholder="Ghi chú đơn hàng"  cols="30" rows="3"></textarea>
+                            
                         </div>
                     </div>
                 </div>
@@ -128,7 +144,35 @@
 
                             
                         </tr>
-                        <?php }}?>
+                        <?php }}elseif(isset($giohang)){
+                            foreach ($giohang as $key => $value) { ?>
+                                 <tr class="text-center">
+                            <td class="">
+                                <img style="width:100px" src="../images/sanpham/<?php echo $value['anh_chinh']?>" alt="">
+                            </td>
+                            <td class="">
+                                <h4><?php echo $value['tensanpham']?></h4>
+                            </td>
+
+                            <td class="cart_quantity">
+                                <div class="cart_quantity_button">
+                                    <p><?php echo $value['sl']?></p>
+                                </div>
+                            </td>
+                            <td><div><p><?php echo $value['loai_sp']?></p></div></td>
+                            <td><div><p><?php echo $value['size_name']?></p></div></td>
+
+                            <td class="cart_price">
+                                <p><?php echo number_format($value['gia'])?>đ</p>                                
+                            </td>
+                            
+                            <td class="cart_total">
+                                <p class="cart_total_price"><?php echo number_format($value['tong'])?>đ</p>
+                            </td>
+
+                            
+                        </tr>
+                          <?php  } } ?>
                     </tbody>
 
                     <tr>
@@ -147,7 +191,7 @@
 
                                 
                             </table>
-                           <input type="submit"  class="btn btn-default check_out" name="btn_thanhtoan" value="Đồng ý với các quyết định trên"><br>
+                           <input type="submit"  class="btn btn-default check_out" name="btn_thanhtoan" value="Đồng ý với các quyết định trên:mua ngay"><br>
                         </td>
                     </tr>
                 </table>

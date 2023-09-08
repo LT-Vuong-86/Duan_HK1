@@ -265,8 +265,13 @@ quantityInput.addEventListener("change", function() {
     const input = document.createElement("input");
     input.type = "text";
     input.name = "masp" + i;
-    input.placeholder = "Nhập mã sản phẩm cho mục " + (i + 1);
+    input.placeholder = "Nhập mã sản phẩm  mục " + (i + 1);
     inputsContainer.appendChild(input);
+    const input1 = document.createElement("input");
+    input1.type = "text";
+    input1.name = "soluong" + i;
+    input1.placeholder = "số lượng sản phẩm mục " + (i + 1);
+    inputsContainer.appendChild(input1);
   }
 });
 
