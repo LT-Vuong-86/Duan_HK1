@@ -144,26 +144,30 @@
 
                             
                         </tr>
-                        <?php }}elseif(isset($giohang)){
-                            foreach ($giohang as $key => $value) { ?>
+                        <?php } } else{ if(isset($giohang)){ 
+                            foreach ($giohang as $key => $value) {
+                               
+                                $donhang=$db->get('sanpham',array('id_sanpham'=>$value['id_sanpham']));
+                                $tongtiensp+=$value['soluong']*$donhang[0]['gia'];
+                                ?>
                                  <tr class="text-center">
                             <td class="">
-                                <img style="width:100px" src="../images/sanpham/<?php echo $value['anh_chinh']?>" alt="">
+                                <img style="width:100px" src="../images/sanpham/<?php echo $donhang[0]['anh_chinh']?>" alt="">
                             </td>
                             <td class="">
-                                <h4><?php echo $value['tensanpham']?></h4>
+                                <h4><?php echo $donhang[0]['tensanpham']?></h4>
                             </td>
 
                             <td class="cart_quantity">
                                 <div class="cart_quantity_button">
-                                    <p><?php echo $value['sl']?></p>
+                                    <p><?php echo $value['soluong']?></p>
                                 </div>
                             </td>
                             <td><div><p><?php echo $value['loai_sp']?></p></div></td>
-                            <td><div><p><?php echo $value['size_name']?></p></div></td>
+                            <td><div><p><?php echo $value['size']?></p></div></td>
 
                             <td class="cart_price">
-                                <p><?php echo number_format($value['gia'])?>đ</p>                                
+                                <p><?php echo number_format($donhang[0]['gia'])?>đ</p>                                
                             </td>
                             
                             <td class="cart_total">
@@ -172,7 +176,7 @@
 
                             
                         </tr>
-                          <?php  } } ?>
+                          <?php } } } ?>
                     </tbody>
 
                     <tr>
@@ -183,7 +187,7 @@
                                     <td>Tổng số lượng</td>
                                     <td><?php echo $tongsl?></td>
                                     <td>Tổng tiền</td>
-                                    <td><span><?php echo number_format($tongtien)?></span>đ</td>
+                                    <td><span><?php echo number_format($tongtiensp)?></span>đ</td>
                                     <td class="cart_delete">
                                         <a class="cart_quantity_delete" style="color: black;" href="?controller=cart">Sửa</a>
                                     </td>

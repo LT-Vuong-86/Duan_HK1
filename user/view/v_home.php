@@ -270,11 +270,15 @@
                         </div>
                         <div class="tab-content">
                             <div class="tab-pane fade active in" id="tshirt">
+                                <?php
+                                 $dk=4;
+                                 foreach ($sanpham as $key => $value) { ?>  
+                                    <?php if ($key < $dk) { ?>
                                 <div class="col-sm-3">
                                     <div class="product-image-wrapper">
                                         <div class="single-products">
                                             <div class="productinfo text-center">
-                                                <img src="../images/home/gallery1.jpg" alt="" />
+                                                <img src="../images/sanpham/<?php echo $value['anh_chinh'] ?>" alt="" />
                                                 <h2>$56</h2>
                                                 <p>Phiên bản màu đen Easy Polo</p>
                                                 <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Thêm vào giỏ hàng</a>
@@ -283,45 +287,10 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-sm-3">
-                                    <div class="product-image-wrapper">
-                                        <div class="single-products">
-                                            <div class="productinfo text-center">
-                                                <img src="../images/home/gallery2.jpg" alt="" />
-                                                <h2>$56</h2>
-                                                <p>Phiên bản màu đen Easy Polo</p>
-                                                <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Thêm vào giỏ hàng</a>
-                                            </div>
-
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-sm-3">
-                                    <div class="product-image-wrapper">
-                                        <div class="single-products">
-                                            <div class="productinfo text-center">
-                                                <img src="../images/home/gallery3.jpg" alt="" />
-                                                <h2>$56</h2>
-                                                <p>Phiên bản màu đen Easy Polo</p>
-                                                <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i> thêm vào giỏ hàng</a>
-                                            </div>
-
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-sm-3">
-                                    <div class="product-image-wrapper">
-                                        <div class="single-products">
-                                            <div class="productinfo text-center">
-                                                <img src="../images/home/gallery4.jpg" alt="" />
-                                                <h2>$56</h2>
-                                                <p>Phiên bản màu đen Easy Polo</p>
-                                                <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i> thêm vào giỏ hàng</a>
-                                            </div>
-
-                                        </div>
-                                    </div>
-                                </div>
+                                <?php } ?>
+                               
+                          <?php  }  ?>
+                               
                             </div>
 
                             <div class="tab-pane fade" id="blazers">
@@ -554,87 +523,160 @@
                         <div id="recommended-item-carousel" class="carousel slide" data-ride="carousel">
                             <div class="carousel-inner">
                                 <div class="item active">
+                                    <?php foreach ($sp_shirt_girl as $key => $value) { ?>       
                                     <div class="col-sm-4">
                                         <div class="product-image-wrapper">
                                             <div class="single-products">
                                                 <div class="productinfo text-center">
-                                                    <img src="../images/home/recommend1.jpg" alt="" />
-                                                    <h2>$56</h2>
-                                                    <p>Phiên bản màu đen Easy Polo</p>
+                                                    <img src="../images/sanpham/<?php echo $value['anh_chinh'] ?>" alt="" />
+                                                    <h2><?php echo $value['gia'] ?></h2>
+                                                    <p><?php echo $value['tensanpham'] ?></p>
                                                     <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i> thêm vào giỏ hàng</a>
                                                 </div>
 
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-sm-4">
-                                        <div class="product-image-wrapper">
-                                            <div class="single-products">
-                                                <div class="productinfo text-center">
-                                                    <img src="../images/home/recommend2.jpg" alt="" />
-                                                    <h2>$56</h2>
-                                                    <p>Phiên bản màu đen Easy Polo</p>
-                                                    <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i> thêm vào giỏ hàng</a>
-                                                </div>
-
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-4">
-                                        <div class="product-image-wrapper">
-                                            <div class="single-products">
-                                                <div class="productinfo text-center">
-                                                    <img src="../images/home/recommend3.jpg" alt="" />
-                                                    <h2>$56</h2>
-                                                    <p>Phiên bản màu đen Easy Polo</p>
-                                                    <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i> thêm vào giỏ hàng</a>
-                                                </div>
-
-                                            </div>
-                                        </div>
-                                    </div>
+                                    <?php } ?>
+                                   
                                 </div>
                                 <div class="item">
+                                <?php foreach ($sp_trousers_girl as $key => $value) { ?>       
                                     <div class="col-sm-4">
                                         <div class="product-image-wrapper">
                                             <div class="single-products">
                                                 <div class="productinfo text-center">
-                                                    <img src="../images/home/recommend1.jpg" alt="" />
-                                                    <h2>$56</h2>
-                                                    <p>Phiên bản màu đen Easy Polo</p>
+                                                    <img src="../images/sanpham/<?php echo $value['anh_chinh'] ?>" alt="" />
+                                                    <h2><?php echo $value['gia'] ?></h2>
+                                                    <p><?php echo $value['tensanpham'] ?></p>
                                                     <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i> thêm vào giỏ hàng</a>
                                                 </div>
 
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-sm-4">
-                                        <div class="product-image-wrapper">
-                                            <div class="single-products">
-                                                <div class="productinfo text-center">
-                                                    <img src="../images/home/recommend2.jpg" alt="" />
-                                                    <h2>$56</h2>
-                                                    <p>Phiên bản màu đen Easy Polo</p>
-                                                    <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i> thêm vào giỏ hàng</a>
-                                                </div>
-
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-4">
-                                        <div class="product-image-wrapper">
-                                            <div class="single-products">
-                                                <div class="productinfo text-center">
-                                                    <img src="../images/home/recommend3.jpg" alt="" />
-                                                    <h2>$56</h2>
-                                                    <p>Phiên bản màu đen Easy Polo</p>
-                                                    <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i> thêm vào giỏ hàng</a>
-                                                </div>
-
-                                            </div>
-                                        </div>
-                                    </div>
+                                    <?php } ?>    
                                 </div>
+                                <div class="item">
+                                <?php foreach ($sp_dress as $key => $value) { ?>       
+                                    <div class="col-sm-4">
+                                        <div class="product-image-wrapper">
+                                            <div class="single-products">
+                                                <div class="productinfo text-center">
+                                                    <img src="../images/sanpham/<?php echo $value['anh_chinh'] ?>" alt="" />
+                                                    <h2><?php echo $value['gia'] ?></h2>
+                                                    <p><?php echo $value['tensanpham'] ?></p>
+                                                    <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i> thêm vào giỏ hàng</a>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <?php } ?>    
+                                </div>
+                                <div class="item">
+                                <?php foreach ($sp_shirt_boy as $key => $value) { ?>       
+                                    <div class="col-sm-4">
+                                        <div class="product-image-wrapper">
+                                            <div class="single-products">
+                                                <div class="productinfo text-center">
+                                                    <img src="../images/sanpham/<?php echo $value['anh_chinh'] ?>" alt="" />
+                                                    <h2><?php echo $value['gia'] ?></h2>
+                                                    <p><?php echo $value['tensanpham'] ?></p>
+                                                    <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i> thêm vào giỏ hàng</a>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <?php } ?>    
+                                </div>
+                                <div class="item">
+                                <?php foreach ($sp_trousers_boy as $key => $value) { ?>       
+                                    <div class="col-sm-4">
+                                        <div class="product-image-wrapper">
+                                            <div class="single-products">
+                                                <div class="productinfo text-center">
+                                                    <img src="../images/sanpham/<?php echo $value['anh_chinh'] ?>" alt="" />
+                                                    <h2><?php echo $value['gia'] ?></h2>
+                                                    <p><?php echo $value['tensanpham'] ?></p>
+                                                    <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i> thêm vào giỏ hàng</a>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <?php } ?>    
+                                </div>
+                                <div class="item">
+                                <?php foreach ($sp_vest as $key => $value) { ?>       
+                                    <div class="col-sm-4">
+                                        <div class="product-image-wrapper">
+                                            <div class="single-products">
+                                                <div class="productinfo text-center">
+                                                    <img src="../images/sanpham/<?php echo $value['anh_chinh'] ?>" alt="" />
+                                                    <h2><?php echo $value['gia'] ?></h2>
+                                                    <p><?php echo $value['tensanpham'] ?></p>
+                                                    <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i> thêm vào giỏ hàng</a>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <?php } ?>    
+                                </div>
+                                <div class="item">
+                                <?php foreach ($sp_shirt_kids as $key => $value) { ?>       
+                                    <div class="col-sm-4">
+                                        <div class="product-image-wrapper">
+                                            <div class="single-products">
+                                                <div class="productinfo text-center">
+                                                    <img src="../images/sanpham/<?php echo $value['anh_chinh'] ?>" alt="" />
+                                                    <h2><?php echo $value['gia'] ?></h2>
+                                                    <p><?php echo $value['tensanpham'] ?></p>
+                                                    <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i> thêm vào giỏ hàng</a>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <?php } ?>    
+                                </div>
+                                <div class="item">
+                                <?php foreach ($sp_trousers_kids as $key => $value) { ?>       
+                                    <div class="col-sm-4">
+                                        <div class="product-image-wrapper">
+                                            <div class="single-products">
+                                                <div class="productinfo text-center">
+                                                    <img src="../images/sanpham/<?php echo $value['anh_chinh'] ?>" alt="" />
+                                                    <h2><?php echo $value['gia'] ?></h2>
+                                                    <p><?php echo $value['tensanpham'] ?></p>
+                                                    <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i> thêm vào giỏ hàng</a>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <?php } ?>    
+                                </div>
+                                <div class="item">
+                                <?php foreach ($sp_suit_kids as $key => $value) { ?>       
+                                    <div class="col-sm-4">
+                                        <div class="product-image-wrapper">
+                                            <div class="single-products">
+                                                <div class="productinfo text-center">
+                                                    <img src="../images/sanpham/<?php echo $value['anh_chinh'] ?>" alt="" />
+                                                    <h2><?php echo $value['gia'] ?></h2>
+                                                    <p><?php echo $value['tensanpham'] ?></p>
+                                                    <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i> thêm vào giỏ hàng</a>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <?php } ?>    
+                                </div>
+                               
                             </div>
                             <a class="left recommended-item-control" href="#recommended-item-carousel" data-slide="prev">
                                 <i class="fa fa-angle-left"></i>
@@ -729,7 +771,7 @@
         </div>
 
     </footer><!--/Footer-->
-	
+
     <script src="../js/jquery.scrollUp.min.js"></script>
     <script src="../js/jquery.prettyPhoto.js"></script>
     <script src="../js/jquery.js"></script>

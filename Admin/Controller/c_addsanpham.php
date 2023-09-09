@@ -8,7 +8,7 @@ if(isset($_SESSION['ss_admin'])){
             $tensanpham = $_POST['tensanpham'];
             $tonkho = $_POST['tonkho'];
             $gia = $_POST['gia'];
-            $date_oder = date("y/m/d");
+            $date_oder = date("d/m/y");
             $xuatxu = $_POST['xuatxu'];
             $uploadedFile_main = $_FILES['img_main'];
             $imglink = $db->uploadfile($uploadedFile_main);

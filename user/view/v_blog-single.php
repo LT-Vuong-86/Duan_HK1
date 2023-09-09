@@ -369,11 +369,11 @@
                             <div class="col-sm-8">
                                 <div class="text-area">
                                     <div class="blank-arrow">
-                                        <label>Tên của bạn </label>
+                                        <label>Nội dung đánh giá</label>
                                     </div>
                                     <span>*</span>
                                     <textarea name="message" rows="11"></textarea>
-                                    <a class="btn btn-primary" href="">Đăng bình luận</a>
+                                    <a class="btn btn-primary" href="">Đăng đánh giá</a>
                                 </div>
                             </div>
                         </div>

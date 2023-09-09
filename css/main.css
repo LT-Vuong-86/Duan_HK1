@@ -326,20 +326,7 @@ ul.sub-menu {
   padding-left: 5px; 
 }
 
-@-webkit-keyframes fadeInUp {
-  0% {
-    opacity: 0;
-    -webkit-transform: translateY(20px);
-    transform: translateY(20px);
-  }
 
-  100% {
-    opacity: 1;
-    -webkit-transform: translateY(0);
-    transform: translateY(0);
-  }
-}
-  
 /*************************
 *******Footer CSS******
 **************************/
@@ -1571,7 +1558,19 @@ margin-left: 10%;
   margin-bottom: 10px;
   margin-left: 20px;
 }
-
+#star_product{
+  display: flex;
+}
+#star_product li{
+  font-size: 25px;
+  cursor: pointer;
+  margin-left: 20px;
+  background-color: #ddd;
+  padding: 5px 10px 5px 10px;
+}
+ul#star_product input[type="radio"]:checked + label li{
+  background-color: #ffb20b;
+}
 
 .shop-details-tab {
   border: 1px solid #F7F7F0;
@@ -1639,7 +1638,7 @@ margin-left: 10%;
 }
 
 #reviews textarea {
-  background: #F0F0E9;
+  background: #ffffff;
   border: medium none;
   color: #A6A6A1;
   height: 195px;

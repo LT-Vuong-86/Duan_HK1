@@ -1,5 +1,5 @@
 <?php
-    
+   $index = 0;
 	$sanpham = $db->get('sanpham', array());
 	$sp_shirt_girl =$db->get('sanpham',array('id_danhmuc'=>1));
     $sp_trousers_girl =$db->get('sanpham',array('id_danhmuc'=>2));

@@ -37,7 +37,7 @@ if(isset($_SESSION['ss_user'])){
             if(!$loi){
                 $db->insert('khachhang',array(                    
                     'username'=>$full_name,
-                    'sdt'=>$sdt,
+                    'sdt'=>$sdt.','.$khachhang[0]['sdt'],
                     'diachi'=>$diachi ,
                     'email'=>$email                  
                 ));    
