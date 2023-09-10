@@ -10,34 +10,6 @@
     <link href="../css/font-awesome.min.css" rel="stylesheet">
 	<link href="../css/main.css" rel="stylesheet">
 	<link href="../css/responsive.css" rel="stylesheet">
-    <style>
-        .all_submit_form{
-            margin-left: -25px;
-        }
-
-        .body_acount_right{
-            background-color: rgb(255, 255, 255);
-            max-height: 400px;
-            overflow: scroll;
-            border-left: 15px solid whitesmoke;
-            border-top: 15px solid whitesmoke;
-            border-radius: 25px;
-            border-right: 15px solid whitesmoke;
-            border-bottom: 15px solid whitesmoke;
-        }
-
-        .body_acount_right form li {
-            margin-top: 20px;
-            width: 200px;
-        }
-
-        input[type='number']::-webkit-inner-spin-button,
-        input[type='number']::-webkit-outer-spin-button {
-                                -webkit-appearance: none;
-                                margin: 0;
-        }
-  
-    </style>
 </head><!--/head-->
 
 <body>
@@ -152,7 +124,7 @@
                         <tr class="item_table">
                             <td><img src="<?php echo $value['anh_chinh']?>" alt=""></td>
                             <td class="col-xs-4 col-md-3">
-                                <li></li>
+        
                             </td>
                             <td class="col-xs-2 col-md-2">34/23/2105</td>
                             <td class="col-xs-2 col-md-2">đang giao</td>
@@ -165,11 +137,11 @@
                     <h3>sản phẩm đâ mua</h3>
                     <table class="col-xs-12 col-md-12">
                         <tr >
-                            <th>ảnh</th>
-                            <th>sản phẩm</th>
-                            <th>ngày</th>
-                            <th>giá</th>
-                            <th>hoạt động</th>
+                            <th>Ảnh</th>
+                            <th>Sản phẩm</th>
+                            <th>Ngày mua</th>
+                            <th>Giá</th>
+                            <th>Hoạt động</th>
                             
                             
                         </tr>

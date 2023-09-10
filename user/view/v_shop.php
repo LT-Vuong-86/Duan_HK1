@@ -32,8 +32,8 @@
         .product-image-wrapper:hover{
             box-shadow: 0 0 10px;
         }
-        .watch{
-            border: none;
+        .product-image-wrapper .single-products a button.watch{
+            border: none; 
             border-radius: 18px;
             background: orange;
         }
@@ -217,7 +217,7 @@
                         <?php
                             $i = 0;
                             foreach ($sanpham as $key => $value) {
-                                if(++$i == 10) break;
+                                if(++$i == 13) break;
                             ?>
                                 <div class="col-sm-4"> 
                                     <div class="product-image-wrapper">

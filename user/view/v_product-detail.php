@@ -291,23 +291,23 @@
                                      
                                        <label>
                                         <input type="radio" name="size_name" value="s" >
-                                        <span class="text-uppercase">s</span>
+                                        <span class="text-uppercase">S</span>
                                     </label> 
                                     <label>
                                         <input type="radio" name="size_name" value="m" >
-                                        <span class="text-uppercase">m</span>
+                                        <span class="text-uppercase">M</span>
                                     </label>
                                     <label>
                                         <input type="radio" name="size_name" value="l" >
-                                        <span class="text-uppercase">l</span>
+                                        <span class="text-uppercase">L</span>
                                     </label>
                                      <label>
                                         <input type="radio" name="size_name" value="xl">
-                                        <span class="text-uppercase">xl</span>
+                                        <span class="text-uppercase">XL</span>
                                     </label>
                                   <label>
                                         <input type="radio" name="size_name" value="xxl">
-                                        <span class="text-uppercase slash">xxl</span>
+                                        <span class="text-uppercase slash">XXL</span>
                                     </label>
                                        <!-- <li><input type="submit"  name="size_name" value="S" ><?php echo '<br>sl:'.$size[0]['s']  ?></li> 
                                          <li><input type="submit"  name="size_name" value="M" ><?php echo '<br>sl:'.$size[0]['m']  ?></li> 

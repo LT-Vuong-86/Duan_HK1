@@ -14,7 +14,7 @@
 	<link href="../css/main.css" rel="stylesheet">
 	<link href="../css/responsive.css" rel="stylesheet">
     <style>
-        button {
+        button.noselect{
             width: 78px;
             height: 36.5px;
             cursor: pointer;
@@ -29,18 +29,18 @@
             justify-content: space-between;
         }
 
-        button, button span {
+        button, button span{
             transition: 0.02s;
         }
 
-        button .text {
+        button.noselect span.text {
             padding-left: 5px;
             transform: translateX(10px);
             color: white;
             font-weight: bold;
         }
 
-        button .icon {
+        button.noselect span.icon {
             visibility: hidden;
             position: absolute;
             transform: translateX(20px);
@@ -51,7 +51,7 @@
             justify-content: center;
         }
 
-        button svg {
+        button.noselect span.icon svg {
             width: 15px;
             fill: #eee;
         }

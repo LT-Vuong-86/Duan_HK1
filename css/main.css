@@ -1241,6 +1241,7 @@ margin: 20px 20px 20px 20px;
 }
 .body_acount_right form li{
   margin-top: 20px;
+  width: 200px;
 }
 .body_acount_right li input{
   background-color: white;
@@ -2783,4 +2784,13 @@ section #form {
   color: #FE980F;
 }
 
+.all_submit_form{
+  margin-left: -25px;
+}
+
+input[type='number']::-webkit-inner-spin-button,
+input[type='number']::-webkit-outer-spin-button {
+                      -webkit-appearance: none;
+                      margin: 0;
+}
 

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-       <title>Thêm nhân viên</title></title>
+       <title>Admin | Thêm nhân viên</title></title>
     <style>
        
         *{

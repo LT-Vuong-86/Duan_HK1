@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Thêm nhân viên</title></title>
+    <title>Admin | Thêm sản phẩm</title></title>
     <style>
         
         *{
@@ -188,15 +188,6 @@
                 <p class="text-danger"><?php echo $loi['id_dm']?></p> 
             <?php }?>
         </div>
-        <h5>Tên sản phẩm</h5>
-        <div id="tensanpham" class="form-control row mx-1">
-            <input name="tensanpham" type="tensanpham" placeholder="Tên sản phẩm" 
-            value="<?php echo (isset($tensanpham))?$tensanpham:'' ?>" >
-            <?php if(isset($loi['tensanpham'])){?>
-                <p class="text-danger"><?php echo $loi['tensanpham']?></p> 
-            <?php }?>
-        </div>
-       
         <h5>Ảnh chính sản phẩm</h5>
         <div id="anh" class="form-control row mx-1">
        
@@ -207,6 +198,17 @@
                 <p class="text-danger"><?php echo $loi['anh']?></p> 
             <?php }?>
         </div>
+        
+        <h5>Tên sản phẩm</h5>
+        <div id="tensanpham" class="form-control row mx-1">
+            <input name="tensanpham" type="tensanpham" placeholder="Tên sản phẩm" 
+            value="<?php echo (isset($tensanpham))?$tensanpham:'' ?>" >
+            <?php if(isset($loi['tensanpham'])){?>
+                <p class="text-danger"><?php echo $loi['tensanpham']?></p> 
+            <?php }?>
+        </div>
+       
+        
       
         <!-- <h5>Ảnh phụ sản phẩm</h5>
         <div id="anh" class="form-control row mx-1">                                        
@@ -221,17 +223,8 @@
         <input min="1" max="6" name="slmasp"  type="number" id="loaisp" name="numProducts" placeholder="Nhập số loại sản phẩm"
         onchange=" showInputs(this.value)">                                       
         </div>
-       <div id="loaisp_size" class="form-control"></div>
-        <h5>Số lượng tồn kho</h5>
-        <div id="tonkho" class="form-control row mx-1">
+        <div id="loaisp_size" class="form-control"></div>
         
-            <input name="tonkho" type="text" placeholder="Số lượng tồn kho" 
-            value="<?php echo (isset($tonkho))?$tonkho:'' ?>" >
-            <?php if(isset($loi['tonkho'])){?>
-                <p class="text-danger"><?php echo $loi['tonkho']?></p> 
-            <?php }?>
-        </div>
-       
         <h5>Giá </h5>
         <div id="gia" class="form-control row mx-1">
            
