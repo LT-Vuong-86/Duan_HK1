@@ -255,7 +255,8 @@
 					    <tr>
                             <th class="msp" >Mã sản phẩm</th>
 					      <th scope="col">Ảnh</th>
-					      <th scope="col">Tên sản phẩm</th>
+					      <th scope="col">Tên loại sản phẩm</th>
+                          <th scope="col">size</th>
                           <th>Ngày đặt</th>
                           <th scope="col">Đơn giá</th>    
 					      <th scope="col">Ghi chú</th>
@@ -272,7 +273,8 @@
 					   	?>
                         <td><?php echo $value['id_sanpham'] ?></td>
 					      <th scope="row"><img height="100" width="100"  src="../images/sanpham/<?php echo $sanpham[0]['anh_chinh']?>" > </th>
-					      <td><?php echo $sanpham[0]['tensanpham'] ?></td>
+					      <td><?php echo $value['loai_sp'] ?></td>
+                          <td><?php echo $value['size'] ?></td>
 					      <td><?php echo $value['ngaydat'] ?></td>
 					      <td><?php echo number_format($sanpham[0]['gia']) ?>đ</td>
 					      <td style="max-width:300px"><?php echo $value['ghichu'] ?></td>	      

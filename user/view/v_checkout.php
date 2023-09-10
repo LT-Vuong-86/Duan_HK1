@@ -40,7 +40,7 @@
         <!--/header-middle-->
     </header>
     <!--/header-->
-
+    <form action="" method="post"> 
     <section id="cart_items">
         <div class="container">
             <div class="breadcrumbs">
@@ -55,20 +55,38 @@
                 <div class="col-sm-3">
                         <div class="shopper-info">
                             <p>Thông tin người mua hàng</p>
-                            <form>
-                                <input type="text" name="full_name" value="<?php echo $khachhang[0]['full_name']?>">
-                                <input type="number" name="sdt" value="<?php echo $khachhang[0]['sdt']?>">
-                            </form>
+                            
+                                <input placeholder="Tên khách hàng" type="text" required name="full_name" value="<?php if (isset( $khachhang)) {
+                                    echo $khachhang[0]['full_name'];
+                                } ?>">
+                                <p>
+                                <?php if (isset( $loi['full_name'])) {
+                                    echo  $loi['full_name'];
+                                } ?></p>
+                                <input type="tel" pattern="[0-9]{10}" title="Hãy nhập lại." required placeholder="Số điện thoại" name="sdt" value="<?php if (isset( $khachhang)) { echo $khachhang[0]['sdt'];}?>">
+                                <p><?php if (isset( $loi['sdt'])) {
+                                    echo  $loi['sdt'];
+                                } ?></p>
                         </div>
                     </div>
 
                     <div class="col-sm-3">
                         <div class="shopper-info">
                             <p>Địa chỉ người mua</p>
-                            <form>
-                                <input type="email" value="<?php echo $khachhang[0]['email']?>">
-                                <input name="diachi" rows="3" value="<?php echo $khachhang[0]['diachi']?>">
-                            </form>
+                            
+                               <input required name="diachi" rows="3" placeholder="Địa chỉ nhận hàng" value="<?php if (isset( $khachhang)) { echo $khachhang[0]['diachi'];}?>">
+                                <p><?php if (isset( $loi['diachi'])) {
+                                    echo  $loi['diachi'];
+                                } ?></p>
+                                <input type="text" placeholder="email" name="email" value="<?php if (isset( $khachhang)) { echo $khachhang[0]['email'];}?>">
+                             
+                        </div>
+                    </div>
+                    <div class="col-sm-3">
+                        <div class="shopper-info">
+                            <p>Ghi chú đơn hàng</p>
+                            <textarea name="ghichu" id="ghichu"  placeholder="Ghi chú đơn hàng"  cols="30" rows="3"></textarea>
+                            
                         </div>
                     </div>
                 </div>
@@ -83,6 +101,8 @@
                             <td class="image">Ảnh</td>
                             <td class="description">Tên sản phẩm</td>
                             <td class="quantity">Số lượng</td>
+                            <td>loại</td>
+                            <td>size</td>
                             <td class="price">Giá</td>
                             <td class="total">Tổng</td>
                         </tr>
@@ -99,10 +119,10 @@
                                     $tongtien = $tongtiensp;
                         ?>
                         <tr class="text-center">
-                            <td class="cart_product">
-                                <img style="width:100px" src="<?php echo $value['anh_chinh']?>" alt="">
+                            <td class="">
+                                <img style="width:100px" src="../images/sanpham/<?php echo $value['anh_chinh']?>" alt="">
                             </td>
-                            <td class="cart_description">
+                            <td class="">
                                 <h4><?php echo $value['tensanpham']?></h4>
                             </td>
 
@@ -111,18 +131,52 @@
                                     <p><?php echo $value['sl']?></p>
                                 </div>
                             </td>
+                            <td><div><p><?php echo $value['loai_sp']?></p></div></td>
+                            <td><div><p><?php echo $value['size_name']?></p></div></td>
 
                             <td class="cart_price">
                                 <p><?php echo number_format($value['gia'])?>đ</p>                                
                             </td>
                             
                             <td class="cart_total">
-                                <p class="cart_total_price"><?php echo number_format($value['sl']*$value['gia'])?>đ</p>
+                                <p class="cart_total_price"><?php echo number_format($value['tong'])?>đ</p>
                             </td>
 
                             
                         </tr>
-                        <?php }}?>
+                        <?php } } else{ if(isset($giohang)){ 
+                            foreach ($giohang as $key => $value) {
+                               
+                                $donhang=$db->get('sanpham',array('id_sanpham'=>$value['id_sanpham']));
+                                $tongtiensp+=$value['soluong']*$donhang[0]['gia'];
+                                ?>
+                                 <tr class="text-center">
+                            <td class="">
+                                <img style="width:100px" src="../images/sanpham/<?php echo $donhang[0]['anh_chinh']?>" alt="">
+                            </td>
+                            <td class="">
+                                <h4><?php echo $donhang[0]['tensanpham']?></h4>
+                            </td>
+
+                            <td class="cart_quantity">
+                                <div class="cart_quantity_button">
+                                    <p><?php echo $value['soluong']?></p>
+                                </div>
+                            </td>
+                            <td><div><p><?php echo $value['loai_sp']?></p></div></td>
+                            <td><div><p><?php echo $value['size']?></p></div></td>
+
+                            <td class="cart_price">
+                                <p><?php echo number_format($donhang[0]['gia'])?>đ</p>                                
+                            </td>
+                            
+                            <td class="cart_total">
+                                <p class="cart_total_price"><?php echo number_format($value['tong'])?>đ</p>
+                            </td>
+
+                            
+                        </tr>
+                          <?php } } } ?>
                     </tbody>
 
                     <tr>
@@ -133,7 +187,7 @@
                                     <td>Tổng số lượng</td>
                                     <td><?php echo $tongsl?></td>
                                     <td>Tổng tiền</td>
-                                    <td><span><?php echo number_format($tongtien)?></span>đ</td>
+                                    <td><span><?php echo number_format($tongtiensp)?></span>đ</td>
                                     <td class="cart_delete">
                                         <a class="cart_quantity_delete" style="color: black;" href="?controller=cart">Sửa</a>
                                     </td>
@@ -141,7 +195,7 @@
 
                                 
                             </table>
-                            <a class="btn btn-default check_out" name="btn_thanhtoan" href="#">Đồng ý với các quyết định trên</a><br>
+                           <input type="submit"  class="btn btn-default check_out" name="btn_thanhtoan" value="Đồng ý với các quyết định trên:mua ngay"><br>
                         </td>
                     </tr>
                 </table>
@@ -149,7 +203,7 @@
         </div>
     </section>
     <!--/#cart_items-->
-
+    </form>
 
 
     <footer id="footer">

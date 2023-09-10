@@ -8,8 +8,44 @@
     <title>Home | E-Shopper</title>
     <link href="../css/bootstrap.min.css" rel="stylesheet">
     <link href="../css/font-awesome.min.css" rel="stylesheet">
-	<link href="../css/main.css" rel="stylesheet">
-	<link href="../css/responsive.css" rel="stylesheet">
+    <link href="../css/prettyPhoto.css" rel="stylesheet">
+    <link href="../css/price-range.css" rel="stylesheet">
+    <link href="../css/animate.css" rel="stylesheet">
+    <link href="../css/main.css" rel="stylesheet">
+    <link href="../css/responsive.css" rel="stylesheet">
+    <style>
+        .all_submit_form{
+            margin-left: -25px;
+        }
+
+        .body_acount_right{
+            background-color: rgb(255, 255, 255);
+            max-height: 400px;
+            overflow: scroll;
+            border-left: 15px solid whitesmoke;
+            border-top: 15px solid whitesmoke;
+            border-radius: 25px;
+            border-right: 15px solid whitesmoke;
+            border-bottom: 15px solid whitesmoke;
+        }
+
+        .body_acount_right form li {
+            margin-top: 20px;
+            width: 200px;
+        }
+
+        input[type='number']::-webkit-inner-spin-button,
+        input[type='number']::-webkit-outer-spin-button {
+                                -webkit-appearance: none;
+                                margin: 0;
+        }
+        input[type="radio"] {
+  display: none;
+}
+
+
+
+    </style>
 </head><!--/head-->
 
 <body>
@@ -113,138 +149,79 @@
 
                 <div id="quanlidonhang" class="tabcontent body_acount_right col-xs-12 col-md-12 col-md-12 " >
                     <h3>Quản lý đơn hàng</h3>
+                    
                     <table class="col-xs-12 col-md-12">
                         <tr>
                             <th>Ảnh</th>
                             <th>Sản phẩm</th>
+                            <th>loại sp</th>
                             <th>Ngày mua</th>
                             <th>Trạng thái đơn hàng</th>
                             <th>Tổng tiền</th>
                         </tr>
+                        <?php if (isset($donhang)) {
+                       foreach ($donhang as $key => $value) {
+                        $ctdonhang=$db->get('ctdonhang',array('id_donhang'=>$value['id_donhang']));
+                        $sanpham=$db->get('sanpham',array('id_sanpham'=>$ctdonhang[0]['id_sanpham']));
+                        $tinhtrang=$db->get('tinhtrang_dh',array('id_tinhtrang'=>$value['id_tinhtrang']));
+                        ?>
                         <tr class="item_table">
-                            <td><img src="<?php echo $value['anh_chinh']?>" alt=""></td>
+                            <td><img src="../images/sanpham/<?php echo $sanpham[0]['anh_chinh']?>" alt=""></td>
                             <td class="col-xs-4 col-md-3">
-        
+                                <li><?php echo $sanpham[0]['tensanpham']?></li>
                             </td>
-                            <td class="col-xs-2 col-md-2">34/23/2105</td>
-                            <td class="col-xs-2 col-md-2">đang giao</td>
-                            <td class="col-xs-2 col-md-2">4344k</td>
+                            <td><?php echo $ctdonhang[0]['loai_sp'] ?></td>
+                            <td class="col-xs-2 col-md-2"><?php echo $ctdonhang[0]['ngaydat'] ?></td>
+                            <td class="col-xs-2 col-md-2"><?php echo $tinhtrang[0]['tinhtrang'] ?></td>
+                            <td class="col-xs-2 col-md-2"><?php echo $value['tong'] ?></td>
                         </tr>
+                        <?php  }
+                    } ?>
                     </table>
+                   
                 </div>
 
-                <div id="sanphamdamua" class="tabcontent body_acount_right col-xs-12 col-md-12 col-md-8 " >
-                    <h3>sản phẩm đâ mua</h3>
+                <div id="sanphamdamua" class="tabcontent body_acount_right col-xs-12 col-md-12 col-md-12 " >
+                    <h3>sản phẩm đã mua</h3>
                     <table class="col-xs-12 col-md-12">
                         <tr >
-                            <th>Ảnh</th>
-                            <th>Sản phẩm</th>
-                            <th>Ngày mua</th>
-                            <th>Giá</th>
-                            <th>Hoạt động</th>
+
+                            <th>ảnh</th>
+                            <th>sản phẩm</th>
+                            <th>loại sp</th>
+                            <th>giá</th>
+                            <th>hoạt động</th>
                             
                             
                         </tr>
+                        <?php 
+                         if (isset($donhang)) {
+                            foreach ($donhang as $key => $value) {   
+                        if ($value['id_tinhtrang']==3) {
+                       foreach ($donhang as $key => $value) {
+                        $ctdonhang=$db->get('ctdonhang',array('id_donhang'=>$value['id_donhang']));
+                        $sanpham=$db->get('sanpham',array('id_sanpham'=>$ctdonhang[0]['id_sanpham']));
+                        $tinhtrang=$db->get('tinhtrang_dh',array('id_tinhtrang'=>$value['id_tinhtrang']));
+                        ?>
                         <tr class="item_table">
-                            
-                            <td > <img src="../images/cart/three.png" alt=""></td>
-                            <td class="col-xs-4 col-md-4">
-                                <li>1:aghfedwqqefdfbgn</li>
-                                <li>2:bfghfmngdff</li>
-                                <li>1:cqrhreewrDFLQgkhôi sểuN4grDFLQgfPfCn5Kxg</li>
-                                <li>1:dưeqfwrgtehr</li>
+                            <td><img src="../images/sanpham/<?php echo $sanpham[0]['anh_chinh']?>" alt=""></td>
+                            <td class="col-xs-4 col-md-3">
+                                <li><?php echo $sanpham[0]['tensanpham']?></li>
                             </td>
-                            <td class="col-xs-2 col-md-2">34/23/2105</td>
-                            <td class="col-xs-2 col-md-2"> 999k</td>
-                            <td class="col-xs-4 col-md-4">
-                                <a href=""><input type="submit" value="mua lại"></a>
-                                <a href=""><input type="submit" value="đánh giá"></a>
+                            <td><?php echo $ctdonhang[0]['loai_sp'] ?></td>
+                           
+                            <td class="col-xs-2 col-md-2"><?php echo $value['tong'] ?></td>
+                            <td id="danhgia">
+                               <a href="?controller=rate&id=<?php echo $ctdonhang[0]['id_sanpham'] ?>"><input type="button" value="đánh giá"></a>
                             </td>
                         </tr>
+                        <?php  } }
+                    } } ?>
                     </table>
                 </div>
             </div>
-
-            <div id="quanlidonhang" class="tabcontent body_acount_right col-xs-12 col-md-8 ">
-                <h3>quản lý đơn hàng</h3>
-                <table class="col-xs-12 col-md-12">
-                    <tr>
-                        <th>ảnh</th>
-                        <th>sản phẩm</th>
-                        <th>ngày</th>
-                        <th> trạng thái</th>
-                        <th>tổng tiền</th>
-
-
-                    </tr>
-                    <tr class="item_table">
-
-                        <td> <img src="../images/cart/three.png" alt=""></td>
-                        <td class="col-xs-4 col-md-4">
-                            <li>1:aghfedwqqefdfbgn</li>
-                            <li>2:bfghfmngdff</li>
-                            <li>1:cqrhreewrDFLQgkhôi sểuN4grDFLQgfPfCn5Kxg</li>
-                            <li>1:dưeqfwrgtehr</li>
-                        </td>
-                        <td class="col-xs-2 col-md-2">34/23/2105</td>
-                        <td class="col-xs-2 col-md-2">đang giao</td>
-                        <td class="col-xs-2 col-md-2">4344k</td>
-                    </tr>
-                    <tr class="item_table">
-
-                        <td> <img src="../images/cart/three.png" alt=""></td>
-                        <td class="col-xs-4 col-md-4">
-                            <li>1:aghfedwqqefdfbgn</li>
-                            <li>2:bfghfmngdff</li>
-                            <li>1:cqrhreewrDFLQgkhôi sểuN4grDFLQgfPfCn5Kxg</li>
-                            <li>1:dưeqfwrgtehr</li>
-                        </td>
-                        <td class="col-xs-2 col-md-2">34/23/2105</td>
-                        <td class="col-xs-2 col-md-2">đang giao</td>
-                        <td class="col-xs-2 col-md-2">4344k</td>
-                    </tr>
-                    <tr class="item_table">
-
-                        <td> <img src="../images/cart/three.png" alt=""></td>
-                        <td class="col-xs-4 col-md-4">
-                            <li>1:aghfedwqqefdfbgn</li>
-                            <li>2:bfghfmngdff</li>
-                            <li>1:cqrhreewrDFLQgkhôi sểuN4grDFLQgfPfCn5Kxg</li>
-                            <li>1:dưeqfwrgtehr</li>
-                        </td>
-                        <td class="col-xs-2 col-md-2">34/23/2105</td>
-                        <td class="col-xs-2 col-md-2">đang giao</td>
-                        <td class="col-xs-2 col-md-2">4344k</td>
-                    </tr>
-
-                    <tr class="item_table">
-
-                        <td> <img src="../images/cart/three.png" alt=""></td>
-                        <td class="col-xs-4 col-md-4">
-                            <li>1:aghfedwqqefdfbgn</li>
-                            <li>2:bfghfmngdff</li>
-                            <li>1:cqrhreewrDFLQgkhôi sểuN4grDFLQgfPfCn5Kxg</li>
-                            <li>1:dưeqfwrgtehr</li>
-                        </td>
-                        <td class="col-xs-2 col-md-2">34/23/2105</td>
-                        <td class="col-xs-2 col-md-2">đang giao</td>
-                        <td class="col-xs-2 col-md-2">4344k</td>
-                    </tr>
-                    <tr class="item_table">
-
-                        <td> <img src="../images/cart/three.png" alt=""></td>
-                        <td class="col-xs-4 col-md-4">
-                            <li>1:aghfedwqqefdfbgn</li>
-                            <li>2:bfghfmngdff</li>
-                            <li>1:cqrhreewrDFLQgkhôi sểuN4grDFLQgfPfCn5Kxg</li>
-                            <li>1:dưeqfwrgtehr</li>
-                        </td>
-                        <td class="col-xs-2 col-md-2">34/23/2105</td>
-                        <td class="col-xs-2 col-md-2">đang giao</td>
-                        <td class="col-xs-2 col-md-2">4344k</td>
-                    </tr>
-                </table>
-            </div>
+       
+          
         </div>
     </section>
 
@@ -410,11 +387,7 @@
 <script src="../js/account.js"></script>
 <script src="../js/jquery.js"></script>
    <script>
-// $(document).ready(function(){
-//   $(".tablinks").click(function(){
-//     $("#click_none_menu").fadeToggle();
-   
-//   });});
+
 $(document).ready(function(){
   $("#click_menu").click(function(){
     $("#click_none_menu").fadeToggle();
