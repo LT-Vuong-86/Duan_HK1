@@ -125,6 +125,20 @@
             $query = mysqli_query($this->conn, $sql);
             return $query;
         }
+        public function limit($table, $condition){
+            $sql ="SELECT * FROM $table limit  $condition ";
+            
+           
+            // $sql = substr($sql, 0,-3);
+            // print_r($sql);
+            // die;
+            //Thực thi câu lệnh
+            // var_dump($sql);
+            // die;
+            $query = mysqli_query($this->conn, $sql);
+            return $query;
+        }
+        
         public function update($table, $data=array(), $condition=array()){
             $value_str = '';
             foreach ($data as $key => $value){

@@ -124,9 +124,13 @@
                         </div>
                     </div>
                     <div class="col-sm-3">
+                        <form action="" method="get">
                         <div class="search_box pull-right">
-                            <input type="text" placeholder="Search..."/>
+                            <input type="hidden" name="controller" value="shop">
+                            <input type="text"  name="keywork" value="<?php  isset($_GET['keywork']) ? $_GET['keywork'] : '' ?>"  placeholder="Search..."/>
+                            <button><span> &#8689;</span></button>
                         </div>
+                        </form>
                     </div>
                 </div>
             </div>
@@ -206,7 +210,74 @@
         <div class="container">
             <div class="row">
                 <div class="col-sm-3">
+                    
                     <div class="left-sidebar">
+                        <h2>Loại</h2>
+                    <div class="panel-group category-products" id="accordian">
+                            <!--category-productsr-->
+                            <div class="panel-group category-products" id="accordian">
+                                <!--category-productsr-->
+                            
+                                <div class="panel panel-default">
+                                    <div class="panel-heading">
+                                        <h4 class="panel-title">
+                                            <a data-toggle="collapse" data-parent="#accordian" href="#mens">
+                                                <span class="badge pull-right"><i class="fa fa-plus"></i></span> Nam
+                                            </a>
+                                        </h4>
+                                    </div>
+                                    <div id="mens" class="panel-collapse collapse">
+                                        <div class="panel-body">
+                                            <ul>
+                                                <li><a href="?controller=shop&id_dm=6">Áo Vest</a></li>
+                                                <li><a href="?controller=shop&id_dm=5">Quần</a></li>
+                                                <li><a href="?controller=shop&id_dm=4">Áo Polo</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+    
+                                <div class="panel panel-default">
+                                    <div class="panel-heading">
+                                        <h4 class="panel-title">
+                                            <a data-toggle="collapse" data-parent="#accordian" href="#womens">
+                                                <span class="badge pull-right"><i class="fa fa-plus"></i></span> Nữ
+                                            </a>
+                                        </h4>
+                                    </div>
+                                    <div id="womens" class="panel-collapse collapse">
+                                        <div class="panel-body">
+                                            <ul>
+                                                <li><a href="?controller=shop&id_dm=3">Đầm</a></li>
+                                                <li><a href="?controller=shop&id_dm=2">Quần</a></li>
+                                                <li><a href="?controller=shop&id_dm=1">Áo nữ</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="panel panel-default">
+                                    <div class="panel-heading">
+                                        <h4 class="panel-title">
+                                            <a data-toggle="collapse" data-parent="#accordian" href="#kid">
+                                                <span class="badge pull-right"><i class="fa fa-plus"></i></span> trẻ em
+                                            </a>
+                                        </h4>
+                                    </div>
+                                    <div id="kid" class="panel-collapse collapse">
+                                        <div class="panel-body">
+                                            <ul>
+                                                <li><a href="?controller=shop&id_dm=7">Áo</a></li>
+                                                <li><a href="?controller=shop&id_dm=8">Quần</a></li>
+                                                <li><a href="?controller=shop&id_dm=9">Cả bộ</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+    
+                            </div>
+
+                        </div>
                         <div class="shipping text-center">
                             <!--shipping-->
                             <img src="../images/home/shipping.jpg" alt="" />

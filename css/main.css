@@ -262,9 +262,16 @@ a#scrollUp i{
   outline: medium none;
   padding-left: 10px;
   width: 155px;
-  background-image: url(../images/home/searchicon.png);
   background-repeat: no-repeat;
   background-position: 130px;
+}
+.search_box button {
+  font-size: 12px;
+  font-weight: 300;
+  height: 35px;
+   padding: 10px 10px 10px 10px; 
+  cursor: pointer;
+  background-color: #ee794a;
 }
 
 

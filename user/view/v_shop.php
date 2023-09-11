@@ -103,9 +103,13 @@
                         </div>
                     </div>
                     <div class="col-sm-3">
+                    <form action="" method="get">
                         <div class="search_box pull-right">
-                            <input type="text" placeholder="Search" />
+                            <input type="hidden" name="controller" value="shop">
+                            <input type="text"  name="keywork" value="<?php  isset($_GET['keywork']) ? $_GET['keywork'] : '' ?>"  placeholder="Search..."/>
+                            <button><span> &#8689;</span></button>
                         </div>
+                        </form>
                     </div>
                 </div>
             </div>
@@ -140,9 +144,9 @@
                                     <div id="mens" class="panel-collapse collapse">
                                         <div class="panel-body">
                                             <ul>
-                                                <li><a href="">Áo Vest</a></li>
-                                                <li><a href="">Quần</a></li>
-                                                <li><a href="">Áo Polo</a></li>
+                                                <li><a href="?controller=shop&id_dm=6">Áo Vest</a></li>
+                                                <li><a href="?controller=shop&id_dm=5">Quần</a></li>
+                                                <li><a href="?controller=shop&id_dm=4">Áo Polo</a></li>
                                             </ul>
                                         </div>
                                     </div>
@@ -159,9 +163,9 @@
                                     <div id="womens" class="panel-collapse collapse">
                                         <div class="panel-body">
                                             <ul>
-                                                <li><a href="?controller=dam">Đầm</a></li>
-                                                <li><a href="?controller=quannu">Quần</a></li>
-                                                <li><a href="?controller=aonu&id=<?php echo $aonu[0]['id_danhmuc']?>">Áo nữ</a></li>
+                                                <li><a href="?controller=shop&id_dm=3">Đầm</a></li>
+                                                <li><a href="?controller=shop&id_dm=2">Quần</a></li>
+                                                <li><a href="?controller=shop&id_dm=1">Áo nữ</a></li>
                                             </ul>
                                         </div>
                                     </div>
@@ -177,9 +181,9 @@
                                     <div id="kid" class="panel-collapse collapse">
                                         <div class="panel-body">
                                             <ul>
-                                                <li><a href="">Áo</a></li>
-                                                <li><a href="">Quần</a></li>
-                                                <li><a href="">Cả bộ</a></li>
+                                                <li><a href="?controller=shop&id_dm=7">Áo</a></li>
+                                                <li><a href="?controller=shop&id_dm=8">Quần</a></li>
+                                                <li><a href="?controller=shop&id_dm=9">Cả bộ</a></li>
                                             </ul>
                                         </div>
                                     </div>
@@ -239,11 +243,20 @@
                             <?php }?>
 
                         <ul class="pagination">
-                            <li class="active"><a href="?controller=shop">1</a></li>
-                            <li><a href="?controller=shop2">2</a></li>
-                            <li><a href="?controller=shop3">3</a></li>
-                            <li><a href="">&raquo;</a></li>
+                            
+                            <?php if (isset($total_pages)) {
+                            for ($i = 1; $i <= $total_pages; $i++) {
+                            if ($i == $current_page) {
+                                echo "<li class='active'><a href='?controller=shop&page=$i'>$i</a></li>";
+                            } else {
+                                echo "<li><a href='?controller=shop&page=$i'>$i</a></li>";
+                                 echo "<li><a href='?controller=shop&page=$i'>&raquo;</a></li>";
+                            }
+                            }  }
+                            ?>
+                            
                         </ul>
+                        
                     </div>
                     <!--features_items-->
                 </div>
