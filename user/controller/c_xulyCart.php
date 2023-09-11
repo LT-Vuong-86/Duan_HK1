@@ -9,9 +9,10 @@ if (isset($_SESSION['ss_user'])) {
     switch ($method) {
         case 'giam':                
             foreach ($giohang as $key => $value) {
-               
+               $sanpham=$db->get('sanpham',array('id_sanpham'=>$giohang[0]['id_sanpham']));
                 $db->update('giohang',array(
                 'soluong'=>$value['soluong']-1,
+                'tong'=>$giohang[0]['tong']-$sanpham[0]['gia']
                 ),array('size'=>$size,'id_sanpham'=>$id));};
                 if ($value['soluong']<2) {
                     $db->delete('giohang',array(
@@ -26,6 +27,7 @@ if (isset($_SESSION['ss_user'])) {
        foreach ($giohang as $key => $value) {
            $db->update('giohang',array(
             'soluong'=>$value['soluong']+1,
+            'tong'=>$giohang[0]['tong']+$sanpham[0]['gia']
         ),array('size'=>$size,'id_sanpham'=>$id));};
         header('location: ?controller=cart');
         break;

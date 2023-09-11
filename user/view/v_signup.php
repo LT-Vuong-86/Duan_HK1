@@ -128,17 +128,17 @@
                     <!--sign up form-->
                     <div class="col-sm-6 col-xs-12" >
                       <h5>Tên đăng nhập</h5>
-                      <input type="text" name="username" class="col-sm-12 col-xs-12" placeholder="Tên đăng nhập" />
+                      <input type="text" name="username"   required class="col-sm-12 col-xs-12" placeholder="Tên đăng nhập" />
                     </div>
 
                     <div class="col-sm-6 col-xs-12" >
                       <h5>Họ và tên</h5>
-                      <input type="text" name="full_name" class="col-sm-12 col-xs-12" placeholder="Tên đầy đủ" />
+                      <input type="text" name="full_name"  required class="col-sm-12 col-xs-12" placeholder="Tên đầy đủ" />
                     </div>
 
                     <div class="col-sm-6 col-xs-12">
                         <h5>Mật khẩu</h5>
-                        <input class="col-sm-12 col-xs-12" name="pass" type="password" placeholder="Mật khẩu" />
+                        <input class="col-sm-12 col-xs-12" name="pass"  required type="password" placeholder="Mật khẩu" />
                     </div>
 
                     <div class="col-sm-6 col-xs-12">
@@ -172,12 +172,12 @@
 
                     <div class="col-sm-6 col-xs-12">
                         <h5>Điện thoại</h5>
-                        <input class="col-sm-12 col-xs-12" name="sdt" type="number" placeholder="Điện thoại" />
+                        <input class="col-sm-12 col-xs-12" type="tel" pattern="[0-9]{10}" title="Hãy nhập lại." required name="sdt"  placeholder="Điện thoại" />
                     </div>
 
                     <div class="col-sm-12 col-xs-12">
                         <h5>Địa chỉ</h5>
-                        <input class="col-sm-12 col-xs-12" type="text" name="diachi" placeholder="Nơi ở hiện tại"></input>
+                        <input class="col-sm-12 col-xs-12" type="text"  required name="diachi" placeholder="Nơi ở hiện tại"></input>
                     </div>
                 
                     <div class="col-sm-12 col-xs-12">

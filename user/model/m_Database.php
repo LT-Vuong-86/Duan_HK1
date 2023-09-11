@@ -38,7 +38,9 @@
                 foreach ($condition as $key => $value){
                     $sql.= " $key = '$value' AND";
                 }
+             
                 $sql = trim($sql, "AND");
+              
             }
             //Thực thi câu lệnh
             $query = mysqli_query($this->conn, $sql);
@@ -135,6 +137,7 @@
                 $sql.=" $key = '$value ' AND";
             }
             $sql = trim($sql, 'AND');
+          
             $query = mysqli_query($this->conn, $sql);
             return $query;
         }

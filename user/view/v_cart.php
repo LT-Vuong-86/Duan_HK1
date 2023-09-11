@@ -186,7 +186,7 @@
                         </tr>
                         <?php   } ?> <tr>
                             <td><a name="btn_xoatoanbo" href="?controller=xulyCart&method=xoatoanbo&id=<?php echo $value['id_sanpham']?>">Xóa toàn bộ</a></td>
-                        </tr> <?php }else{if (isset($giohang)) {
+                        </tr> <?php }else{if (!empty($giohang)) {
                             $tongtien=0;
                             foreach ($giohang as $key => $value){    
                                 $tongtien+=$value['tong'];

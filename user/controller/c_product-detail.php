@@ -2,8 +2,27 @@
     //Lấy id trên thanh url
     if (isset($_GET['id'])) {
     $id = $_GET['id'];
+  
+    
+    $rate_star=$db->get('rate_sp',array('id_sanpham'=>$id));
+    if ($rate_star) {    
+   $rate=[];
+   foreach ($rate_star as $value) {
+    $rate[]=$value['rate_rating'];
+   }
+   if ($rate != ""){
+    $count_rate=0;
+    $count_rate=count($rate);
+    $rating=ceil(array_sum($rate)/$count_rate) ;
+   }
+}
+
     //Lấy dữ liệu theo id tương ứng đã lấy được
     $product = $db->get('sanpham',array('id_sanpham'=>$id));
+    if ($product != "") {
+        $description = nl2br($product[0]["Nd_sp"]);
+    }
+     
     $anhphu1=$db->get('loai_sp', array('id_sanpham'=>$id));
     $size_name='';
     $loai_sp='';
@@ -30,6 +49,7 @@
    }
    if (!$loi) {
     if (isset($_SESSION['ss_user'])) {
+        unset($_SESSION['cart']);
         $giohang=$db->get('giohang',array('id_taikhoan'=>$_SESSION['ss_user'],'id_sanpham'=>$id,'size'=>$size_name));
          if (!empty($giohang)) {   
          foreach ($giohang as $key => $value) {
@@ -80,11 +100,11 @@
        if (!$loi) {
         
        
-       if (isset($_SESSION['ss_user'])) {    
-       $giohang=$db->get('giohang',array('id_taikhoan'=>$_SESSION['ss_user'],'id_sanpham'=>$id,'size'=>$size_name));
-       foreach ($giohang as $key => $value) {
-        if (isset($giohang)) {
-        foreach ($giohang as $key => $value) {
+       if (isset($_SESSION['ss_user'])) {   
+        unset($_SESSION['cart']);
+       $giohang1=$db->get('giohang',array('id_taikhoan'=>$_SESSION['ss_user'],'id_sanpham'=>$id,'size'=>$size_name));
+        if (!empty($giohang1)) { 
+        foreach ($giohang1 as $key => $value) {
             $db->update('giohang',array(
                 'soluong'=>$value['soluong']+$sl,
                 'tong'=>$value['tong']+$tong
@@ -99,10 +119,10 @@
                 'soluong'=>$sl,
                 'tong'=>$tong
             ));
-            header("location: ?controller=cart");
-           }
+           header("location: ?controller=checkout");
+         }
          
-       }
+       
        
       
     }else{

@@ -159,8 +159,14 @@
                             <th>Trạng thái đơn hàng</th>
                             <th>Tổng tiền</th>
                         </tr>
-                        <?php if (isset($donhang)) {
+                        <?php
+                        foreach ($khachhang as $key => $value) {
+                            if (isset($value['id_kh'])) {
+                                $donhang=$db->get('donhang',array('id_kh'=>$value['id_kh']));
+                            }
+                         if (isset($donhang)) {
                        foreach ($donhang as $key => $value) {
+                        if ($value['id_tinhtrang']<=3) {
                         $ctdonhang=$db->get('ctdonhang',array('id_donhang'=>$value['id_donhang']));
                         $sanpham=$db->get('sanpham',array('id_sanpham'=>$ctdonhang[0]['id_sanpham']));
                         $tinhtrang=$db->get('tinhtrang_dh',array('id_tinhtrang'=>$value['id_tinhtrang']));
@@ -175,7 +181,7 @@
                             <td class="col-xs-2 col-md-2"><?php echo $tinhtrang[0]['tinhtrang'] ?></td>
                             <td class="col-xs-2 col-md-2"><?php echo $value['tong'] ?></td>
                         </tr>
-                        <?php  }
+                        <?php  }   }}
                     } ?>
                     </table>
                    
@@ -195,8 +201,12 @@
                         </tr>
                         <?php 
                          if (isset($donhang)) {
+                            foreach ($khachhang as $key => $value) {
+                                if (isset($value['id_kh'])) {
+                                    $donhang=$db->get('donhang',array('id_kh'=>$value['id_kh']));
+                                }
                             foreach ($donhang as $key => $value) {   
-                        if ($value['id_tinhtrang']==3) {
+                        if ($value['id_tinhtrang']>=3) {
                        foreach ($donhang as $key => $value) {
                         $ctdonhang=$db->get('ctdonhang',array('id_donhang'=>$value['id_donhang']));
                         $sanpham=$db->get('sanpham',array('id_sanpham'=>$ctdonhang[0]['id_sanpham']));
@@ -210,11 +220,18 @@
                             <td><?php echo $ctdonhang[0]['loai_sp'] ?></td>
                            
                             <td class="col-xs-2 col-md-2"><?php echo $value['tong'] ?></td>
-                            <td id="danhgia">
-                               <a href="?controller=rate&id=<?php echo $ctdonhang[0]['id_sanpham'] ?>"><input type="button" value="đánh giá"></a>
+                            <?php if ($value['id_tinhtrang']==3) {?>
+                                <td id="danhgia">
+                               <a href="?controller=rate&id=<?php echo $ctdonhang[0]['id_sanpham'] ?>&id_dh=<?php echo $ctdonhang[0]['id_donhang'] ?>"><input type="button" value="đánh giá"></a>
                             </td>
+                          <?php  }elseif ($value['id_tinhtrang']>3) 
+                            
+                          { ?>
+                             <td class="col-xs-2 col-md-2"><?php echo $tinhtrang[0]['tinhtrang'] ?></td>
+                         <?php } ?>
+                           
                         </tr>
-                        <?php  } }
+                        <?php  } }}
                     } } ?>
                     </table>
                 </div>

@@ -57,7 +57,7 @@ if(isset($_SESSION['ss_admin'])){
                             'diachi'=>$diachi
                         ),array('id'=>$id));
                        
-                        header('location: ?controller='.$vt);
+                        header('location: ?controller=taikhoan');
                     }
                 }
                 require 'View_web/v_suataikhoan.php';

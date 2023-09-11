@@ -35,7 +35,7 @@ if(isset($_SESSION['ss_admin'])){
                 
                 $ctdonhang=$db->get('ctdonhang',array('id_donhang'=>$donhang[0]['id_donhang']));
                 if(isset($_POST['btn_donhang'])){
-                    $tensanpham = $_POST['ct_ten'];
+   
                     $soluongsp = $_POST['ct_sl'];
                     $tong = $_POST['dh_tong'];
                     $ghichu = $_POST['ct_ghichu'];
@@ -43,10 +43,7 @@ if(isset($_SESSION['ss_admin'])){
                     $id_tinhtrang = $_POST['dh_tinhtrang'];
 
                     $loi = array();
-                    if($tensanpham == ''){
-                        $loi['username'] = ' không được để trống';
-                    }
-
+                  
                     if($soluongsp == ''){
                         $loi['full_name'] = ' không được để trống';
                     }
@@ -55,9 +52,7 @@ if(isset($_SESSION['ss_admin'])){
                         $loi['email'] = 'không được để trống';
                     }
 
-                    if($ghichu == ''){
-                        $loi['sdt'] = 'không được để trống';
-                    }
+                 
 
                     if($id_tinhtrang == ''){
                         $loi['vaitro'] = 'không được để trống';
@@ -68,11 +63,16 @@ if(isset($_SESSION['ss_admin'])){
                     }
                     if(!$loi){
                         $db->update('ctdonhang',array(
-                            'tensanpham'=>$tensanpham,
+         
+                            'loai_sp'=>$ctdonhang[0]['loai_sp'],
                             'soluongsp'=>$soluongsp,
-                            'ghichu'=>$ghichu,
-                            'diachi'=>$diachi
+                            'ghichu'=>$ghichu
+                            
                         ),array('id_donhang'=>$id));
+                        $db->update('khachhang',array(
+                            'diachi'=>$diachi
+                            
+                        ),array('id_kh'=>$donhang[0]['id_kh']));
                         $db->update('donhang',array(
                             'tong'=>$tong,
                             'id_tinhtrang'=>$id_tinhtrang

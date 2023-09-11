@@ -247,7 +247,7 @@
                 <tbody>
                     <tr>
                         <td><input type="text" disabled value="<?php echo $donhang[0]['id_donhang'] ?>"></td>
-                        <td><input type="text" name="ct_ten" value="<?php echo $ctdonhang[0]['id_sanpham'] ?>" ></td>
+                        <td><input type="text" disabled  value="<?php echo $ctdonhang[0]['id_sanpham'] ?>" ></td>
                         <td><input type="text" name="ct_sl" value="<?php echo $ctdonhang[0]['soluongsp'] ?>" ></td>
                         <td><input type="text" name="dh_tong" value="<?php echo $donhang[0]['tong'] ?>" ></td>
                         
@@ -259,6 +259,7 @@
                                 <option value="2"  <?php if ($donhang[0]['id_tinhtrang']==2) {echo "selected";} ?>>Hàng đang giao</option>         
                                 <option value="3"  <?php if ($donhang[0]['id_tinhtrang']==3) {echo "selected";} ?>>Giao thành công</option>
                                 <option value="4"  <?php if ($donhang[0]['id_tinhtrang']==4) {echo "selected";} ?>>Hàng đã bị hủy</option>
+                                <option value="5"  <?php if ($donhang[0]['id_tinhtrang']==5) {echo "selected";} ?>>Đã mua</option>
                             </select>
                         </span></td>
                     </tr>

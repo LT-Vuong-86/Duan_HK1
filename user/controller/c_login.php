@@ -17,23 +17,32 @@
        
         if(!$loi){
             $user = $db->get('taikhoan', array('username'=>$username));
-            if ($user[0]['vaitro']) {
-                
             
-                if(empty($user)){
+            if (!empty($user)) {    
+                // print_r($user);
+                foreach ($user as $key => $value) {
+            if ($value['vaitro']=="user") {
+                if(!empty($vaitro['username'])){
                     $loi['username'] = 'Tên đăng nhập không tồn tại';
                 }else{
-                    if($password!=$user[0]['pass']){
-                        $loi['pass'] = 'Sai mật khẩu';
+                    if($password != $value['pass']){
+                        $loi['pass'] = 'Sai mật khẩu hoặc tài khoản';
                     }
                 }
-            }else{
+            }else {
+                $loi['pass'] = 'Sai mật khẩu hoặc tài khoản';
+            }
+           
+        }
+        }else{
             $loi['pass'] = 'Sai mật khẩu hoặc tài khoản';
             }
+        
         }
         
         if(!$loi){
-            $_SESSION['ss_user'] = $user[0]['id'];
+            $_SESSION['ss_user'] = $value['id'];
+            $_SESSION['ss_name'] = $value['full_name'];
             header('location: ?controller=home');
         }
     }
