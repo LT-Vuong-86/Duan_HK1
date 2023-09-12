@@ -1,7 +1,7 @@
 <?php
 if(isset($_SESSION['ss_admin'])){
     $user = $db->get('taikhoan', array('id'=>$_SESSION['ss_admin']));
-    if(($user[0]['vaitro']=='admin') || ($user[0]['vaitro']=='manager')){
+    if(($user[0]['vaitro']=='admin') ){
 
         $method = $_GET['method'];
         $id = $_GET['id'];
@@ -9,7 +9,7 @@ if(isset($_SESSION['ss_admin'])){
             case 'xoa':
                 $id = $_GET['id'];
                 $db->delete('taikhoan', array('id'=>$id));
-                header('Location: ?controller=nhanvien');
+                header('Location: ?controller=taikhoan');
                 break;
 
             case 'sua':
@@ -73,6 +73,7 @@ if(isset($_SESSION['ss_admin'])){
     {
         echo '<script type="text/javascript">alert("Bạn không có quyền hạn");           
         </script>';
+        header('location: ?controller=taikhoan');
     }
 }
 ?>

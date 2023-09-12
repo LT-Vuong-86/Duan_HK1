@@ -143,6 +143,7 @@ if (isset($_SESSION['cart'])) {
     
 
     if(!$loi){
+        
         $db->insert('khachhang',array(                    
             'username'=>$full_name,
             'sdt'=>$sdt,
@@ -158,7 +159,12 @@ if (isset($_SESSION['cart'])) {
     
     $id_dh=$db->insert_id();
     foreach ($_SESSION['cart'] as $key => $value) {
+
+            $sizelsp=$value['size_name'];
+            $loai_sp=$db->get('loai_sp',array('id_sanpham'=>$value['id_sanpham'],
+            $sizelsp => $value['size_name'],'type_name'=> $value['loai_sp']));
            
+       
         $db->insert('ctdonhang',array(
             'id_donhang'=>$id_dh,
             'id_sanpham'=>$value['id_sanpham'],
@@ -169,7 +175,7 @@ if (isset($_SESSION['cart'])) {
             'ngaydat'=>$date_oder
         ));
         $db->update('loai_sp',array(
-            $value['size_name']-=$value['sl']
+            $value['size_name']=>$loai_sp[0][$sizelsp]-$value['sl']
         ),array('id_sanpham'=>$value['id_sanpham']));
         
         $sl+=$value['sl'];
