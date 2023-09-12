@@ -2,6 +2,7 @@
 if(isset($_SESSION['ss_user'])){
     $khachhang = $db->get('taikhoan', array('id'=>$_SESSION['ss_user']));
     $giohang = $db->get('giohang',array('id_taikhoan'=>$_SESSION['ss_user']));
+    $date_oder = date("d/m/y");
     if(isset($_POST['btn_thanhtoan'])){
     
         if (isset($_POST['ghichu'])) {
@@ -31,26 +32,37 @@ if(isset($_SESSION['ss_user'])){
         if($diachi == ''){
             $loi['diachi'] = 'vui lòng chọn địa chỉ';
         }
-        if (isset($_SESSION['cart'])) {
-    
+      
+      
 
             if(!$loi){
+                foreach ($giohang as $key => $value) {
+                    global $sizelsp;
+                    $sizelsp=$value['size'];
+                    $loai_sp=$db->get('loai_sp',array('id_sanpham'=>$value['id_sanpham'],
+                    $sizelsp => $value['size'],'type_name'=> $value['loai_sp']));
+                   
+                }
                 $db->insert('khachhang',array(                    
                     'username'=>$full_name,
-                    'sdt'=>$sdt.','.$khachhang[0]['sdt'],
+                    'sdt'=>$sdt,
                     'diachi'=>$diachi ,
                     'email'=>$email                  
                 ));    
                 $id_kh=$db->insert_id();
+                foreach ($giohang as $key => $value) { 
+                    $tong=0;
+                    $tong+=$value['tong'];
                 $db->insert('donhang',array(                    
                     'id_kh'=>$id_kh,
-                    'tong'=>$tongtien,
+                    'tong'=>$tong,
                     "id_tinhtrang"=>1              
                 )); 
-            
+            }
             $id_dh=$db->insert_id();
             foreach ($giohang as $key => $value) {
-                   
+               
+
                 $db->insert('ctdonhang',array(
                     'id_donhang'=>$id_dh,
                     'id_sanpham'=>$value['id_sanpham'],
@@ -60,15 +72,21 @@ if(isset($_SESSION['ss_user'])){
                     'ghichu'=>$ghichu,
                     'ngaydat'=>$date_oder
                 ));
+               
+                // if ($loai_sp[0][$sizelsp] > $value['soluong']) {
+                    
+                // }else {
+                //     echo "<script>alert('sản phẩm đã hết hàng')</script>";
+                //     header('location: ?controller=home');
+                // }
                 $db->update('loai_sp',array(
-                    $value['size_name']-=$value['soluong']
-                ),array('id_sanpham'=>$value['id_sanpham']));
-                
+                    $value['size']=>$loai_sp[0][$sizelsp]-$value['soluong']
+                ),array('id_sanpham'=>$value['id_sanpham'],$value['size']=>$value['size'],'type_name'=> $value['loai_sp']));
                 $sl+=$value['soluong'];
             }
             $sanpham=$db->get('sanpham',array('id_sanpham'=>$value['id_sanpham']));
             $db->update('sanpham',array(
-                'tonkho'=>$sanpham['tonkho']-$sl
+                'tonkho'=>$sanpham[0]['tonkho']-$sl
             ),array('id_sanpham'=>$value['id_sanpham']));
            
             echo "<script>alert('Đặt hàng thành công')</script>";
@@ -77,9 +95,7 @@ if(isset($_SESSION['ss_user'])){
             ));
             header('location: ?controller=home');
             }
-        }else {
-            echo "<script>alert('Bạn chưa có đơn hàng nào cả')</script>";
-        }
+      
     }
 }else{
     $tongtiensp = 0;
@@ -127,6 +143,7 @@ if (isset($_SESSION['cart'])) {
     
 
     if(!$loi){
+        
         $db->insert('khachhang',array(                    
             'username'=>$full_name,
             'sdt'=>$sdt,
@@ -142,7 +159,12 @@ if (isset($_SESSION['cart'])) {
     
     $id_dh=$db->insert_id();
     foreach ($_SESSION['cart'] as $key => $value) {
+
+            $sizelsp=$value['size_name'];
+            $loai_sp=$db->get('loai_sp',array('id_sanpham'=>$value['id_sanpham'],
+            $sizelsp => $value['size_name'],'type_name'=> $value['loai_sp']));
            
+       
         $db->insert('ctdonhang',array(
             'id_donhang'=>$id_dh,
             'id_sanpham'=>$value['id_sanpham'],
@@ -153,7 +175,7 @@ if (isset($_SESSION['cart'])) {
             'ngaydat'=>$date_oder
         ));
         $db->update('loai_sp',array(
-            $value['size_name']-=$value['sl']
+            $value['size_name']=>$loai_sp[0][$sizelsp]-$value['sl']
         ),array('id_sanpham'=>$value['id_sanpham']));
         
         $sl+=$value['sl'];

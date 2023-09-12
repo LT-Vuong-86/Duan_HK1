@@ -8,11 +8,10 @@
         $email = $_POST['email'];
         $vaitro = $_POST['vaitro'];
         $diachi = $_POST['diachi'];
-        $gioitinh = $_POST['gioitinh'];
         $date = date('d/m/y');
 
         if(!empty($full_name) &&!empty($username) && !empty($password) && !empty($sdt) && !empty($email) && 
-        !empty($diachi) && !empty($gioitinh)){
+        !empty($diachi)){
             $db->insert('taikhoan', array(
                 'full_name'=>$full_name,
                 'username'=>$username,
@@ -21,7 +20,6 @@
                 'sdt'=>$sdt,
                 'vaitro'=>$vaitro,
                 'diachi'=>$diachi,
-                'gioitinh'=>$gioitinh,
                 'ngaytao'=>$date
             ));
             header('location: ?controller=login');

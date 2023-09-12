@@ -30,6 +30,7 @@
             border: 1px solid black;
         }
         .product-image-wrapper:hover{
+            cursor: pointer;
             box-shadow: 0 0 10px;
         }
         .product-image-wrapper .single-products a button.watch{
@@ -239,10 +240,16 @@
                             <?php }?>
 
                         <ul class="pagination">
-                            <li class="active"><a href="?controller=shop">1</a></li>
-                            <li><a href="?controller=shop2">2</a></li>
-                            <li><a href="?controller=shop3">3</a></li>
-                            <li><a href="">&raquo;</a></li>
+                        <?php if (isset($total_pages)) {
+                            for ($i = 1; $i <= $total_pages; $i++) {
+                            if ($i == $current_page) {
+                                echo "<li class='active'><a href='?controller=shop&page=$i'>$i</a></li>";
+                            } else {
+                                echo "<li><a href='?controller=shop&page=$i'>$i</a></li>";
+                                 echo "<li><a href='?controller=shop&page=$i'>&raquo;</a></li>";
+                            }
+                            }  }
+                            ?>
                         </ul>
                     </div>
                     <!--features_items-->

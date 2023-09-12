@@ -14,7 +14,7 @@
 	<link href="../css/main.css" rel="stylesheet">
 	<link href="../css/responsive.css" rel="stylesheet">
     <style>
-        button.noselect{
+        button {
             width: 78px;
             height: 36.5px;
             cursor: pointer;
@@ -29,18 +29,18 @@
             justify-content: space-between;
         }
 
-        button, button span{
+        button, button span {
             transition: 0.02s;
         }
 
-        button.noselect span.text {
+        button .text {
             padding-left: 5px;
             transform: translateX(10px);
             color: white;
             font-weight: bold;
         }
 
-        button.noselect span.icon {
+        button .icon {
             visibility: hidden;
             position: absolute;
             transform: translateX(20px);
@@ -51,7 +51,7 @@
             justify-content: center;
         }
 
-        button.noselect span.icon svg {
+        button svg {
             width: 15px;
             fill: #eee;
         }
@@ -186,7 +186,7 @@
                         </tr>
                         <?php   } ?> <tr>
                             <td><a name="btn_xoatoanbo" href="?controller=xulyCart&method=xoatoanbo&id=<?php echo $value['id_sanpham']?>">Xóa toàn bộ</a></td>
-                        </tr> <?php }else{if (isset($giohang)) {
+                        </tr> <?php }else{if (!empty($giohang)) {
                             $tongtien=0;
                             foreach ($giohang as $key => $value){    
                                 $tongtien+=$value['tong'];

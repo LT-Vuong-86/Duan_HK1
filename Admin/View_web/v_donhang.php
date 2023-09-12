@@ -232,54 +232,6 @@
             object-fit: cover;
         }
 
-        /* .cardBox{
-            position: relative;
-            width: 100%;
-            padding: 20px;
-            display: grid;
-            grid-template-columns: repeat(4 ,1fr);
-            grid-gap: 30px;
-        }
-
-        .cardBox .card{
-            position: relative;
-            background: var(--white);
-            padding: 30px;
-            border-radius: 20px;
-            display: flex;
-            justify-content: space-between;
-            cursor: pointer;
-            box-shadow: 0 7px 25px rgba(0, 0, 0, 0.08);
-        }
-
-        .cardBox .card .numbers{
-            position: relative;
-            font-weight: 500;
-            font-size: 2.5rem;
-            color: var(--yellow);
-        }
-
-        .cardBox .card .cardName{
-            color: var(--grey);
-            font-size: 1.1rem;
-            margin-top: 5px;
-        }
-
-        .cardBox .card .iconBx{
-            font-size: 3.5rem;
-            color: var(--black)
-        }
-
-        .cardBox .card:hover{
-            background: var(--yellow);
-        }
-
-        .cardBox .card:hover .numbers,
-        .cardBox .card:hover .cardName,
-        .cardBox .card:hover .iconBx{
-            color: var(--white);
-        } */
-
         .details{
             position: relative;
             width: 100%;
@@ -354,14 +306,20 @@
             text-align:center ;
             width: 300px;
         }
-        .details .recentstaff table tr td:nth-child(1),
-        .details .recentstaff table tr td:nth-child(2),
         
+        .details .recentstaff table tr td:nth-child(1){
+            text-align: center;
+            padding-right: 10px;
+        }
         .details .recentstaff table tr td:nth-child(5),
         .details .recentstaff table tr td:nth-child(6),
         .details .recentstaff table tr td:nth-child(7)
-         {
+        {
             text-align: center;
+        }
+
+        .details .recentstaff table tr td:nth-child(2){
+            text-align: start;
         }
 
         .status.delivered{
@@ -400,70 +358,6 @@
             font-weight: 500;
         }
 
-        /* ============ Responsive Design ===============
-        @media (max-width: 991px) {
-            .navigation{
-                left: -300px;
-            }
-            .navigation.active{
-                width: 300px;
-                left: 0;
-            }
-            .main{
-                width: 100%;
-                left: 0;
-            }
-            .main.active{
-                left: 300px;
-            }
-            .cardBox{
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-
-        @media (max-width: 768px) {
-            .details{
-                grid-template-columns: 1fr;
-            }
-            .recentstaff{
-                overflow-x: auto;
-            }
-            .status.inProgress{
-                white-space: nowrap;
-            }
-        }
-
-        @media (max-width: 480px){
-            .cardBox{
-                grid-template-columns: repeat(1, 1fr);
-            }
-            .cardHeader{
-                font-size: 20px;
-            }
-            .user{
-                min-width: 40px;
-            }
-            .navigation{
-                width: 100%;
-                left: -100%;
-                z-index: 1000;
-            }
-            .navigation.active{
-                width: 100%;
-                left: 0;
-            }
-            .toggle{
-                z-index: 1001;
-            }
-            .main.active .toggle{
-                color: var(--white);
-                background: var(--black);
-                position: fixed;
-                right: 0;
-                left: initial;
-            }
-        }*/
-
         .details .recentstaff td a.chitiet{
             position: relative;
             text-decoration: none;
@@ -497,17 +391,6 @@
         .details .recentstaff td a.xoa:hover{
             color: crimson;
         }
-
-        /* button {
-        width: auto;
-        height: auto;
-        cursor: pointer;
-        display: flex;
-        align-items: center;
-        border: none;
-        border-radius: 5px;
-        background: transparent;
-        } */
 
         button, button span {
             transition: 0.02s;
@@ -681,7 +564,7 @@
                             <thead>
                                 <tr>
                                     <td>STT</td>
-                                    <td>Name</td>
+                                    <td>Tên đầy đủ</td>
                                     <td>Số điện thoại</td>    
                                     <td>Địa chỉ</td>
                                     <td>Tổng</td>

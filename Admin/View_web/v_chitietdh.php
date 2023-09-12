@@ -171,10 +171,6 @@
             padding: 0 10px;
         }
 
-       
-
-        
-
         .toggle{
             position: relative;
             top: 0;
@@ -209,13 +205,13 @@
             width: 100%;
             text-align: center;
         }
+
         table, th, td {
-            
-     border: 1px solid black;
-    }
-    .msp{
-        width: 100px;
-    }
+            border: 1px solid black;
+        }
+        .msp{
+            width: 100px;
+        }
     </style>
 </head>
 <body>

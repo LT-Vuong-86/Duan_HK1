@@ -116,7 +116,7 @@
                                 foreach ($_SESSION['cart'] as $key => $value){
                                     $tongsl+=$value['sl'];
                                     $tongtiensp+=$value['sl']*$value['gia'];
-                                    $tongtien = $tongtiensp;
+                                    $tongtien = $tongtiensp
                         ?>
                         <tr class="text-center">
                             <td class="">
