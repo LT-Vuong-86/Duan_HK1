@@ -6,7 +6,7 @@ if(isset($_SESSION['ss_user'] )){
 }else{
    
     echo "<script>alert('Chức năng này cần đăng nhập')</script>";
-    header('location: ?controller=home');
+    echo "<script>window.location.href = '?controller=home';</script>";
 }
 
     require ("view/v_cart.php");

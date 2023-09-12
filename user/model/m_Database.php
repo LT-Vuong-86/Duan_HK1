@@ -53,8 +53,18 @@
                 return $ketqua;
         }
         //Function lấy dữ liệu theo điều kiện
-        public function get_like($table, $column, $value){
+        public function get_like($table, $column, $value, $condition=array()){
             $sql = "SELECT * FROM $table WHERE $column LIKE '%$value%'";
+            if(!empty($condition)){
+                $sql.=" WHERE ";
+
+                foreach ($condition as $key => $value){
+                    $sql.= " $key = '$value' AND";
+                }
+             
+                $sql = trim($sql, "AND");
+              
+            }
             $query = mysqli_query($this->conn, $sql);
             $ketqua = array();
                 if ($query){

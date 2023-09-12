@@ -128,7 +128,7 @@
                     <!--sign up form-->
                     <div class="col-sm-6 col-xs-12" >
                       <h5>Tên đăng nhập</h5>
-                      <input type="text" name="username"   required class="col-sm-12 col-xs-12" placeholder="Tên đăng nhập" />
+                      <input type="text" name="username" pattern="^[a-zA-Z0-9]+$"  title="Tên đăng nhập cần phải viết liền ko dấu"  required class="col-sm-12 col-xs-12" placeholder="Tên đăng nhập" />
                     </div>
 
                     <div class="col-sm-6 col-xs-12" >
@@ -138,29 +138,15 @@
 
                     <div class="col-sm-6 col-xs-12">
                         <h5>Mật khẩu</h5>
-                        <input class="col-sm-12 col-xs-12" name="pass"  required type="password" placeholder="Mật khẩu" />
+                        <input class="col-sm-12 col-xs-12"  minlength="6" name="pass"  required type="password" placeholder="Mật khẩu" />
                     </div>
 
                     <div class="col-sm-6 col-xs-12">
                         <h5>Vai trò</h5>
                         <div >
                             <div id="role_khachhang" class="form-check form-check-inline">
-                                <input class="form-check-input" name="vaitro" type="radio" checked id="nguoidung" value="nguoidung"/>
+                                <input class="form-check-input" name="vaitro" type="radio" checked id="nguoidung" value="user"/>
                                 <label class="form-check-label" for="nguoidung">Người dùng</label>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-sm-12 col-xs-12">
-                        <h5>Giới tính</h5>
-                        <div >
-                            <div id="gender_male" class="form-check form-check-inline">
-                                <input class="form-check-input" name="gioitinh" type="radio" checked id="nam" value="nam"/>
-                                <label class="form-check-label" for="nam">Nam</label>
-                            </div>
-                            <div id="gender_female" class="form-check form-check-inline">
-                                <input class="form-check-input" name="gioitinh" type="radio" id="nu" value="nu"/>
-                                <label class="form-check-label" for="nu">Nữ</label>
                             </div>
                         </div>
                     </div>
@@ -177,11 +163,11 @@
 
                     <div class="col-sm-12 col-xs-12">
                         <h5>Địa chỉ</h5>
-                        <input class="col-sm-12 col-xs-12" type="text"  required name="diachi" placeholder="Nơi ở hiện tại"></input>
+                        <input class="col-sm-12 col-xs-12" type="text"  pattern="^[a-zA-Z0-9- ]+$"  required name="diachi" placeholder="Nơi ở hiện tại"></input>
                     </div>
                 
                     <div class="col-sm-12 col-xs-12">
-                        <input type="submit" class="button" name="btn_signup" value="Quay lại đăng nhập">
+                        <input type="submit" class="button" name="btn_signup" value="đăng ký ">
                     </div>
                 </div>
                 <!--/sign up form -->

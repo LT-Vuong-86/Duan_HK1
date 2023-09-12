@@ -60,7 +60,11 @@
                                 <li><a href=""><i class="fa fa-star"></i>Danh sách yêu thích</a></li>
                                 <li><a href="?controller=checkout"><i class="fa fa-crosshairs"></i>Thanh toán</a></li>
                                 <li><a href="?controller=cart"><i class="fa fa-shopping-cart"></i>Giỏ hàng</a></li>
-                                <li><a href="?controller=logout"><i class="fa fa-lock"></i>Đăng xuất</a></li>
+                                <li><?php if (isset($_SESSION['ss_user'])) {
+                                    echo "<a href='?controller=logout'><i class='fa fa-lock'></i>Đăng xuất</a>";
+                                }else{
+                                    echo "<a href='?controller=login'><i class='fa fa-lock'></i>Đăng nhập</a>";
+                                } ?></li>
                              </ul>
                         </div>
                     </div>
@@ -219,15 +223,15 @@
                         <!--features_items-->
                         <h2 class="title text-center">Cửa hàng</h2>
                         <?php
-                            $i = 0;
+
                             foreach ($sanpham as $key => $value) {
-                                if(++$i == 10) break;
+
                             ?>
                                 <div class="col-sm-4"> 
                                     <div class="product-image-wrapper">
                                         <div class="single-products">
                                             <div class="productinfo text-center">
-                                                <img class="img-responsive" style="width:100%; height:250px; object-fit: cover;" src="../images/sanpham/<?php echo $value['anh_chinh']?>" alt="" />
+                                            <a href="?controller=product-detail&id=<?php echo $value['id_sanpham']?>"><img class="img-responsive" style="width:100%; height:250px; object-fit: cover;" src="../images/sanpham/<?php echo $value['anh_chinh']?>" alt="" /></a>
                                                 <h5 style="color: black;"><?php echo $value['tensanpham']?></h5>
                                             </div>
                                             <div>
@@ -241,7 +245,7 @@
                                     </div>
                                 </div>
                             <?php }?>
-
+                            <div class="pagination-area">
                         <ul class="pagination">
                             
                             <?php if (isset($total_pages)) {
@@ -250,13 +254,13 @@
                                 echo "<li class='active'><a href='?controller=shop&page=$i'>$i</a></li>";
                             } else {
                                 echo "<li><a href='?controller=shop&page=$i'>$i</a></li>";
-                                 echo "<li><a href='?controller=shop&page=$i'>&raquo;</a></li>";
+                                // echo "<li><a href='?controller=shop&page=$i'>&raquo;</a></li>";
                             }
                             }  }
                             ?>
                             
                         </ul>
-                        
+                        </div>
                     </div>
                     <!--features_items-->
                 </div>

@@ -235,10 +235,7 @@
         <h2>Trạng thái đơn hàng</h2>
         <a href="?controller=donhang">Quay lại</a>
         <form action="" method="post">
-            <div class="cardHeader">
-                
-                <button class="btn" name="btn_donhang">Lưu trạng thái</button>
-            </div>
+           
             
         <div class="chitiet">
         <?php

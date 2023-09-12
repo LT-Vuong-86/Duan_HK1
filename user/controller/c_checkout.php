@@ -37,7 +37,7 @@ if(isset($_SESSION['ss_user'])){
 
             if(!$loi){
                 foreach ($giohang as $key => $value) {
-                    global $sizelsp;
+                    global $sizelsp,$loai_sp;
                     $sizelsp=$value['size'];
                     $loai_sp=$db->get('loai_sp',array('id_sanpham'=>$value['id_sanpham'],
                     $sizelsp => $value['size'],'type_name'=> $value['loai_sp']));
@@ -83,17 +83,21 @@ if(isset($_SESSION['ss_user'])){
                     $value['size']=>$loai_sp[0][$sizelsp]-$value['soluong']
                 ),array('id_sanpham'=>$value['id_sanpham'],$value['size']=>$value['size'],'type_name'=> $value['loai_sp']));
                 $sl+=$value['soluong'];
+                $sanpham=$db->get('sanpham',array('id_sanpham'=>$value['id_sanpham']));
+                $db->update('sanpham',array(
+                    'tonkho'=>$sanpham[0]['tonkho']-$sl
+                ),array('id_sanpham'=>$value['id_sanpham']));
             }
-            $sanpham=$db->get('sanpham',array('id_sanpham'=>$value['id_sanpham']));
-            $db->update('sanpham',array(
-                'tonkho'=>$sanpham[0]['tonkho']-$sl
-            ),array('id_sanpham'=>$value['id_sanpham']));
            
-            echo "<script>alert('Đặt hàng thành công')</script>";
+           
+           
+            
             $db->delete('giohang',array(
                 'id_taikhoan'=>$_SESSION['ss_user']              
             ));
-            header('location: ?controller=home');
+            echo "<script>alert('Đặt hàng thành công')</script>";
+           
+            echo "<script>window.location.href = '?controller=home';</script>";
             }
       
     }
@@ -186,7 +190,7 @@ if (isset($_SESSION['cart'])) {
    
     echo "<script>alert('Đặt hàng thành công')</script>";
     unset($_SESSION['cart']);
-    header('location: ?controller=home');
+   
     }
 }else {
     echo "<script>alert('Bạn chưa có đơn hàng nào cả')</script>";

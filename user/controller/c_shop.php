@@ -35,7 +35,7 @@ else {
     // foreach ($sanpham as $sanphams) {
     //   $sanpham=$sanphams;
     // }
-    $sanpham=$db->limit('sanpham',$current_page.','.$records_per_page);
+    $sanpham=$db->get_limit('sanpham',array(),$current_page.','.$records_per_page);
     // Generate the pagination links
     
 
