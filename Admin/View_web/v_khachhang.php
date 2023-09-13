@@ -587,12 +587,12 @@
                                             <span class="textsua">Sửa</span>
                                         </button>
                                     </a>
-                                    <!-- <a  class="xoa" onclick="return confirm('Xóa khách hàng này?');" 
+                                    <a  class="xoa" onclick="return confirm('Xóa khách hàng này?');" 
                                         href="?controller=xulykhachhang&method=xoa&id=<?php echo $value['id_kh']?>">
                                         <button  class="noselect">
                                             <span class="textxoa">Xóa</span>
                                         </button>
-                                    </a> -->
+                                    </a>
                                 </td>
                                 <?php }?>
                             </tr>

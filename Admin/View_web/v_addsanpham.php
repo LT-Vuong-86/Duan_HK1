@@ -245,9 +245,6 @@
             <?php }?>
         </div>
         
-
-       
-    
         <button style="border: none; border-radius:25px; background: white; width: 100%;" 
         class="button" name="btn_addsanpham" type="submit">
             <span>add</span>

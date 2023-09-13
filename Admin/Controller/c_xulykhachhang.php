@@ -63,6 +63,7 @@ if(isset($_SESSION['ss_admin'])){
     {
         echo '<script type="text/javascript">alert("Bạn không có quyền hạn");           
         </script>';
+        header('location: ?controller=khachhang');
     }
 }
 ?>

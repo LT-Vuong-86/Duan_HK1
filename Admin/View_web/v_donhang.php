@@ -528,9 +528,9 @@
                 <div class="search_codition">
                     <h4>Tìm kiếm theo</h4>
                     <select name="codition_search" id="">
-                        <option value="sdt" selected >SĐT</option>
+                        <option value="id_kh" selected >Mã khách hàng</option>
                         <option value="tinhtrang">Tình trạng</option>
-                        <option value="username">Tên</option>
+                        <option value="id_donhang">Mã đơn hàng</option>
                     </select>
                 </div>
                 <div class="search">
@@ -564,9 +564,9 @@
                             <thead>
                                 <tr>
                                     <td>STT</td>
-                                    <td>Tên đầy đủ</td>
-                                    <td>Số điện thoại</td>    
-                                    <td>Địa chỉ</td>
+                                    <td>Mã đơn hàng</td>
+                                    <td>Mã khách hàng</td>    
+                                    <td>SĐT</td>
                                     <td>Tổng</td>
                                     <td>Tình trạng</td>
                                     <td>Thao tác</td>
@@ -576,50 +576,28 @@
                             </thead>
                             <tbody id="myTable">
                                 <?php
-                                global $donhang;
-                                    $i = 1;
-                                    if (isset($_POST['search'])) {
-           
-            
-                                        $codition_search=$_POST['codition_search'];
-                                        $content=$_POST['content'];
-                                        foreach ($donhang as $key => $value) {     
-                                        if ($codition_search=='tinhtrang') {
-                                            $tinhtrang=$db->get_like('tinhtrang_dh',$codition_search,$content,array('id_tinhtrang'=>$value['id_tinhtrang']));     
-                                           foreach($tinhtrang as $key => $valuess) {
-                                                $donhang=$db->get('donhang',array('id_tinhtrang'=>$valuess['id_tinhtrang']));       
-                                            }  
-                                        }else{               
-                                            $khachhang=$db->get_like('khachhang',$codition_search,$content,array('id_kh'=>$value['id_kh']));                                                       
-                                             foreach ($khachhang as $key =>  $values) {
-                                              $donhang = $db->get('donhang',array('id_kh'=>$values['id_kh']));
-                 
-                                             }   
-                                           
-                                                                            
-                                        } 
-                                    }        
-                                }
+                               $i=1;
                                     foreach ($donhang as $key => $value) {
-                                         $khachhang = $db->get('khachhang',array('id_kh'=>$value['id_kh']));
-                                         $tinhtrang=$db->get('tinhtrang_dh',array('id_tinhtrang'=>$value['id_tinhtrang']));
-                                      if (isset($_POST['search'])) {
-                                        $codition_search=$_POST['codition_search'];
-                                        $content=$_POST['content'];
-                                        if ($codition_search=="tinhtrang") {
-                                           $tinhtrang=$db->get_like('tinhtrang_dh',$codition_search,$content,array());
+                                     $tinhtrang=$db->get('tinhtrang_dh',array('id_tinhtrang'=>$value['id_tinhtrang']));
+                                     $khachhang=$db->get('khachhang',array('id_kh'=>$value['id_kh']));
+                                    //   if (isset($_POST['search'])) {
+                                    //     $codition_search=$_POST['codition_search'];
+                                    //     $content=$_POST['content'];
+                                    //     if ($codition_search=="tinhtrang") {
+                                    //        $tinhtrang=$db->get_like('tinhtrang_dh',$codition_search,$content,array());
                                        
-                                        }else{
-                                        $khachhang=$db->get_like('khachhang',$codition_search,$content,array());
-                                        }
-                                    }  ?>
+                                    //     }else{
+                                    //     $khachhang=$db->get_like('khachhang',$codition_search,$content,array());
+                                    //     }
+                                    // }  ?>
                                     <tr id="tr">
                                     <td class='td'><?php echo $i++ ?></td>
-                                    <td class='td'><?php echo $khachhang[0]['username'] ?></td>
+                                    <td class='td'><?php echo $value['id_donhang'] ?></td>
+                                    <td class='td'><?php echo $value['id_kh']  ?></td>
                                     <td class='td'><?php echo $khachhang[0]['sdt']  ?></td>
-                                    <td class='td'><?php echo $khachhang[0]['diachi']  ?></td>
-                                    <td class='td'><?php echo "tổng đơn giá trong giỏ hàng" ?></td>
-                                    <td class='td'><?php echo $tinhtrang[0]['tinhtrang']; ?>
+                                    <td class='td'><?php echo $value['tong']  ?></td>
+
+                                    <td class='td'><?php echo $tinhtrang[0]['tinhtrang'] ?>
                                     <a class="status" href="?controller=xulydh&method=status&id=<?php echo $value['id_donhang']?>&tt=<?php echo $value['id_tinhtrang']?>">
                                         <?php switch($value['id_tinhtrang']){
                                             case '1':
@@ -635,6 +613,9 @@
                                             case '4':
                                                 echo "";
                                                 break;
+                                                case '5':
+                                                    echo "";
+                                                    break;
                                               }  ?></a>
                                    
                                     </td>

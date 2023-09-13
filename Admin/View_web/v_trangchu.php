@@ -466,7 +466,7 @@
             </div>
 
             <div class="cardBox">
-                <a style="text-decoration:none" href="">
+                <!-- <a style="text-decoration:none" href="">
                     <div class="card">
                         <div>
                             <div class="numbers">1513</div>
@@ -492,12 +492,12 @@
                         </div>
                     </div>
                 </a>
-                
+                 -->
 
                 <a style="text-decoration:none" href="?controller=binhluan">
                     <div class="card">
                         <div>
-                            <div class="numbers">20</div>
+                            <div class="numbers"><?php echo $count_rate ?></div>
                             <div class="cardName">Bình luận</div>
                         </div>
 
@@ -510,8 +510,8 @@
                 <a style="text-decoration:none" href="">
                     <div class="card">
                         <div>
-                            <div class="numbers">15000</div>
-                            <div class="cardName">Lợi nhuận</div>
+                            <div class="numbers"><?php echo $tongdoanhthu ?></div>
+                            <div class="cardName">Tổng doanh thu</div>
                         </div>
 
                         <div class="iconBx">

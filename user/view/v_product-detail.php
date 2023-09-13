@@ -15,9 +15,7 @@
     <link href="../css/main.css" rel="stylesheet">
     <link href="../css/responsive.css" rel="stylesheet">
        <style>
-        .category-tab ul {
-            background: whitesmoke;
-        }
+       
         input[type='number']::-webkit-inner-spin-button,
         input[type='number']::-webkit-outer-spin-button {
                                 -webkit-appearance: none;
@@ -51,7 +49,9 @@
         .warning{
             color:red;
         }
-       
+       #click_none_replay{
+        display: none;
+       }
        
     </style>
 </head>
@@ -253,7 +253,21 @@
                                         </h1>
                                     </strong>
                                     <p>Web ID: <?php echo $product[0]['id_sanpham']?></p>
-                                    <img src="../images/product-details/rating.png" alt="" />
+
+                                        <li>
+												   <?php global $color; for ($i=0; $i <5 ; $i++) { ?>
+                                                    
+                                                    <?php 
+                                                    if (isset($rating)) {
+                                                    if($i<$rating){
+                                                    $color="color:#FFA617";
+                                                    }else{
+                                                    $color="color:";
+                                                    } }?>
+                                                   <span style=" font-size: 20px;<?php echo $color ?>"> &#9733;</span>
+                                               <?php } ?>
+                                        </li>
+
                                 </div>
 
                                 <!-- //// productproduct-giá //// -->
@@ -358,191 +372,139 @@
 								<li><a href="#companyprofile" data-toggle="tab">Company Profile</a></li> -->
 
                                 <li class="active"><a href="#reviews" data-toggle="tab">chi tiết</a></li>
-                                <li><a href="#tag" data-toggle="tab">Đánh giá(5)</a></li>
+                                <li><a href="#tag" data-toggle="tab">Đánh giá</a></li>
                             </ul>
                         </div>
                         <div class="tab-content">
                            
 
-                            <div class="tab-pane fade" id="tag">
+                            <div class="tab-pane fade " id="tag">
                                 <div class="col-sm-12">
-                                    <div class="blog-post-area">
-                                        <h2 class="title text-center">Mới nhất từ ​​Blog của chúng tôi</h2>
-
-                                    </div>
+                                   
                                     <!--/blog-post-area-->
 
                                     <div class="rating-area">
                                         <ul class="ratings">
                                             <li class="rate-this">Đánh giá mục này:</li>
                                             <li>
-                                                <i class="fa fa-star color"></i>
-                                                <i class="fa fa-star color"></i>
-                                                <i class="fa fa-star color"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                            </li>
-                                            <li class="color">(6 phiếu)</li>
+												   <?php global $color; for ($i=0; $i <5 ; $i++) { ?>
+                                                    
+                                                    <?php 
+                                                    if (isset($rating)) {
+                                                    if($i<$rating){
+                                                    $color="color:#FFA617";
+                                                    }else{
+                                                    $color="color:";
+                                                    } }?>
+                                                   <span style=" font-size: 20px;<?php echo $color ?>"> &#9733;</span>
+                                               <?php } ?>
+                                        </li>
+                                            <li class="color">(<?php if (isset($rating)) {?><?php echo $count_rate; ?> <?php }else{
+                                                echo 0;
+                                            } ?> phiếu)</li>
                                         </ul>
+                                        <h2><?php if (isset($rating)) {?><?php echo $count_rate; ?> <?php }else{
+                                                echo 0;
+                                            } ?> RESPONSES</h2>
                                     </div>
-                                    <!--/rating-area-->
-
-                                    <div class="socials-share">
-                                        <a href=""><img src="../images/blog/socials.png" alt=""></a>
-                                    </div>
-                                    <!--/socials-share-->
-
-                                    <div class="media commnets">
-                                        <a class="pull-left" href="#">
-                                            <img class="media-object" src="../images/blog/man-one.jpg" alt="">
-                                        </a>
-                                        <div class="media-body">
-                                            <h4 class="media-heading">Annie Davis</h4>
-                                            <img src="../images/product-details/rating.png" alt="" />
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-                                                ex ea commodo consequat.</p>
-                                            <div class="blog-socials">
-                                                <ul>
-                                                    <li><a href=""><i class="fa fa-facebook"></i></a></li>
-                                                    <li><a href=""><i class="fa fa-twitter"></i></a></li>
-                                                    <li><a href=""><i class="fa fa-dribbble"></i></a></li>
-                                                    <li><a href=""><i class="fa fa-google-plus"></i></a></li>
-                                                </ul>
-                                                <a class="btn btn-primary" href="">Bài viết khác</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!--Comments-->
+                                    
+                                    <?php foreach ($rate_star as $key => $value) { 
+                                                    $taikhoan_rate=$db->get('taikhoan',array('id'=>$value['id_taikhoan']))
+                                                    ?>
+                                                    
                                     <div class="response-area">
-                                        <h2>3 RESPONSES</h2>
+                                        
+                                       
                                         <ul class="media-list">
+                                           
                                             <li class="media">
-
+                                          
                                                 <a class="pull-left" href="#">
-                                                    <img class="media-object" src="../images/blog/man-two.jpg" alt="">
+                                                    <img class="media-object" src="../images/home/user.png" alt="">
                                                 </a>
+                                               
                                                 <div class="media-body">
                                                     <ul class="sinlge-post-meta">
-                                                        <li><i class="fa fa-user"></i>Janis Gallagher</li>
-                                                        <li><i class="fa fa-clock-o"></i> 1:33 pm</li>
-                                                        <li><i class="fa fa-calendar"></i> DEC 5, 2013</li>
+                                                        <li><i class="fa fa-user"></i><?php echo $taikhoan_rate[0]['full_name'] ?></li>
+                                                        <li><i class="fa fa-calendar"></i> <?php echo "DEC".$value['Date_rate'] ?> </li>
                                                     </ul>
-                                                    <img src="../images/product-details/rating.png" alt="" style="width:80px; height:15px;">
-                                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-                                                        aliquip ex ea commodo consequat.</p>
-                                                    <a class="btn btn-primary" href=""><i class="fa fa-reply"></i>phát lại</a>
+                                                    <?php global $color; for ($i=0; $i <5 ; $i++) { ?>
+                                                    
+                                                    <?php 
+                                                    if (isset($value['rate_rating'])) {
+                                                    if($i<$value['rate_rating']){
+                                                    $color="color:#FFA617";
+                                                    }else{
+                                                    $color="color:";
+                                                    } }?>
+                                                   <span style=" font-size: 20px;<?php echo $color ?>"> &#9733;</span>
+                                               <?php } ?>
+                                                    <p><?php echo $value['rate_content'] ?></p>
+                                                    <span class="btn btn-primary" class="click_replay"><i class="fa fa-reply"></i>phát lại</span>
+                                                   
                                                 </div>
                                             </li>
-                                            <li class="media second-media">
+                                         <?php   ?>
+                                            <li class="media second-media" class="click_none_replay">
                                                 <a class="pull-left" href="#">
-                                                    <img class="media-object" src="../images/blog/man-three.jpg" alt="">
+                                                    <img class="media-object" src="../images/home/logo.png" alt="">
                                                 </a>
-                                                <div class="media-body">
-                                                    <ul class="sinlge-post-meta">
-                                                        <li><i class="fa fa-user"></i>Janis Gallagher</li>
-                                                        <li><i class="fa fa-clock-o"></i> 1:33 pm</li>
-                                                        <li><i class="fa fa-calendar"></i> DEC 5, 2013</li>
-                                                    </ul>
-                                                    <img src="../images/product-details/rating.png" alt="" style="width:80px; height:15px;">
-                                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-                                                        aliquip ex ea commodo consequat.</p>
-                                                    <a class="btn btn-primary" href=""><i class="fa fa-reply"></i>phát lại</a>
-                                                </div>
+                                                    <?php if ($value['rate_rating']>=3) {?>
+                                                        <p>Cảm ơn quý đã mua hàng của chúng tôi</p>
+                                                  <?php  }else{?>
+                                                    <p>Cảm ơn quý đã mua hàng của chúng tôi, chúng tôi rất xin lỗi vì trải nghiệm ko hài lòng của quý khách </p>
+                                                <?php  } ?>
+                                                   
+                                                  
+                                                     </div>
+                                                
                                             </li>
-                                            <li class="media">
-                                                <a class="pull-left" href="#">
-                                                    <img class="media-object" src="../images/blog/man-four.jpg" alt="">
-                                                </a>
-                                                <div class="media-body">
-                                                    <ul class="sinlge-post-meta">
-                                                        <li><i class="fa fa-user"></i>Janis Gallagher</li>
-                                                        <li><i class="fa fa-clock-o"></i> 1:33 pm</li>
-                                                        <li><i class="fa fa-calendar"></i> DEC 5, 2013</li>
-                                                    </ul>
-                                                    <img src="../images/product-details/rating.png" alt="" style="width:80px; height:15px;">
-                                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-                                                        aliquip ex ea commodo consequat.</p>
-                                                    <a class="btn btn-primary" href=""><i class="fa fa-reply"></i>phát lại</a>
-                                                </div>
-                                            </li>
+                                            
+                                            
                                         </ul>
+                                        <?php  } ?>
                                     </div>
-                                    <!--/Response-area-->
-                                    <div class="replay-box">
-                                        <div class="row">
-                                            <div class="col-sm-4">
-                                                <h2>Leave a replay</h2>
-                                                <form>
-                                                    <div class="blank-arrow">
-                                                        <label>Tên của bạn</label>
-                                                    </div>
-                                                    <span>*</span>
-                                                    <input type="text" placeholder="write your name...">
-                                                    <div class="blank-arrow">
-                                                        <label>Địa chỉ email</label>
-                                                    </div>
-                                                    <span>*</span>
-                                                    <input type="email" placeholder="your email address...">
-                                                    <div class="blank-arrow">
-                                                        <label>Trang web</label>
-                                                    </div>
-                                                    <input type="email" placeholder="current city...">
-                                                </form>
-                                            </div>
-                                            <div class="col-sm-8">
-                                                <div class="text-area">
-                                                    <div class="blank-arrow">
-                                                        <label>Tên của bạn</label>
-                                                    </div>
-                                                    <span>*</span>
-                                                    <textarea name="message" rows="11"></textarea>
-                                                    <a class="btn btn-primary" href="">đăng bình luận</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!--/Repaly Box-->
+                                   
                                 </div>
                             </div>
 
                             <div class="tab-pane fade active in" id="reviews">
                                 <div class="col-sm-12">
                                     <div class="single-blog-post">
+                                    <ul>
+                                        <li>
+												   <?php global $color; for ($i=0; $i <5 ; $i++) { ?>
+                                                    
+                                                    <?php 
+                                                    if (isset($rating)) {
+                                                    if($i<$rating){
+                                                    $color="color:#FFA617";
+                                                    }else{
+                                                    $color="color:";
+                                                    } }?>
+                                                   <span style=" font-size: 20px;<?php echo $color ?>"> &#9733;</span>
+                                               <?php } ?>
+                                        </li>
+                                    </ul> 
                                         <h3> <?php echo $product[0]['tensanpham']?></h3>
+                                        
                                         <div class="post-meta">
+                                        
                                             <ul>
                                                 <li><i class="fa fa-user"></i> Mac Doe</li>
                                                 
                                                 <li><i class="fa fa-calendar"></i> <?php echo $product[0]['ngaytao']?></li>
                                             </ul>
-                                            <span>
-												<i class="fa fa-star"></i>
-												<i class="fa fa-star"></i>
-												<i class="fa fa-star"></i>
-												<i class="fa fa-star"></i>
-												<i class="fa fa-star-half-o"></i>
-											</span>
+                                            
                                         </div>
                                         <a href="">
                                             <img src="../images/sanpham/<?php echo $product[0]['tensanpham']?>" alt="">
                                         </a>
+                                        
                                         <p>
-                                            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
-                                            in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p> <br>
-
-                                        <p>
-                                            Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo
-                                            inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p> <br>
-
-                                        <p>
-                                            Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.</p> <br>
-
-                                        <p>
-                                            Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.
-                                        </p>
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                                        consequat.Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
-                                 
+                                            <?php echo $description?>
+                                                </p>
+                                       
                                     </div>
                                    
                                 </div>
@@ -813,6 +775,7 @@
 
 
     <script>
+  
         const inputGiam = document.querySelector("input[name='giam']");
 const inputSl = document.querySelector("input[name='sl']");
 const inputTang = document.querySelector("input[name='tang']");
@@ -876,6 +839,7 @@ document.querySelector(".active").addEventListener("click", addBorder);
     <script src="../js/bootstrap.min.js"></script>
     <script src="../js/jquery.prettyPhoto.js"></script>
     <script src="../js/main.js"></script>
+  
 </body>
 
 </html>

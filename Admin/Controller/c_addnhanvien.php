@@ -8,7 +8,7 @@ if(isset($_SESSION['ss_admin'])){
         }else{
             $vaitro=null;
         }
-       
+        $email=0;
         if(isset($_POST['btn_addnhanvien'])){
             $username = $_POST['username'];
             $full_name = $_POST['full_name'];
@@ -20,6 +20,9 @@ if(isset($_SESSION['ss_admin'])){
             $diachi = $_POST['diachi'];
 
             $loi = array();
+            if (!preg_match('/^[a-zA-Z0-9-]+$/', $username)) {
+                $loi['username'] = 'Tài khoản cần viết liền ko dấu';
+              }
             if($username == ''){
                 $loi['username'] = 'Tên đăng nhập không được để trống';
             }
@@ -32,9 +35,6 @@ if(isset($_SESSION['ss_admin'])){
                 $loi['pass'] = 'Mật khẩu không được để trống';
             }
 
-            if($email == ''){
-                $loi['email'] = 'Email không được để trống';
-            }
 
             if($sdt == ''){
                 $loi['sdt'] = 'SĐT không được để trống';

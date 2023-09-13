@@ -38,7 +38,9 @@
                 foreach ($condition as $key => $value){
                     $sql.= " $key = '$value' AND";
                 }
+             
                 $sql = trim($sql, "AND");
+              
             }
             //Thực thi câu lệnh
             $query = mysqli_query($this->conn, $sql);
@@ -51,8 +53,18 @@
                 return $ketqua;
         }
         //Function lấy dữ liệu theo điều kiện
-        public function get_like($table, $column, $value){
+        public function get_like($table, $column, $value, $condition=array()){
             $sql = "SELECT * FROM $table WHERE $column LIKE '%$value%'";
+            if(!empty($condition)){
+                $sql.=" WHERE ";
+
+                foreach ($condition as $key => $value){
+                    $sql.= " $key = '$value' AND";
+                }
+             
+                $sql = trim($sql, "AND");
+              
+            }
             $query = mysqli_query($this->conn, $sql);
             $ketqua = array();
                 if ($query){
@@ -123,6 +135,20 @@
             $query = mysqli_query($this->conn, $sql);
             return $query;
         }
+        public function limit($table, $condition){
+            $sql ="SELECT * FROM $table limit  $condition ";
+            
+           
+            // $sql = substr($sql, 0,-3);
+            // print_r($sql);
+            // die;
+            //Thực thi câu lệnh
+            // var_dump($sql);
+            // die;
+            $query = mysqli_query($this->conn, $sql);
+            return $query;
+        }
+        
         public function update($table, $data=array(), $condition=array()){
             $value_str = '';
             foreach ($data as $key => $value){
@@ -135,6 +161,7 @@
                 $sql.=" $key = '$value ' AND";
             }
             $sql = trim($sql, 'AND');
+          
             $query = mysqli_query($this->conn, $sql);
             return $query;
         }

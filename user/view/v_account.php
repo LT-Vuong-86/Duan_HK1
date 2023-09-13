@@ -110,6 +110,7 @@
     </header>
     <!--/header-->
     <section id="body_account">
+        
         <div class="container">
             <div class="row body_account_row col-xs-12 col-sm-12">
                 <div class="body_acount_left col-xs-12 col-md-3">
@@ -125,60 +126,83 @@
                 </div>
 
                 <div id="thongtintaikhoan" class="body_acount_right col-xs-12 col-sm-12 col-md-12 tabcontent">
-                    <form action="?controller=login" method="post">
+                    <form action="" method="post">
                         <div class="body_acount_right_form_left col-xs-12 ">
                             <li>Tên đầy đủ:
-                                <td><?php echo $account[0]['full_name']?></td>
+                                <td><input type="text"  disabled  value="<?php echo $account[0]['full_name']?>"></td>
                             </li>
                             <li>Tên người dùng:
-                                <td><?php echo $account[0]['username']?></td>
+                                <td><input type="text"  disabled  value="<?php echo $account[0]['username']?>"></td>
                             </li>
                             <li>Số điện thoại:
-                                <?php echo $account[0]['sdt']?>
+                               <td><input type="text"  disabled  value="<?php echo $account[0]['sdt']?>"></td> 
                             </li>
                             <li>Email:
-                                <?php echo $account[0]['email']?>
+                              <td><input type="text"  disabled  value="<?php echo $account[0]['email']?>"></td>
                             </li>
                             <div class="all_submit_form">
-                                <input class="submit_form" type="submit" value="Cập nhập">
-                                <input class="submit_form" type="submit" value="Đổi mật khẩu">
+                                <input id="click_show_taikhoan" class="submit_form"  type="button" value="Cập nhập tại khoản">
+                                <!-- <input class="submit_form" type="submit" value="Đổi mật khẩu"> -->
                             </div>
+                            
                         </div>
+                        <div class="body_acount_right_form_rigt col-xs-12">
+                            <li>Địa chỉ:
+                        <td><textarea class="col-xs-12" disabled cols="200" rows="4"><?php echo $account[0]['diachi']?></textarea></td>
+                        </li> </div>
+                        
                     </form>
+                   
                 </div>
-
+               
                 <div id="quanlidonhang" class="tabcontent body_acount_right col-xs-12 col-md-12 col-md-12 " >
                     <h3>Quản lý đơn hàng</h3>
-                    
+                    <form action="" method="post">
                     <table class="col-xs-12 col-md-12">
                         <tr>
                             <th>Ảnh</th>
                             <th>Sản phẩm</th>
+                            <th>Size</th>
                             <th>loại sp</th>
                             <th>Ngày mua</th>
                             <th>Trạng thái đơn hàng</th>
                             <th>Tổng tiền</th>
                         </tr>
-                        <?php if (isset($donhang)) {
+                        <?php
+                        foreach ($khachhang as $key => $value) {
+                            if (isset($value['id_kh'])) {
+                                $donhang=$db->get('donhang',array('id_kh'=>$value['id_kh']));
+                            }
+                         if (isset($donhang)) {
                        foreach ($donhang as $key => $value) {
+                        if ($value['id_tinhtrang']<=3) {
                         $ctdonhang=$db->get('ctdonhang',array('id_donhang'=>$value['id_donhang']));
                         $sanpham=$db->get('sanpham',array('id_sanpham'=>$ctdonhang[0]['id_sanpham']));
                         $tinhtrang=$db->get('tinhtrang_dh',array('id_tinhtrang'=>$value['id_tinhtrang']));
                         ?>
                         <tr class="item_table">
                             <td><img src="../images/sanpham/<?php echo $sanpham[0]['anh_chinh']?>" alt=""></td>
-                            <td class="col-xs-4 col-md-3">
-                                <li><?php echo $sanpham[0]['tensanpham']?></li>
+                            <td class="col-xs-3 col-md-3">
+                                <?php echo $sanpham[0]['tensanpham']?>
                             </td>
-                            <td><?php echo $ctdonhang[0]['loai_sp'] ?></td>
+                            <td class="col-xs-2 col-md-2"><?php echo $ctdonhang[0]['size'] ?></td>
+                            <td class="col-xs-2 col-md-2"><?php echo $ctdonhang[0]['loai_sp'] ?></td>
                             <td class="col-xs-2 col-md-2"><?php echo $ctdonhang[0]['ngaydat'] ?></td>
-                            <td class="col-xs-2 col-md-2"><?php echo $tinhtrang[0]['tinhtrang'] ?></td>
+                            <td class="col-xs-3 col-md-3"><?php echo $tinhtrang[0]['tinhtrang'] ?>
+                            <input type="hidden" name="id_dh" value="<?php echo $value['id_donhang']?>">
+                                   <?php if ($value['id_tinhtrang']==1) {
+                                            echo "<input type='submit' name='huy_dh' style='background-color:red ; cursor: pointer;' value='Hủy'>";                                     
+                                        }
+                                        
+                                      ?>
+                                  
+                        </td>
                             <td class="col-xs-2 col-md-2"><?php echo $value['tong'] ?></td>
                         </tr>
-                        <?php  }
+                        <?php  }   }}
                     } ?>
                     </table>
-                   
+                    </form>
                 </div>
 
                 <div id="sanphamdamua" class="tabcontent body_acount_right col-xs-12 col-md-12 col-md-12 " >
@@ -196,8 +220,12 @@
                         </tr>
                         <?php 
                          if (isset($donhang)) {
+                            foreach ($khachhang as $key => $value) {
+                                if (isset($value['id_kh'])) {
+                                    $donhang=$db->get('donhang',array('id_kh'=>$value['id_kh']));
+                                }
                             foreach ($donhang as $key => $value) {   
-                        if ($value['id_tinhtrang']==3) {
+                        if ($value['id_tinhtrang']>=3) {
                        foreach ($donhang as $key => $value) {
                         $ctdonhang=$db->get('ctdonhang',array('id_donhang'=>$value['id_donhang']));
                         $sanpham=$db->get('sanpham',array('id_sanpham'=>$ctdonhang[0]['id_sanpham']));
@@ -211,18 +239,54 @@
                             <td><?php echo $ctdonhang[0]['loai_sp'] ?></td>
                            
                             <td class="col-xs-2 col-md-2"><?php echo $value['tong'] ?></td>
-                            <td id="danhgia">
-                               <a href="?controller=rate&id=<?php echo $ctdonhang[0]['id_sanpham'] ?>"><input type="button" value="đánh giá"></a>
+                            <?php if ($value['id_tinhtrang']==3) {?>
+                                <td id="danhgia">
+                               <a href="?controller=rate&id=<?php echo $ctdonhang[0]['id_sanpham'] ?>&id_dh=<?php echo $ctdonhang[0]['id_donhang'] ?>"><input type="button" value="đánh giá"></a>
                             </td>
+                          <?php  }elseif ($value['id_tinhtrang']>3) 
+                            
+                          { ?>
+                             <td class="col-xs-2 col-md-2"><?php echo $tinhtrang[0]['tinhtrang'] ?></td>
+                         <?php } ?>
+                           
                         </tr>
-                        <?php  } }
+                        <?php  } }}
                     } } ?>
                     </table>
                 </div>
             </div>
        
-          
+            <div  id="click_none_form_taikhoan">
+        <form action="" method="post">
+                    <li>
+                        <label for="fullname">Tên người dùng</label>
+                        <input type="text" name="full_name" class="form-control" id="fullname"value="<?php echo $account[0]['full_name']?>">
+                        </li>
+                        <li>  
+                            <label for="username">Tên tài khoản</label>
+                        <input type="text" name="username" class="form-control" id="username" value="<?php echo $account[0]['username']?>">
+                        </li> 
+                           <li>
+                            <label for="sdt">SĐT</label>
+                        <input type="text" name="sdt" class="form-control" id="sdt" value="<?php echo $account[0]['sdt']?>">
+                        </li>
+                        <li>
+                            <label for="email">Email</label>
+                        <input type="email" name="email" class="form-control" id="email" value="<?php echo $account[0]['email']?>">
+                        </li>
+                            <li>
+                          <label for="diachi">Địa chỉ</label>
+                            <textarea class="form-control" name="diachi" id="diachi" rows="3" ><?php echo $account[0]['diachi']?></textarea>
+                        </span>
+                        </li>
+                            <div class="">
+                                <input  name="sua_btn_form" class="btn btn-warning" type="submit" value="Cập nhập sửa tại khoản">
+                                <input class="btn btn-danger" id="click_hide_taikhoan" type="text" value="hủy">
+                            </div>
+                    </form>
+                    </div>
         </div>
+       
     </section>
 
     <footer id="footer">
@@ -383,16 +447,26 @@
         </div>
 
     </footer><!--/Footer-->
-    
+
 <script src="../js/account.js"></script>
 <script src="../js/jquery.js"></script>
-   <script>
+<script src="../js/jquery.prettyPhoto.js"></script>
+<script src="../js/jquery.scrollUp.min.js"></script>
+<script>
 
+$(function(){
+  $("#click_hide_taikhoan").click(function(){
+    $("#click_none_form_taikhoan").hide();
+  });
+  $("#click_show_taikhoan").click(function(){
+    $("#click_none_form_taikhoan").show();
+  });
+});
 $(document).ready(function(){
   $("#click_menu").click(function(){
     $("#click_none_menu").fadeToggle();
   });
 });
-   </script>
+   </script> 
 </body>
 </html>

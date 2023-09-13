@@ -192,25 +192,25 @@ h3{
 </head>
 <body>
 <div class="container">
-    <form action="#" method="post">
+    <form action="nhanvien" method="post">
         <div>
             <h3 class="text-uppercase text-center">Cập nhật nhân viên</h3>
         </div>
         <h6>Tên người dùng:</h6>
         <div id="username" class="form-control row mx-1">
-            <input name="username" type="text" placeholder="Hãy điền tên đăng nhập..." 
+            <input name="username" type="text" disabled placeholder="Hãy điền tên đăng nhập..." 
             value="<?php echo $data_nhanvien[0]['username'] ?>" >
         </div> 
 
         <h6>Tên đầy đủ:</h6>
         <div id="full_name" class="form-control row mx-1">
-            <input name="full_name" type="text" placeholder="Hãy điền tên đầy đủ..." 
+            <input name="full_name" disabled type="text" placeholder="Hãy điền tên đầy đủ..." 
             value="<?php echo $data_nhanvien[0]['full_name'] ?>" >
         </div>
 
         <h6>Số điện thoại:</h6>
         <div id="sdt" class="form-control row mx-1">
-            <input name="sdt" type="text" placeholder="Hãy điền số điện thoại..." 
+            <input name="sdt" disabled type="text" placeholder="Hãy điền số điện thoại..." 
             value="<?php echo $data_nhanvien[0]['sdt'] ?>" >
         </div>
 
@@ -222,14 +222,14 @@ h3{
 
         <h6>Vai trò:</h6>
         <div id="vaitro" class="form-control row mx-1">
-            <input name="vaitro" type="text" placeholder="Nhân viên quản lý gì?..." 
+            <input name="vaitro" type="text" disabled placeholder="Nhân viên quản lý gì?..." 
             value="<?php echo $data_nhanvien[0]['vaitro'] ?>" >
         </div>
 
         
         <h6>Địa chỉ:</h6>
         <div id="diachi" class="form-control row mx-1">
-            <input name="diachi" type="text" placeholder="Nơi ở hiện tại..." 
+            <input name="diachi" type="text" disabled placeholder="Nơi ở hiện tại..." 
             value="<?php echo $data_nhanvien[0]['diachi'] ?>" >
         </div>
 
