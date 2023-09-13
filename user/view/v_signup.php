@@ -142,17 +142,6 @@
                     </div>
 
                     <div class="col-sm-6 col-xs-12">
-
-                    <h5>Vai trò</h5>
-                        <div >
-                            <div id="role_khachhang" class="form-check form-check-inline">
-                                <input class="form-check-input" name="vaitro" type="radio" checked id="nguoidung" value="user"/>
-                                <label class="form-check-label" for="nguoidung">Người dùng</label>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-sm-6 col-xs-12">
                         <h5>Email</h5>
                         <input class="col-sm-12 col-xs-12" name="email" type="email" placeholder="Email" />
                     </div>
@@ -166,7 +155,7 @@
                         <h5>Vai trò</h5>
                         <div >
                             <div id="role_khachhang" class="form-check form-check-inline">
-                                <input class="form-check-input" name="vaitro" type="radio" checked id="nguoidung" value="nguoidung"/>
+                                <input class="form-check-input" name="vaitro" type="radio" checked id="nguoidung" value="user"/>
                                 <label class="form-check-label" for="nguoidung">Người dùng</label>
                             </div>
                         </div>

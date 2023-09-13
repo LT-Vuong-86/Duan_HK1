@@ -36,7 +36,6 @@ if(isset($_SESSION['ss_admin'])){
                 $ctdonhang=$db->get('ctdonhang',array('id_donhang'=>$donhang[0]['id_donhang']));
                 if(isset($_POST['btn_donhang'])){
    
-                    $soluongsp = $_POST['ct_sl'];
                     $tong = $_POST['dh_tong'];
                     $ghichu = $_POST['ct_ghichu'];
                     $diachi = $_POST['ct_diachi'];
@@ -44,15 +43,9 @@ if(isset($_SESSION['ss_admin'])){
 
                     $loi = array();
                   
-                    if($soluongsp == ''){
-                        $loi['full_name'] = ' không được để trống';
-                    }
-
                     if($tong == ''){
                         $loi['email'] = 'không được để trống';
                     }
-
-                 
 
                     if($id_tinhtrang == ''){
                         $loi['vaitro'] = 'không được để trống';
@@ -63,9 +56,6 @@ if(isset($_SESSION['ss_admin'])){
                     }
                     if(!$loi){
                         $db->update('ctdonhang',array(
-         
-                            'loai_sp'=>$ctdonhang[0]['loai_sp'],
-                            'soluongsp'=>$soluongsp,
                             'ghichu'=>$ghichu
                             
                         ),array('id_donhang'=>$id));

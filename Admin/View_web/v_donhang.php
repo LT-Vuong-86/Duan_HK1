@@ -311,6 +311,9 @@
             text-align: center;
             padding-right: 10px;
         }
+
+        .details .recentstaff table tr td:nth-child(2),
+        .details .recentstaff table tr td:nth-child(3),
         .details .recentstaff table tr td:nth-child(5),
         .details .recentstaff table tr td:nth-child(6),
         .details .recentstaff table tr td:nth-child(7)
@@ -595,7 +598,7 @@
                                     <td class='td'><?php echo $value['id_donhang'] ?></td>
                                     <td class='td'><?php echo $value['id_kh']  ?></td>
                                     <td class='td'><?php echo $khachhang[0]['sdt']  ?></td>
-                                    <td class='td'><?php echo $value['tong']  ?></td>
+                                    <td class='td'><?php echo number_format($value['tong'])?>đ</td>
 
                                     <td class='td'><?php echo $tinhtrang[0]['tinhtrang'] ?>
                                     <a class="status" href="?controller=xulydh&method=status&id=<?php echo $value['id_donhang']?>&tt=<?php echo $value['id_tinhtrang']?>">
@@ -603,19 +606,10 @@
                                             case '1':
                                                 echo "<input type='submit' style='background-color:green ; cursor: pointer;' value='Duyệt'>";
                                                 break;
-                                           case '2':
-                                            echo" <input type='submit' style='background-color:red ; cursor: pointer;' value='Hủy'>";
-                                            break;
-                                            case '3':
+                                            case '2':
                                                 echo" <input type='submit' style='background-color:red ; cursor: pointer;' value='Hủy'>";
                                                 break;
-                                            
-                                            case '4':
-                                                echo "";
-                                                break;
-                                                case '5':
-                                                    echo "";
-                                                    break;
+                
                                               }  ?></a>
                                    
                                     </td>

@@ -20,6 +20,7 @@ if(isset($_SESSION['ss_admin'])){
             $diachi = $_POST['diachi'];
 
             $loi = array();
+            $password=md5($_POST['pass']);          
             if (!preg_match('/^[a-zA-Z0-9-]+$/', $username)) {
                 $loi['username'] = 'Tài khoản cần viết liền ko dấu';
               }
@@ -34,7 +35,6 @@ if(isset($_SESSION['ss_admin'])){
             if($password == ''){
                 $loi['pass'] = 'Mật khẩu không được để trống';
             }
-
 
             if($sdt == ''){
                 $loi['sdt'] = 'SĐT không được để trống';

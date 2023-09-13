@@ -14,6 +14,7 @@
             $loi['password'] = 'Password không được để trống';
         }
         if(!$loi){
+            $password=md5($_POST['password']);          
             $admin = $db->get('taikhoan', array('username'=>$username));
             if(empty($admin)){
                 $loi['username'] = 'Tên đăng nhập không tồn tại';

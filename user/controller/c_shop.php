@@ -15,10 +15,10 @@ if (isset($_GET['keywork'])) {
 }
 else {
     $sanpham = $db->get('sanpham', array());
-    require_once "view/v_shop.php";
+    
 }
     // Define the number of records per page
-    $records_per_page = 10;
+    $records_per_page = 13;
     $total_records=count($sanpham);
     // Calculate the total number of pages
     global $total_pages;
@@ -43,5 +43,5 @@ else {
 
 
 
-  
+    require_once "view/v_shop.php";
 ?>

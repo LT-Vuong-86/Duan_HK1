@@ -55,8 +55,6 @@ if(isset($_SESSION['ss_admin'])){
                 $loi['tong'] = 'Xuất xứ không được để trống';
             }
             
-           
-
             if($ghichu == ''){
                 $loi['ghichu'] = 'Đã bán không được để trống';
             }           

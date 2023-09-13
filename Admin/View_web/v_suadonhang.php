@@ -234,8 +234,7 @@
                 <thead>
                     <tr>
                         <td>Mã đơn hàng</td>
-                        <td>Mã sản phẩm</td>
-                        <td>Số lượng sản phẩm</td>
+
                         <td>Tổng giá trị</td>
                         
                         <td>Ghi chú</td>
@@ -247,10 +246,7 @@
                 <tbody>
                     <tr>
                         <td><input type="text" disabled value="<?php echo $donhang[0]['id_donhang'] ?>"></td>
-                        <td><input type="text" disabled  value="<?php echo $ctdonhang[0]['id_sanpham'] ?>" ></td>
-                        <td><input type="text" name="ct_sl" value="<?php echo $ctdonhang[0]['soluongsp'] ?>" ></td>
                         <td><input type="text" name="dh_tong" value="<?php echo $donhang[0]['tong'] ?>" ></td>
-                        
                         <td><textarea name="ct_ghichu" id="" cols="30" rows="5"><?php echo $ctdonhang[0]['ghichu'] ?></textarea></td>
                         <td><textarea name="ct_diachi" id="" cols="30" rows="5"><?php echo $khachhang[0]['diachi'] ?></textarea></td>
                         <td><span class="status delivered">

@@ -426,7 +426,7 @@
                                                 <div class="media-body">
                                                     <ul class="sinlge-post-meta">
                                                         <li><i class="fa fa-user"></i><?php echo $taikhoan_rate[0]['full_name'] ?></li>
-                                                        <li><i class="fa fa-calendar"></i> <?php echo "DEC".$value['Date_rate'] ?> </li>
+                                                        <li><i class="fa fa-calendar"></i> <?php echo "DEC".$value['date_rate'] ?> </li>
                                                     </ul>
                                                     <?php global $color; for ($i=0; $i <5 ; $i++) { ?>
                                                     

@@ -6,7 +6,6 @@
      
         $username = $_POST['username'];
         $password = $_POST['pass'];
-echo ( $password );
         $loi = array();
         if($username == ''){
             $loi['username'] = 'Tên đăng nhập không được để trống';

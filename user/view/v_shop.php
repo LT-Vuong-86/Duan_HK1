@@ -162,7 +162,7 @@
                                             <ul>
                                                 <li><a href="?controller=shop&id_dm=6">Áo Vest</a></li>
                                                 <li><a href="?controller=shop&id_dm=5">Quần</a></li>
-                                                <li><a href="?controller=shop&id_dm=4">Áo Polo</a></li>
+                                                <li><a href="?controller=shop&id_dm=4">Áo Nam</a></li>
                                             </ul>
                                         </div>
                                     </div>
@@ -190,7 +190,7 @@
                                     <div class="panel-heading">
                                         <h4 class="panel-title">
                                             <a data-toggle="collapse" data-parent="#accordian" href="#kid">
-                                                <span class="badge pull-right"><i class="fa fa-plus"></i></span> trẻ em
+                                                <span class="badge pull-right"><i class="fa fa-plus"></i></span> Trẻ em
                                             </a>
                                         </h4>
                                     </div>
@@ -199,7 +199,7 @@
                                             <ul>
                                                 <li><a href="?controller=shop&id_dm=7">Áo</a></li>
                                                 <li><a href="?controller=shop&id_dm=8">Quần</a></li>
-                                                <li><a href="?controller=shop&id_dm=9">Cả bộ</a></li>
+                                                <li><a href="?controller=shop&id_dm=9">Bộ</a></li>
                                             </ul>
                                         </div>
                                     </div>
@@ -236,32 +236,22 @@
                         <h2 class="title text-center">Cửa hàng</h2>
                         <?php
                             $i = 0;
-                            $random_products = array_rand($sanpham, min(count($sanpham), 13));
-                            foreach ($random_products as $key => $value) {
+                            foreach ($sanpham as $key => $value) {
                                 if(++$i == 13) break;
-
-                                // Kiểm tra xem giá trị $random_products[$key] có phải là một khóa hợp lệ của mảng $sanpham không
-                                if (array_key_exists($value, $sanpham)) {
-                                    $random_product = $sanpham[$value];
-                                } else {
-                                    // Nếu giá trị $random_products[$key] không phải là một khóa hợp lệ của mảng $sanpham, thì bỏ qua sản phẩm này
-                                    continue;
-                                }
-
                                 // Hiển thị sản phẩm
                                 ?>
                                 <div class="col-sm-4"> 
                                     <div class="product-image-wrapper">
                                         <div class="single-products">
                                             <div class="productinfo text-center">
-                                                <img class="img-responsive" style="width:100%; height:250px; object-fit: cover;" src="../images/sanpham/<?php echo $random_product['anh_chinh']?>" alt="" />
-                                                <h5><?php echo $random_product['tensanpham']?></h5>
+                                                <img class="img-responsive" style="width:100%; height:250px; object-fit: cover;" src="../images/sanpham/<?php echo $value['anh_chinh']?>" alt="" />
+                                                <h5><?php echo $value['tensanpham']?></h5>
 
                                             </div>
                                             <div class="bottom">
-                                                <h4><sup>đ</sup><?php echo number_format($random_product['gia'])?></h4>
-                                                <h6>Đã bán: <?php echo $random_product['daban']?></h6>
-                                                <a href="?controller=product-detail&id=<?php echo $random_product['id_sanpham']?>">
+                                                <h4><sup>đ</sup><?php echo number_format($value['gia'])?></h4>
+                                                <h6>Đã bán: <?php echo $value['daban']?></h6>
+                                                <a href="?controller=product-detail&id=<?php echo $value['id_sanpham']?>">
                                                 <button class="watch" style="float:right; margin-top:30px; margin-left:20px">Xem ngay</button>
                                             </a>
                                             </div>
@@ -280,7 +270,7 @@
                                             echo "<li class='active'><a href='?controller=shop&page=$i'>$i</a></li>";
                                         }else{
                                             echo "<li><a href='?controller=shop&page=$i'>$i</a></li>";
-                                            echo "<li><a href='?controller=shop&page=$i'>&raquo;</a></li>";
+                                            // echo "<li><a href='?controller=shop&page=$i'>&raquo;</a></li>";
                                         }
                                     }  
                                 }
