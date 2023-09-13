@@ -116,7 +116,7 @@
                                 foreach ($_SESSION['cart'] as $key => $value){
                                     $tongsl+=$value['sl'];
                                     $tongtiensp+=$value['sl']*$value['gia'];
-                                    $tongtien = $tongtiensp
+                                    $tongtien = $tongtiensp;
                         ?>
                         <tr class="text-center">
                             <td class="">
@@ -145,9 +145,10 @@
                             
                         </tr>
                         <?php } } else{ if(isset($giohang)){ 
+                            $tongsl = 0;
                             foreach ($giohang as $key => $value) {
-                               
                                 $donhang=$db->get('sanpham',array('id_sanpham'=>$value['id_sanpham']));
+                                $tongsl+=$value['soluong'];  
                                 $tongtiensp+=$value['soluong']*$donhang[0]['gia'];
                                 ?>
                                  <tr class="text-center">

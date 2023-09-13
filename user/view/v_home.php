@@ -14,6 +14,20 @@
 	<link href="../css/main.css" rel="stylesheet">
 	<link href="../css/responsive.css" rel="stylesheet">
     <style>
+        *{
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        .product-image-wrapper{
+            height: 330px;
+        }
+
+        #spin{
+            height: 440px;
+        }
+
         .features_items .product-image-wrapper .single-products h5{
             word-wrap: break-word;
             white-space: normal;
@@ -41,7 +55,18 @@
             width:100%; height:250px; object-fit: cover;
         }
         
-        
+        h5{
+            color: black; 
+            position: absolute; 
+            margin-top: 10px; 
+        }
+
+        .bottom{
+            margin-top:45px; 
+            width: 100%; 
+            height: 100%; 
+            position: absolute;
+        }
     </style>
     </head><!--/head-->
 
@@ -248,22 +273,32 @@
                         
                         <?php
                             $i = 0;
-                            foreach ($sanpham as $key => $value) {
+                            $random_products = array_rand($sanpham, min(count($sanpham), 10));
+                            foreach ($random_products as $key => $value) {
                                 if(++$i == 10) break;
+
+                                // Kiểm tra xem giá trị $random_product_id có phải là một khóa hợp lệ của mảng $sanpham không
+                                if (array_key_exists($value, $sanpham)) {
+                                    $random_product = $sanpham[$value];
+                                } else {
+                                    // Nếu giá trị $random_product_id không phải là một khóa hợp lệ của mảng $sanpham, thì bỏ qua sản phẩm này
+                                    continue;
+                                }
+
                         ?>
-                        <a href="?controller=product-detail&id=<?php echo $value['id_sanpham']?>">
+                        <a href="?controller=product-detail&id=<?php echo $random_product['id_sanpham']?>">
                             <div class="col-sm-4"> 
                                 <div class="product-image-wrapper">
-                                    <div class="single-products">
-                                        <div class="productinfo text-center">
-                                            <a href="?controller=product-detail&id=<?php  echo $value['id_sanpham'] ?>">
-                                                <img class="img-responsive" style="width:100%; height:250px; object-fit: cover;" src="../images/sanpham/<?php echo $value['anh_chinh']?>" alt="" />
+                                    <div class="single-products text-center">
+                                        <div class="productinfo">
+                                            <a href="?controller=product-detail&id=<?php  echo $random_product['id_sanpham'] ?>">
+                                                <img class="img-responsive" style="width:100%; height:250px; object-fit: cover;" src="../images/sanpham/<?php echo $random_product['anh_chinh']?>" alt="" />
                                             </a> 
-                                            <h5><?php echo $value['tensanpham']?></h5>
+                                            <h5><?php echo $random_product['tensanpham']?></h5>
                                         </div>
-                                        <div>
-                                            <h4><sup>đ</sup><?php echo number_format($value['gia'])?></h4>
-                                            <h6>Đã bán: <?php echo $value['daban']?></h6>
+                                        <div class="bottom">
+                                            <h4><sup>đ</sup><?php echo number_format($random_product['gia'])?></h4>
+                                            <h6>Đã bán: <?php echo $random_product['daban']?></h6>
                                         </div>
                                     </div>
                                 </div>
@@ -280,6 +315,7 @@
                                 <li class="active"><a href="#tshirt" data-toggle="tab">Vest</a></li>
                                 <li><a href="#blazers" data-toggle="tab">Quần nữ</a></li>
                                 <li><a href="#dress" data-toggle="tab">Váy, đầm</a></li>
+                                <li><a href="#boys" data-toggle="tab">Áo nam</a></li>
                                 <li><a href="#kids" data-toggle="tab">Trẻ em</a></li>
                             </ul>
                         </div>
@@ -290,12 +326,14 @@
                                 foreach ($sp_vest as $key => $value) { ?>  
                                     <?php if ($key < $dk) {?>
                                     <div class="col-sm-3">
-                                        <div class="product-image-wrapper">
-                                            <div class="single-products">
-                                                <div class="productinfo text-center">
+                                        <div class="product-image-wrapper" id="spin">
+                                            <div class="single-products text-center">
+                                                <div class="productinfo">
                                                     <img class="img-responsive" src="../images/sanpham/<?php echo $value['anh_chinh'] ?>" alt="" />
-                                                    <h2><span><?php echo number_format($value['gia'])?></span>đ</h2>
-                                                    <p><?php echo $value['tensanpham']?></p>
+                                                    <h5><?php echo $value['tensanpham']?></h5>
+                                                </div>
+                                                <div class="bottom">
+                                                    <h3><span><?php echo number_format($value['gia'])?></span>đ</h3>
                                                     <p>Đã bán: <?php echo $value['daban']?></p>
                                                     <a href="?controller=product-detail&id=<?php  echo $value['id_sanpham'] ?>" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Xem chi tiết</a>
                                                 </div>
@@ -310,19 +348,21 @@
                             <div class="tab-pane fade" id="blazers">
                                 <?php
                                     $dk=4;
-                                    foreach ($sp_trousers_girl as $key => $value) { ?>  
-                                    <?php if ($key < $dk) {?>
+                                    foreach ($sp_trousers_girl as $key => $value) {?>  
+                                    <?php if ($key < $dk) {
+                                        ?>
                                         <div class="col-sm-3">
-                                            <div class="product-image-wrapper">
-                                                <div class="single-products">
-                                                    <div class="productinfo text-center">
+                                            <div class="product-image-wrapper" id="spin">
+                                                <div class="single-products text-center">
+                                                    <div class="productinfo">
                                                         <img class="img-responsive" src="../images/sanpham/<?php echo $value['anh_chinh'] ?>" alt="" />
-                                                        <h2><span><?php echo number_format($value['gia'])?></span>đ</h2>
-                                                        <p><?php echo $value['tensanpham']?></p>
+                                                        <h5><?php echo $value['tensanpham']?></h5>
+                                                    </div>
+                                                    <div class="bottom">
+                                                        <h3><span><?php echo number_format($value['gia'])?></span>đ</h3>
                                                         <p>Đã bán: <?php echo $value['daban']?></p>
                                                         <a href="?controller=product-detail&id=<?php  echo $value['id_sanpham'] ?>" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Xem chi tiết</a>
                                                     </div>
-
                                                 </div>
                                             </div>
                                         </div>
@@ -336,16 +376,41 @@
                                     foreach ($sp_dress as $key => $value) { ?>  
                                     <?php if ($key < $dk) {?>
                                         <div class="col-sm-3">
-                                            <div class="product-image-wrapper">
-                                                <div class="single-products">
-                                                    <div class="productinfo text-center">
-                                                        <img class="img-responsive" src="../images/sanpham/<?php echo $value['anh_chinh'] ?>" alt=""/>
-                                                        <h2><span><?php echo number_format($value['gia'])?></span>đ</h2>
-                                                        <p><?php echo $value['tensanpham']?></p>
+                                            <div class="product-image-wrapper" id="spin">
+                                                <div class="single-products text-center">
+                                                    <div class="productinfo">
+                                                        <img class="img-responsive" src="../images/sanpham/<?php echo $value['anh_chinh'] ?>" alt="" />
+                                                        <h5><?php echo $value['tensanpham']?></h5>
+                                                    </div>
+                                                    <div class="bottom">
+                                                        <h3><span><?php echo number_format($value['gia'])?></span>đ</h3>
                                                         <p>Đã bán: <?php echo $value['daban']?></p>
                                                         <a href="?controller=product-detail&id=<?php  echo $value['id_sanpham'] ?>" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Xem chi tiết</a>
                                                     </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    <?php }?>
+                                <?php }?>
+                            </div>
 
+                            <div class="tab-pane fade" id="boys">
+                            <?php
+                                    $dk=4;
+                                    foreach ($sp_shirt_boy as $key => $value) { ?>  
+                                    <?php if ($key < $dk) {?>
+                                        <div class="col-sm-3">
+                                            <div class="product-image-wrapper" id="spin">
+                                                <div class="single-products text-center">
+                                                    <div class="productinfo">
+                                                        <img class="img-responsive" src="../images/sanpham/<?php echo $value['anh_chinh'] ?>" alt="" />
+                                                        <h5><?php echo $value['tensanpham']?></h5>
+                                                    </div>
+                                                    <div class="bottom">
+                                                        <h3><span><?php echo number_format($value['gia'])?></span>đ</h3>
+                                                        <p>Đã bán: <?php echo $value['daban']?></p>
+                                                        <a href="?controller=product-detail&id=<?php  echo $value['id_sanpham'] ?>" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Xem chi tiết</a>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
@@ -356,15 +421,17 @@
                             <div class="tab-pane fade" id="kids">
                             <?php
                                     $dk=4;
-                                    foreach ($sp_shirt_kids as $key => $value) { ?>  
+                                    foreach ($sp_suit_kids as $key => $value) { ?>  
                                     <?php if ($key < $dk) {?>
                                         <div class="col-sm-3">
-                                            <div class="product-image-wrapper">
-                                                <div class="single-products">
-                                                    <div class="productinfo text-center">
+                                            <div class="product-image-wrapper" id="spin">
+                                                <div class="single-products text-center">
+                                                    <div class="productinfo">
                                                         <img class="img-responsive" src="../images/sanpham/<?php echo $value['anh_chinh'] ?>" alt="" />
-                                                        <h2><span><?php echo number_format($value['gia'])?></span>đ</h2>
-                                                        <p><?php echo $value['tensanpham']?></p>
+                                                        <h5><?php echo $value['tensanpham']?></h5>
+                                                    </div>
+                                                    <div class="bottom">
+                                                        <h3><span><?php echo number_format($value['gia'])?></span>đ</h3>
                                                         <p>Đã bán: <?php echo $value['daban']?></p>
                                                         <a href="?controller=product-detail&id=<?php  echo $value['id_sanpham'] ?>" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Xem chi tiết</a>
                                                     </div>
@@ -386,22 +453,25 @@
                             <div class="carousel-inner">
                                 <div class="item active">
                                     <?php 
-                                    $i = 0;
-                                    foreach ($sp_shirt_girl as $key => $value) {
-                                        if(++$i == 4) break;?>       
+                                        $i = 0;
+                                        foreach ($sp_shirt_girl as $key => $value) {
+                                        if(++$i == 4) break;
+                                        ?>       
                                     <div class="col-sm-4">
-                                        <div class="product-image-wrapper">
-                                            <div class="single-products">
-                                                <div class="productinfo text-center">
-                                                    <img class="img-responsive" src="../images/sanpham/<?php echo $value['anh_chinh'] ?>" alt="" />
-                                                    <h2><?php echo $value['gia'] ?></h2>
-                                                    <p><?php echo $value['tensanpham'] ?></p>
-                                                    <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i> thêm vào giỏ hàng</a>
+                                            <div class="product-image-wrapper" id="spin">
+                                                <div class="single-products text-center">
+                                                    <div class="productinfo">
+                                                        <img class="img-responsive" src="../images/sanpham/<?php echo $value['anh_chinh'] ?>" alt="" />
+                                                        <h5><?php echo $value['tensanpham']?></h5>
+                                                    </div>
+                                                    <div class="bottom">
+                                                        <h3><span><?php echo number_format($value['gia'])?></span>đ</h3>
+                                                        <p>Đã bán: <?php echo $value['daban']?></p>
+                                                        <a href="?controller=product-detail&id=<?php  echo $value['id_sanpham'] ?>" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Xem chi tiết</a>
+                                                    </div>
                                                 </div>
-
                                             </div>
                                         </div>
-                                    </div>
                                     <?php } ?>
                                    
                                 </div>
@@ -411,18 +481,20 @@
                                     foreach ($sp_trousers_girl as $key => $value) {
                                         if(++$i == 4) break;?>       
                                     <div class="col-sm-4">
-                                        <div class="product-image-wrapper">
-                                            <div class="single-products">
-                                                <div class="productinfo text-center">
-                                                    <img class="img-responsive" src="../images/sanpham/<?php echo $value['anh_chinh'] ?>" alt="" />
-                                                    <h2><?php echo $value['gia'] ?></h2>
-                                                    <p><?php echo $value['tensanpham'] ?></p>
-                                                    <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i> thêm vào giỏ hàng</a>
+                                            <div class="product-image-wrapper" id="spin">
+                                                <div class="single-products text-center">
+                                                    <div class="productinfo">
+                                                        <img class="img-responsive" src="../images/sanpham/<?php echo $value['anh_chinh'] ?>" alt="" />
+                                                        <h5><?php echo $value['tensanpham']?></h5>
+                                                    </div>
+                                                    <div class="bottom">
+                                                        <h3><span><?php echo number_format($value['gia'])?></span>đ</h3>
+                                                        <p>Đã bán: <?php echo $value['daban']?></p>
+                                                        <a href="?controller=product-detail&id=<?php  echo $value['id_sanpham'] ?>" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Xem chi tiết</a>
+                                                    </div>
                                                 </div>
-
                                             </div>
                                         </div>
-                                    </div>
                                     <?php } ?>    
                                 </div>
                                 <div class="item">
@@ -431,38 +503,42 @@
                                     foreach ($sp_dress as $key => $value) {
                                         if(++$i == 4) break;?>     
                                     <div class="col-sm-4">
-                                        <div class="product-image-wrapper">
-                                            <div class="single-products">
-                                                <div class="productinfo text-center">
-                                                    <img class="img-responsive" src="../images/sanpham/<?php echo $value['anh_chinh'] ?>" alt="" />
-                                                    <h2><?php echo $value['gia'] ?></h2>
-                                                    <p><?php echo $value['tensanpham'] ?></p>
-                                                    <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i> thêm vào giỏ hàng</a>
+                                            <div class="product-image-wrapper" id="spin">
+                                                <div class="single-products text-center">
+                                                    <div class="productinfo">
+                                                        <img class="img-responsive" src="../images/sanpham/<?php echo $value['anh_chinh'] ?>" alt="" />
+                                                        <h5><?php echo $value['tensanpham']?></h5>
+                                                    </div>
+                                                    <div class="bottom">
+                                                        <h3><span><?php echo number_format($value['gia'])?></span>đ</h3>
+                                                        <p>Đã bán: <?php echo $value['daban']?></p>
+                                                        <a href="?controller=product-detail&id=<?php  echo $value['id_sanpham'] ?>" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Xem chi tiết</a>
+                                                    </div>
                                                 </div>
-
                                             </div>
                                         </div>
-                                    </div>
                                     <?php } ?>    
                                 </div>
                                 <div class="item">
                                 <?php 
                                     $i = 0;
-                                    foreach ($sp_shirt_kids as $key => $value){ 
+                                    foreach ($sp_shirt_boy as $key => $value){ 
                                         if(++$i == 4) break;?>       
                                     <div class="col-sm-4">
-                                        <div class="product-image-wrapper">
-                                            <div class="single-products">
-                                                <div class="productinfo text-center">
-                                                    <img class="img-responsive" src="../images/sanpham/<?php echo $value['anh_chinh'] ?>" alt="" />
-                                                    <h2><?php echo $value['gia'] ?></h2>
-                                                    <p><?php echo $value['tensanpham'] ?></p>
-                                                    <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i> thêm vào giỏ hàng</a>
+                                            <div class="product-image-wrapper" id="spin">
+                                                <div class="single-products text-center">
+                                                    <div class="productinfo">
+                                                        <img class="img-responsive" src="../images/sanpham/<?php echo $value['anh_chinh'] ?>" alt="" />
+                                                        <h5><?php echo $value['tensanpham']?></h5>
+                                                    </div>
+                                                    <div class="bottom">
+                                                        <h3><span><?php echo number_format($value['gia'])?></span>đ</h3>
+                                                        <p>Đã bán: <?php echo $value['daban']?></p>
+                                                        <a href="?controller=product-detail&id=<?php  echo $value['id_sanpham'] ?>" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Xem chi tiết</a>
+                                                    </div>
                                                 </div>
-
                                             </div>
                                         </div>
-                                    </div>
                                     <?php } ?>    
                                 </div>
                                 <div class="item">
@@ -472,18 +548,20 @@
                                         if(++$i == 4) break;     
                                     ?>       
                                     <div class="col-sm-4">
-                                        <div class="product-image-wrapper">
-                                            <div class="single-products">
-                                                <div class="productinfo text-center">
-                                                    <img class="img-responsive" src="../images/sanpham/<?php echo $value['anh_chinh'] ?>" alt="" />
-                                                    <h2><?php echo $value['gia'] ?></h2>
-                                                    <p><?php echo $value['tensanpham'] ?></p>
-                                                    <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i> thêm vào giỏ hàng</a>
+                                            <div class="product-image-wrapper" id="spin">
+                                                <div class="single-products text-center">
+                                                    <div class="productinfo">
+                                                        <img class="img-responsive" src="../images/sanpham/<?php echo $value['anh_chinh'] ?>" alt="" />
+                                                        <h5><?php echo $value['tensanpham']?></h5>
+                                                    </div>
+                                                    <div class="bottom">
+                                                        <h3><span><?php echo number_format($value['gia'])?></span>đ</h3>
+                                                        <p>Đã bán: <?php echo $value['daban']?></p>
+                                                        <a href="?controller=product-detail&id=<?php  echo $value['id_sanpham'] ?>" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Xem chi tiết</a>
+                                                    </div>
                                                 </div>
-
                                             </div>
                                         </div>
-                                    </div>
                                     <?php }?>    
                                 </div>
                             </div>

@@ -19,6 +19,11 @@
             float: left; 
             color: crimson;
         }
+        h5{
+            color: black; 
+            position: absolute; 
+            margin-top: 10px; 
+        }
         h6{
             float: left;
             position: absolute;
@@ -26,6 +31,7 @@
             margin-left: 10px;
         }
         .product-image-wrapper{
+            height: 360px;
             padding: 5px;
             border: 1px solid black;
         }
@@ -38,9 +44,14 @@
             border-radius: 18px;
             background: orange;
         }
-
+        .bottom{
+            margin-top:45px; 
+            width: 100%; 
+            height: 100%; 
+            position: absolute;
+        }
     </style>
-  </head>
+</head>
 <!--/head-->
 
 <body>
@@ -217,38 +228,54 @@
                         <h2 class="title text-center">Cửa hàng</h2>
                         <?php
                             $i = 0;
-                            foreach ($sanpham as $key => $value) {
+                            $random_products = array_rand($sanpham, min(count($sanpham), 13));
+                            foreach ($random_products as $key => $value) {
                                 if(++$i == 13) break;
-                            ?>
+
+                                // Kiểm tra xem giá trị $random_products[$key] có phải là một khóa hợp lệ của mảng $sanpham không
+                                if (array_key_exists($value, $sanpham)) {
+                                    $random_product = $sanpham[$value];
+                                } else {
+                                    // Nếu giá trị $random_products[$key] không phải là một khóa hợp lệ của mảng $sanpham, thì bỏ qua sản phẩm này
+                                    continue;
+                                }
+
+                                // Hiển thị sản phẩm
+                                ?>
                                 <div class="col-sm-4"> 
                                     <div class="product-image-wrapper">
                                         <div class="single-products">
                                             <div class="productinfo text-center">
-                                                <img class="img-responsive" style="width:100%; height:250px; object-fit: cover;" src="../images/sanpham/<?php echo $value['anh_chinh']?>" alt="" />
-                                                <h5 style="color: black;"><?php echo $value['tensanpham']?></h5>
+                                                <img class="img-responsive" style="width:100%; height:250px; object-fit: cover;" src="../images/sanpham/<?php echo $random_product['anh_chinh']?>" alt="" />
+                                                <h5><?php echo $random_product['tensanpham']?></h5>
                                             </div>
-                                            <div>
-                                                <h4><sup>đ</sup><?php echo number_format($value['gia'])?></h4>
-                                                <h6>Đã bán: <?php echo $value['daban']?></h6>
-                                            </div>
-                                            <a href="?controller=product-detail&id=<?php echo $value['id_sanpham']?>">
+                                            <div class="bottom">
+                                                <h4><sup>đ</sup><?php echo number_format($random_product['gia'])?></h4>
+                                                <h6>Đã bán: <?php echo $random_product['daban']?></h6>
+                                                <a href="?controller=product-detail&id=<?php echo $random_product['id_sanpham']?>">
                                                 <button class="watch" style="float:right; margin-top:30px; margin-left:20px">Xem ngay</button>
                                             </a>
+                                            </div>
+                                            
                                         </div>
                                     </div>
                                 </div>
-                            <?php }?>
+                                <?php
+                            }?>
+
 
                         <ul class="pagination">
-                        <?php if (isset($total_pages)) {
-                            for ($i = 1; $i <= $total_pages; $i++) {
-                            if ($i == $current_page) {
-                                echo "<li class='active'><a href='?controller=shop&page=$i'>$i</a></li>";
-                            } else {
-                                echo "<li><a href='?controller=shop&page=$i'>$i</a></li>";
-                                 echo "<li><a href='?controller=shop&page=$i'>&raquo;</a></li>";
-                            }
-                            }  }
+                            <?php 
+                                if (isset($total_pages)) {
+                                    for ($i = 1; $i <= $total_pages; $i++) {
+                                        if ($i == $current_page) {
+                                            echo "<li class='active'><a href='?controller=shop&page=$i'>$i</a></li>";
+                                        }else{
+                                            echo "<li><a href='?controller=shop&page=$i'>$i</a></li>";
+                                            echo "<li><a href='?controller=shop&page=$i'>&raquo;</a></li>";
+                                        }
+                                    }  
+                                }
                             ?>
                         </ul>
                     </div>

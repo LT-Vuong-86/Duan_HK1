@@ -1,8 +1,6 @@
 <?php
    $index = 0;
 	$sanpham = $db->get('sanpham', array());
-    $random_keys_sanpham=array_rand($sanpham,10);
-    
 	$sp_shirt_girl =$db->get('sanpham',array('id_danhmuc'=>1));
     $sp_trousers_girl =$db->get('sanpham',array('id_danhmuc'=>2));
     $sp_dress =$db->get('sanpham',array('id_danhmuc'=>3));
