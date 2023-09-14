@@ -220,7 +220,7 @@
         <h5>Loại sản phẩm</h5>
         
         <div id="loaisp" class="form-control row mx-1">      
-        <input min="1" max="6" name="slmasp"  type="number" id="loaisp" pattern="[0-9]+" name="numProducts" placeholder="Nhập số loại sản phẩm"
+        <input min="1" max="6" name="slmasp"  type="number" id="loaisp" pattern="[0-9]+" placeholder="Nhập số loại sản phẩm"
         onchange=" showInputs(this.value)">                                       
         </div>
         <div id="loaisp_size" class="form-control"></div>
