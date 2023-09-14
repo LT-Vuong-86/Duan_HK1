@@ -7,8 +7,7 @@
     <link rel="stylesheet" href="assets/css/nhanvien.css">
     <title>E-Shopper | Admin | Nhân viên shop</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap');
-
+       
         *{
             font-family: 'Ubuntu', sans-serif;
             margin: 0;
@@ -492,19 +491,14 @@
                     </a>
                 </li>
 
-                <li>
+                <!-- <li>
                     <a href="#">
                         <span class="icon"><i class='bx bx-line-chart'></i></span>
                         <span class="title">Doanh thu</span>
                     </a>
-                </li>
+                </li> -->
 
-                <li>
-                    <a href="?controller=binhluan">
-                        <span class="icon"><i class='bx bxs-comment-detail'></i></span>
-                        <span class="title">Phản hồi</span>
-                    </a>
-                </li>
+          
                 
                 <li>
                     <a href="?controller=khachhang" class="active_admin">

@@ -36,7 +36,7 @@ if (!$loi) {
           
             $db->update('donhang',array(
                 'id_tinhtrang'=>$rate_buy        
-            ),array('id_donhang'=>$id_dh,'id_kh'=>$value['id_kh']));
+            ),array('id_donhang'=>$id_dh,'id_kh'=>$value['id_kh']),);
         
         }
 header('location: ?controller=product-detail&id='.$id);

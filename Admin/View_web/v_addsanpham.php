@@ -220,7 +220,7 @@
         <h5>Loại sản phẩm</h5>
         
         <div id="loaisp" class="form-control row mx-1">      
-        <input min="1" max="6" name="slmasp"  type="number" id="loaisp" name="numProducts" placeholder="Nhập số loại sản phẩm"
+        <input min="1" max="6" name="slmasp"  type="number" id="loaisp" pattern="[0-9]+" name="numProducts" placeholder="Nhập số loại sản phẩm"
         onchange=" showInputs(this.value)">                                       
         </div>
         <div id="loaisp_size" class="form-control"></div>
@@ -228,7 +228,7 @@
         <h5>Giá </h5>
         <div id="gia" class="form-control row mx-1">
            
-            <input name="gia" type="text" placeholder="Giá 1 sản phẩm" 
+            <input name="gia" type="text" pattern="[0-9]+" placeholder="Giá 1 sản phẩm" 
             value="<?php echo (isset($gia))?$gia:'' ?>" >
             <?php if(isset($loi['gia'])){?>
                 <p class="text-danger"><?php echo $loi['gia']?></p> 

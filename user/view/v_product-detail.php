@@ -376,18 +376,14 @@
                             </ul>
                         </div>
                         <div class="tab-content">
-                           
-
-                            <div class="tab-pane fade " id="tag">
+                           <div class="tab-pane fade " id="tag">
                                 <div class="col-sm-12">
-                                   
-                                    <!--/blog-post-area-->
-
+                                   <!--/blog-post-area-->
                                     <div class="rating-area">
                                         <ul class="ratings">
                                             <li class="rate-this">Đánh giá mục này:</li>
                                             <li>
-												   <?php global $color; for ($i=0; $i <5 ; $i++) { ?>
+												<?php global $color; for ($i=0; $i <5 ; $i++) { ?>
                                                     
                                                     <?php 
                                                     if (isset($rating)) {
@@ -413,12 +409,8 @@
                                                     ?>
                                                     
                                     <div class="response-area">
-                                        
-                                       
                                         <ul class="media-list">
-                                           
                                             <li class="media">
-                                          
                                                 <a class="pull-left" href="#">
                                                     <img class="media-object" src="../images/home/user.png" alt="">
                                                 </a>
@@ -431,20 +423,19 @@
                                                     <?php global $color; for ($i=0; $i <5 ; $i++) { ?>
                                                     
                                                     <?php 
-                                                    if (isset($value['rate_rating'])) {
-                                                    if($i<$value['rate_rating']){
-                                                    $color="color:#FFA617";
-                                                    }else{
-                                                    $color="color:";
-                                                    } }?>
-                                                   <span style=" font-size: 20px;<?php echo $color ?>"> &#9733;</span>
-                                               <?php } ?>
-                                                    <p><?php echo $value['rate_content'] ?></p>
-                                                    <span class="btn btn-primary" class="click_replay"><i class="fa fa-reply"></i>phát lại</span>
-                                                   
+                                                        if (isset($value['rate_rating'])) {
+                                                            if($i<$value['rate_rating']){
+                                                                $color="color:#FFA617";
+                                                            }else{
+                                                                $color="color:";
+                                                            } }?>
+                                                        <span style=" font-size: 20px;<?php echo $color ?>"> &#9733;</span>
+                                                        <?php } ?>
+                                                            <p><?php echo $value['rate_content'] ?></p>
+                                                            <span class="btn btn-primary" class="click_replay"><i class="fa fa-reply"></i>phát lại</span>
                                                 </div>
                                             </li>
-                                         <?php   ?>
+                                            <?php   ?>
                                             <li class="media second-media" class="click_none_replay">
                                                 <a class="pull-left" href="#">
                                                     <img class="media-object" src="../images/home/logo.png" alt="">
@@ -454,19 +445,14 @@
                                                   <?php  }else{?>
                                                     <p>Cảm ơn quý đã mua hàng của chúng tôi, chúng tôi rất xin lỗi vì trải nghiệm ko hài lòng của quý khách </p>
                                                 <?php  } ?>
-                                                   
-                                                  
-                                                     </div>
-                                                
                                             </li>
-                                            
-                                            
                                         </ul>
+                                        </div>
                                         <?php  } ?>
-                                    </div>
-                                   
+                                    
                                 </div>
                             </div>
+                       
 
                             <div class="tab-pane fade active in" id="reviews">
                                 <div class="col-sm-12">
@@ -509,7 +495,7 @@
                                    
                                 </div>
                             </div>
-
+                        </div>
                         </div>
 
                     </div>

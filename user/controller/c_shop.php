@@ -18,7 +18,7 @@ else {
     
 }
     // Define the number of records per page
-    $records_per_page = 13;
+    $records_per_page = 12;
     $total_records=count($sanpham);
     // Calculate the total number of pages
     global $total_pages;
@@ -39,9 +39,5 @@ else {
     $sanpham=$db->get_limit('sanpham',array(),$current_page.','.$records_per_page);
     // Generate the pagination links
     
-
-
-
-
-    require_once "view/v_shop.php";
+    require "view/v_shop.php";
 ?>

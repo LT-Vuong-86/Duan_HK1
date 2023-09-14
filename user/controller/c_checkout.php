@@ -172,13 +172,14 @@ if (isset($_SESSION['cart'])) {
             'ghichu'=>$ghichu,
             'ngaydat'=>$date_oder
         ));
-        $db->update('loai_sp',array(
-            $value['size_name']=>$loai_sp[0][$sizelsp]-$value['sl']
-        ),array('id_sanpham'=>$value['id_sanpham']));
+        // $db->update('loai_sp',array(
+        //     $value['size_name']=>$loai_sp[0][$sizelsp]-$value['sl']
+        // ),array('id_sanpham'=>$value['id_sanpham']));
         
         $sl+=$value['sl'];
     }$sanpham=$db->get('sanpham',array('id_sanpham'=>$value['id_sanpham']));
-    $db->update('sanpham', array('tonkho'=>$sanpham['tonkho']-$sl), array('id_sanpham'=>$value['id_sanpham']));
+    $db->update('sanpham', array('tonkho'=>$sanpham[0]['tonkho']-$sl), 
+    array('id_sanpham'=>$value['id_sanpham']));
    
     echo "<script>alert('Đặt hàng thành công')</script>";
     unset($_SESSION['cart']);

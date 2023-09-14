@@ -80,35 +80,13 @@
                         <div class="logo pull-left">
                             <a href="?controller=home"><img src="../images/home/logo.png" alt="" /></a>
                         </div>
-                        <!-- <div class="btn-group pull-right">
-							<div class="btn-group">
-								<button type="button" class="btn btn-default dropdown-toggle usa" data-toggle="dropdown">
-									USA
-									<span class="caret"></span>
-								</button>
-								<ul class="dropdown-menu">
-									<li><a href="#">Canada</a></li>
-									<li><a href="#">UK</a></li>
-								</ul>
-							</div>
-							
-							<div class="btn-group">
-								<button type="button" class="btn btn-default dropdown-toggle usa" data-toggle="dropdown">
-									DOLLAR
-									<span class="caret"></span>
-								</button>
-								<ul class="dropdown-menu">
-									<li><a href="#">Canadian Dollar</a></li>
-									<li><a href="#">Pound</a></li>
-								</ul>
-							</div>
-						</div> -->
+                       
                     </div>
                     <div class="col-sm-8">
                         <div class="shop-menu pull-right">
                             <ul class="nav navbar-nav">
                                 <li><a href="?controller=account"><i class="fa fa-user"></i> Tài khoản</a></li>
-                                <li><a href="#"><i class="fa fa-star"></i>Danh sách yêu thích</a></li>
+                                <!-- <li><a href="#"><i class="fa fa-star"></i>Danh sách yêu thích</a></li> -->
                                 <li><a href="?controller=checkout"><i class="fa fa-crosshairs"></i>Thanh toán</a></li>
                                 <li><a href="?controller=cart"><i class="fa fa-shopping-cart"></i>Giỏ hàng</a></li>
                                 <li>
@@ -144,9 +122,8 @@
                             <ul class="nav navbar-nav collapse navbar-collapse">
                                 <li><a href="?controller=home" class="active">Trang chủ</a></li>
                                 <li class="dropdown">
-                                    <a href="">Mail<i class="fa fa-angle-down"></i></a>
-                                    <ul role="menu" class="sub-menu">
-                                        <li><a href="?controller=shop">Cửa hàng</a></li>
+                                    <a href="?controller=shop">Cửa hàng<i class="fa fa-angle-down"></i></a>
+                                    <ul role="menu" class="sub-menu ">
                                         <li><a href="?controller=checkout">Thủ tục thanh toán</a></li>
                                         <li><a href="?controller=cart">Giỏ hàng</a></li>
                                     </ul>
@@ -154,7 +131,7 @@
                                 <li class="dropdown"><a href="#">Blog<i class="fa fa-angle-down"></i></a>
                                     <ul role="menu" class="sub-menu">
                                         <li><a href="?controller=blog">Blog List</a></li>
-                                        <li><a href="?controller=blog-single">Blog Single</a></li>
+                                       
                                     </ul>
                                 </li>
                                 <li><a href="?controller=contact">Liên hệ</a></li>
@@ -320,18 +297,7 @@
                             <!--shipping-->
                             <img src="../images/home/shipping.jpg" alt="" />
                         </div>
-                        <div class="shipping text-center">
-                            <!--shipping-->
-                            <img src="../images/home/shipping.jpg" alt="" />
-                        </div>
-                        <div class="shipping text-center">
-                            <!--shipping-->
-                            <img src="../images/home/shipping.jpg" alt="" />
-                        </div>
-                        <div class="shipping text-center">
-                            <!--shipping-->
-                            <img src="../images/home/shipping.jpg" alt="" />
-                        </div>
+                       
                         <!--/shipping-->
 
                     </div>

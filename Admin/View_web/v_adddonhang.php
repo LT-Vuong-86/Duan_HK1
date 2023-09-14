@@ -180,7 +180,7 @@ body .button{
         <p>Mã sản phẩm</p>
         <div id="masp" class="form-control row mx-1">
            
-            <input   id="quantity" min="1" max="10" name="slmasp"  type="number" placeholder="Số lượng mã sản phẩm" 
+            <input   id="quantity" min="1" max="10" name="slmasp" pattern="[0-9]+"  type="number" placeholder="Số lượng mã sản phẩm" 
             value="<?php echo (isset($masp))?$masp:'' ?>" >
             <div id="inputs"></div>
             <?php if(isset($loi['masp'])){?>
@@ -210,7 +210,7 @@ body .button{
         <p>Tổng tiền</p>
         <div id="size_name" class="form-control row mx-1">
             
-            <input name="tong" type="text" placeholder="Tổng tiền" 
+            <input name="tong" pattern="[0-9]+" type="text" placeholder="Tổng tiền" 
             value="<?php echo (isset($tong))?$tong:'' ?>" >
             <?php if(isset($loi['tong'])){?>
                 <p class="text-danger"><?php echo $loi['tong']?></p> 
