@@ -7,8 +7,7 @@
     <link rel="stylesheet" href="./assets/css/adminstyle.css">
     <title>E-Shopper | Admin</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap');
-
+       
         *{
             font-family: 'Ubuntu', sans-serif;
             margin: 0;
@@ -374,7 +373,7 @@
             <ul>
                 <li>
                     <a href="?controller=trangchu" >
-                        <span class="icon"><img style="width: 40px; height: 40px; " src="assets/img/iconE.png" alt=""></span>
+                        <span class="icon"><img style="width: 40px; height: 40px; " src="..images/home/logo.png" alt=""></span>
                         <span class="title"><?php if (isset( $_SESSION['name_admin'] )) {
                             echo  $_SESSION['name_admin'] ;
                         } ?></span>
@@ -409,19 +408,14 @@
                     </a>
                 </li>
 
-                <li>
+                <!-- <li>
                     <a href="#">
                         <span class="icon"><i class='bx bx-line-chart'></i></span>
                         <span class="title">Doanh thu</span>
                     </a>
-                </li>
+                </li> -->
 
-                <li>
-                    <a href="?controller=binhluan">
-                        <span class="icon"><i class='bx bxs-comment-detail'></i></span>
-                        <span class="title">Phản hồi</span>
-                    </a>
-                </li>
+              
 
                 <li>
                     <a href="?controller=khachhang">
@@ -444,24 +438,9 @@
                 <div class="toggle">
                     <i class='bx bx-menu'></i>
                 </div>
-                <form action="">
-                <div  class="search_codition">
-                    <h4>Tìm kiếm theo</h4>
-                    <select name="" id="">
-                        <option value="sdt">SĐT</option>
-                        <option value="tài khoản">Tài khoản</option>
-                        <option value="name">Tên</option>
-                    </select>
-                </div>
-                <div class="search">
-                    <label for="">
-                        <input type="text" placeholder="Tìm kiếm...">
-                        <span><input type="submit" name="search"></span>
-                    </label>
-                </div>
-                </form>
+                
                 <div class="user">
-                    <img src="assets/img/iconE.png" alt="">
+                    <img src="..images/home/logo.png" alt="">
                 </div>
             </div>
 
@@ -546,8 +525,7 @@
             main.classList.toggle("active");
         }
     </script>
-    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
-    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
     
 </body>
 </html>

@@ -5,7 +5,7 @@
         protected $user = 'root';
         protected $pass = '';
         protected $dtbase = 'du_an';
-        protected $port = '3306';
+        protected $port = '3308';
     //Tạo phương thức kết nối
     public function __construct()
     {

@@ -200,7 +200,7 @@
             <?php }?>
         </div>
 
-        <div id="matkhau" class="form-control row mx-1">
+        <div id="matkhau"  minlength="6" class="form-control  row mx-1">
             <input name="pass" type="password" placeholder="Mật khẩu" 
             value="" required>
         </div>
@@ -211,7 +211,7 @@
         </div>
 
         <div id="sdt" class="form-control row mx-1">
-            <input name="sdt" type="text" placeholder="SĐT" 
+            <input name="sdt"  type="tel" pattern="[0-9]{10}" title="Hãy nhập lại số điện thoại." placeholder="SĐT" 
             value="<?php echo (isset($sdt))?$sdt:'' ?>" required>
         </div>
         <div id="canhbao" class="row mt-2">

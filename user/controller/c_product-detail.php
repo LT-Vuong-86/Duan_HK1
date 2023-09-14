@@ -126,35 +126,31 @@
        
       
     }else{
-        if (isset($_SESSION['cart'])){
-            if (isset($_SESSION['cart'][$id])){
-               
-                //Nếu đã có sản phẩm đó rồi thì +1 sản phẩm
-                $_SESSION['cart'][$id]['sl']+=1;
-                $_SESSION['cart'][$id]['loai_sp']=$_SESSION['cart'][$id]['loai_sp'].", ".$loai_sp;
-            }else{
-        $_SESSION['cart'][$id]['id_sanpham'] = $id;
-        $_SESSION['cart'][$id]['tensanpham'] = $product[0]['tensanpham'];
-        $_SESSION['cart'][$id]['gia'] = $product[0]['gia'];
-        $_SESSION['cart'][$id]['sl'] = $sl;
-        $_SESSION['cart'][$id]['anh_chinh'] = $product[0]['anh_chinh'];
-        $_SESSION['cart'][$id]['loai_sp'] = $loai_sp;
-        $_SESSION['cart'][$id]['size_name'] = $size_name;
-        $_SESSION['cart'][$id]['tong'] = $tong;
-        header("location: ?controller=checkout");
-            }
-       }else{
-         $_SESSION['cart'][$id]['id_sanpham'] = $id;
-        $_SESSION['cart'][$id]['tensanpham'] = $product[0]['tensanpham'];
-        $_SESSION['cart'][$id]['gia'] = $product[0]['gia'];
-        $_SESSION['cart'][$id]['sl'] = $sl;
-        $_SESSION['cart'][$id]['anh_chinh'] = $product[0]['anh_chinh'];
-        $_SESSION['cart'][$id]['loai_sp'] = $loai_sp;
-        $_SESSION['cart'][$id]['size_name'] = $size_name;
-        $_SESSION['cart'][$id]['tong'] = $tong;
-        header("location: ?controller=checkout");
-
-       }
+       
+        if ($_SESSION['cart'][$id]['size_name'] == $size_name && $_SESSION['cart'][$id]['loai_sp'] == $loai_sp) {
+            // Increment the quantity
+           
+            $_SESSION['cart'][$id]['sl'] += $sl;
+          } else if ($_SESSION['cart'][$id]['id_sanpham'] == $id) {
+            // Add the product to the cart
+             $_SESSION['cart'][$id]['loai_sp'] = $loai_sp;
+            $_SESSION['cart'][$id]['size_name'] = $size_name;
+            $_SESSION['cart'][$id]['sl'] = $sl;
+          
+          } else {
+            // Add the product to the cart
+            $_SESSION['cart'][$id]['id_sanpham'] = $id;
+            $_SESSION['cart'][$id]['tensanpham'] = $product[0]['tensanpham'];
+            $_SESSION['cart'][$id]['gia'] = $product[0]['gia'];
+            $_SESSION['cart'][$id]['sl'] = $sl;
+            $_SESSION['cart'][$id]['anh_chinh'] = $product[0]['anh_chinh'];
+            $_SESSION['cart'][$id]['loai_sp'] = $loai_sp;
+            $_SESSION['cart'][$id]['size_name'] = $size_name;
+            $_SESSION['cart'] [$id]['tong'] = $tong;
+          }
+          
+          header("location: ?controller=checkout");
+          
     }
 
     }

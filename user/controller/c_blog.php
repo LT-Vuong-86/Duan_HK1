@@ -1,7 +1,9 @@
 <?php
 $sanpham=$db->get('sanpham',array());
 $reversed_array = array_reverse($sanpham);
-
+// if ($sanpham != "") {
+//     $reversed_array = nl2br($sanpham[0]["nd_sp"]);
+// }
 // In mảng đảo ngược
 $records_per_page = 3;
 $total_records=count($sanpham);

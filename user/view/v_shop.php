@@ -101,7 +101,7 @@
                         <div class="mainmenu pull-left">
                             <ul class="nav navbar-nav collapse navbar-collapse">
                                 <li><a href="?controller=home">Trang chủ</a></li>
-                                <li class="dropdown"><a href="#" class="active">Mail<i class="fa fa-angle-down"></i></a>
+                                <li class="dropdown"><a href="#" class="active">Shop<i class="fa fa-angle-down"></i></a>
                                     <ul role="menu" class="sub-menu">
                                         <li><a href="?controller=shop" class="active">Cửa hàng</a></li>
                                         <li><a href="?controller=checkout">Thủ tục thanh toán</a></li>
@@ -237,7 +237,7 @@
                         <?php
                             $i = 0;
                             foreach ($sanpham as $key => $value) {
-                                if(++$i == 13) break;
+                              
                                 // Hiển thị sản phẩm
                                 ?>
                                 <div class="col-sm-4"> 
