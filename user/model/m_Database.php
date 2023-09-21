@@ -52,8 +52,7 @@
                 }
                 return $ketqua;
         }
-<<<<<<< HEAD
-=======
+
         public function order_by($table, $order=array()){
             //Lấy dữ liệu sql
             $sql = "SELECT * FROM $table";
@@ -74,7 +73,7 @@
                 }
                 return $ketqua;
         }
->>>>>>> 219ea85eab6b09abd85d69cc3f7ec147567f1e62
+
         //Function lấy dữ liệu theo điều kiện
         public function get_like($table, $column, $value, $condition=array()){
             $sql = "SELECT * FROM $table WHERE $column LIKE '%$value%'";
@@ -171,11 +170,7 @@
             $query = mysqli_query($this->conn, $sql);
             return $query;
         }
-<<<<<<< HEAD
-=======
 
->>>>>>> 219ea85eab6b09abd85d69cc3f7ec147567f1e62
-        
         public function update($table, $data=array(), $condition=array()){
             $value_str = '';
             foreach ($data as $key => $value){
@@ -192,8 +187,7 @@
             $query = mysqli_query($this->conn, $sql);
             return $query;
         }
-<<<<<<< HEAD
-=======
+
         public function get_join($column=array(),$table1,$table2,$codition_join,$condition,$condition1=array(),$condition2=array())  {
             $column1=implode(',', $column);
             $sql ="SELECT $column1 FROM $table1 $codition_join $table2 ON $condition";
@@ -220,6 +214,6 @@
                         }
                         return $ketqua;
         }
->>>>>>> 219ea85eab6b09abd85d69cc3f7ec147567f1e62
+
     }
 ?>

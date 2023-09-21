@@ -3,7 +3,7 @@ global $sanpham;
 if (isset($_GET['keywork'])) {
 
     $keywork = str_replace('+', '',$_GET['keywork']);
-<<<<<<< HEAD
+
     $data_danhmuc = $db->get('danhmuc', array());
     $sanpham=$db->get_like('sanpham','tensanpham',$keywork,array());
     require_once "view/v_shop.php";
@@ -22,22 +22,7 @@ else{
 }
 
 
-=======
 
-    $sanpham=$db->get_like('sanpham','tensanpham',$keywork,array());
-    require_once "view/v_shop.php";
-}elseif
-(isset($_GET['id_dm'])){
-    $id_dm=$_GET['id_dm'];
-  
-    $sanpham=$db->get('sanpham',array('id_danhmuc'=>$id_dm));
-    require_once "view/v_shop.php";
-}
-else {
-    $sanpham = $db->get('sanpham', array());
-    
-}
->>>>>>> 219ea85eab6b09abd85d69cc3f7ec147567f1e62
     // Define the number of records per page
     $records_per_page = 12;
     $total_records=count($sanpham);
@@ -57,11 +42,9 @@ else {
     //   $sanpham=$sanphams;
     // }
 
-<<<<<<< HEAD
-    $sanpham=$db->get_limit('sanpham',array(),$current_page.','.$records_per_page);
-=======
+
     $sanpham=$db->get_limit('sanpham',array(),$start_record.','.$records_per_page);
->>>>>>> 219ea85eab6b09abd85d69cc3f7ec147567f1e62
+
     // Generate the pagination links
     
     require "view/v_shop.php";

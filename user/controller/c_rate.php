@@ -21,13 +21,6 @@ if (isset($_GET['id'])) {
 if (!$loi) {
  $rate_buy=5;
 
-<<<<<<< HEAD
-        
-=======
-             
-        
-         
->>>>>>> 219ea85eab6b09abd85d69cc3f7ec147567f1e62
     $db->insert('rate_sp',array(
         'id_sanpham'=>$id,
         'rate_rating'=>$gender_rate,
@@ -36,17 +29,7 @@ if (!$loi) {
         'Date_rate'=> $date_oder
             ));
             
-<<<<<<< HEAD
-           
-                
-           foreach ($khachhang as $key => $value) {
-          
-            $db->update('donhang',array(
-                'id_tinhtrang'=>$rate_buy        
-            ),array('id_donhang'=>$id_dh,'id_kh'=>$value['id_kh']),);
-        
-        }
-=======
+
          
             $db->update('ctdonhang',array(
                 'ghichu'=>"daban"       
@@ -81,7 +64,6 @@ if (!$loi) {
             
             }
          }
->>>>>>> 219ea85eab6b09abd85d69cc3f7ec147567f1e62
 header('location: ?controller=product-detail&id='.$id);
            }}
 }

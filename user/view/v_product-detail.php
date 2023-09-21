@@ -72,10 +72,7 @@
                         <div class="shop-menu pull-right">
                             <ul class="nav navbar-nav">
                             <li><a href="?controller=account"><i class="fa fa-user"></i>Tài khoản</a></li>
-<<<<<<< HEAD
-=======
                                 <li><a href="?controller=likeproduct"><i class="fa fa-star"></i>Danh sách yêu thích</a></li>
->>>>>>> 219ea85eab6b09abd85d69cc3f7ec147567f1e62
                                 <li><a href="?controller=checkout"><i class="fa fa-crosshairs"></i>Thanh toán</a></li>
                                 <li><a href="?controller=cart"><i class="fa fa-shopping-cart"></i>Giỏ hàng</a></li>
                                 <li><?php if (isset($_SESSION['ss_user'])) {
@@ -114,15 +111,8 @@
                                         <li><a href="?controller=cart">Giỏ hàng</a></li>
                                     </ul>
                                 </li>
-<<<<<<< HEAD
-                                <li class="dropdown"><a href="#">Blog<i class="fa fa-angle-down"></i></a>
-                                    <ul role="menu" class="sub-menu">
-                                        <li><a href="?controller=blog">Blog List</a></li>
-                                    </ul>
-                                </li>
-=======
+
                                 <li><a href="?controller=blog">Blog </a></li>
->>>>>>> 219ea85eab6b09abd85d69cc3f7ec147567f1e62
                                 <li><a href="?controller=contact">Liên hệ</a></li>
                             </ul>
                         </div>
@@ -356,11 +346,7 @@
                                 <div class="product-content-right-product-button">
                                     <button name="themgiohang">THÊM VÀO GIỎ HÀNG</button>
                                     <button name="muangay">MUA NGAY</button>
-<<<<<<< HEAD
-                                    <a href="?controller=addToCart&id=<?php echo $value['id_sanpham']?>"><button>&hearts;</button></a>
-=======
                                     <button  name="yeuthich">&hearts;</button>
->>>>>>> 219ea85eab6b09abd85d69cc3f7ec147567f1e62
                                 </div>
 
                                 </span>

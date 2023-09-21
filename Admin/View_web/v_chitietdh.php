@@ -98,7 +98,6 @@
             padding: 10px;
         }
 
-<<<<<<< HEAD
         .details .recentstaff table tr td:last-child{
             text-align: start;
         }
@@ -114,27 +113,7 @@
             text-align: center;
         }
 
-=======
-        .details .recentstaff table tr td:last-child {
-            text-align: center;
-        }
 
-        .details .recentstaff table tr td:nth-child(2),
-        .details .recentstaff table tr td:nth-child(5),
-        .details .recentstaff table tr td:nth-child(6) {
-            text-align: center;
-        }
-
-        .details .recentstaff table tr td:nth-child(3),
-        .details .recentstaff table tr td:nth-child(4) {
-            text-align: start;
-        }
-
-        .details .recentstaff table tr td:nth-child(7) {
-            text-align: end;
-        }
-
->>>>>>> 219ea85eab6b09abd85d69cc3f7ec147567f1e62
         .status.delivered{
             padding: 2px 4px;
             background: greenyellow;
@@ -252,36 +231,25 @@
            
             
         <div class="chitiet">
-<<<<<<< HEAD
-=======
-                  
->>>>>>> 219ea85eab6b09abd85d69cc3f7ec147567f1e62
+
         <?php
             if (isset($_SESSION['ss_admin'])) {
 
                 ?>
 				<div class="row">
-<<<<<<< HEAD
-					<h3 class="text-center col-md-12">Chi tiết đơn hàng</h3>
-=======
+
 					<h3 class="text-center col-md-12">Chi tiết sản phẩm</h3>
->>>>>>> 219ea85eab6b09abd85d69cc3f7ec147567f1e62
+
 				</div>
 				
 				<div class="row">
 					<table class="table">
-<<<<<<< HEAD
-					    <thead>
-                            <tr>
-                                <th scope="col">Tên sản phẩm</th>
-                                <th class="msp">Mã sản phẩm</th>
-=======
+
                     <thead>
                             <tr>
                                 
                                 <th class="msp">Mã sản phẩm</th>
                                 <th scope="col">Tên sản phẩm</th>
->>>>>>> 219ea85eab6b09abd85d69cc3f7ec147567f1e62
                                 <th scope="col">Ảnh</th>
                                 <th scope="col">Loại sản phẩm</th>
                                 <th scope="col">size</th>
@@ -292,40 +260,21 @@
                                 <th scope="col">Ghi chú</th>
                             </tr>
 					    </thead>
-<<<<<<< HEAD
-
-					    <tbody>
-=======
                       <tbody>
->>>>>>> 219ea85eab6b09abd85d69cc3f7ec147567f1e62
                             <?php foreach ($ctdonhang as $key => $value) {
                                 //Lấy dữ liệu sản phẩm tương ứng
                                 $sanpham = $db->get('sanpham',array('id_sanpham'=>$value['id_sanpham']));
                             ?>
                             <tr>
-<<<<<<< HEAD
-                                <td><?php echo $sanpham[0]['tensanpham']?></td>
-                                <td><?php echo $value['id_sanpham']?></td>
-=======
+
                                 
                                 <td><?php echo $value['id_sanpham']?></td>
                                 <td><?php echo $sanpham[0]['tensanpham']?></td>
->>>>>>> 219ea85eab6b09abd85d69cc3f7ec147567f1e62
                                 <td scope="row">
                                     <img height="100" width="100"  src="../images/sanpham/<?php echo $sanpham[0]['anh_chinh']?>" > 
                                 </td>
                                 <td><?php echo $value['loai_sp']?></td>
-<<<<<<< HEAD
-                                <td style="text-transform: uppercase"><?php echo $value['size']?></td>
-                                <td><?php echo $value['soluongsp']?></td>
-                                <td><?php echo $value['ngaydat']?></td>
-                                <td><?php echo number_format($sanpham[0]['gia'])?>đ</td>
-                                <td><?php echo number_format($sanpham[0]['gia']*$value['soluongsp'])?>đ</td>
-                                <td style="max-width:300px"><?php echo $value['ghichu']?></td>	      
-                            </tr>
-                            <?php } ?>
-					    </tbody>
-=======
+
                                 <td style="text-transform: uppercase"><?php echo $value['size'] ?></td>
                                 <td><?php echo $value['soluongsp']?></td>
                                 <td><?php echo $value['ngaydat'] ?></td>
@@ -373,7 +322,6 @@
 					      </tr>
 					    <?php } ?>
 					  </tbody>
->>>>>>> 219ea85eab6b09abd85d69cc3f7ec147567f1e62
 					</table>
 				</div>
 				

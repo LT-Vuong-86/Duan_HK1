@@ -21,30 +21,19 @@ if(isset($_SESSION['ss_admin'])){
                
                 break;
             case 'xoa':
-<<<<<<< HEAD
-                $id = $_GET['id'];
-                $db->delete('donhang', array('id_donhang'=>$id));
-                $db->delete('ctdonhang', array('id_donhang'=>$id));
-=======
+
                 $donhang=$db->get('donhang',array('id_donhang'=>$id));
                 $id = $_GET['id'];
                 $db->delete('donhang', array('id_donhang'=>$id));
                 $db->delete('ctdonhang', array('id_donhang'=>$id));
                 $db->delete('khachhang', array('id_kh'=>$donhang[0]['id_kh']));
->>>>>>> 219ea85eab6b09abd85d69cc3f7ec147567f1e62
                 header('Location: ?controller=donhang');
                 break;
 
             case 'sua':
                 $id = $_GET['id'];
                 $donhang=$db->get('donhang',array('id_donhang'=>$id));
-
-<<<<<<< HEAD
-                $khachhang = $db->get('khachhang', array('id_kh'=>$donhang[0]['id_kh']));
-                
-=======
                 $khachhang = $db->get('khachhang', array('id_kh'=>$donhang[0]['id_kh']));               
->>>>>>> 219ea85eab6b09abd85d69cc3f7ec147567f1e62
                 $ctdonhang=$db->get('ctdonhang',array('id_donhang'=>$donhang[0]['id_donhang']));
                 if(isset($_POST['btn_donhang'])){
    
@@ -80,8 +69,7 @@ if(isset($_SESSION['ss_admin'])){
                             'id_tinhtrang'=>$id_tinhtrang
                         ),array('id_donhang'=>$id));
                         header('location: ?controller=donhang');
-<<<<<<< HEAD
-=======
+
                         if ($id_tinhtrang==3) {
                             $ctdonhang = $db->get('ctdonhang', array('id_donhang'=>$id));
 
@@ -103,7 +91,6 @@ if(isset($_SESSION['ss_admin'])){
                         ),array('id_sanpham'=>$ctdonhang[0]['sanpham']));
                         
                         }
->>>>>>> 219ea85eab6b09abd85d69cc3f7ec147567f1e62
                     }
                 }
                 require 'View_web/v_suadonhang.php';

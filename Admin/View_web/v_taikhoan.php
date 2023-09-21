@@ -474,7 +474,6 @@
                 </li>
 
                 <li>
-<<<<<<< HEAD
                     <a href="?controller=danhmuc">
                         <span class="icon"><i class='bx bx-list-ul'></i></span>
                         <span class="title">Danh mục</span>
@@ -482,8 +481,7 @@
                 </li>
 
                 <li>
-=======
->>>>>>> 219ea85eab6b09abd85d69cc3f7ec147567f1e62
+
                     <a href="?controller=sanpham">
                         <span class="icon"><i class='bx bxl-product-hunt'></i></span>
                         <span class="title">Sản phẩm</span>

@@ -13,12 +13,23 @@
     <link href="../css/animate.css" rel="stylesheet">
 	<link href="../css/main.css" rel="stylesheet">
 	<link href="../css/responsive.css" rel="stylesheet">
+
+
     <style>
         *{
             box-sizing: border-box;
             margin: 0;
             padding: 0;
         }
+
+        :root{
+            --black: black;
+            --white: #fff;
+            --yellow: #F5A623;
+            --grey: grey;
+            --smoke: rgb(220, 220, 220);
+        }
+
         .product-image-wrapper{
             height: 330px;
         }
@@ -42,7 +53,7 @@
         .features_items .product-image-wrapper .single-products h4{
             float: left; 
             color: crimson;
-            
+
         }
 
         .features_items .product-image-wrapper .single-products h6{
@@ -53,7 +64,7 @@
         .recommended_items .product-image-wrapper .single-products img{
             width:100%; height:250px; object-fit: cover;
         }
-        
+
         h5{
             color: black; 
             position: absolute; 
@@ -67,6 +78,46 @@
             position: absolute;
         }
 
+
+        .topbar{
+            position: absolute;
+            width: 100%;
+            height: 60px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 10px;
+        }
+
+        .topbar.active{
+            top: 0;
+            bottom: 0;
+        }
+
+        .toggle{
+            position: relative;
+            top: 0;
+            height: 60px;
+            width: 60px;
+            background: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 2.5rem;
+            cursor: pointer;
+        }
+        .navigation h3{
+            text-align: center;
+        }
+        .navigation li {
+            line-height: 30px;
+            margin-left: 10px;
+            color: black;
+            cursor: pointer;
+        }
+        .navigation li:hover{
+            color: orange;
+        }
     </style>
     </head><!--/head-->
 
@@ -80,13 +131,13 @@
                         <div class="logo pull-left">
                             <a href="?controller=home"><img src="../images/home/logo.png" alt="" /></a>
                         </div>
-                       
+
                     </div>
                     <div class="col-sm-8">
                         <div class="shop-menu pull-right">
                             <ul class="nav navbar-nav">
                                 <li><a href="?controller=account"><i class="fa fa-user"></i> Tài khoản</a></li>
-                                <li><a href="?controller=likeproduct"><i class="fa fa-star"></i>Danh sách yêu thích</a></li>
+                                <!-- <li><a href="#"><i class="fa fa-star"></i>Danh sách yêu thích</a></li> -->
                                 <li><a href="?controller=checkout"><i class="fa fa-crosshairs"></i>Thanh toán</a></li>
                                 <li><a href="?controller=cart"><i class="fa fa-shopping-cart"></i>Giỏ hàng</a></li>
                                 <li>
@@ -96,7 +147,7 @@
                                     echo "<a href='?controller=login'><i class='fa fa-lock'></i>Đăng nhập</a>";
                                 } ?>
                                 </li>
-                                
+
                              </ul>
                         </div>
                     </div>
@@ -128,7 +179,11 @@
                                         <li><a href="?controller=cart">Giỏ hàng</a></li>
                                     </ul>
                                 </li>
-                                <li><a href="?controller=blog">Blog </a></li>
+                                <li class="dropdown"><a href="#">Blog<i class="fa fa-angle-down"></i></a>
+                                    <ul role="menu" class="sub-menu">
+                                        <li><a href="?controller=blog">Blog List</a></li>
+                                    </ul>
+                                </li>
                                 <li><a href="?controller=contact">Liên hệ</a></li>
                             </ul>
                         </div>
@@ -222,36 +277,29 @@
                 <div class="col-sm-3">
                     <div class="left-sidebar">
                         <div class="navigation">
+                            <h3>Danh mục</h3>
                             <ul>
-                                <li>
-                                    <a href="#">
-                                        <p style="width:100%; text-align:center; padding-top:20px; margin-bottom:-20px; text-transform:uppercase;" class="r">Danh mục</p>
-                                    </a>
-                                </li>
+                             
                                 <?php 
                                     foreach($data_danhmuc as $key => $value){
                                 ?>
-                                <li>
-                                    <a href="?controller=shop&id_dm=<?php echo $value['id_danhmuc']?>">
+                                <a href="?controller=shop&id_dm=<?php echo $value['id_danhmuc']?>">
+                               <li> &#10132;
+                                    
                                         <span class="title"><?php echo $value['danhmuc']?></span>
-                                    </a>
+                                   
                                 </li>
+                                </a>
                                 <?php }?>
                             </ul>
                         </div>
 
-                        <div class="main">
-                            <div class="topbar">
-                                <div class="toggle">
-                                    <i class='bx bx-menu'></i>
-                                </div>
-                            </div>
-                        </div>
+                       
                         <div class="shipping text-center">
                             <!--shipping-->
                             <img src="../images/home/shipping.jpg" alt="" />
                         </div>
-                       
+
                         <!--/shipping-->
 
                     </div>
@@ -261,7 +309,7 @@
                     <div class="features_items">
                         <!--features_items-->
                         <h2 class="title text-center">Một số sản phẩm nổi bật</h2>
-                        
+
                         <?php
                             $i = 0;
                             $random_products = array_rand($sanpham, min(count($sanpham), 10));
@@ -464,7 +512,7 @@
                                             </div>
                                         </div>
                                     <?php } ?>
-                                   
+
                                 </div>
                                 <div class="item">
                                 <?php
@@ -656,19 +704,6 @@
 	<script src="../js/bootstrap.min.js"></script>
 	<script src="../js/price-range.js"></script>    
     <script src="../js/main.js"></script>
-    <script>
-               
-        let toggle = document.querySelector(".toggle");
-        let navigation = document.querySelector(".navigation");
-        let main = document.querySelector(".main");
-        let topbar = document.querySelector(".topbar");
-
-        toggle.onclick = function(){
-            navigation.classList.toggle("active");
-            main.classList.toggle("active");
-            topbar.classList.toggle("active");
-        }
-    </script>
 
 </body>
 </html>

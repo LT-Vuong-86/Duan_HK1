@@ -8,17 +8,11 @@
         }else {
             $data_nhanvien = $db->get('taikhoan', array());
         }
-<<<<<<< HEAD
+
         
     }else{
         header('location: ?controller=login');
     }
     require 'View_web/v_taikhoan.php';
-=======
-        require 'View_web/v_taikhoan.php';
-    }else{
-        header('location: ?controller=login');
-    }
-   
->>>>>>> 219ea85eab6b09abd85d69cc3f7ec147567f1e62
+
 ?>

@@ -252,11 +252,7 @@
 
         <button style="border: none; border-radius:25px; background: white; width: 100%;" 
         class="button" name="btn_addnhanvien" type="submit">
-<<<<<<< HEAD
             <span>Thêm</span>
-=======
-            <span>add</span>
->>>>>>> 219ea85eab6b09abd85d69cc3f7ec147567f1e62
             <svg width="13px" height="10" viewBox="0 0 13 10">
                 <path d="M1,5 L11,5"></path>
                 <polyline points="8 1 12 5 8 9"></polyline>

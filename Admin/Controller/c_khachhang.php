@@ -8,16 +8,12 @@
         }else {
             $data_khachhang = $db->get('khachhang', array());
         }
-<<<<<<< HEAD
+
     }else{
-        header('location: ?controller=khachhang');
+        header('location: ?controller=login');
     }
     require_once('View_web/v_khachhang.php');
-=======
-        require_once('View_web/v_khachhang.php');
-    }else{
-        header('location: ?controller=khachhang');
-    }
+
  
->>>>>>> 219ea85eab6b09abd85d69cc3f7ec147567f1e62
+
 ?>

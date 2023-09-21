@@ -62,14 +62,7 @@
             border-bottom-left-radius: 30px;
         }
 
-<<<<<<< HEAD
-=======
-        /* .navigation ul li:hover,
-        .navigation ul li.hovered{
-            background: var(--white);
-        } */
 
->>>>>>> 219ea85eab6b09abd85d69cc3f7ec147567f1e62
         .navigation ul li:nth-child(1){
             margin-bottom: 40px;
             pointer-events: none;
@@ -84,14 +77,7 @@
             color: var(--white);
         }
 
-<<<<<<< HEAD
-=======
-        /* .navigation ul li:hover a,
-        .navigation ul li.hovered a{
-            color: var(--black);
-        } */
 
->>>>>>> 219ea85eab6b09abd85d69cc3f7ec147567f1e62
         .navigation ul li a .icon{
             position: relative;
             display: block;
@@ -117,38 +103,7 @@
             text-align: start;
             white-space: nowrap;
         }
-<<<<<<< HEAD
 
-=======
-/* 
-        .navigation ul li:hover a::before,
-        .navigation ul li.hovered a::before{
-            content: '';
-            position: absolute;
-            right: 0;
-            top: -50px;
-            width: 50px;
-            height: 50px;
-            background-color: transparent;
-            border-radius: 50%;
-            box-shadow: 35px 35px 0 10px var(--white);
-            pointer-events: none;
-        } */
-/* 
-        .navigation ul li:hover a::after,
-        .navigation ul li.hovered a::after{
-            content: '';
-            position: absolute;
-            right: 0;
-            bottom: -50px;
-            width: 50px;
-            height: 50px;
-            background-color: transparent;
-            border-radius: 50%;
-            box-shadow: 35px -35px 0 10px var(--white);
-            pointer-events: none;
-        } */
->>>>>>> 219ea85eab6b09abd85d69cc3f7ec147567f1e62
 
         .main{
             position: absolute;
@@ -488,7 +443,6 @@
                 </li>
 
                 <li>
-<<<<<<< HEAD
                     <a href="?controller=danhmuc">
                         <span class="icon"><i class='bx bx-list-ul'></i></span>
                         <span class="title">Danh mục</span>
@@ -496,8 +450,7 @@
                 </li>
 
                 <li>
-=======
->>>>>>> 219ea85eab6b09abd85d69cc3f7ec147567f1e62
+
                     <a href="?controller=sanpham">
                         <span class="icon"><i class='bx bxl-product-hunt'></i></span>
                         <span class="title">Sản phẩm</span>
@@ -577,10 +530,6 @@
                                 <td>SĐT</td>
                                 <td>Email</td>
                                 <td>Địa chỉ</td>
-<<<<<<< HEAD
-=======
-                                
->>>>>>> 219ea85eab6b09abd85d69cc3f7ec147567f1e62
                                 <td>Thao tác</td>
                             </tr>
                         </thead>

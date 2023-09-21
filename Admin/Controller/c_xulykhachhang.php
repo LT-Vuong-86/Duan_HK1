@@ -7,15 +7,10 @@ if(isset($_SESSION['ss_admin'])){
         $id = $_GET['id'];
         switch ($method) {
             case 'xoa':
-<<<<<<< HEAD
-                $id = $_GET['id'];
-                $db->delete('khachhang', array('id_kh'=>$id));
-=======
+
 
                 $id = $_GET['id'];
                 $db->delete('khachhang', array('id_kh'=>$id));
-               
->>>>>>> 219ea85eab6b09abd85d69cc3f7ec147567f1e62
                 header('Location: ?controller=khachhang');
                 break;
 

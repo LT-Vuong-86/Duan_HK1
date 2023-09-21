@@ -9,17 +9,10 @@
         }else {
             $data_sanpham = $db->get('sanpham', array()); 
         }
-<<<<<<< HEAD
         
     }else{
         header('location: ?controller=login');
     }
     require 'View_web/v_sanpham.php';
-=======
-        require 'View_web/v_sanpham.php';
-    }else{
-        header('location: ?controller=login');
-    }
-   
->>>>>>> 219ea85eab6b09abd85d69cc3f7ec147567f1e62
+
 ?>

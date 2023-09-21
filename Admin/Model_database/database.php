@@ -28,55 +28,8 @@
             exit();
         }
     }
-<<<<<<< HEAD
-    public function get_join($column=array(),$table1,$table2,$condition,$condition1=array())  {
-        // var_dump($column);
-    
-        // $column1=implode(',', $column);
-        // echo $column1;
-        // die;
-        $column1=implode(',', $column);
-        $sql ="SELECT $column1 FROM $table1 INNER JOIN $table2 ON $table1.$condition =$table2.$condition";
-        if(!empty($condition1)){
-            $sql.=" WHERE ";
 
-            foreach ($condition1 as $key => $value){
-                $sql.= " $key = '$value' AND";
-            }
-            $sql = trim($sql, "AND");
-        }
-        $query = mysqli_query($this->conn, $sql);
-=======
-public function get_join($column=array(),$table1,$table2,$condition,$condition1=array())  {
-    // var_dump($column);
-   
-    // $column1=implode(',', $column);
-    // echo $column1;
-    // die;
-    $column1=implode(',', $column);
-    $sql ="SELECT $column1 FROM $table1 INNER JOIN $table2 ON $table1.$condition =$table2.$condition";
-    if(!empty($condition1)){
-        $sql.=" WHERE ";
 
-        foreach ($condition1 as $key => $value){
-            $sql.= " $key = '$value' AND";
-        }
-        $sql = trim($sql, "AND");
-    }
-    $query = mysqli_query($this->conn, $sql);
->>>>>>> 219ea85eab6b09abd85d69cc3f7ec147567f1e62
-            $ketqua = array();
-                if ($query){
-                    while($row = mysqli_fetch_assoc($query)){
-                        $ketqua[] = $row;
-                    }
-                }
-                return $ketqua;
-<<<<<<< HEAD
-    }       
-=======
-}
->>>>>>> 219ea85eab6b09abd85d69cc3f7ec147567f1e62
         public function get($table, $condition=array()){
             //Lấy dữ liệu sql
             $sql = "SELECT * FROM $table";
@@ -192,13 +145,8 @@ public function get_join($column=array(),$table1,$table2,$condition,$condition1=
            //max upload is 2 Mb = 2 *
                    return false;
                }
-<<<<<<< HEAD
-        $validTypes = array("jpg","jpeg","png","bmp","mp4");
-        $fileType = substr($file['name'], strrpos($file['name'], ".")+1);
-=======
        $validTypes = array("jpg","jpeg","png","bmp","mp4");
        $fileType = substr($file['name'], strrpos($file['name'], ".")+1);
->>>>>>> 219ea85eab6b09abd85d69cc3f7ec147567f1e62
                if (!in_array($fileType, $validTypes)) {
                    return false;
                }
@@ -210,18 +158,7 @@ public function get_join($column=array(),$table1,$table2,$condition,$condition1=
                }
            $file['name']=$filename . '.' .$fileType;
            return $file;
-<<<<<<< HEAD
-        }
-        function insert_id(){
-            // Lấy kết nối đến cơ sở dữ liệu
-            return $this->conn->insert_id;
 
-            // Trả về ID của bản ghi mới nhất
-            
-        }
-        
-        
-=======
        }
        function insert_id()
 {
@@ -233,7 +170,6 @@ public function get_join($column=array(),$table1,$table2,$condition,$condition1=
 }
      
        
->>>>>>> 219ea85eab6b09abd85d69cc3f7ec147567f1e62
     }
 ?>
 
