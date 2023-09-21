@@ -208,19 +208,20 @@
             <input class="input" name="username"  type="text" placeholder="Tên đăng nhập" 
             value="<?php echo (isset($username))?$username:'' ?>" >
         </div>
-        <div id="canhbao" class="row mt-2">
-            <?php if(isset($loi['username'])){?>
-                <p class="text-danger"><?php echo $loi['username']?></p> 
-            <?php }?>
-        </div> 
+         
 
         <div id="matkhau" class="form-control row mx-1">
             <input class="input" name="password" type="password" placeholder="Mật khẩu" 
-            value="<?php echo (isset($password))?$password:'' ?>" >
+            value="" >
         </div>
         <div id="canhbao" class="row mt-2">
             <?php if(isset($loi['password'])){?>
                 <p class="text-danger"><?php echo $loi['password']?></p> 
+            <?php }?>
+        </div>
+        <div id="canhbao" class="row mt-2">
+            <?php if(isset($loi['username'])){?>
+                <p class="text-danger"><?php echo $loi['username']?></p> 
             <?php }?>
         </div>
     

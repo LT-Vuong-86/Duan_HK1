@@ -3,7 +3,7 @@ if(isset($_SESSION['ss_admin'])){
     $user=$db->get('taikhoan', array('id'=>$_SESSION['ss_admin']));
 
     if(($user[0]['vaitro']=='admin') || ($user[0]['vaitro']=='manager')){
-
+        $data_danhmuc = $db->get('danhmuc', array());
         if(isset($_POST['btn_addsanpham'])){
             $id_dm = $_POST['id_dm'];
             $tensanpham = $_POST['tensanpham'];

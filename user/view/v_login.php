@@ -120,7 +120,7 @@
 
                             <div class="row mt-5">
                                 <input type="password" name="pass" placeholder="Mật khẩu" class="form-control col-md-6" 
-                                value="<?php echo (isset($password))?$password:'' ?>">
+                                value="">
                             </div>
                             <div id="canhbao" class="row mt-1">
                                 <?php if (isset($loi['pass'])) {?>

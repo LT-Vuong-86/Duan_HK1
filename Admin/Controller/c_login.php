@@ -17,10 +17,10 @@
             $password=md5($_POST['password']);          
             $admin = $db->get('taikhoan', array('username'=>$username));
             if(empty($admin)){
-                $loi['username'] = 'Tên đăng nhập không tồn tại';
+                $loi['username'] = 'Sai tài khoản hoặc mật khẩu';
             }else{
                 if($password!=$admin[0]['pass']){
-                    $loi['password'] = 'Sai mật khẩu';
+                    $loi['password'] = 'Sai tài khoản hoặc mật khẩu';
                 }
                 if ($admin[0]['vaitro']=='user') {
                     $loi['admin']='bạn không có quyền';

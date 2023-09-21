@@ -134,65 +134,7 @@
             <div class="row">
                 <div class="col-sm-3">
                     <div class="left-sidebar">
-                        <h2>Loại</h2>
-                        <div class="panel-group category-products" id="accordian">
-                            <!--category-productsr-->
-                            <div class="panel panel-default">
-                                <div class="panel-heading">
-                                    <h4 class="panel-title">
-                                        <a data-toggle="collapse" data-parent="#accordian" href="#mens">
-                                            <span class="badge pull-right"><i class="fa fa-plus"></i></span> Nam
-                                        </a>
-                                    </h4>
-                                </div>
-                                <div id="mens" class="panel-collapse collapse">
-                                    <div class="panel-body">
-                                        <ul>
-                                            <li><a href="">Áo Vest</a></li>
-                                            <li><a href="">Quần</a></li>
-                                            <li><a href="">Áo Polo</a></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="panel panel-default">
-                                <div class="panel-heading">
-                                    <h4 class="panel-title">
-                                        <a data-toggle="collapse" data-parent="#accordian" href="#womens">
-                                            <span class="badge pull-right"><i class="fa fa-plus"></i></span> Nữ
-                                        </a>
-                                    </h4>
-                                </div>
-                                <div id="womens" class="panel-collapse collapse">
-                                    <div class="panel-body">
-                                        <ul>
-                                            <li><a href="">Đầm</a></li>
-                                            <li><a href="">Quần</a></li>
-                                            <li><a href="">Áo nữ</a></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="panel panel-default">
-                                <div class="panel-heading">
-                                    <h4 class="panel-title">
-                                        <a data-toggle="collapse" data-parent="#accordian" href="#kid">
-                                            <span class="badge pull-right"><i class="fa fa-plus"></i></span> trẻ em
-                                        </a>
-                                    </h4>
-                                </div>
-                                <div id="kid" class="panel-collapse collapse">
-                                    <div class="panel-body">
-                                        <ul>
-                                            <li><a href="">Áo</a></li>
-                                            <li><a href="">Quần</a></li>
-                                            <li><a href="">Cả bộ</a></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                       
 
                         <div class="shipping text-center">
                             <!--shipping-->
@@ -281,7 +223,8 @@
                                     
                                     <div class="size_color">
                                     <label>
-                                        <input type="radio"  name="loai_sp" value="<?php echo $value['type_name']?>"  >
+                                     <!-- cắt key của loại sản phẩm từ dấu chấm (.)lấy giá trị id_loaisp theo số key vừa cắt -->
+                                        <input type="radio"  name="loai_sp" value="<?php echo $value['type_name'].'.'.$key?>"  >
                                         <span class="text-uppercase"><?php echo $value['type_name']?></span>
                                         </label>
                                     </div>    
@@ -319,12 +262,7 @@
                                         <input type="radio" name="size_name" value="xxl">
                                         <span class="text-uppercase slash">XXL</span>
                                     </label>
-                                       <!-- <li><input type="submit"  name="size_name" value="S" ><?php echo '<br>sl:'.$size[0]['s']  ?></li> 
-                                         <li><input type="submit"  name="size_name" value="M" ><?php echo '<br>sl:'.$size[0]['m']  ?></li> 
-                                       <li><input type="submit"  name="size_name" value="L" ><?php echo '<br>sl:'.$size[0]['l']  ?></li> 
-                                        <li><input type="submit"  name="size_name" value="XL" ><?php echo '<br>sl:'.$size[0]['xl']  ?></li>
-                                        <li><input type="submit"  name="size_name" value="XXL" ><?php echo '<br>sl:'.$size[0]['xxl']  ?></li> -->
-                                        <?php if (isset($loi['size_name'])) { ?>
+                                       <?php if (isset($loi['size_name'])) { ?>
                                          <p ><span class="warning"><?php echo $loi['size_name'] ?></span></p> 
                                    <?php }  ?>
                                       

@@ -31,6 +31,9 @@
     if (isset($_POST['size_name'])) {
         $size_name=$_POST['size_name'];
     }
+    if (isset($_POST['id_loaisp'])) {
+        $id_loaisp=$_POST['id_loaisp'];
+        }
     if (isset($_POST['loai_sp'])) {
     $loai_sp=$_POST['loai_sp'];
     }
@@ -84,6 +87,8 @@
         if (isset($_POST['loai_sp'])) {
         $loai_sp=$_POST['loai_sp'];
         }
+       
+        
         $gia=$product[0]['gia'];
         if (isset($_POST['loai_sp'])) {
         $sl=$_POST['sl'];
@@ -98,8 +103,10 @@
                 $loi['loai_sp'] = 'vui lòng chọn loại sp';
        }
        if (!$loi) {
-        
-       
+       $length_loaisp= strrpos($loai_sp,'.');
+       $number_key= substr($loai_sp, $length_loaisp+1 );
+       $name_loaisp=substr($loai_sp,0, $length_loaisp );
+      
        if (isset($_SESSION['ss_user'])) {   
         unset($_SESSION['cart']);
        $giohang1=$db->get('giohang',array('id_taikhoan'=>$_SESSION['ss_user'],'id_sanpham'=>$id,'size'=>$size_name));
@@ -114,7 +121,8 @@
             $db->insert('giohang',array(
                 'id_taikhoan'=>$_SESSION['ss_user'],
                 'id_sanpham'=>$id,
-                'loai_sp'=>$loai_sp,
+                'id_loaisp'=>$anhphu1[$number_key]['id_loaisp'],
+                'loai_sp'=>$name_loaisp,
                 'size'=>$size_name,
                 'soluong'=>$sl,
                 'tong'=>$tong
