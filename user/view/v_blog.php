@@ -58,19 +58,18 @@
                         <div class="mainmenu pull-left">
                             <ul class="nav navbar-nav collapse navbar-collapse">
                                 <li><a href="?controller=home" class="active">Trang chủ</a></li>
-                                <li class="dropdown"><a href="?controller=shop">Shop<i class="fa fa-angle-down"></i></a>
+
                                     <ul role="menu" class="sub-menu">
                                         <li><a href="?controller=shop">Các sản phẩm</a></li>
-                                        <li><a href="?controller=product-detail">Thông tin chi tiết sản phẩm</a></li>
+
                                         <li><a href="?controller=checkout">Thủ tục thanh toán</a></li>
                                         <li><a href="?controller=cart">Giỏ hàng</a></li>
                                     </ul>
                                 </li>
-                                <li class="dropdown"><a href="#">Blog<i class="fa fa-angle-down"></i></a>
-                                    <ul role="menu" class="sub-menu">
-                                        <li><a href="?controller=blog">Blog List</a></li>
-                                    </ul>
-                                </li>
+
+                                
+                                        <li><a href="?controller=blog">Blog </a></li>
+
                                 <li><a href="?controller=contact">Liên hệ</a></li>
                             </ul>
                         </div>

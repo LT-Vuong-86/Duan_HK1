@@ -63,6 +63,10 @@
                     <div class="col-sm-8">
                         <div class="shop-menu pull-right">
                         <ul class="nav navbar-nav">
+<<<<<<< HEAD
+=======
+                                <li><a href=""><i class="fa fa-star"></i>Danh sách yêu thích</a></li>
+>>>>>>> 219ea85eab6b09abd85d69cc3f7ec147567f1e62
                                 <li><a href="?controller=checkout"><i class="fa fa-crosshairs"></i>Thanh toán</a></li>
                                 <li><a href="?controller=cart"><i class="fa fa-shopping-cart"></i>Giỏ hàng</a></li>
                                 <li><a href="?controller=logout"><i class="fa fa-lock"></i>Đăng xuất</a></li>

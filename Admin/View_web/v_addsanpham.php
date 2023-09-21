@@ -53,11 +53,22 @@
             border: 1px solid var(--success-color);
             box-shadow: 2px 2px 2px blue;
         }
+<<<<<<< HEAD
 
         li{
             list-style-type: none;
         }
 
+=======
+    /* form li h5:nth-child(1){
+    margin-bottom: -33px;
+   
+
+    } */
+    li{
+        list-style-type: none;
+    }
+>>>>>>> 219ea85eab6b09abd85d69cc3f7ec147567f1e62
         .form-control input{
             width: 100%;
             height: 40px;
@@ -144,6 +155,7 @@
         }
 
         #id_dm select{
+<<<<<<< HEAD
             width: 100%;
 
         }
@@ -151,6 +163,20 @@
         .text-danger{
             color: red;
         }
+=======
+    width: 100%;
+
+}
+
+
+       .text-danger{
+        color: red;
+       }
+       
+
+     
+
+>>>>>>> 219ea85eab6b09abd85d69cc3f7ec147567f1e62
     </style>
 </head>
 <body>
@@ -161,6 +187,7 @@
         </div> 
         <li><h5>Danh mục</h5></li>
         <div id="id_dm" class="form-control "   >
+<<<<<<< HEAD
             <select name="id_dm">
                 <?php 
                 foreach($data_danhmuc as $key => $value){
@@ -168,6 +195,20 @@
                 ?>
                     <option value="<?php echo $danhmuc[0]['id_danhmuc']?>"><?php echo $danhmuc[0]['danhmuc']?></option>
                 <?php }?>
+=======
+        
+            
+            <select name="id_dm"  >
+                <option value="1">Áo nữ</option>
+                <option value="2">Quần nữ</option>
+                <option value="3">Váy đầm nữ</option>
+                <option value="4">Áo nam</option>
+                <option value="5">Quần nam</option>
+                <option value="6">Vest nam</option>
+                <option value="7">Áo trẻ em</option>
+                <option value="8">Quần trẻ em</option>
+                <option value="9">Bộ quần áo trẻ em</option>
+>>>>>>> 219ea85eab6b09abd85d69cc3f7ec147567f1e62
             </select>
         </div>
         <div id="canhbao" class="row mt-2">
@@ -194,12 +235,30 @@
                 <p class="text-danger"><?php echo $loi['tensanpham']?></p> 
             <?php }?>
         </div>
+<<<<<<< HEAD
     
         <h5>Loại sản phẩm</h5>
         
         <div id="loaisp" class="form-control row mx-1">      
             <input min="1" max="6" name="slmasp"  type="number" id="loaisp" pattern="[0-9]+" placeholder="Nhập số loại sản phẩm"
             onchange=" showInputs(this.value)">                                       
+=======
+       
+        
+      
+        <!-- <h5>Ảnh phụ sản phẩm</h5>
+        <div id="anh" class="form-control row mx-1">                                        
+            <input name="anh_phu[]" multiple id="image-input"  accept="image/*"  type="file" placeholder="Ảnh phụ sản phẩm" 
+            value="" >
+           
+            
+        </div> -->
+        <h5>Loại sản phẩm</h5>
+        
+        <div id="loaisp" class="form-control row mx-1">      
+        <input min="1" max="6" name="slmasp"  type="number" id="loaisp" pattern="[0-9]+" placeholder="Nhập số loại sản phẩm"
+        onchange=" showInputs(this.value)">                                       
+>>>>>>> 219ea85eab6b09abd85d69cc3f7ec147567f1e62
         </div>
         <div id="loaisp_size" class="form-control"></div>
         

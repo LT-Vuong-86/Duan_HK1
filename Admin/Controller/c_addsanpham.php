@@ -3,7 +3,10 @@ if(isset($_SESSION['ss_admin'])){
     $user=$db->get('taikhoan', array('id'=>$_SESSION['ss_admin']));
 
     if(($user[0]['vaitro']=='admin') || ($user[0]['vaitro']=='manager')){
+<<<<<<< HEAD
         $data_danhmuc = $db->get('danhmuc', array());
+=======
+>>>>>>> 219ea85eab6b09abd85d69cc3f7ec147567f1e62
         if(isset($_POST['btn_addsanpham'])){
             $id_dm = $_POST['id_dm'];
             $tensanpham = $_POST['tensanpham'];
@@ -11,6 +14,7 @@ if(isset($_SESSION['ss_admin'])){
             $date_oder = date("d/m/y");
             $xuatxu = $_POST['xuatxu'];
             $uploadedFile_main = $_FILES['img_main'];
+<<<<<<< HEAD
             if(isset($_POST['anh_phu'])){
                 $imglink = $db->uploadfile($uploadedFile_main);
                 $uploadedFile_extra=$_FILES['anh_phu'];
@@ -26,6 +30,21 @@ if(isset($_SESSION['ss_admin'])){
             $productSizeXXL=[];
             $anh_phu_number=[];
             // $anh_phu_number=$_FILES["anh_phu"];
+=======
+            $imglink = $db->uploadfile($uploadedFile_main);
+            $uploadedFile_extra=$_FILES['anh_phu'];
+            $uploadedFile_extrar=$_FILES['anh_phu']['name'];
+             $imglink_extra = $db->uploadfile($uploadedFile_extra);
+           $slmasp=$_POST['slmasp'];
+           $productName = [];
+           $productSizeS=[];
+           $productSizeM=[];
+           $productSizeL=[];
+           $productSizeXL=[];
+           $productSizeXXL=[];
+           $anh_phu_number=[];
+           $anh_phu_number=$_FILES["anh_phu"];
+>>>>>>> 219ea85eab6b09abd85d69cc3f7ec147567f1e62
         //    print_r($uploadedFile_extrar);
         //     echo "<br>";
         //     print_r($uploadedFile_extrar[1]);
@@ -40,7 +59,11 @@ if(isset($_SESSION['ss_admin'])){
                 $productSizeXL[] = $_POST["productSizeXL$i"];
                 $productSizeXXL[] = $_POST["productSizeXXL$i"];
             }
+<<<<<<< HEAD
             for($i = 0; $i < $slmasp; $i++){
+=======
+            for($i = 1; $i <= $slmasp; $i++){
+>>>>>>> 219ea85eab6b09abd85d69cc3f7ec147567f1e62
                 $tonkho+=$productSizeS[$i]+$productSizeM[$i]+$productSizeL[$i]+$productSizeXL[$i]+$productSizeXXL[$i];
             }
             // print_r(pathinfo('1.2.jpg'));

@@ -29,8 +29,12 @@
         }
         if(!$loi){
             
+<<<<<<< HEAD
             $_SESSION['ss_admin'] = $admin[0]['id'];
             $_SESSION['name_admin'] = $admin[0]['full_name'];           
+=======
+            $_SESSION['ss_admin'] = $admin[0]['id'];    
+>>>>>>> 219ea85eab6b09abd85d69cc3f7ec147567f1e62
             header('location: ?controller=trangchu');
         }
     }

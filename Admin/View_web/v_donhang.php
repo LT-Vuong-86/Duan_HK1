@@ -123,7 +123,24 @@
             box-shadow: 35px 35px 0 10px var(--white);
             pointer-events: none;
         } */
+<<<<<<< HEAD
 
+=======
+/* 
+        .navigation ul li:hover a::after,
+        .navigation ul li.hovered a::after{
+            content: '';
+            position: absolute;
+            right: 0;
+            bottom: -50px;
+            width: 50px;
+            height: 50px;
+            background-color: transparent;
+            border-radius: 50%;
+            box-shadow: 35px -35px 0 10px var(--white);
+            pointer-events: none;
+        } */
+>>>>>>> 219ea85eab6b09abd85d69cc3f7ec147567f1e62
 
         .main{
             position: absolute;
@@ -464,6 +481,7 @@
                 </li>
 
                 <li>
+<<<<<<< HEAD
                     <a href="?controller=danhmuc">
                         <span class="icon"><i class='bx bx-list-ul'></i></span>
                         <span class="title">Danh mục</span>
@@ -471,6 +489,8 @@
                 </li>
 
                 <li>
+=======
+>>>>>>> 219ea85eab6b09abd85d69cc3f7ec147567f1e62
                     <a href="?controller=sanpham">
                         <span class="icon"><i class='bx bxl-product-hunt'></i></span>
                         <span class="title">Sản phẩm</span>
@@ -519,7 +539,10 @@
                     <h4>Tìm kiếm theo</h4>
                     <select name="codition_search" id="">
                         <option value="id_kh" selected >Mã khách hàng</option>
+<<<<<<< HEAD
                         <option value="tinhtrang">Tình trạng</option>
+=======
+>>>>>>> 219ea85eab6b09abd85d69cc3f7ec147567f1e62
                         <option value="id_donhang">Mã đơn hàng</option>
                     </select>
                 </div>
@@ -556,7 +579,10 @@
                                     <td>STT</td>
                                     <td>Mã đơn hàng</td>
                                     <td>Mã khách hàng</td>    
+<<<<<<< HEAD
                                     <td>SĐT</td>
+=======
+>>>>>>> 219ea85eab6b09abd85d69cc3f7ec147567f1e62
                                     <td>Tổng</td>
                                     <td>Tình trạng</td>
                                     <td>Thao tác</td>
@@ -569,6 +595,7 @@
                                $i=1;
                                     foreach ($donhang as $key => $value) {
                                      $tinhtrang=$db->get('tinhtrang_dh',array('id_tinhtrang'=>$value['id_tinhtrang']));
+<<<<<<< HEAD
                                      $khachhang=$db->get('khachhang',array('id_kh'=>$value['id_kh']));
                                     //   if (isset($_POST['search'])) {
                                     //     $codition_search=$_POST['codition_search'];
@@ -580,11 +607,17 @@
                                     //     $khachhang=$db->get_like('khachhang',$codition_search,$content,array());
                                     //     }
                                     // }  ?>
+=======
+                                  ?>
+>>>>>>> 219ea85eab6b09abd85d69cc3f7ec147567f1e62
                                     <tr id="tr">
                                     <td class='td'><?php echo $i++ ?></td>
                                     <td class='td'><?php echo $value['id_donhang'] ?></td>
                                     <td class='td'><?php echo $value['id_kh']  ?></td>
+<<<<<<< HEAD
                                     <td class='td'><?php echo $khachhang[0]['sdt']  ?></td>
+=======
+>>>>>>> 219ea85eab6b09abd85d69cc3f7ec147567f1e62
                                     <td class='td'><?php echo number_format($value['tong'])?>đ</td>
 
                                     <td class='td'><?php echo $tinhtrang[0]['tinhtrang'] ?>
@@ -604,7 +637,11 @@
                                     <td class='td' class="xuly">
                                    
                                         <button  class="noselect">
+<<<<<<< HEAD
                                         <a  class="sua" onclick="return confirm('Sửa đơn hàng này?');" 
+=======
+                                        <a  class="sua" onclick="return confirm('Sửa nhân viên này?');" 
+>>>>>>> 219ea85eab6b09abd85d69cc3f7ec147567f1e62
                                      href="?controller=xulydh&method=sua&id=<?php echo $value['id_donhang']?>">
                                             <span class="textsua">Sửa</span>
                                             </a>
@@ -613,7 +650,11 @@
 
                                     
                                         <button  class="noselect">
+<<<<<<< HEAD
                                         <a  class="xoa" onclick="return confirm('Xóa đơn hàng này?');" 
+=======
+                                        <a  class="xoa" onclick="return confirm('Xóa nhân viên này?');" 
+>>>>>>> 219ea85eab6b09abd85d69cc3f7ec147567f1e62
                                         href="?controller=xulydh&method=xoa&id=<?php echo $value['id_donhang']?>">
                                             <span class="textxoa">Xóa</span>
                                             </a>

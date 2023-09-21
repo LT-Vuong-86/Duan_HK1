@@ -79,11 +79,13 @@ if(isset($_SESSION['ss_user'])){
             //     ), array(
             //     'id_sanpham'=>$value['id_sanpham'],$value['size']=>$value['size'],'type_name'=> $value['loai_sp']));
             
-            $sl+=$value['soluong'];
-            $sanpham=$db->get('sanpham',array('id_sanpham'=>$value['id_sanpham']));
-            $db->update('sanpham',array(
-                'tonkho'=>$sanpham[0]['tonkho']-$sl
-            ),array('id_sanpham'=>$value['id_sanpham']));
+
+            // $sl+=$value['soluong'];
+            // $sanpham=$db->get('sanpham',array('id_sanpham'=>$value['id_sanpham']));
+            // $db->update('sanpham',array(
+            //     'tonkho'=>$sanpham[0]['tonkho']-$sl
+            // ),array('id_sanpham'=>$value['id_sanpham']));
+
         }
 
         $db->delete('giohang',array(
@@ -176,10 +178,14 @@ if (isset($_SESSION['cart'])) {
         //     $value['size_name']=>$loai_sp[0][$sizelsp]-$value['sl']
         // ),array('id_sanpham'=>$value['id_sanpham']));
         
-        $sl+=$value['sl'];
-    }$sanpham=$db->get('sanpham',array('id_sanpham'=>$value['id_sanpham']));
-    $db->update('sanpham', array('tonkho'=>$sanpham[0]['tonkho']-$sl), 
-    array('id_sanpham'=>$value['id_sanpham']));
+
+        // $sl+=$value['sl'];
+        // $sanpham=$db->get('sanpham',array('id_sanpham'=>$value['id_sanpham']));
+        // $db->update('sanpham', array('tonkho'=>$sanpham[0]['tonkho']-$sl), 
+        // array('id_sanpham'=>$value['id_sanpham']));
+    }
+   
+
    
     echo "<script>alert('Đặt hàng thành công')</script>";
     unset($_SESSION['cart']);

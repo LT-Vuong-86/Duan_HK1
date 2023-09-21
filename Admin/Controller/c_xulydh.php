@@ -21,9 +21,17 @@ if(isset($_SESSION['ss_admin'])){
                
                 break;
             case 'xoa':
+<<<<<<< HEAD
                 $id = $_GET['id'];
                 $db->delete('donhang', array('id_donhang'=>$id));
                 $db->delete('ctdonhang', array('id_donhang'=>$id));
+=======
+                $donhang=$db->get('donhang',array('id_donhang'=>$id));
+                $id = $_GET['id'];
+                $db->delete('donhang', array('id_donhang'=>$id));
+                $db->delete('ctdonhang', array('id_donhang'=>$id));
+                $db->delete('khachhang', array('id_kh'=>$donhang[0]['id_kh']));
+>>>>>>> 219ea85eab6b09abd85d69cc3f7ec147567f1e62
                 header('Location: ?controller=donhang');
                 break;
 
@@ -31,8 +39,12 @@ if(isset($_SESSION['ss_admin'])){
                 $id = $_GET['id'];
                 $donhang=$db->get('donhang',array('id_donhang'=>$id));
 
+<<<<<<< HEAD
                 $khachhang = $db->get('khachhang', array('id_kh'=>$donhang[0]['id_kh']));
                 
+=======
+                $khachhang = $db->get('khachhang', array('id_kh'=>$donhang[0]['id_kh']));               
+>>>>>>> 219ea85eab6b09abd85d69cc3f7ec147567f1e62
                 $ctdonhang=$db->get('ctdonhang',array('id_donhang'=>$donhang[0]['id_donhang']));
                 if(isset($_POST['btn_donhang'])){
    
@@ -68,6 +80,30 @@ if(isset($_SESSION['ss_admin'])){
                             'id_tinhtrang'=>$id_tinhtrang
                         ),array('id_donhang'=>$id));
                         header('location: ?controller=donhang');
+<<<<<<< HEAD
+=======
+                        if ($id_tinhtrang==3) {
+                            $ctdonhang = $db->get('ctdonhang', array('id_donhang'=>$id));
+
+                            foreach ($ctdonhang as $key => $value) {
+                                $sanpham = $db->get('sanpham', array('id_sanpham'=>$value['id_sanpham']));
+                                foreach ($sanpham as $key => $value1) {
+                                    $db->update('sanpham',array(
+                                        'daban'=>$value1['daban']+=$value['soluongsp']
+                                    ),array('id_sanpham'=>$value['id_sanpham']));
+                                }
+
+                                // $db->update('loai_sp',array(
+                                //     $value['size']=>$ctdonhang[0]['size']-=$value['soluongsp']
+                                // ),array('id_sanpham'=>$ctdonhang[0]['sanpham'],''));
+                           
+                            }
+                        $db->update('sanpham',array(
+                            'daban'=>$ctdonhang[0]['daban']-=1
+                        ),array('id_sanpham'=>$ctdonhang[0]['sanpham']));
+                        
+                        }
+>>>>>>> 219ea85eab6b09abd85d69cc3f7ec147567f1e62
                     }
                 }
                 require 'View_web/v_suadonhang.php';

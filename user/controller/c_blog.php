@@ -1,15 +1,22 @@
 <?php
 $sanpham=$db->get('sanpham',array());
-$reversed_array = array_reverse($sanpham);
+
+$reversed_array = $db->order_by('sanpham',array(
+    'id_sanpham'=>'DESC',
+));
+
+
 // if ($sanpham != "") {
 //     $reversed_array = nl2br($sanpham[0]["nd_sp"]);
 // }
 // In mảng đảo ngược
 $records_per_page = 3;
-$total_records=count($sanpham);
+$total_records=count($reversed_array);
 // Calculate the total number of pages
 global $total_pages;
-$total_pages = ceil($total_records / $records_per_page);
+$total_pages=5;
+// $total_pages = ceil($total_records / $records_per_page);
+
 // Get the current page number
 
 $current_page = $_GET['page'] ?? 1;
@@ -22,6 +29,9 @@ $end_record = $current_page * $records_per_page;
 // foreach ($sanpham as $sanphams) {
 //   $sanpham=$sanphams;
 // }
-$reversed_array=$db->limit('sanpham',$current_page.','.$records_per_page);
+
+$reversed_array=array_slice($reversed_array, $start_record, $records_per_page);
+//$reversed_array=$db->limit('sanpham',$current_page.','.$records_per_page);
+
 require_once("view/v_blog.php") ;
 ?>

@@ -1,6 +1,9 @@
 <?php
     //Kiểm tra xem người dùng đã đăng nhập chưua
+<<<<<<< HEAD
 $donhang=array();
+=======
+>>>>>>> 219ea85eab6b09abd85d69cc3f7ec147567f1e62
 	if (isset($_SESSION['ss_admin'])) {
         //Nếu đã đăng nhập thì lấy thông tin người dùng theo ss
         $donhang=$db->get('donhang',array());
@@ -19,11 +22,19 @@ $donhang=array();
     //     }else{ $donhang=$db->get('donhang',array());
 
     //   }
+<<<<<<< HEAD
+=======
+    require_once('View_web/v_donhang.php');
+>>>>>>> 219ea85eab6b09abd85d69cc3f7ec147567f1e62
     }
    else{
        //Nếu chưa đăng nhập thì sẽ cho người dùng về trang login
        header('location: ?controller=login');
    } 
 
+<<<<<<< HEAD
     require_once('View_web/v_donhang.php');
+=======
+   
+>>>>>>> 219ea85eab6b09abd85d69cc3f7ec147567f1e62
 ?>

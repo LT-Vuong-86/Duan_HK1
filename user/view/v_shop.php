@@ -30,11 +30,11 @@
             --smoke: rgb(220, 220, 220);
         }
 
+    
         h4{
             float: left; 
             color: crimson;
         }
-
         h5{
             color: black; 
             position: absolute; 
@@ -71,6 +71,7 @@
             height: 100%; 
             position: absolute;
         }
+
 
         .navigation{
             height: 60px;
@@ -157,6 +158,7 @@
             font-size: 2.5rem;
             cursor: pointer;
         }
+
     </style>
 </head>
 <!--/head-->
@@ -207,17 +209,16 @@
                         <div class="mainmenu pull-left">
                             <ul class="nav navbar-nav collapse navbar-collapse">
                                 <li><a href="?controller=home">Trang chủ</a></li>
+
                                 <li class="dropdown"><a href="?controller=shop" class="active">Cửa hàng<i class="fa fa-angle-down"></i></a>
                                     <ul role="menu" class="sub-menu">
+
                                         <li><a href="?controller=checkout">Thủ tục thanh toán</a></li>
                                         <li><a href="?controller=cart">Giỏ hàng</a></li>
                                     </ul>
                                 </li>
-                                <li class="dropdown"><a href="#">Blog<i class="fa fa-angle-down"></i></a>
-                                    <ul role="menu" class="sub-menu">
-                                        <li><a href="?controller=blog">Blog List</a></li>
-                                    </ul>
-                                </li>
+
+                                <li><a href="?controller=blog">Blog </a></li>
                                 <li><a href="?controller=contact">Liên hệ</a></li>
                             </ul>
                         </div>
@@ -276,6 +277,7 @@
                         <div class="shipping text-center">
                             <img src="../images/home/shipping.jpg" alt="" />
                         </div>
+
                     </div>
                 </div>
 
@@ -421,6 +423,7 @@
     <script src="../js/bootstrap.min.js"></script>
     <script src="../js/jquery.prettyPhoto.js"></script>
     <script src="../js/main.js"></script>
+
     <script>
             
         let toggle = document.querySelector(".toggle");
@@ -434,6 +437,8 @@
             topbar.classList.toggle("active");
         }
     </script>
+
+
 </body>
 
 </html>

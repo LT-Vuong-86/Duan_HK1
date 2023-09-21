@@ -20,13 +20,18 @@ if(isset($_SESSION['ss_user'])){
             header('location: ?controller=account');
     }
 }
-if (isset($_POST['huy_dh'])) {
-    if (isset($_POST['id_dh'])) {
-        $id_dh=$_POST['id_dh'];
-    }
+
+if (isset($_GET['id'])) {
+    $id=$_GET['id'];
+if (isset($_GET['method'])) {
+$method=$_GET['method'];
+if ($method == 'huy') {   
     $db->update('donhang',array(
         'id_tinhtrang'=>4
-    ),array('id_donhang'=>$id_dh));
+    ),array('id_donhang'=>$id));
+    echo "<script>window.location.href = '?controller=account';</script>";
+}}
+
 }
   
 }else{

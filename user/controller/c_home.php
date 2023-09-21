@@ -1,4 +1,5 @@
 <?php
+<<<<<<< HEAD
     $index = 0;
 	$sanpham = $db->get('sanpham', array());
     $data_danhmuc = $db->get('danhmuc', array());
@@ -6,6 +7,14 @@
     
     
 	$sp_shirt_girl1 =$db->get('sanpham', array('id_danhmuc'=>1));
+=======
+
+   $index = 0;
+	$sanpham = $db->get('sanpham', array());
+
+    
+	$sp_shirt_girl1 =$db->get('sanpham',array('id_danhmuc'=>1));
+>>>>>>> 219ea85eab6b09abd85d69cc3f7ec147567f1e62
     $sp_shirt_girl = [];
 
     for ($i = 0; $i < count($sp_shirt_girl1); $i++) {

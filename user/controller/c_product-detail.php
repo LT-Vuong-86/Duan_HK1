@@ -130,7 +130,11 @@
         if ($_SESSION['cart'][$id]['size_name'] == $size_name && $_SESSION['cart'][$id]['loai_sp'] == $loai_sp) {
             // Increment the quantity
            
+<<<<<<< HEAD
             // $_SESSION['cart'][$id]['sl'] += $sl;
+=======
+            //$_SESSION['cart'][$id]['sl'] += $sl;
+>>>>>>> 219ea85eab6b09abd85d69cc3f7ec147567f1e62
           } else if ($_SESSION['cart'][$id]['id_sanpham'] == $id) {
             // Add the product to the cart
              $_SESSION['cart'][$id]['loai_sp'] = $loai_sp;
@@ -155,6 +159,27 @@
 
     }
      }
+<<<<<<< HEAD
+=======
+     if (isset($_POST['yeuthich'])) {
+     if (isset($_SESSION['ss_user'])) {
+        $id_sanpham=$db->get('danhsachyeuthich',array('id_sanpham'=>$id,'id_taikhoan'=>$_SESSION['ss_user']));
+if (empty($id_sanpham)) {
+        $db->insert('danhsachyeuthich',array(
+            'id_taikhoan'=>$_SESSION['ss_user'],
+            'id_sanpham'=>$id            
+        ));
+        echo "<script>alert('Đã thêm vào danh sách yêu thích')</script>";
+        echo "<script>window.location.href = '?controller=likeproduct';</script>";
+     }
+     else {
+        echo "<script>alert('Sản phẩm đã được thêm trước đó')</script>";
+     }
+    }else {
+        echo "<script>alert('Chức năng này cần đăng nhập')</script>";
+     }
+    }
+>>>>>>> 219ea85eab6b09abd85d69cc3f7ec147567f1e62
     // $loai_sp=$_POST['jehvd'];
                           
         // $size_phu = $_POST['size_name'];  

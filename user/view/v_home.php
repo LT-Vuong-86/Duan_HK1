@@ -13,23 +13,12 @@
     <link href="../css/animate.css" rel="stylesheet">
 	<link href="../css/main.css" rel="stylesheet">
 	<link href="../css/responsive.css" rel="stylesheet">
-    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-
     <style>
         *{
             box-sizing: border-box;
             margin: 0;
             padding: 0;
         }
-
-        :root{
-            --black: black;
-            --white: #fff;
-            --yellow: #F5A623;
-            --grey: grey;
-            --smoke: rgb(220, 220, 220);
-        }
-
         .product-image-wrapper{
             height: 330px;
         }
@@ -78,91 +67,6 @@
             position: absolute;
         }
 
-        .navigation{
-            height: 60px;
-            width: 200px;
-            background: var(--black);
-            border-radius: 10px ;          
-        }
-
-        .navigation.active{
-            height: 100%;
-            overflow: hidden;
-        }
-
-        .navigation ul{
-            position: relative;
-            top: 0;
-            left: 0;
-            width: 100%;
-        }
-
-        .navigation ul li{
-            position: relative;
-            width: 100%;
-            list-style: none;
-            cursor: pointer;
-        }
-
-        /* .navigation ul li:hover,
-        .navigation ul li.hovered{
-            background: var(--white);
-        } */
-
-        .navigation ul li:nth-child(1){
-            margin-bottom: 40px;
-            pointer-events: none;
-        }
-
-        .navigation ul li a{
-            position: relative;
-            width: 100%;
-            display: flex;
-            text-decoration: none;
-            color: var(--white);
-        }
-
-        .navigation ul li a .title{
-            position: relative;
-            padding: 0 10px;
-            line-height: 60px;
-            text-align: start;
-            white-space: nowrap;
-        }
-        .main{
-            position: absolute;
-            margin-left: 200px;
-            bottom: 100%;
-            background: var(--white);
-        }
-
-        .topbar{
-            position: absolute;
-            width: 100%;
-            height: 60px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 0 10px;
-        }
-
-        .topbar.active{
-            top: 0;
-            bottom: 0;
-        }
-
-        .toggle{
-            position: relative;
-            top: 0;
-            height: 60px;
-            width: 60px;
-            background: #fff;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-size: 2.5rem;
-            cursor: pointer;
-        }
     </style>
     </head><!--/head-->
 
@@ -182,7 +86,7 @@
                         <div class="shop-menu pull-right">
                             <ul class="nav navbar-nav">
                                 <li><a href="?controller=account"><i class="fa fa-user"></i> Tài khoản</a></li>
-                                <!-- <li><a href="#"><i class="fa fa-star"></i>Danh sách yêu thích</a></li> -->
+                                <li><a href="?controller=likeproduct"><i class="fa fa-star"></i>Danh sách yêu thích</a></li>
                                 <li><a href="?controller=checkout"><i class="fa fa-crosshairs"></i>Thanh toán</a></li>
                                 <li><a href="?controller=cart"><i class="fa fa-shopping-cart"></i>Giỏ hàng</a></li>
                                 <li>
@@ -224,11 +128,7 @@
                                         <li><a href="?controller=cart">Giỏ hàng</a></li>
                                     </ul>
                                 </li>
-                                <li class="dropdown"><a href="#">Blog<i class="fa fa-angle-down"></i></a>
-                                    <ul role="menu" class="sub-menu">
-                                        <li><a href="?controller=blog">Blog List</a></li>
-                                    </ul>
-                                </li>
+                                <li><a href="?controller=blog">Blog </a></li>
                                 <li><a href="?controller=contact">Liên hệ</a></li>
                             </ul>
                         </div>
@@ -769,5 +669,6 @@
             topbar.classList.toggle("active");
         }
     </script>
+
 </body>
 </html>

@@ -111,7 +111,38 @@
             text-align: start;
             white-space: nowrap;
         }
+<<<<<<< HEAD
 
+=======
+/* 
+        .navigation ul li:hover a::before,
+        .navigation ul li.hovered a::before{
+            content: '';
+            position: absolute;
+            right: 0;
+            top: -50px;
+            width: 50px;
+            height: 50px;
+            background-color: transparent;
+            border-radius: 50%;
+            box-shadow: 35px 35px 0 10px var(--white);
+            pointer-events: none;
+        } */
+
+        /* .navigation ul li:hover a::after,
+        .navigation ul li.hovered a::after{
+            content: '';
+            position: absolute;
+            right: 0;
+            bottom: -50px;
+            width: 50px;
+            height: 50px;
+            background-color: transparent;
+            border-radius: 50%;
+            box-shadow: 35px -35px 0 10px var(--white);
+            pointer-events: none;
+        } */
+>>>>>>> 219ea85eab6b09abd85d69cc3f7ec147567f1e62
 
         .main{
             position: absolute;
@@ -368,6 +399,7 @@
                 </li>
 
                 <li>
+<<<<<<< HEAD
                     <a href="?controller=danhmuc">
                         <span class="icon"><i class='bx bx-list-ul'></i></span>
                         <span class="title">Danh mục</span>
@@ -375,6 +407,8 @@
                 </li>
 
                 <li>
+=======
+>>>>>>> 219ea85eab6b09abd85d69cc3f7ec147567f1e62
                     <a href="?controller=sanpham">
                         <span class="icon"><i class='bx bxl-product-hunt'></i></span>
                         <span class="title">Sản phẩm</span>
@@ -388,6 +422,18 @@
                     </a>
                 </li>
 
+<<<<<<< HEAD
+=======
+                <!-- <li>
+                    <a href="#">
+                        <span class="icon"><i class='bx bx-line-chart'></i></span>
+                        <span class="title">Doanh thu</span>
+                    </a>
+                </li> -->
+
+              
+
+>>>>>>> 219ea85eab6b09abd85d69cc3f7ec147567f1e62
                 <li>
                     <a href="?controller=khachhang">
                         <span class="icon"><i class='bx bx-user nav_icon'></i></span>
@@ -416,11 +462,47 @@
             </div>
 
             <div class="cardBox">
+<<<<<<< HEAD
                 <a style="text-decoration:none" href="#">
                     <div class="card">
                         <div>
                             <div class="numbers"><?php echo $count_rate?></div>
                             <div class="cardName">Đánh giá</div>
+=======
+                <!-- <a style="text-decoration:none" href="">
+                    <div class="card">
+                        <div>
+                            <div class="numbers">1513</div>
+                            <div class="cardName">Lượt xem</div>
+                        </div>
+
+                        <div class="iconBx">
+                            <ion-icon name="eye-outline"></ion-icon>
+                        </div>
+                    </div>
+                </a>
+                
+
+                <a style="text-decoration:none" href="">
+                    <div class="card">
+                        <div>
+                            <div class="numbers">100</div>
+                            <div class="cardName">Giảm giá</div>
+                        </div>
+
+                        <div class="iconBx">
+                            <ion-icon name="cart-outline"></ion-icon>
+                        </div>
+                    </div>
+                </a>
+                 -->
+
+                <a style="text-decoration:none" href="?controller=binhluan">
+                    <div class="card">
+                        <div>
+                            <div class="numbers"><?php echo $count_rate ?></div>
+                            <div class="cardName">Bình luận</div>
+>>>>>>> 219ea85eab6b09abd85d69cc3f7ec147567f1e62
                         </div>
 
                         <div class="iconBx">
@@ -432,7 +514,11 @@
                 <a style="text-decoration:none" href="">
                     <div class="card">
                         <div>
+<<<<<<< HEAD
                             <div class="numbers"><?php echo number_format($tongdoanhthu) ?>đ</div>
+=======
+                            <div class="numbers"><?php echo number_format($tongdoanhthu) ?></div>
+>>>>>>> 219ea85eab6b09abd85d69cc3f7ec147567f1e62
                             <div class="cardName">Tổng doanh thu</div>
                         </div>
 

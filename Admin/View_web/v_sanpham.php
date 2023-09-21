@@ -483,6 +483,7 @@
                 </li>
 
                 <li>
+<<<<<<< HEAD
                     <a href="?controller=danhmuc">
                         <span class="icon"><i class='bx bx-list-ul'></i></span>
                         <span class="title">Danh mục</span>
@@ -490,6 +491,8 @@
                 </li>
 
                 <li>
+=======
+>>>>>>> 219ea85eab6b09abd85d69cc3f7ec147567f1e62
                     <a href="?controller=sanpham" class="active_admin">
                         <span class="icon"><i class='bx bxl-product-hunt'></i></span>
                         <span class="title">Sản phẩm</span>
@@ -666,6 +669,27 @@
     </div>
 
     <script>
+<<<<<<< HEAD
+=======
+        const pagination = {
+  current_page: 1,
+  per_page: 10,
+};
+
+// Sử dụng hàm AJAX để lấy dữ liệu cho trang hiện tại
+const getRecords = async () => {
+  const response = await fetch(`/api/users?page=${pagination.current_page}&per_page=${pagination.per_page}`);
+  const data = await response.json();
+  return data;
+};
+
+// Hiển thị dữ liệu đã lấy ra
+getRecords().then((data) => {
+  // ...
+});
+    </script>
+    <script>
+>>>>>>> 219ea85eab6b09abd85d69cc3f7ec147567f1e62
         //add hovered
         // let list = document.querySelectorAll(".navigation li");
         // function activeLink(){
