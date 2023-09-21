@@ -171,9 +171,6 @@ h3{
 #diachi{
     margin-bottom: 35px;       
 }
-
-
-        
     </style>
 </head>
 <body>

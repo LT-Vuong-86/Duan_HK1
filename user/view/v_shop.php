@@ -19,6 +19,11 @@
             float: left; 
             color: crimson;
         }
+        h5{
+            color: black; 
+            position: absolute; 
+            margin-top: 10px; 
+        }
         h6{
             float: left;
             position: absolute;
@@ -26,20 +31,27 @@
             margin-left: 10px;
         }
         .product-image-wrapper{
+            height: 360px;
             padding: 5px;
             border: 1px solid black;
         }
         .product-image-wrapper:hover{
+            cursor: pointer;
             box-shadow: 0 0 10px;
         }
-        .watch{
-            border: none;
+        .product-image-wrapper .single-products a button.watch{
+            border: none; 
             border-radius: 18px;
             background: orange;
         }
-
+        .bottom{
+            margin-top:45px; 
+            width: 100%; 
+            height: 100%; 
+            position: absolute;
+        }
     </style>
-  </head>
+</head>
 <!--/head-->
 
 <body>
@@ -57,7 +69,6 @@
                         <div class="shop-menu pull-right">
                             <ul class="nav navbar-nav">
                             <li><a href="?controller=account"><i class="fa fa-user"></i> Tài khoản</a></li>
-                                <li><a href=""><i class="fa fa-star"></i>Danh sách yêu thích</a></li>
                                 <li><a href="?controller=checkout"><i class="fa fa-crosshairs"></i>Thanh toán</a></li>
                                 <li><a href="?controller=cart"><i class="fa fa-shopping-cart"></i>Giỏ hàng</a></li>
                                 <li><?php if (isset($_SESSION['ss_user'])) {
@@ -89,19 +100,14 @@
                         <div class="mainmenu pull-left">
                             <ul class="nav navbar-nav collapse navbar-collapse">
                                 <li><a href="?controller=home">Trang chủ</a></li>
-                                <li class="dropdown"><a href="#" class="active">Mail<i class="fa fa-angle-down"></i></a>
+                                <li class="dropdown"><a href="#" class="active">Cửa hàng<i class="fa fa-angle-down"></i></a>
                                     <ul role="menu" class="sub-menu">
                                         <li><a href="?controller=shop" class="active">Cửa hàng</a></li>
                                         <li><a href="?controller=checkout">Thủ tục thanh toán</a></li>
                                         <li><a href="?controller=cart">Giỏ hàng</a></li>
                                     </ul>
                                 </li>
-                                <li class="dropdown"><a href="#">Blog<i class="fa fa-angle-down"></i></a>
-                                    <ul role="menu" class="sub-menu">
-                                        <li><a href="?controller=blog">Blog List</a></li>
-                                        <li><a href="?controller=blog-single">Blog Single</a></li>
-                                    </ul>
-                                </li>
+                                <li><a href="?controller=blog">Blog </a></li>
                                 <li><a href="?controller=contact">Liên hệ</a></li>
                             </ul>
                         </div>
@@ -150,7 +156,7 @@
                                             <ul>
                                                 <li><a href="?controller=shop&id_dm=6">Áo Vest</a></li>
                                                 <li><a href="?controller=shop&id_dm=5">Quần</a></li>
-                                                <li><a href="?controller=shop&id_dm=4">Áo Polo</a></li>
+                                                <li><a href="?controller=shop&id_dm=4">Áo Nam</a></li>
                                             </ul>
                                         </div>
                                     </div>
@@ -178,7 +184,7 @@
                                     <div class="panel-heading">
                                         <h4 class="panel-title">
                                             <a data-toggle="collapse" data-parent="#accordian" href="#kid">
-                                                <span class="badge pull-right"><i class="fa fa-plus"></i></span> trẻ em
+                                                <span class="badge pull-right"><i class="fa fa-plus"></i></span> Trẻ em
                                             </a>
                                         </h4>
                                     </div>
@@ -187,7 +193,7 @@
                                             <ul>
                                                 <li><a href="?controller=shop&id_dm=7">Áo</a></li>
                                                 <li><a href="?controller=shop&id_dm=8">Quần</a></li>
-                                                <li><a href="?controller=shop&id_dm=9">Cả bộ</a></li>
+                                                <li><a href="?controller=shop&id_dm=9">Bộ</a></li>
                                             </ul>
                                         </div>
                                     </div>
@@ -223,42 +229,46 @@
                         <!--features_items-->
                         <h2 class="title text-center">Cửa hàng</h2>
                         <?php
-
+                            $i = 0;
                             foreach ($sanpham as $key => $value) {
-
-                            ?>
+                              
+                                // Hiển thị sản phẩm
+                                ?>
                                 <div class="col-sm-4"> 
                                     <div class="product-image-wrapper">
                                         <div class="single-products">
                                             <div class="productinfo text-center">
-                                            <a href="?controller=product-detail&id=<?php echo $value['id_sanpham']?>"><img class="img-responsive" style="width:100%; height:250px; object-fit: cover;" src="../images/sanpham/<?php echo $value['anh_chinh']?>" alt="" /></a>
-                                                <h5 style="color: black;"><?php echo $value['tensanpham']?></h5>
+                                                <img class="img-responsive" style="width:100%; height:250px; object-fit: cover;" src="../images/sanpham/<?php echo $value['anh_chinh']?>" alt="" />
+                                                <h5><?php echo $value['tensanpham']?></h5>
+
                                             </div>
-                                            <div>
+                                            <div class="bottom">
                                                 <h4><sup>đ</sup><?php echo number_format($value['gia'])?></h4>
                                                 <h6>Đã bán: <?php echo $value['daban']?></h6>
-                                            </div>
-                                            <a href="?controller=product-detail&id=<?php echo $value['id_sanpham']?>">
+                                                <a href="?controller=product-detail&id=<?php echo $value['id_sanpham']?>">
                                                 <button class="watch" style="float:right; margin-top:30px; margin-left:20px">Xem ngay</button>
                                             </a>
+                                            </div>
+                                            
                                         </div>
                                     </div>
                                 </div>
-                            <?php }?>
-                            <div class="pagination-area">
+                                <?php }?>
+
+
                         <ul class="pagination">
-                            
-                            <?php if (isset($total_pages)) {
-                            for ($i = 1; $i <= $total_pages; $i++) {
-                            if ($i == $current_page) {
-                                echo "<li class='active'><a href='?controller=shop&page=$i'>$i</a></li>";
-                            } else {
-                                echo "<li><a href='?controller=shop&page=$i'>$i</a></li>";
-                                // echo "<li><a href='?controller=shop&page=$i'>&raquo;</a></li>";
-                            }
-                            }  }
+                            <?php 
+                                if (isset($total_pages)) {
+                                    for ($i = 1; $i <= $total_pages; $i++) {
+                                        if ($i == $current_page) {
+                                            echo "<li class='active'><a href='?controller=shop&page=$i'>$i</a></li>";
+                                        }else{
+                                            echo "<li><a href='?controller=shop&page=$i'>$i</a></li>";
+                                            // echo "<li><a href='?controller=shop&page=$i'>&raquo;</a></li>";
+                                        }
+                                    }  
+                                }
                             ?>
-                            
                         </ul>
                         </div>
                     </div>

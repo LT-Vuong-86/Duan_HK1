@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-       <title>Thêm nhân viên</title></title>
+       <title>Admin | Thêm nhân viên</title></title>
     <style>
        
         *{
@@ -47,6 +47,7 @@
             width: 100%;
             position: relative;
             border: 1px solid grey;
+            margin-bottom: 20px;
         }
         .form-control:hover{
             border: 1px solid var(--success-color);
@@ -167,20 +168,19 @@
             margin-top: 35px;       
         }
 
-       
         form div{
             padding-left: 20px;
         }
-
     </style>
 </head>
 <body>
 <div class="container">
     <form action="?controller=addnhanvien" method="post">
-        <div><h2 class="text-uppercase text-center">Thêm tài khoản</h2></div>
+        <div>
+            <h2 class="text-uppercase text-center">Thêm tài khoản</h2>
+        </div>
         
         <div id="username" class="form-control row mx-1">
-        <h4>Username</h4>
             <input name="username" type="text" placeholder="Tên đăng nhập" 
             value="" required>
         </div>
@@ -191,7 +191,6 @@
         </div> 
 
         <div id="full_name" class="form-control row mx-1">
-        <h4>Fullname</h4>
             <input name="full_name" type="text" placeholder="Tên đầy đủ" 
             value="" required>
         </div>
@@ -201,8 +200,7 @@
             <?php }?>
         </div>
 
-        <div id="matkhau" class="form-control row mx-1">
-        <h4>Password</h4>
+        <div id="matkhau"  minlength="6" class="form-control  row mx-1">
             <input name="pass" type="password" placeholder="Mật khẩu" 
             value="" required>
         </div>
@@ -213,8 +211,7 @@
         </div>
 
         <div id="sdt" class="form-control row mx-1">
-        <h4>Phone number</h4>
-            <input name="sdt" type="text" placeholder="SĐT" 
+            <input name="sdt"  type="tel" pattern="[0-9]{10}" title="Hãy nhập lại số điện thoại." placeholder="SĐT" 
             value="<?php echo (isset($sdt))?$sdt:'' ?>" required>
         </div>
         <div id="canhbao" class="row mt-2">
@@ -223,9 +220,7 @@
             <?php }?>
         </div>
 
-
         <div id="vaitro" class="form-control row mx-1">
-            <h4>Role</h4>
             <input name="vaitro" type="text" placeholder="Vai trò" 
             value="<?php echo (isset($vaitro))?$vaitro:'' ?>"  <?php  if ($user[0]['vaitro']=='manager') { echo "disabled"; }?> required>
         </div>
@@ -235,9 +230,7 @@
             <?php }?>
         </div>
 
-
         <div id="email" class="form-control row mx-1">
-        <h4>Email</h4>
             <input name="email" type="text" placeholder="Email" 
             value="" <?php  if ($user[0]['vaitro']=='manager') { echo "required"; }?> >
         </div>
@@ -248,7 +241,6 @@
         </div>
 
         <div id="diachi" class="form-control row mx-1">
-        <h4>address</h4>
             <input name="diachi" type="text" placeholder="Địa chỉ " 
             value="<?php echo (isset($diachi))?$diachi:'' ?>" <?php  if ($user[0]['vaitro']=='manager') { echo "required"; }?>>
         </div>

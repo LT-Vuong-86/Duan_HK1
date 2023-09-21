@@ -52,6 +52,26 @@
                 }
                 return $ketqua;
         }
+        public function order_by($table, $order=array()){
+            //Lấy dữ liệu sql
+            $sql = "SELECT * FROM $table";
+            if (!empty($order)) {
+                $sql .= " ORDER BY ";
+                foreach ($order as $column => $direction) {
+                    $sql .= "$column $direction, ";
+                }
+                $sql = trim($sql, ", ");
+            }
+            //Thực thi câu lệnh
+            $query = mysqli_query($this->conn, $sql);
+            $ketqua = array();
+                if ($query){
+                    while($row = mysqli_fetch_assoc($query)){
+                        $ketqua[] = $row;
+                    }
+                }
+                return $ketqua;
+        }
         //Function lấy dữ liệu theo điều kiện
         public function get_like($table, $column, $value, $condition=array()){
             $sql = "SELECT * FROM $table WHERE $column LIKE '%$value%'";
@@ -148,6 +168,7 @@
             $query = mysqli_query($this->conn, $sql);
             return $query;
         }
+
         
         public function update($table, $data=array(), $condition=array()){
             $value_str = '';
@@ -164,6 +185,32 @@
           
             $query = mysqli_query($this->conn, $sql);
             return $query;
+        }
+        public function get_join($column=array(),$table1,$table2,$codition_join,$condition,$condition1=array(),$condition2=array())  {
+            $column1=implode(',', $column);
+            $sql ="SELECT $column1 FROM $table1 $codition_join $table2 ON $condition";
+            if(!empty($condition1)){
+                $sql.=" WHERE ";
+        
+                foreach ($condition1 as $key => $value){
+                    $sql.= " $key = '$value' AND";
+                }
+                $sql = trim($sql, "AND");
+            }
+            if(!empty($condition2)){
+                foreach ($condition2 as $key => $value){
+                    $sql.= " OR $key LIKE '%$value%'";
+                }
+            }
+
+            $query = mysqli_query($this->conn, $sql);
+                    $ketqua = array();
+                        if ($query){
+                            while($row = mysqli_fetch_assoc($query)){
+                                $ketqua[] = $row;
+                            }
+                        }
+                        return $ketqua;
         }
     }
 ?>

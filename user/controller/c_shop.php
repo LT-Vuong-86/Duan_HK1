@@ -15,10 +15,10 @@ if (isset($_GET['keywork'])) {
 }
 else {
     $sanpham = $db->get('sanpham', array());
-    require_once "view/v_shop.php";
+    
 }
     // Define the number of records per page
-    $records_per_page = 10;
+    $records_per_page = 12;
     $total_records=count($sanpham);
     // Calculate the total number of pages
     global $total_pages;
@@ -35,12 +35,9 @@ else {
     // foreach ($sanpham as $sanphams) {
     //   $sanpham=$sanphams;
     // }
-    $sanpham=$db->get_limit('sanpham',array(),$current_page.','.$records_per_page);
+
+    $sanpham=$db->get_limit('sanpham',array(),$start_record.','.$records_per_page);
     // Generate the pagination links
     
-
-
-
-
-  
+    require "view/v_shop.php";
 ?>

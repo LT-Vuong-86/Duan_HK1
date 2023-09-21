@@ -171,10 +171,6 @@
             padding: 0 10px;
         }
 
-       
-
-        
-
         .toggle{
             position: relative;
             top: 0;
@@ -209,13 +205,13 @@
             width: 100%;
             text-align: center;
         }
+
         table, th, td {
-            
-     border: 1px solid black;
-    }
-    .msp{
-        width: 100px;
-    }
+            border: 1px solid black;
+        }
+        .msp{
+            width: 100px;
+        }
     </style>
 </head>
 <body>
@@ -238,44 +234,90 @@
            
             
         <div class="chitiet">
+                  
         <?php
             if (isset($_SESSION['ss_admin'])) {
 
                 ?>
 				<div class="row">
-					<h3 class="text-center col-md-12">Chi tiết đơn hàng</h3>
+					<h3 class="text-center col-md-12">Chi tiết sản phẩm</h3>
+				</div>
+				
+				<div class="row">
+					<table class="table">
+                    <thead>
+                            <tr>
+                                
+                                <th class="msp">Mã sản phẩm</th>
+                                <th scope="col">Tên sản phẩm</th>
+                                <th scope="col">Ảnh</th>
+                                <th scope="col">Loại sản phẩm</th>
+                                <th scope="col">size</th>
+                                <th scope="col">Số lượng</th>
+                                <th scope="col">Ngày đặt</th>
+                                <th scope="col">Giá gốc</th>    
+                                <th scope="col">Tổng</th>
+                                <th scope="col">Ghi chú</th>
+                            </tr>
+					    </thead>
+                      <tbody>
+                            <?php foreach ($ctdonhang as $key => $value) {
+                                //Lấy dữ liệu sản phẩm tương ứng
+                                $sanpham = $db->get('sanpham',array('id_sanpham'=>$value['id_sanpham']));
+                            ?>
+                            <tr>
+                                
+                                <td><?php echo $value['id_sanpham']?></td>
+                                <td><?php echo $sanpham[0]['tensanpham']?></td>
+                                <td scope="row">
+                                    <img height="100" width="100"  src="../images/sanpham/<?php echo $sanpham[0]['anh_chinh']?>" > 
+                                </td>
+                                <td><?php echo $value['loai_sp']?></td>
+                                <td style="text-transform: uppercase"><?php echo $value['size'] ?></td>
+                                <td><?php echo $value['soluongsp']?></td>
+                                <td><?php echo $value['ngaydat'] ?></td>
+                                <td><?php echo number_format($sanpham[0]['gia'])?>đ</td>
+                                <td><?php echo number_format($sanpham[0]['gia']*$value['soluongsp'])?>đ</td>
+                                <td style="max-width:300px"><?php echo $value['ghichu'] ?></td>	      
+                            </tr>
+                            <?php } ?>
+</tbody>
+					</table>
+				</div>
+				
+			<?php }
+             ?>
+            
+        <?php
+            if (isset($_SESSION['ss_admin'])) {
+
+                ?>
+				<div class="row">
+					<h3 class="text-center col-md-12">Chi tiết khách hàng</h3>
 				</div>
 				
 				<div class="row">
 					<table class="table">
 					  <thead>
 					    <tr>
-                            <th class="msp" >Mã sản phẩm</th>
-					      <th scope="col">Ảnh</th>
-					      <th scope="col">Tên loại sản phẩm</th>
-                          <th scope="col">size</th>
-                          <th>Ngày đặt</th>
-                          <th scope="col">Đơn giá</th>    
-					      <th scope="col">Ghi chú</th>
+                            <th class="msp" >Tên người nhận</th>
+					      <th scope="col">SĐT</th>
+					      <th scope="col">Email</th>
+                          <th scope="col">Địa chỉ</th>
+                         
                           
 					      
 					    </tr>
 					  </thead>
 					  <tbody>
 					    <tr>
-					    <?php foreach ($ctdonhang as $key => $value) {
-					    	//Lấy dữ liệu sản phẩm tương ứng
-					    	$sanpham = $db->get('sanpham',array('id_sanpham'=>$value['id_sanpham']));
-                            
+					    <?php foreach ($khachhang as $key => $value) {                
 					   	?>
-                        <td><?php echo $value['id_sanpham'] ?></td>
-					      <th scope="row"><img height="100" width="100"  src="../images/sanpham/<?php echo $sanpham[0]['anh_chinh']?>" > </th>
-					      <td><?php echo $value['loai_sp'] ?></td>
-                          <td><?php echo $value['size'] ?></td>
-					      <td><?php echo $value['ngaydat'] ?></td>
-					      <td><?php echo number_format($sanpham[0]['gia']) ?>đ</td>
-					      <td style="max-width:300px"><?php echo $value['ghichu'] ?></td>	      
-					    </tr>
+                        <td><?php echo $value['username'] ?></td>
+					       <td><?php echo $value['sdt'] ?></td>
+                          <td><?php echo $value['email'] ?></td>
+					      <td><?php echo $value['diachi'] ?></td>
+					      </tr>
 					    <?php } ?>
 					  </tbody>
 					</table>

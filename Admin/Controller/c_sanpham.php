@@ -9,9 +9,9 @@
         }else {
             $data_sanpham = $db->get('sanpham', array()); 
         }
-        
+        require 'View_web/v_sanpham.php';
     }else{
         header('location: ?controller=login');
     }
-    require 'View_web/v_sanpham.php';
+   
 ?>

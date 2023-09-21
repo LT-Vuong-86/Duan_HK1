@@ -1,4 +1,5 @@
 <?php
+    if(isset($_SESSION['ss_admin'])){
 $tong =$db->get('donhang',array());
 global $tongdoanhthu;
 foreach ($tong as $key => $value) {
@@ -44,5 +45,8 @@ $count_rate= count($tong);
 // if (isset($week)) {
 //     print_r($week);
 // }
-    include 'View_web/v_trangchu.php';
+    require 'View_web/v_trangchu.php';
+}else{
+    header('location: ?controller=login');
+}
 ?>

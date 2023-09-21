@@ -3,155 +3,144 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Thêm nhân viên</title></title>
+    <title>Admin | Thêm đơn hàng</title>
+    <link rel="stylesheet" href="../css/v_add.css">
     <style>
-        
         *{
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-        :root{
-            --success-color: #2691d9;
-            --error-color: #e74c3c;
-        }
+:root{
+    --success-color: #2691d9;
+    --error-color: #e74c3c;
+}
 
-        html, body, .wrapper{
-            height: 100%;  
-        }
+html, body, .wrapper{
+    height: 100%;  
+}
 
-        body{
-            display: grid;
-            place-items: center;
-            padding: 24px;
-            font-family: "Ubuntu";
-            color: #000;
-            animation: rotate 0.5s infinite alternate linear;
-            transition: all 0.5s;
-        }
+body{
+    display: grid;
+    place-items: center;
+    padding: 24px;
+    font-family: "Ubuntu";
+    color: #000;
+    animation: rotate 0.5s infinite alternate linear;
+    transition: all 0.5s;
+}
 
-        .container{
-            width: 800px;
-            height: auto;
-            border: 1px solid black;
-            border-radius: 10px;
-            background: white;
-            padding: 40px;
-        }
+.container{
+    width: 800px;
+    height: auto;
+    border: 1px solid black;
+    border-radius: 10px;
+    background: white;
+    padding: 40px;
+}
 
-        .container h2{
-            text-align: center;
-        }
-        .form-control{
-            width: 100%;
-            position: relative;
-            border: 1px solid grey;
-            margin-bottom: 20px;
-        }
-        .form-control:hover{
-            border: 1px solid var(--success-color);
-            box-shadow: 2px 2px 2px blue;
-        }
-    /* form li h5:nth-child(1){
-    margin-bottom: -33px;
-   
+.container h2{
+    text-align: center;
+}
+.form-control{
+    width: 100%;
+    position: relative;
+    border: 1px solid grey;
+    margin-bottom: 20px;
+}
+.form-control:hover{
+    border: 1px solid var(--success-color);
+    box-shadow: 2px 2px 2px blue;
+}
 
-    } */
-    li{
-        list-style-type: none;
-    }
-        .form-control input{
-            width: 100%;
-            height: 40px;
-            border: none;
-            outline: none;
-            font-size: 16px;
-        }
-        .form-control span{
-            position: absolute;
-        }
+li{
+    list-style-type: none;
+}
 
-        .form-control input:focus ~ span{
-            width: 100%;
-        }
+.form-control input{
+    width: 100%;
+    height: 40px;
+    border: none;
+    outline: none;
+    font-size: 16px;
+}
+.form-control span{
+    position: absolute;
+}
 
-        body .button{
-            align-items: center;
-            display: flex;
-            justify-content: center;
-        }
+.form-control input:focus ~ span{
+    width: 100%;
+}
 
-        .button{
-            color: black;
-            text-decoration: none;
-            position: relative;
-            padding: 20px 30px;
-            display: flex;
-            align-items: center;
-            transition: all 1s;
-            margin-top: 50px;
-        }
+body .button{
+    align-items: center;
+    display: flex;
+    justify-content: center;
+}
 
-        .button:before{
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            display: block;
-            border-radius: 30px;
-            background: rgba(30, 233, 186, .3);
-            width: 56px;
-            height: 56px;
-            transition: all 1s;
-        }
+.button{
+    color: black;
+    text-decoration: none;
+    position: relative;
+    padding: 20px 30px;
+    display: flex;
+    align-items: center;
+    transition: all 1s;
+    margin-top: 50px;
+}
 
-        .button span{
-            position: relative;
-            line-height: 1;
-            font-weight: 500;
-            letter-spacing: 0;
-            padding-left: 20px;
-            text-transform: uppercase;   
-        }
+.button:before{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: block;
+    border-radius: 30px;
+    background: rgba(30, 233, 186, .3);
+    width: 56px;
+    height: 56px;
+    transition: all 1s;
+}
 
-        .button svg{
-            position: relative;
-            top: 0;
-            margin-left: 10px;
-            fill: none;
-            stroke-linecap: round;
-            stroke: rgb(0, 0, 0);
-            stroke-width: 2;
-            transform: translateX(-5px);
-            transition: all 0.5s;
-        }
+.button span{
+    position: relative;
+    line-height: 1;
+    font-weight: 500;
+    letter-spacing: 0;
+    padding-left: 20px;
+    text-transform: uppercase;   
+}
 
-        .button:hover{
-            color: black;
-        }
+.button svg{
+    position: relative;
+    top: 0;
+    margin-left: 10px;
+    fill: none;
+    stroke-linecap: round;
+    stroke: rgb(0, 0, 0);
+    stroke-width: 2;
+    transform: translateX(-5px);
+    transition: all 0.5s;
+}
 
-        .button:hover:before{
-            width: 100%;
-            background: rgb(1, 233, 214);
-        }
+.button:hover{
+    color: black;
+}
 
-        .button:hover svg{
-            stroke: black;
-            transform: translateX(0);
-        }
+.button:hover:before{
+    width: 100%;
+    background: rgb(1, 233, 214);
+}
 
-     
+.button:hover svg{
+    stroke: black;
+    transform: translateX(0);
+}
 
-   
-
-       .text-danger{
-        color: red;
-       }
-       
-
-     
-
+.text-danger{
+    color: red;
+}
     </style>
 </head>
 <body>
@@ -161,7 +150,7 @@
             <h2 class="text-uppercase text-center">Thêm đơn hàng</h2>
         </div> 
         
-        <h5>Tên </h5>
+        <p>Tên khách hàng</p>
         <div id="ten" class="form-control row mx-1">
             <input name="ten" type="text" placeholder="Tên người nhận" 
             value="<?php echo (isset($ten))?$ten:'' ?>" >
@@ -169,20 +158,16 @@
                 <p class="text-danger"><?php echo $loi['ten']?></p> 
             <?php }?>
         </div>
-        <h5>Số điện thoại</h5>
+        <p>Số điện thoại</p>
         <div id="sdt" class="form-control row mx-1">
-        
             <input name="sdt" type="text" placeholder="Số điện thoại người nhận" 
             value="<?php echo (isset($sdt))?$sdt:'' ?>" >
             <?php if(isset($loi['sdt'])){?>
                 <p class="text-danger"><?php echo $loi['sdt']?></p> 
             <?php }?>
         </div>
-        
-      
-        
        
-        <h5>Địa chỉ</h5>
+        <p>Địa chỉ</p>
         <div id="diachi" class="form-control row mx-1">
         
             <input name="diachi" type="text" placeholder="Địa chỉ nhận hàng" 
@@ -192,47 +177,49 @@
             <?php }?>
         </div>
        
-        <h5>Mã sản phẩm</h5>
+        <p>Mã sản phẩm</p>
         <div id="masp" class="form-control row mx-1">
            
-            <input   id="quantity" min="1" max="10" name="slmasp"  type="number" placeholder="Số lượng mã sản phẩm" 
+            <input   id="quantity" min="1" max="10" name="slmasp" pattern="[0-9]+"  type="number" placeholder="Số lượng mã sản phẩm" 
             value="<?php echo (isset($masp))?$masp:'' ?>" >
             <div id="inputs"></div>
             <?php if(isset($loi['masp'])){?>
                 <p class="text-danger"><?php echo $loi['masp']?></p> 
             <?php }?>
         </div>
-        <h5>Tên loại sản phẩm</h5>
+
+        <p>Tên loại sản phẩm</p>
         <div id="loaisp" class="form-control row mx-1">
             
-            <input name="loai_sp" type="text" placeholder="tên loại sản phẩm" 
+            <input name="loai_sp" type="text" placeholder="Sản phẩm thuộc loại" 
             value="<?php echo (isset($tong))?$tong:'' ?>" >
             <?php if(isset($loi['loai_sp'])){?>
                 <p class="text-danger"><?php echo $loi['loai_sp']?></p> 
             <?php }?>
         </div>
-        <h5>Tên loại sản phẩm</h5>
+
+        <p>Kích cỡ:</p>
         <div id="size" class="form-control row mx-1">
             
-            <input name="size" type="text" placeholder="size" 
+            <input name="size" type="text" placeholder="Size" 
             value="<?php echo (isset($tong))?$tong:'' ?>" >
             <?php if(isset($loi['size'])){?>
                 <p class="text-danger"><?php echo $loi['size']?></p> 
             <?php }?>
         </div>
-        <h5>Tổng tiền </h5>
+        <p>Tổng tiền</p>
         <div id="size_name" class="form-control row mx-1">
             
-            <input name="tong" type="text" placeholder="Tổng tiền" 
+            <input name="tong" pattern="[0-9]+" type="text" placeholder="Tổng tiền" 
             value="<?php echo (isset($tong))?$tong:'' ?>" >
             <?php if(isset($loi['tong'])){?>
                 <p class="text-danger"><?php echo $loi['tong']?></p> 
             <?php }?>
         </div>
-        <h5>Ghi chú</h5>
+        <p>Ghi chú</p>
         <div id="ghichu" class="form-control row mx-1">
             
-            <input name="ghichu" type="text" placeholder="Tổng tiền" 
+            <input name="ghichu" type="text" placeholder="Ghi chú..." 
             value="<?php echo (isset($ghichu))?$ghichu:'' ?>" >
             <?php if(isset($loi['ghichu'])){?>
                 <p class="text-danger"><?php echo $loi['ghichu']?></p> 

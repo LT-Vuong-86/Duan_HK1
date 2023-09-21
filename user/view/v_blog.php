@@ -25,35 +25,12 @@
                         <div class="logo pull-left">
                         <a href="?controller=home"><img src="../images/home/logo.png" alt="" /></a>
                         </div>
-                        <div class="btn-group pull-right">
-                            <div class="btn-group">
-                                <button type="button" class="btn btn-default dropdown-toggle usa" data-toggle="dropdown">
-									USA
-									<span class="caret"></span>
-								</button>
-                                <ul class="dropdown-menu">
-                                    <li><a href="">Canada</a></li>
-                                    <li><a href="">UK</a></li>
-                                </ul>
-                            </div>
-
-                            <div class="btn-group">
-                                <button type="button" class="btn btn-default dropdown-toggle usa" data-toggle="dropdown">
-									DOLLAR
-									<span class="caret"></span>
-								</button>
-                                <ul class="dropdown-menu">
-                                    <li><a href="">Canadian Dollar</a></li>
-                                    <li><a href="">Pound</a></li>
-                                </ul>
-                            </div>
-                        </div>
+                        
                     </div>
                     <div class="col-sm-8">
                         <div class="shop-menu pull-right">
                             <ul class="nav navbar-nav">
                             <li><a href="?controller=account"><i class="fa fa-user"></i> Tài khoản</a></li>
-                                 <li><a href=""><i class="fa fa-star"></i>Danh sách yêu thích</a></li>
                                <li><a href="?controller=checkout"><i class="fa fa-crosshairs"></i>Thanh toán</a></li>
                                 <li><a href="?controller=cart"><i class="fa fa-shopping-cart"></i>Giỏ hàng</a></li>
                                 <li><a href="?controller=logout"><i class="fa fa-lock"></i>Đăng xuất</a></li>
@@ -81,20 +58,15 @@
                         <div class="mainmenu pull-left">
                             <ul class="nav navbar-nav collapse navbar-collapse">
                                 <li><a href="?controller=home" class="active">Trang chủ</a></li>
-                                <li class="dropdown"><a href="?controller=shop">Shop<i class="fa fa-angle-down"></i></a>
                                     <ul role="menu" class="sub-menu">
                                         <li><a href="?controller=shop">Các sản phẩm</a></li>
-                                        <li><a href="?controller=product-detail">Thông tin chi tiết sản phẩm</a></li>
                                         <li><a href="?controller=checkout">Thủ tục thanh toán</a></li>
                                         <li><a href="?controller=cart">Giỏ hàng</a></li>
                                     </ul>
                                 </li>
-                                <li class="dropdown"><a href="#">Blog<i class="fa fa-angle-down"></i></a>
-                                    <ul role="menu" class="sub-menu">
-                                        <li><a href="?controller=blog">Blog List</a></li>
-                                        <li><a href="?controller=blog-single">Blog Single</a></li>
-                                    </ul>
-                                </li>
+                                
+                                        <li><a href="?controller=blog">Blog </a></li>
+                                 
                                 <li><a href="?controller=contact">Liên hệ</a></li>
                             </ul>
                         </div>
@@ -160,23 +132,28 @@
                             <h3>Áo phông hồng bé gái đã về hàng</h3>
                             <div class="post-meta">
                                 <ul>
-                                    <li><i class="fa fa-user"></i> Mac Doe</li>
-                                    <li><i class="fa fa-clock-o"></i> 1:33 pm</li>
-                                    <li><i class="fa fa-calendar"></i> DEC 5, 2013</li>
+                                    <li><i class="fa fa-user"></i>  <?php echo $value['nguoitao'] ?></li>
+                      
+                                    <li><i class="fa fa-calendar"></i> DEC <?php echo $value['ngaytao'] ?> </li>
                                 </ul>
                                 <span>
-										<i class="fa fa-star"></i>
-										<i class="fa fa-star"></i>
-										<i class="fa fa-star"></i>
-										<i class="fa fa-star"></i>
-										<i class="fa fa-star-half-o"></i>
+                                <?php global $color; for ($i=0; $i <5 ; $i++) { ?>
+                                                    
+                                                    <?php 
+                                                    if (isset($rating)) {
+                                                    if($i<$rating){
+                                                    $color="color:#FFA617";
+                                                    }else{
+                                                    $color="color:";
+                                                    } }?>
+                                                   <span style=" font-size: 20px;<?php echo $color ?>"> &#9733;</span>
+                                               <?php } ?>
 								</span>
                             </div>
                             <a href="">
                                 <img src="../images/sanpham/<?php echo $value['anh_chinh']  ?>" alt="">
                             </a>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                                Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+                            <p><?php echo nl2br($value['nd_sp'])  ?></p>
                             <a class="btn btn-primary" href="">Read More</a>
                         </div>
                         <?php } ?>

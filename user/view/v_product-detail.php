@@ -72,7 +72,7 @@
                         <div class="shop-menu pull-right">
                             <ul class="nav navbar-nav">
                             <li><a href="?controller=account"><i class="fa fa-user"></i>Tài khoản</a></li>
-                                <li><a href=""><i class="fa fa-star"></i>Danh sách yêu thích</a></li>
+                                <li><a href="?controller=likeproduct"><i class="fa fa-star"></i>Danh sách yêu thích</a></li>
                                 <li><a href="?controller=checkout"><i class="fa fa-crosshairs"></i>Thanh toán</a></li>
                                 <li><a href="?controller=cart"><i class="fa fa-shopping-cart"></i>Giỏ hàng</a></li>
                                 <li><?php if (isset($_SESSION['ss_user'])) {
@@ -111,12 +111,7 @@
                                         <li><a href="?controller=cart">Giỏ hàng</a></li>
                                     </ul>
                                 </li>
-                                <li class="dropdown"><a href="#">Blog<i class="fa fa-angle-down"></i></a>
-                                    <ul role="menu" class="sub-menu">
-                                        <li><a href="?controller=blog">Blog List</a></li>
-                                        <li><a href="?controller=blog-single">Blog Single</a></li>
-                                    </ul>
-                                </li>
+                                <li><a href="?controller=blog">Blog </a></li>
                                 <li><a href="?controller=contact">Liên hệ</a></li>
                             </ul>
                         </div>
@@ -305,23 +300,23 @@
                                      
                                        <label>
                                         <input type="radio" name="size_name" value="s" >
-                                        <span class="text-uppercase">s</span>
+                                        <span class="text-uppercase">S</span>
                                     </label> 
                                     <label>
                                         <input type="radio" name="size_name" value="m" >
-                                        <span class="text-uppercase">m</span>
+                                        <span class="text-uppercase">M</span>
                                     </label>
                                     <label>
                                         <input type="radio" name="size_name" value="l" >
-                                        <span class="text-uppercase">l</span>
+                                        <span class="text-uppercase">L</span>
                                     </label>
                                      <label>
                                         <input type="radio" name="size_name" value="xl">
-                                        <span class="text-uppercase">xl</span>
+                                        <span class="text-uppercase">XL</span>
                                     </label>
                                   <label>
                                         <input type="radio" name="size_name" value="xxl">
-                                        <span class="text-uppercase slash">xxl</span>
+                                        <span class="text-uppercase slash">XXL</span>
                                     </label>
                                        <!-- <li><input type="submit"  name="size_name" value="S" ><?php echo '<br>sl:'.$size[0]['s']  ?></li> 
                                          <li><input type="submit"  name="size_name" value="M" ><?php echo '<br>sl:'.$size[0]['m']  ?></li> 
@@ -350,7 +345,7 @@
                                 <div class="product-content-right-product-button">
                                     <button name="themgiohang">THÊM VÀO GIỎ HÀNG</button>
                                     <button name="muangay">MUA NGAY</button>
-                                    <a href="?controller=addToCart&id=<?php echo $value['id_sanpham']?>"><button>&hearts;</button></a>
+                                    <button  name="yeuthich">&hearts;</button>
                                 </div>
 
                                 </span>
@@ -376,18 +371,14 @@
                             </ul>
                         </div>
                         <div class="tab-content">
-                           
-
-                            <div class="tab-pane fade " id="tag">
+                           <div class="tab-pane fade " id="tag">
                                 <div class="col-sm-12">
-                                   
-                                    <!--/blog-post-area-->
-
+                                   <!--/blog-post-area-->
                                     <div class="rating-area">
                                         <ul class="ratings">
                                             <li class="rate-this">Đánh giá mục này:</li>
                                             <li>
-												   <?php global $color; for ($i=0; $i <5 ; $i++) { ?>
+												<?php global $color; for ($i=0; $i <5 ; $i++) { ?>
                                                     
                                                     <?php 
                                                     if (isset($rating)) {
@@ -413,12 +404,8 @@
                                                     ?>
                                                     
                                     <div class="response-area">
-                                        
-                                       
                                         <ul class="media-list">
-                                           
                                             <li class="media">
-                                          
                                                 <a class="pull-left" href="#">
                                                     <img class="media-object" src="../images/home/user.png" alt="">
                                                 </a>
@@ -426,25 +413,24 @@
                                                 <div class="media-body">
                                                     <ul class="sinlge-post-meta">
                                                         <li><i class="fa fa-user"></i><?php echo $taikhoan_rate[0]['full_name'] ?></li>
-                                                        <li><i class="fa fa-calendar"></i> <?php echo "DEC".$value['Date_rate'] ?> </li>
+                                                        <li><i class="fa fa-calendar"></i> <?php echo "DEC".$value['date_rate'] ?> </li>
                                                     </ul>
                                                     <?php global $color; for ($i=0; $i <5 ; $i++) { ?>
                                                     
                                                     <?php 
-                                                    if (isset($value['rate_rating'])) {
-                                                    if($i<$value['rate_rating']){
-                                                    $color="color:#FFA617";
-                                                    }else{
-                                                    $color="color:";
-                                                    } }?>
-                                                   <span style=" font-size: 20px;<?php echo $color ?>"> &#9733;</span>
-                                               <?php } ?>
-                                                    <p><?php echo $value['rate_content'] ?></p>
-                                                    <span class="btn btn-primary" class="click_replay"><i class="fa fa-reply"></i>phát lại</span>
-                                                   
+                                                        if (isset($value['rate_rating'])) {
+                                                            if($i<$value['rate_rating']){
+                                                                $color="color:#FFA617";
+                                                            }else{
+                                                                $color="color:";
+                                                            } }?>
+                                                        <span style=" font-size: 20px;<?php echo $color ?>"> &#9733;</span>
+                                                        <?php } ?>
+                                                            <p><?php echo $value['rate_content'] ?></p>
+                                                            <span class="btn btn-primary" class="click_replay"><i class="fa fa-reply"></i>phát lại</span>
                                                 </div>
                                             </li>
-                                         <?php   ?>
+                                            <?php   ?>
                                             <li class="media second-media" class="click_none_replay">
                                                 <a class="pull-left" href="#">
                                                     <img class="media-object" src="../images/home/logo.png" alt="">
@@ -454,19 +440,14 @@
                                                   <?php  }else{?>
                                                     <p>Cảm ơn quý đã mua hàng của chúng tôi, chúng tôi rất xin lỗi vì trải nghiệm ko hài lòng của quý khách </p>
                                                 <?php  } ?>
-                                                   
-                                                  
-                                                     </div>
-                                                
                                             </li>
-                                            
-                                            
                                         </ul>
+                                        </div>
                                         <?php  } ?>
-                                    </div>
-                                   
+                                    
                                 </div>
                             </div>
+                       
 
                             <div class="tab-pane fade active in" id="reviews">
                                 <div class="col-sm-12">
@@ -509,7 +490,7 @@
                                    
                                 </div>
                             </div>
-
+                        </div>
                         </div>
 
                     </div>

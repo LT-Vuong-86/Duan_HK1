@@ -6,9 +6,7 @@
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <title>E-Shopper | Admin | Đơn hàng</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap');
-
-        *{
+         *{
             font-family: 'Ubuntu', sans-serif;
             margin: 0;
             padding: 0;
@@ -232,54 +230,6 @@
             object-fit: cover;
         }
 
-        /* .cardBox{
-            position: relative;
-            width: 100%;
-            padding: 20px;
-            display: grid;
-            grid-template-columns: repeat(4 ,1fr);
-            grid-gap: 30px;
-        }
-
-        .cardBox .card{
-            position: relative;
-            background: var(--white);
-            padding: 30px;
-            border-radius: 20px;
-            display: flex;
-            justify-content: space-between;
-            cursor: pointer;
-            box-shadow: 0 7px 25px rgba(0, 0, 0, 0.08);
-        }
-
-        .cardBox .card .numbers{
-            position: relative;
-            font-weight: 500;
-            font-size: 2.5rem;
-            color: var(--yellow);
-        }
-
-        .cardBox .card .cardName{
-            color: var(--grey);
-            font-size: 1.1rem;
-            margin-top: 5px;
-        }
-
-        .cardBox .card .iconBx{
-            font-size: 3.5rem;
-            color: var(--black)
-        }
-
-        .cardBox .card:hover{
-            background: var(--yellow);
-        }
-
-        .cardBox .card:hover .numbers,
-        .cardBox .card:hover .cardName,
-        .cardBox .card:hover .iconBx{
-            color: var(--white);
-        } */
-
         .details{
             position: relative;
             width: 100%;
@@ -354,14 +304,23 @@
             text-align:center ;
             width: 300px;
         }
-        .details .recentstaff table tr td:nth-child(1),
-        .details .recentstaff table tr td:nth-child(2),
         
+        .details .recentstaff table tr td:nth-child(1){
+            text-align: center;
+            padding-right: 10px;
+        }
+
+        .details .recentstaff table tr td:nth-child(2),
+        .details .recentstaff table tr td:nth-child(3),
         .details .recentstaff table tr td:nth-child(5),
         .details .recentstaff table tr td:nth-child(6),
         .details .recentstaff table tr td:nth-child(7)
-         {
+        {
             text-align: center;
+        }
+
+        .details .recentstaff table tr td:nth-child(2){
+            text-align: start;
         }
 
         .status.delivered{
@@ -400,70 +359,6 @@
             font-weight: 500;
         }
 
-        /* ============ Responsive Design ===============
-        @media (max-width: 991px) {
-            .navigation{
-                left: -300px;
-            }
-            .navigation.active{
-                width: 300px;
-                left: 0;
-            }
-            .main{
-                width: 100%;
-                left: 0;
-            }
-            .main.active{
-                left: 300px;
-            }
-            .cardBox{
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-
-        @media (max-width: 768px) {
-            .details{
-                grid-template-columns: 1fr;
-            }
-            .recentstaff{
-                overflow-x: auto;
-            }
-            .status.inProgress{
-                white-space: nowrap;
-            }
-        }
-
-        @media (max-width: 480px){
-            .cardBox{
-                grid-template-columns: repeat(1, 1fr);
-            }
-            .cardHeader{
-                font-size: 20px;
-            }
-            .user{
-                min-width: 40px;
-            }
-            .navigation{
-                width: 100%;
-                left: -100%;
-                z-index: 1000;
-            }
-            .navigation.active{
-                width: 100%;
-                left: 0;
-            }
-            .toggle{
-                z-index: 1001;
-            }
-            .main.active .toggle{
-                color: var(--white);
-                background: var(--black);
-                position: fixed;
-                right: 0;
-                left: initial;
-            }
-        }*/
-
         .details .recentstaff td a.chitiet{
             position: relative;
             text-decoration: none;
@@ -497,17 +392,6 @@
         .details .recentstaff td a.xoa:hover{
             color: crimson;
         }
-
-        /* button {
-        width: auto;
-        height: auto;
-        cursor: pointer;
-        display: flex;
-        align-items: center;
-        border: none;
-        border-radius: 5px;
-        background: transparent;
-        } */
 
         button, button span {
             transition: 0.02s;
@@ -606,19 +490,14 @@
                     </a>
                 </li>
 
-                <li>
+                <!-- <li>
                     <a href="#">
                         <span class="icon"><i class='bx bx-line-chart'></i></span>
                         <span class="title">Doanh thu</span>
                     </a>
-                </li>
+                </li> -->
 
-                <li>
-                    <a href="?controller=binhluan">
-                        <span class="icon"><i class='bx bxs-comment-detail'></i></span>
-                        <span class="title">Phản hồi</span>
-                    </a>
-                </li>
+     
 
                 <li>
                     <a href="?controller=khachhang">
@@ -646,7 +525,6 @@
                     <h4>Tìm kiếm theo</h4>
                     <select name="codition_search" id="">
                         <option value="id_kh" selected >Mã khách hàng</option>
-                        <option value="tinhtrang">Tình trạng</option>
                         <option value="id_donhang">Mã đơn hàng</option>
                     </select>
                 </div>
@@ -683,7 +561,6 @@
                                     <td>STT</td>
                                     <td>Mã đơn hàng</td>
                                     <td>Mã khách hàng</td>    
-                                    <td>SĐT</td>
                                     <td>Tổng</td>
                                     <td>Tình trạng</td>
                                     <td>Thao tác</td>
@@ -696,23 +573,12 @@
                                $i=1;
                                     foreach ($donhang as $key => $value) {
                                      $tinhtrang=$db->get('tinhtrang_dh',array('id_tinhtrang'=>$value['id_tinhtrang']));
-                                     $khachhang=$db->get('khachhang',array('id_kh'=>$value['id_kh']));
-                                    //   if (isset($_POST['search'])) {
-                                    //     $codition_search=$_POST['codition_search'];
-                                    //     $content=$_POST['content'];
-                                    //     if ($codition_search=="tinhtrang") {
-                                    //        $tinhtrang=$db->get_like('tinhtrang_dh',$codition_search,$content,array());
-                                       
-                                    //     }else{
-                                    //     $khachhang=$db->get_like('khachhang',$codition_search,$content,array());
-                                    //     }
-                                    // }  ?>
+                                  ?>
                                     <tr id="tr">
                                     <td class='td'><?php echo $i++ ?></td>
                                     <td class='td'><?php echo $value['id_donhang'] ?></td>
                                     <td class='td'><?php echo $value['id_kh']  ?></td>
-                                    <td class='td'><?php echo $khachhang[0]['sdt']  ?></td>
-                                    <td class='td'><?php echo $value['tong']  ?></td>
+                                    <td class='td'><?php echo number_format($value['tong'])?>đ</td>
 
                                     <td class='td'><?php echo $tinhtrang[0]['tinhtrang'] ?>
                                     <a class="status" href="?controller=xulydh&method=status&id=<?php echo $value['id_donhang']?>&tt=<?php echo $value['id_tinhtrang']?>">
@@ -720,19 +586,10 @@
                                             case '1':
                                                 echo "<input type='submit' style='background-color:green ; cursor: pointer;' value='Duyệt'>";
                                                 break;
-                                           case '2':
-                                            echo" <input type='submit' style='background-color:red ; cursor: pointer;' value='Hủy'>";
-                                            break;
-                                            case '3':
+                                            case '2':
                                                 echo" <input type='submit' style='background-color:red ; cursor: pointer;' value='Hủy'>";
                                                 break;
-                                            
-                                            case '4':
-                                                echo "";
-                                                break;
-                                                case '5':
-                                                    echo "";
-                                                    break;
+                
                                               }  ?></a>
                                    
                                     </td>
@@ -790,8 +647,6 @@
             main.classList.toggle("active");
         }
     </script>
-    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
-    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
-    
+   
 </body>
 </html>

@@ -20,7 +20,7 @@
     //Lấy dữ liệu theo id tương ứng đã lấy được
     $product = $db->get('sanpham',array('id_sanpham'=>$id));
     if ($product != "") {
-        $description = nl2br($product[0]["Nd_sp"]);
+        $description = nl2br($product[0]["nd_sp"]);
     }
      
     $anhphu1=$db->get('loai_sp', array('id_sanpham'=>$id));
@@ -126,39 +126,53 @@
        
       
     }else{
-        if (isset($_SESSION['cart'])){
-            if (isset($_SESSION['cart'][$id])){
-               
-                //Nếu đã có sản phẩm đó rồi thì +1 sản phẩm
-                $_SESSION['cart'][$id]['sl']+=1;
-                $_SESSION['cart'][$id]['loai_sp']=$_SESSION['cart'][$id]['loai_sp'].", ".$loai_sp;
-            }else{
-        $_SESSION['cart'][$id]['id_sanpham'] = $id;
-        $_SESSION['cart'][$id]['tensanpham'] = $product[0]['tensanpham'];
-        $_SESSION['cart'][$id]['gia'] = $product[0]['gia'];
-        $_SESSION['cart'][$id]['sl'] = $sl;
-        $_SESSION['cart'][$id]['anh_chinh'] = $product[0]['anh_chinh'];
-        $_SESSION['cart'][$id]['loai_sp'] = $loai_sp;
-        $_SESSION['cart'][$id]['size_name'] = $size_name;
-        $_SESSION['cart'][$id]['tong'] = $tong;
-        header("location: ?controller=checkout");
-            }
-       }else{
-         $_SESSION['cart'][$id]['id_sanpham'] = $id;
-        $_SESSION['cart'][$id]['tensanpham'] = $product[0]['tensanpham'];
-        $_SESSION['cart'][$id]['gia'] = $product[0]['gia'];
-        $_SESSION['cart'][$id]['sl'] = $sl;
-        $_SESSION['cart'][$id]['anh_chinh'] = $product[0]['anh_chinh'];
-        $_SESSION['cart'][$id]['loai_sp'] = $loai_sp;
-        $_SESSION['cart'][$id]['size_name'] = $size_name;
-        $_SESSION['cart'][$id]['tong'] = $tong;
-        header("location: ?controller=checkout");
-
-       }
+       
+        if ($_SESSION['cart'][$id]['size_name'] == $size_name && $_SESSION['cart'][$id]['loai_sp'] == $loai_sp) {
+            // Increment the quantity
+           
+            //$_SESSION['cart'][$id]['sl'] += $sl;
+          } else if ($_SESSION['cart'][$id]['id_sanpham'] == $id) {
+            // Add the product to the cart
+             $_SESSION['cart'][$id]['loai_sp'] = $loai_sp;
+            $_SESSION['cart'][$id]['size_name'] = $size_name;
+            $_SESSION['cart'][$id]['sl'] = $sl;
+          
+          } else {
+            // Add the product to the cart
+            $_SESSION['cart'][$id]['id_sanpham'] = $id;
+            $_SESSION['cart'][$id]['tensanpham'] = $product[0]['tensanpham'];
+            $_SESSION['cart'][$id]['gia'] = $product[0]['gia'];
+            $_SESSION['cart'][$id]['sl'] = $sl;
+            $_SESSION['cart'][$id]['anh_chinh'] = $product[0]['anh_chinh'];
+            $_SESSION['cart'][$id]['loai_sp'] = $loai_sp;
+            $_SESSION['cart'][$id]['size_name'] = $size_name;
+            $_SESSION['cart'] [$id]['tong'] = $tong;
+          }
+          
+          header("location: ?controller=checkout");
+          
     }
 
     }
      }
+     if (isset($_POST['yeuthich'])) {
+     if (isset($_SESSION['ss_user'])) {
+        $id_sanpham=$db->get('danhsachyeuthich',array('id_sanpham'=>$id,'id_taikhoan'=>$_SESSION['ss_user']));
+if (empty($id_sanpham)) {
+        $db->insert('danhsachyeuthich',array(
+            'id_taikhoan'=>$_SESSION['ss_user'],
+            'id_sanpham'=>$id            
+        ));
+        echo "<script>alert('Đã thêm vào danh sách yêu thích')</script>";
+        echo "<script>window.location.href = '?controller=likeproduct';</script>";
+     }
+     else {
+        echo "<script>alert('Sản phẩm đã được thêm trước đó')</script>";
+     }
+    }else {
+        echo "<script>alert('Chức năng này cần đăng nhập')</script>";
+     }
+    }
     // $loai_sp=$_POST['jehvd'];
                           
         // $size_phu = $_POST['size_name'];  

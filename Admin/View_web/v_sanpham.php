@@ -7,8 +7,7 @@
     <link rel="stylesheet" href="assets/css/sanpham.css">
     <title>E-Shopper | Admin | Sản phẩm của shmop_open</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap');
-
+      
         *{
             font-family: 'Ubuntu', sans-serif;
             margin: 0;
@@ -497,19 +496,14 @@
                     </a>
                 </li>
 
-                <li>
+                <!-- <li>
                     <a href="#">
                         <span class="icon"><i class='bx bx-line-chart'></i></span>
                         <span class="title">Doanh thu</span>
                     </a>
-                </li>
+                </li> -->
 
-                <li>
-                    <a href="?controller=binhluan">
-                        <span class="icon"><i class='bx bxs-comment-detail'></i></span>
-                        <span class="title">Phản hồi</span>
-                    </a>
-                </li>
+              
 
                 <li>
                     <a href="?controller=khachhang">
@@ -665,6 +659,24 @@
     </div>
 
     <script>
+        const pagination = {
+  current_page: 1,
+  per_page: 10,
+};
+
+// Sử dụng hàm AJAX để lấy dữ liệu cho trang hiện tại
+const getRecords = async () => {
+  const response = await fetch(`/api/users?page=${pagination.current_page}&per_page=${pagination.per_page}`);
+  const data = await response.json();
+  return data;
+};
+
+// Hiển thị dữ liệu đã lấy ra
+getRecords().then((data) => {
+  // ...
+});
+    </script>
+    <script>
         //add hovered
         // let list = document.querySelectorAll(".navigation li");
         // function activeLink(){
@@ -685,8 +697,7 @@
             main.classList.toggle("active");
         }
     </script>
-    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
-    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    
     
 </body>
 </html>

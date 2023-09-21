@@ -1,6 +1,5 @@
 <?php
     //Kiểm tra xem người dùng đã đăng nhập chưua
-$donhang=array();
 	if (isset($_SESSION['ss_admin'])) {
         //Nếu đã đăng nhập thì lấy thông tin người dùng theo ss
         $donhang=$db->get('donhang',array());
@@ -19,11 +18,12 @@ $donhang=array();
     //     }else{ $donhang=$db->get('donhang',array());
 
     //   }
+    require_once('View_web/v_donhang.php');
     }
    else{
        //Nếu chưa đăng nhập thì sẽ cho người dùng về trang login
        header('location: ?controller=login');
    } 
 
-    require_once('View_web/v_donhang.php');
+   
 ?>

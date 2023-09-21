@@ -185,11 +185,6 @@ h3{
 #daban{
     margin-bottom: 35px;       
 }
-
-
-
-
-        
     </style>
 </head>
 <body>
@@ -272,7 +267,7 @@ h3{
 
         <h6>Đã bán:</h6>
         <div id="daban" class="form-control row mx-1">
-            <input name="daban" type="text" placeholder="Nơi ở hiện tại..." 
+            <input name="daban" type="text" placeholder="Đã bán được ..." 
             value="<?php echo $data_sanpham[0]['daban'] ?>" >
         </div>
 

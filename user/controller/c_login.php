@@ -6,7 +6,6 @@
      
         $username = $_POST['username'];
         $password = $_POST['pass'];
-echo ( $password );
         $loi = array();
         if($username == ''){
             $loi['username'] = 'Tên đăng nhập không được để trống';
@@ -18,6 +17,7 @@ echo ( $password );
         if(!$loi){
             $password=md5($_POST['pass']);          
             $user = $db->get('taikhoan', array('username'=>$username));
+
             if (!empty($user)) {    
                 if ($user[0]['vaitro']=="user") {  
                     if(!empty($vaitro['username'])){
@@ -33,8 +33,7 @@ echo ( $password );
                
             }else{
                 $loi['pass'] = 'Sai mật khẩu hoặc tài khoản';
-                }
-        
+                }        
         }
         
         if(!$loi){

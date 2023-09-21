@@ -11,8 +11,8 @@
         $diachi = $_POST['diachi'];
         $date = date('d/m/y');
         $mk=md5($password);
-$taikhoan=$db->get('taikhoan',array('username'=> $username));
-if (empty($taikhoan)) {
+        $taikhoan=$db->get('taikhoan',array('username'=> $username));
+        if (empty($taikhoan)) {
         if(!empty($full_name) &&!empty($username) && !empty($password) && !empty($sdt) && 
         !empty($diachi)){
             $db->insert('taikhoan', array(

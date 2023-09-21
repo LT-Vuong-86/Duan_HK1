@@ -8,9 +8,9 @@
         }else {
             $data_nhanvien = $db->get('taikhoan', array());
         }
-        
+        require 'View_web/v_taikhoan.php';
     }else{
         header('location: ?controller=login');
     }
-    require 'View_web/v_taikhoan.php';
+   
 ?>

@@ -29,6 +29,7 @@ if(isset($_SESSION['ss_admin'])){
             // foreach ($donhang as $key => $value) {
             //     $id_dh = $value['id_donhang']+1;
             // }
+            $loi=[];
             if($loai_sp == ''){
                 $loi['loai_sp'] = 'Mục không được để trống';
             }
@@ -55,8 +56,6 @@ if(isset($_SESSION['ss_admin'])){
                 $loi['tong'] = 'Xuất xứ không được để trống';
             }
             
-           
-
             if($ghichu == ''){
                 $loi['ghichu'] = 'Đã bán không được để trống';
             }           
@@ -77,7 +76,7 @@ if(isset($_SESSION['ss_admin'])){
                                       
                 $db->insert('ctdonhang',array(
                     'id_donhang'=>$id_dh,
-                    'id_sanpham'=>$name[$i],
+                    'id_sanpham'=>$names[$i],
                     'size'=>$size_name,
                     'loai_sp'=>$loai_sp,
                     'soluongsp'=>$soluong[$i],

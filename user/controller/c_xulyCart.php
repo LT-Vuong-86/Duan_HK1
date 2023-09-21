@@ -7,9 +7,9 @@ if (isset($_SESSION['ss_user'])) {
     $size=$_GET['size'];
     $giohang=$db->get('giohang',array('id_taikhoan'=>$_SESSION['ss_user'],'id_sanpham'=>$id,'size'=>$size));
     switch ($method) {
-        case 'giam':                
+        case 'giam':
             foreach ($giohang as $key => $value) {
-               $sanpham=$db->get('sanpham',array('id_sanpham'=>$giohang[0]['id_sanpham']));
+                $sanpham=$db->get('sanpham',array('id_sanpham'=>$giohang[0]['id_sanpham']));
                 $db->update('giohang',array(
                 'soluong'=>$value['soluong']-1,
                 'tong'=>$giohang[0]['tong']-$sanpham[0]['gia']
@@ -24,13 +24,14 @@ if (isset($_SESSION['ss_user'])) {
                 header('location: ?controller=cart');
             break;
         case 'tang':
-       foreach ($giohang as $key => $value) {
-           $db->update('giohang',array(
-            'soluong'=>$value['soluong']+1,
-            'tong'=>$giohang[0]['tong']+$sanpham[0]['gia']
-        ),array('size'=>$size,'id_sanpham'=>$id));};
-        header('location: ?controller=cart');
-        break;
+            foreach ($giohang as $key => $value) {
+                    $sanpham=$db->get('sanpham',array('id_sanpham'=>$giohang[0]['id_sanpham']));
+                    $db->update('giohang',array(
+                    'soluong'=>$value['soluong']+1,
+                    'tong'=>$giohang[0]['tong']+$sanpham[0]['gia']
+                ),array('size'=>$size,'id_sanpham'=>$id));};
+                header('location: ?controller=cart');
+                break;
         case 'xoa':
             $db->delete('giohang',array(
                 'id_sanpham'=>$id,
@@ -52,7 +53,6 @@ if (isset($_SESSION['ss_user'])) {
             break;
     }
 }else{
-    
     switch ($method) {
         case 'giam':
             $_SESSION['cart'][$id]['sl']-=1;

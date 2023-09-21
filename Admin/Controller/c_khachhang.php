@@ -8,8 +8,9 @@
         }else {
             $data_khachhang = $db->get('khachhang', array());
         }
+        require_once('View_web/v_khachhang.php');
     }else{
         header('location: ?controller=khachhang');
     }
-    require_once('View_web/v_khachhang.php');
+ 
 ?>

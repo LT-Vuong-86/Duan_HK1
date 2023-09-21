@@ -6,7 +6,6 @@ if(isset($_SESSION['ss_admin'])){
         if(isset($_POST['btn_addsanpham'])){
             $id_dm = $_POST['id_dm'];
             $tensanpham = $_POST['tensanpham'];
-            $tonkho = $_POST['tonkho'];
             $gia = $_POST['gia'];
             $date_oder = date("d/m/y");
             $xuatxu = $_POST['xuatxu'];
@@ -28,15 +27,18 @@ if(isset($_SESSION['ss_admin'])){
         //     echo "<br>";
         //     print_r($uploadedFile_extrar[1]);
         //     die;
+            global $tonkho;
             for ($i = 1; $i <= $slmasp; $i++) {
-            
-             $productName[] = $_POST["productName$i"];
-             $productSizeS[] = $_POST["productSizeS$i"];
-             $productSizeM[] = $_POST["productSizeM$i"];
-             $productSizeL[] = $_POST["productSizeL$i"];
-             $productSizeXL[] = $_POST["productSizeXL$i"];
-             $productSizeXXL[] = $_POST["productSizeXXL$i"];
-
+                
+                $productName[] = $_POST["productName$i"];
+                $productSizeS[] = $_POST["productSizeS$i"];
+                $productSizeM[] = $_POST["productSizeM$i"];
+                $productSizeL[] = $_POST["productSizeL$i"];
+                $productSizeXL[] = $_POST["productSizeXL$i"];
+                $productSizeXXL[] = $_POST["productSizeXXL$i"];
+            }
+            for($i = 1; $i <= $slmasp; $i++){
+                $tonkho+=$productSizeS[$i]+$productSizeM[$i]+$productSizeL[$i]+$productSizeXL[$i]+$productSizeXXL[$i];
             }
             // print_r(pathinfo('1.2.jpg'));
             // die;
@@ -57,10 +59,6 @@ if(isset($_SESSION['ss_admin'])){
                 $loi['tensanpham'] = 'Tên sản phẩm không được để trống';
             }
 
-            if($tonkho == ''){
-                $loi['tonkho'] = 'Số lượng sản phẩm không được để trống';
-            }
-
             if($gia == ''){
                 $loi['gia'] = 'Giá không được để trống';
             }
@@ -68,18 +66,13 @@ if(isset($_SESSION['ss_admin'])){
             if($xuatxu == ''){
                 $loi['xuatxu'] = 'Xuất xứ không được để trống';
             }
-            
-           
 
             if($daban == ''){
                 $loi['daban'] = 'Đã bán không được để trống';
             }
 
-            
-
             if(!$loi){
                 $db->insert('sanpham',array(
-                    
                     'tensanpham'=>$tensanpham,
                     'tonkho'=>$tonkho,
                     'gia'=>$gia,
@@ -91,14 +84,7 @@ if(isset($_SESSION['ss_admin'])){
                     'nguoitao'=>$user[0]['username']
                 ));    
                 $anhphu_idsp=$db->insert_id();
-                foreach ($uploadedFile_extrar as $value) {
                 
-                $db->insert('anh_phu',array(
-                    'id_sanpham '=>$anhphu_idsp,
-                    'anh'=>$value
-
-                ));
-            }
        
             for ($i=0; $i < $slmasp; $i++) {
                  $db->insert('loai_sp',array( 
@@ -106,12 +92,12 @@ if(isset($_SESSION['ss_admin'])){
                     'anh_phu'=>$uploadedFile_extrar[$i],
                     'type_name'=>$productName[$i], 
                     's'=>$productSizeS[$i],
-                     'm'=>$productSizeM[$i],
-                      'l'=>$productSizeL[$i],
-                       'xl'=>$productSizeXL[$i], 
-                       'xxl'=>$productSizeXXL[$i]
-                     ));
-                     }
+                    'm'=>$productSizeM[$i],
+                    'l'=>$productSizeL[$i],
+                    'xl'=>$productSizeXL[$i], 
+                    'xxl'=>$productSizeXXL[$i]
+                    ));
+            }
                     
                 header('location: ?controller=sanpham');
             }
