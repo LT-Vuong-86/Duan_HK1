@@ -21,6 +21,7 @@ else{
     
 }
 
+$data_danhmuc = $db->get('danhmuc', array());
 
 
     // Define the number of records per page

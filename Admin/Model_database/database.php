@@ -159,11 +159,12 @@
            $file['name']=$filename . '.' .$fileType;
            return $file;
 
-       }
-       function insert_id(){
+        }
+        function insert_id(){
         return $this->conn->insert_id; 
         }
-        public function get_join($column=array(),$table1,$table2,$codition_join,$condition,$condition1=array(),$condition2=array())  {
+
+        public function get_join($column=array(),$table1,$table2,$codition_join,$condition,$condition1=array(),$condition2=array(),$order_by=array())  {
             $column1=implode(',', $column);
             $sql ="SELECT $column1 FROM $table1 $codition_join $table2 ON $condition";
             if(!empty($condition1)){
@@ -176,8 +177,17 @@
             }
             if(!empty($condition2)){
                 foreach ($condition2 as $key => $value){
-                    $sql.= " OR $key LIKE '%$value%'";
+                    $sql.= " AND $key LIKE '%$value%'";
                 }
+            }
+            if (!empty($order_by)) {
+                $sql .= " ORDER BY ";
+    
+                foreach ($order_by as $key => $value) {
+                    $sql .= " $key $value,";
+                }
+    
+                $sql = trim($sql, ",");
             }
 
             $query = mysqli_query($this->conn, $sql);

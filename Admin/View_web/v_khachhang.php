@@ -376,6 +376,7 @@
         button, button span {
             transition: 0.02s;
         }
+        
         .details .recentstaff td.xuly{
             width: 10%;
         }
@@ -499,7 +500,7 @@
                     <h4>Tìm kiếm theo</h4>
                     <select name="search_codition" id="">
                     <option value="username">Tên khách hàng</option>
-                        <option value="id_kh">Mã đơn hàng</option>
+                        <option value="id_kh">Mã khách hàng</option>
                         <option value="sdt">SĐT</option>
                     </select>
                 </div>
@@ -547,15 +548,16 @@
                                 <td><?php echo $value['diachi']?></td>
                                 
                                 <td class="xuly">
-                                <a  class="sua" onclick="return confirm('Sửa khách hàng này?');" 
-                                        href="?controller=xulykhachhang&method=sua&id=<?php echo $value['id_kh']?>">
-                                        <button  class="noselect">
+                                    <a class="sua" onclick="return confirm('Sửa khách hàng này?');" 
+                                    href="?controller=xulykhachhang&method=sua&id=<?php echo $value['id_kh']?>">
+                                        <button class="noselect">
                                             <span class="textsua">Sửa</span>
                                         </button>
                                     </a>
-                                    <a  class="xoa" onclick="return confirm('Xóa khách hàng này?');" 
-                                        href="?controller=xulykhachhang&method=xoa&id=<?php echo $value['id_kh']?>">
-                                        <button  class="noselect">
+
+                                    <a class="xoa" onclick="return confirm('Xóa khách hàng này?');" 
+                                    href="?controller=xulykhachhang&method=xoa&id=<?php echo $value['id_kh']?>">
+                                        <button class="noselect">
                                             <span class="textxoa">Xóa</span>
                                         </button>
                                     </a>

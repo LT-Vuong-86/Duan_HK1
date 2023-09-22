@@ -60,11 +60,6 @@
             border-bottom-left-radius: 30px;
         }
 
-        /* .navigation ul li:hover,
-        .navigation ul li.hovered{
-            background: var(--white);
-        } */
-
         .navigation ul li:nth-child(1){
             margin-bottom: 40px;
             pointer-events: none;
@@ -78,11 +73,6 @@
             text-decoration: none;
             color: var(--white);
         }
-
-        /* .navigation ul li:hover a,
-        .navigation ul li.hovered a{
-            color: var(--black);
-        } */
 
         .navigation ul li a .icon{
             position: relative;
@@ -109,21 +99,6 @@
             text-align: start;
             white-space: nowrap;
         }
-
-        /* .navigation ul li:hover a::before,
-        .navigation ul li.hovered a::before{
-            content: '';
-            position: absolute;
-            right: 0;
-            top: -50px;
-            width: 50px;
-            height: 50px;
-            background-color: transparent;
-            border-radius: 50%;
-            box-shadow: 35px 35px 0 10px var(--white);
-            pointer-events: none;
-        } */
-
 
         .main{
             position: absolute;
@@ -280,10 +255,6 @@
             color: var(--black );
         }
 
-        /* .details .recentstaff table tr td{
-            padding: 10px;
-        } */
-
         .details .recentstaff table tr td:last-child {
             text-align: center;
         }
@@ -378,6 +349,17 @@
 
         .details .recentstaff td a.xoa:hover{
             color: crimson;
+        }
+
+        button {
+        width: auto;
+        height: auto;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        border: none;
+        border-radius: 5px;
+        background: transparent;
         }
 
         button, button span {
@@ -486,15 +468,6 @@
                     </a>
                 </li>
 
-                <!-- <li>
-                    <a href="#">
-                        <span class="icon"><i class='bx bx-line-chart'></i></span>
-                        <span class="title">Doanh thu</span>
-                    </a>
-                </li> -->
-
-     
-
                 <li>
                     <a href="?controller=khachhang">
                         <span class="icon"><i class='bx bx-user nav_icon'></i></span>
@@ -521,14 +494,14 @@
                     <h4>Tìm kiếm theo</h4>
                     <select name="codition_search" id="">
                         <option value="id_kh" selected >Mã khách hàng</option>
-                        <option value="tinhtrang">Tình trạng</option>
                         <option value="id_donhang">Mã đơn hàng</option>
+                        <option value="sdt">Số điện thoại</option>
                     </select>
                 </div>
                 <div class="search">
                     <label for="">
                         <input type="text" name="content" placeholder="Tìm kiếm...">
-                        <span><input  type="submit"  id="myInput" name="search"></span>
+                        <span><input type="submit" id="myInput" name="search"></span>
                     </label>
                 </div>
                 </form>
@@ -545,44 +518,38 @@
                         <h2>Quản lý đơn hàng</h2>
                         <a href="?controller=adddonhang" class="btn">Thêm đơn hàng</a>
                     </div>
-
-                   
-
-                    
-                        <table>
-                            <?php 
-                                $admin = $db->get('taikhoan', array('id'=>$_SESSION['ss_admin']));
+                    <table>
+                        <?php 
+                            $admin = $db->get('taikhoan', array('id'=>$_SESSION['ss_admin']));
+                            ?>
+                        <thead>
+                            <tr>
+                                <td>STT</td>
+                                <td>Mã đơn hàng</td>
+                                <td>Mã khách hàng</td>    
+                                <td>SĐT</td>
+                                <td>Tổng</td>
+                                <td>Tình trạng</td>
+                                <td>Thao tác</td>
+                                <td>Chi tiết</td>
+                                
+                            </tr>
+                        </thead>
+                        <tbody id="myTable">
+                            <?php
+                            $i=1;
+                                foreach ($donhang as $key => $value) {
+                                    $tinhtrang=$db->get('tinhtrang_dh',array('id_tinhtrang'=>$value['id_tinhtrang']));
+                                    $khachhang=$db->get('khachhang',array('id_kh'=>$value['id_kh']));
                                 ?>
-                            <thead>
-                                <tr>
-                                    <td>STT</td>
-                                    <td>Mã đơn hàng</td>
-                                    <td>Mã khách hàng</td>    
-                                    <td>SĐT</td>
-                                    <td>Tổng</td>
-                                    <td>Tình trạng</td>
-                                    <td>Thao tác</td>
-                                    <td>Chi tiết</td>
-                                   
-                                </tr>
-                            </thead>
-                            <tbody id="myTable">
-                                <?php
-                               $i=1;
-                                    foreach ($donhang as $key => $value) {
-                                     $tinhtrang=$db->get('tinhtrang_dh',array('id_tinhtrang'=>$value['id_tinhtrang']));
-                                     $khachhang=$db->get('khachhang',array('id_kh'=>$value['id_kh']));
-                                    ?>
 
-                                    <tr id="tr">
-                                    <td class='td'><?php echo $i++ ?></td>
-                                    <td class='td'><?php echo $value['id_donhang'] ?></td>
-                                    <td class='td'><?php echo $value['id_kh']  ?></td>
-                                    <td class='td'><?php echo $khachhang[0]['sdt']  ?></td>
-
-                                    <td class='td'><?php echo number_format($value['tong'])?>đ</td>
-
-                                    <td class='td'><?php echo $tinhtrang[0]['tinhtrang'] ?>
+                                <tr id="tr">
+                                <td class='td'><?php echo $i++ ?></td>
+                                <td class='td'><?php echo $value['id_donhang'] ?></td>
+                                <td class='td'><?php echo $value['id_kh']  ?></td>
+                                <td class='td'><?php echo $khachhang[0]['sdt']  ?></td>
+                                <td class='td'><?php echo number_format($value['tong'])?>đ</td>
+                                <td class='td'><?php echo $tinhtrang[0]['tinhtrang'] ?>
                                     <a class="status" href="?controller=xulydh&method=status&id=<?php echo $value['id_donhang']?>&tt=<?php echo $value['id_tinhtrang']?>">
                                         <?php switch($value['id_tinhtrang']){
                                             case '1':
@@ -591,41 +558,34 @@
                                             case '2':
                                                 echo" <input type='submit' style='background-color:red ; cursor: pointer;' value='Hủy'>";
                                                 break;
-                
-                                              }  ?></a>
-                                   
-                                    </td>
+                                            }  
+                                        ?>
+                                    </a>
+                                </td>
 
-                                    <td class='td' class="xuly">
-                                   
-                                        <button  class="noselect">
-                                        <a  class="sua" onclick="return confirm('Sửa đơn hàng này?');" 
-
-                                     href="?controller=xulydh&method=sua&id=<?php echo $value['id_donhang']?>">
+                                <td class="xuly">
+                                    <a class="sua" onclick="return confirm('Sửa đơn hàng này?');" 
+                                    href="?controller=xulydh&method=sua&id=<?php echo $value['id_donhang']?>">
+                                        <button class="noselect">
                                             <span class="textsua">Sửa</span>
-                                            </a>
                                         </button>
-                                    
+                                    </a>
 
-                                    
-                                        <button  class="noselect">
-                                        <a  class="xoa" onclick="return confirm('Xóa đơn hàng này?');" 
-
-
+                                    <a class="xoa" onclick="return confirm('Xóa đơn hàng này?');" 
                                         href="?controller=xulydh&method=xoa&id=<?php echo $value['id_donhang']?>">
+                                        <button class="noselect">
                                             <span class="textxoa">Xóa</span>
-                                            </a>
                                         </button>
-                                    
-                                </td class='td'>
-                                <td><a class="chitiet" href="?controller=chitietdh&id=<?php echo $value['id_donhang']?>"><h2><i class='bx bx-right-arrow-alt'></i></h2></a></td>
-                                   
-                                </tr>
-                               
-                            </tbody>
-                            <?php } ?>
-                        </table>
-                    
+                                    </a>
+                                
+                                </td>
+                            <td><a class="chitiet" href="?controller=chitietdh&id=<?php echo $value['id_donhang']?>"><h2><i class='bx bx-right-arrow-alt'></i></h2></a></td>
+                                
+                            </tr>
+                            
+                        </tbody>
+                        <?php } ?>
+                    </table>
                 </div>
             </div>
         </div>

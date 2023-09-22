@@ -354,7 +354,6 @@
         .details .recentstaff table tr td:nth-child(1),
         .details .recentstaff table tr td:nth-child(3),
         .details .recentstaff table tr td:nth-child(4),
-        
         .details .recentstaff table tr td:nth-child(2),
         .details .recentstaff table tr td:nth-child(5),
         .details .recentstaff table tr td:nth-child(6),     
@@ -364,11 +363,10 @@
             max-width: 150px;
         }
         .details .recentstaff table tr td:nth-child(9){
-            max-width: 60px;
+            text-align: center;
+            max-width: 70px;
         }
-
-    
-
+        
         .details .recentstaff td a.chitiet{
             position: relative;
             text-decoration: none;
@@ -412,6 +410,9 @@
             border: none;
             border-radius: 5px;
             background: transparent;
+            border-right: 1px solid black;
+            border-bottom: 1px solid black;
+
         }
 
         button, button span {
@@ -534,71 +535,26 @@
                 <div class="toggle">
                     <i class='bx bx-menu' ></i>
                 </div>
-                <form action="" method='post'>
-                <div  class="search_codition">
-                    <h4>Tìm kiếm theo</h4>
-                    <select name="search_codition" id="">
-                        <option value="id_sanpham">Mã sản phẩm</option>                     
-                        <option value="tensanpham">Tên sản phẩm</option>
-                    </select>
-                </div>
-                <div class="search">
-                    <label for="">
-                        <input type="text" name="content" placeholder="Tìm kiếm...">
-                        <span><input type="submit" name="search"></span>
-                    </label>
-                </div>
+                <form action="#" method='post'>
+                    <div  class="search_codition">
+                        <h4>Tìm kiếm theo</h4>
+                        <select name="search_codition">
+                            <option value="id_sanpham">Mã sản phẩm</option>                     
+                            <option value="tensanpham">Tên sản phẩm</option>
+                        </select>
+                    </div>
+
+                    <div class="search">
+                        <label for="">
+                            <input type="text" name="content" placeholder="Tìm kiếm...">
+                            <span><input type="submit" name="search"></span>
+                        </label>
+                    </div>
                 </form>
                 <div class="user">
                     <img src="assets/img/iconE.png" alt="">
                 </div>
             </div>
-
-            <!-- <div class="cardBox">
-                <div class="card">
-                    <div>
-                        <div class="numbers">1513</div>
-                        <div class="cardName">Lượt xem</div>
-                    </div>
-
-                    <div class="iconBx">
-                        <ion-icon name="eye-outline"></ion-icon>
-                    </div>
-                </div>
-
-                <div class="card">
-                    <div>
-                        <div class="numbers">100</div>
-                        <div class="cardName">Giảm giá</div>
-                    </div>
-
-                    <div class="iconBx">
-                        <ion-icon name="cart-outline"></ion-icon>
-                    </div>
-                </div>
-
-                <div class="card">
-                    <div>
-                        <div class="numbers">20</div>
-                        <div class="cardName">Bình luận</div>
-                    </div>
-
-                    <div class="iconBx">
-                        <ion-icon name="chatbubble-outline"></ion-icon>
-                    </div>
-                </div>
-
-                <div class="card">
-                    <div>
-                        <div class="numbers">15000</div>
-                        <div class="cardName">Lợi nhuận</div>
-                    </div>
-
-                    <div class="iconBx">
-                        <ion-icon name="cash-outline"></ion-icon>
-                    </div>
-                </div>
-            </div> -->
 
             <div class="details">
                 <div class="recentstaff">
@@ -627,29 +583,28 @@
                         <tbody>
                             <?php
                                 $i = 1;
-                                foreach($data_sanpham as $key => $value){
-                                    $danhmuc =$db->get('danhmuc' ,array('id_danhmuc'=>$value['id_danhmuc']));
+                                foreach($data_sanpham as $key => $data_sanpham){
                                     ?>
                             <tr>
                                 <td><?php echo $i++?></td> 
-                                <td  ><?php echo $value['id_sanpham']?></td> 
-                                <td><?php echo $value['tensanpham']?></td>
-                                <td><img src="../images/sanpham/<?php echo $value['anh_chinh']?>" class="images_sp" alt=""></td>
-                                <td><?php echo $value['tonkho']?></td>
-                                <td><?php echo $value['gia']?>đ</td>
-                                <td><?php echo $value['xuatxu']?></td>
-                                <td><?php echo $danhmuc[0]['danhmuc']?></td>
-                                <td><?php echo $value['daban']?></td>
+                                <td  ><?php echo $data_sanpham['id_sanpham']?></td> 
+                                <td><?php echo $data_sanpham['tensanpham']?></td>
+                                <td><img src="../images/sanpham/<?php echo $data_sanpham['anh_chinh']?>" class="images_sp" alt=""></td>
+                                <td><?php echo $data_sanpham['tonkho']?></td>
+                                <td><?php echo $data_sanpham['gia']?>đ</td>
+                                <td><?php echo $data_sanpham['xuatxu']?></td>
+                                <td><?php echo $data_sanpham['danhmuc']?></td>
+                                <td><?php echo $data_sanpham['daban']?></td>
                                 <td class="xuly">
                                     <a  class="sua" onclick="return confirm('Sửa sản phẩm này?');" 
-                                        href="?controller=xulysanpham&method=sua&id=<?php echo $value['id_sanpham']?>">
+                                        href="?controller=xulysanpham&method=sua&id=<?php echo $data_sanpham['id_sanpham']?>">
                                         <button  class="noselect">
                                             <span class="textsua">Sửa</span>
                                         </button>
                                     </a>
 
                                     <a  class="xoa" onclick="return confirm('Xóa sản phẩm này?');" 
-                                        href="?controller=xulysanpham&method=xoa&id=<?php echo $value['id_sanpham']?>">
+                                        href="?controller=xulysanpham&method=xoa&id=<?php echo $data_sanpham['id_sanpham']?>">
                                         <button  class="noselect">
                                             <span class="textxoa">Xóa</span>
                                         </button>

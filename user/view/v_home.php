@@ -13,8 +13,6 @@
     <link href="../css/animate.css" rel="stylesheet">
 	<link href="../css/main.css" rel="stylesheet">
 	<link href="../css/responsive.css" rel="stylesheet">
-
-
     <style>
         *{
             box-sizing: border-box;
@@ -279,17 +277,14 @@
                         <div class="navigation">
                             <h3>Danh mục</h3>
                             <ul>
-                             
                                 <?php 
                                     foreach($data_danhmuc as $key => $value){
                                 ?>
-                                <a href="?controller=shop&id_dm=<?php echo $value['id_danhmuc']?>">
-                               <li> &#10132;
-                                    
-                                        <span class="title"><?php echo $value['danhmuc']?></span>
-                                   
-                                </li>
-                                </a>
+                                    <a href="?controller=shop&id_dm=<?php echo $value['id_danhmuc']?>">
+                                        <li> &#10132;
+                                            <span class="title active"><?php echo $value['danhmuc']?></span>
+                                        </li>
+                                    </a>
                                 <?php }?>
                             </ul>
                         </div>

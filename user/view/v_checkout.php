@@ -196,7 +196,7 @@
 
                                 
                             </table>
-                           <input type="submit"  class="btn btn-default check_out" name="btn_thanhtoan" value="Đồng ý với các quyết định trên:mua ngay"><br>
+                           <input type="submit"  class="btn btn-default check_out" name="btn_thanhtoan" value="Đồng ý với các quyết định trên: Mua ngay"><br>
                         </td>
                     </tr>
                 </table>

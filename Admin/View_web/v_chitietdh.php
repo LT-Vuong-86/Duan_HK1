@@ -250,7 +250,7 @@
                                 
                                 <th class="msp">Mã sản phẩm</th>
                                 <th scope="col">Tên sản phẩm</th>
-                                <th scope="col">Ảnh</th>
+                                <th scope="col">Ảnh sản phẩm</th>
                                 <th scope="col">Loại sản phẩm</th>
                                 <th scope="col">size</th>
                                 <th scope="col">Số lượng</th>
@@ -263,11 +263,9 @@
                       <tbody>
                             <?php foreach ($ctdonhang as $key => $value) {
                                 //Lấy dữ liệu sản phẩm tương ứng
-                                $sanpham = $db->get('sanpham',array('id_sanpham'=>$value['id_sanpham']));
+                                $sanpham = $db->get('sanpham', array('id_sanpham'=>$value['id_sanpham']));
                             ?>
                             <tr>
-
-                                
                                 <td><?php echo $value['id_sanpham']?></td>
                                 <td><?php echo $sanpham[0]['tensanpham']?></td>
                                 <td scope="row">

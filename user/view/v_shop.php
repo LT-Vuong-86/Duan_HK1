@@ -73,64 +73,6 @@
         }
 
 
-        .navigation{
-            height: 60px;
-            width: 200px;
-            background: var(--black);
-            border-radius: 10px ;          
-        }
-
-        .navigation.active{
-            height: 100%;
-            overflow: hidden;
-        }
-
-        .navigation ul{
-            position: relative;
-            top: 0;
-            left: 0;
-            width: 100%;
-        }
-
-        .navigation ul li{
-            position: relative;
-            width: 100%;
-            list-style: none;
-            cursor: pointer;
-        }
-
-        /* .navigation ul li:hover,
-        .navigation ul li.hovered{
-            background: var(--white);
-        } */
-
-        .navigation ul li:nth-child(1){
-            margin-bottom: 40px;
-            pointer-events: none;
-        }
-
-        .navigation ul li a{
-            position: relative;
-            width: 100%;
-            display: flex;
-            text-decoration: none;
-            color: var(--white);
-        }
-
-        .navigation ul li a .title{
-            position: relative;
-            padding: 0 10px;
-            line-height: 60px;
-            text-align: start;
-            white-space: nowrap;
-        }
-        .main{
-            position: absolute;
-            margin-left: 200px;
-            bottom: 100%;
-            background: var(--white);
-        }
-
         .topbar{
             position: absolute;
             width: 100%;
@@ -157,6 +99,18 @@
             align-items: center;
             font-size: 2.5rem;
             cursor: pointer;
+        }
+        .navigation h3{
+            text-align: center;
+        }
+        .navigation li {
+            line-height: 30px;
+            margin-left: 10px;
+            color: black;
+            cursor: pointer;
+        }
+        .navigation li:hover{
+            color: orange;
         }
 
     </style>
@@ -249,31 +203,20 @@
                 <div class="col-sm-3">
                     <div class="left-sidebar">
                         <div class="navigation">
+                            <h3>Danh mục</h3>
                             <ul>
-                                <li>
-                                    <a href="#">
-                                        <p style="width:100%; text-align:center; padding-top:20px; margin-bottom:-20px; text-transform:uppercase;" class="r">Danh mục</p>
-                                    </a>
-                                </li>
                                 <?php 
                                     foreach($data_danhmuc as $key => $value){
                                 ?>
-                                <li>
                                     <a href="?controller=shop&id_dm=<?php echo $value['id_danhmuc']?>">
-                                        <span class="title"><?php echo $value['danhmuc']?></span>
+                                        <li class="active"> &#10132;
+                                            <span class="title"><?php echo $value['danhmuc']?></span>
+                                        </li>
                                     </a>
-                                </li>
                                 <?php }?>
                             </ul>
                         </div>
 
-                        <div class="main">
-                            <div class="topbar">
-                                <div class="toggle">
-                                    <i class='bx bx-menu'></i>
-                                </div>
-                            </div>
-                        </div>
                         <div class="shipping text-center">
                             <img src="../images/home/shipping.jpg" alt="" />
                         </div>
