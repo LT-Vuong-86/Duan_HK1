@@ -16,6 +16,27 @@ if(isset($_SESSION['ss_admin'])){
                     $db->update('donhang',array(
                         'id_tinhtrang'=>4
                     ),array('id_donhang'=>$id));
+                    
+                    if ($tt==4) {
+                           
+                        $ctdonhang1 = $db->get('ctdonhang', array('id_donhang'=>$id));
+           
+                        foreach ($ctdonhang1 as $key => $value0) {
+                            $loai_sps = $db->get('loai_sp', array('id_sanpham'=>$value0['id_sanpham'],'id_loaisp'=>$value0['id_loaisp']));
+                            
+                            $sanpham = $db->get('sanpham', array('id_sanpham'=>$value0['id_sanpham']));
+                            foreach ($sanpham as $key => $value1) {
+                                $db->update('sanpham',array(
+                                    'daban'=>$value1['daban']-=$value0['soluongsp']
+                                ),array('id_sanpham'=>$value0['id_sanpham']));
+                            }
+                            foreach ($loai_sps as $key => $value2) {
+                                $db->update('loai_sp',array(
+                                    $value0['size']=>$value2[$value0['size']]+=$value0['soluongsp']
+                                ),array('id_loaisp'=>$value0['id_loaisp']));
+                            }
+                        }
+                    }
                 }
                 header('Location: ?controller=donhang');
                
@@ -70,11 +91,12 @@ if(isset($_SESSION['ss_admin'])){
                         ),array('id_donhang'=>$id));
                         header('location: ?controller=donhang');
 
+                       
                         if ($id_tinhtrang==4) {
                            
-                            $ctdonhang = $db->get('ctdonhang', array('id_donhang'=>$id_dh));
+                            $ctdonhang1 = $db->get('ctdonhang', array('id_donhang'=>$id));
                
-                            foreach ($ctdonhang as $key => $value0) {
+                            foreach ($ctdonhang1 as $key => $value0) {
                                 $loai_sps = $db->get('loai_sp', array('id_sanpham'=>$value0['id_sanpham'],'id_loaisp'=>$value0['id_loaisp']));
                                 
                                 $sanpham = $db->get('sanpham', array('id_sanpham'=>$value0['id_sanpham']));
