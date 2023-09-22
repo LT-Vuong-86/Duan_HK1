@@ -61,6 +61,7 @@ if(isset($_SESSION['ss_user'])){
             $db->insert('ctdonhang',array(
                 'id_donhang'=>$id_dh,
                 'id_sanpham'=>$value['id_sanpham'],
+                'id_loaisp'=>$value['id_loaisp'],
                 'size'=> $value['size'],
                 'loai_sp'=> $value['loai_sp'],
                 'soluongsp'=>$value['soluong'],
@@ -68,23 +69,24 @@ if(isset($_SESSION['ss_user'])){
                 'ngaydat'=>$date_oder
             ));
             
-            // if ($loai_sp[0][$sizelsp] > $value['soluong']) {
+            $ctdonhang = $db->get('ctdonhang', array('id_donhang'=>$id_dh));
+               
+            foreach ($ctdonhang as $key => $value0) {
+                $loai_sps = $db->get('loai_sp', array('id_sanpham'=>$value0['id_sanpham'],'id_loaisp'=>$value0['id_loaisp']));
                 
-            // }else {
-            //     echo "<script>alert('sản phẩm đã hết hàng')</script>";
-            //     header('location: ?controller=home');
-            // }
-            // $db->update('loai_sp',array(
-            //     $value['size']=>$loai_sp[0][$sizelsp]-$value['soluong']
-            //     ), array(
-            //     'id_sanpham'=>$value['id_sanpham'],$value['size']=>$value['size'],'type_name'=> $value['loai_sp']));
+                $sanpham = $db->get('sanpham', array('id_sanpham'=>$value0['id_sanpham']));
+                foreach ($sanpham as $key => $value1) {
+                    $db->update('sanpham',array(
+                        'daban'=>$value1['daban']+=$value0['soluongsp']
+                    ),array('id_sanpham'=>$value0['id_sanpham']));
+                }
+                foreach ($loai_sps as $key => $value2) {
+                    $db->update('loai_sp',array(
+                        $value0['size']=>$value2[$value0['size']]-=$value0['soluongsp']
+                    ),array('id_loaisp'=>$value0['id_loaisp']));
+                }
+            }
             
-
-            // $sl+=$value['soluong'];
-            // $sanpham=$db->get('sanpham',array('id_sanpham'=>$value['id_sanpham']));
-            // $db->update('sanpham',array(
-            //     'tonkho'=>$sanpham[0]['tonkho']-$sl
-            // ),array('id_sanpham'=>$value['id_sanpham']));
 
         }
 
@@ -169,11 +171,29 @@ if (isset($_SESSION['cart'])) {
             'id_donhang'=>$id_dh,
             'id_sanpham'=>$value['id_sanpham'],
             'size'=> $value['size_name'],
+            'id_loaisp'=> $value['id_loaisp'],
             'loai_sp'=> $value['loai_sp'],
             'soluongsp'=>$value['sl'],
             'ghichu'=>$ghichu,
             'ngaydat'=>$date_oder
         ));
+        $ctdonhang = $db->get('ctdonhang', array('id_donhang'=>$id_dh));
+               
+        foreach ($ctdonhang as $key => $value0) {
+            $loai_sps = $db->get('loai_sp', array('id_sanpham'=>$value0['id_sanpham'],'id_loaisp'=>$value0['id_loaisp']));
+            
+            $sanpham = $db->get('sanpham', array('id_sanpham'=>$value0['id_sanpham']));
+            foreach ($sanpham as $key => $value1) {
+                $db->update('sanpham',array(
+                    'daban'=>$value1['daban']+=$value0['soluongsp']
+                ),array('id_sanpham'=>$value0['id_sanpham']));
+            }
+            foreach ($loai_sps as $key => $value2) {
+                $db->update('loai_sp',array(
+                    $value0['size']=>$value2[$value0['size']]-=$value0['soluongsp']
+                ),array('id_loaisp'=>$value0['id_loaisp']));
+            }
+        }
         // $db->update('loai_sp',array(
         //     $value['size_name']=>$loai_sp[0][$sizelsp]-$value['sl']
         // ),array('id_sanpham'=>$value['id_sanpham']));

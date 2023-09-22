@@ -160,15 +160,35 @@
            return $file;
 
        }
-       function insert_id()
-{
-  // Lấy kết nối đến cơ sở dữ liệu
-  return $this->conn->insert_id;
+       function insert_id(){
+        return $this->conn->insert_id; 
+        }
+        public function get_join($column=array(),$table1,$table2,$codition_join,$condition,$condition1=array(),$condition2=array())  {
+            $column1=implode(',', $column);
+            $sql ="SELECT $column1 FROM $table1 $codition_join $table2 ON $condition";
+            if(!empty($condition1)){
+                $sql.=" WHERE ";
+        
+                foreach ($condition1 as $key => $value){
+                    $sql.= " $key = '$value' AND";
+                }
+                $sql = trim($sql, "AND");
+            }
+            if(!empty($condition2)){
+                foreach ($condition2 as $key => $value){
+                    $sql.= " OR $key LIKE '%$value%'";
+                }
+            }
 
-  // Trả về ID của bản ghi mới nhất
- 
-}
-     
+            $query = mysqli_query($this->conn, $sql);
+                    $ketqua = array();
+                        if ($query){
+                            while($row = mysqli_fetch_assoc($query)){
+                                $ketqua[] = $row;
+                            }
+                        }
+                        return $ketqua;
+        }
        
     }
 ?>

@@ -224,7 +224,7 @@
                                     <div class="size_color">
                                     <label>
                                      <!-- cắt key của loại sản phẩm từ dấu chấm (.)lấy giá trị id_loaisp theo số key vừa cắt -->
-                                        <input type="radio"  name="loai_sp" value="<?php echo $value['type_name'].'.'.$key?>"  >
+                                        <input type="radio"  name="loai_sp" value="<?php echo $value['type_name'].'#'.$key?>"  >
                                         <span class="text-uppercase"><?php echo $value['type_name']?></span>
                                         </label>
                                     </div>    

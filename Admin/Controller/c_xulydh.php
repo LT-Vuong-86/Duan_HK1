@@ -70,26 +70,25 @@ if(isset($_SESSION['ss_admin'])){
                         ),array('id_donhang'=>$id));
                         header('location: ?controller=donhang');
 
-                        if ($id_tinhtrang==3) {
-                            $ctdonhang = $db->get('ctdonhang', array('id_donhang'=>$id));
-
-                            foreach ($ctdonhang as $key => $value) {
-                                $sanpham = $db->get('sanpham', array('id_sanpham'=>$value['id_sanpham']));
+                        if ($id_tinhtrang==4) {
+                           
+                            $ctdonhang = $db->get('ctdonhang', array('id_donhang'=>$id_dh));
+               
+                            foreach ($ctdonhang as $key => $value0) {
+                                $loai_sps = $db->get('loai_sp', array('id_sanpham'=>$value0['id_sanpham'],'id_loaisp'=>$value0['id_loaisp']));
+                                
+                                $sanpham = $db->get('sanpham', array('id_sanpham'=>$value0['id_sanpham']));
                                 foreach ($sanpham as $key => $value1) {
                                     $db->update('sanpham',array(
-                                        'daban'=>$value1['daban']+=$value['soluongsp']
-                                    ),array('id_sanpham'=>$value['id_sanpham']));
+                                        'daban'=>$value1['daban']-=$value0['soluongsp']
+                                    ),array('id_sanpham'=>$value0['id_sanpham']));
                                 }
-
-                                // $db->update('loai_sp',array(
-                                //     $value['size']=>$ctdonhang[0]['size']-=$value['soluongsp']
-                                // ),array('id_sanpham'=>$ctdonhang[0]['sanpham'],''));
-                           
+                                foreach ($loai_sps as $key => $value2) {
+                                    $db->update('loai_sp',array(
+                                        $value0['size']=>$value2[$value0['size']]+=$value0['soluongsp']
+                                    ),array('id_loaisp'=>$value0['id_loaisp']));
+                                }
                             }
-                        $db->update('sanpham',array(
-                            'daban'=>$ctdonhang[0]['daban']-=1
-                        ),array('id_sanpham'=>$ctdonhang[0]['sanpham']));
-                        
                         }
                     }
                 }

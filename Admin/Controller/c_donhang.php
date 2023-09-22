@@ -1,8 +1,9 @@
 <?php
     //Kiểm tra xem người dùng đã đăng nhập chưua
-$donhang=array();
+
 
 	if (isset($_SESSION['ss_admin'])) {
+        $donhang=array();
         //Nếu đã đăng nhập thì lấy thông tin người dùng theo ss
         $donhang=$db->get('donhang',array());
         if (isset($_POST['search'])) {
