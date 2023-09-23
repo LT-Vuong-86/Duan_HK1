@@ -238,7 +238,7 @@
                                     <div class="product-image-wrapper">
                                         <div class="single-products">
                                             <div class="productinfo text-center">
-                                                <img class="img-responsive" style="width:100%; height:250px; object-fit: cover;" src="../images/sanpham/<?php echo $value['anh_chinh']?>" alt="" />
+                                            <a href="?controller=product-detail&id=<?php  echo $value['id_sanpham'] ?>"> <img class="img-responsive" style="width:100%; height:250px; object-fit: cover;" src="../images/sanpham/<?php echo $value['anh_chinh']?>" alt="" /></a>
                                                 <h5><?php echo $value['tensanpham']?></h5>
 
                                             </div>

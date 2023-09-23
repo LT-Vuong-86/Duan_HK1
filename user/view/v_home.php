@@ -391,7 +391,7 @@
                                         <div class="product-image-wrapper" id="spin">
                                             <div class="single-products text-center">
                                                 <div class="productinfo">
-                                                    <img class="img-responsive" src="../images/sanpham/<?php echo $value['anh_chinh'] ?>" alt="" />
+                                                <a href="?controller=product-detail&id=<?php  echo $value['id_sanpham'] ?>"> <img class="img-responsive" src="../images/sanpham/<?php echo $value['anh_chinh'] ?>" alt="" /></a>
                                                     <h5><?php echo $value['tensanpham']?></h5>
                                                 </div>
                                                 <div class="bottom">
@@ -419,7 +419,7 @@
                                         <div class="product-image-wrapper" id="spin">
                                             <div class="single-products text-center">
                                                 <div class="productinfo">
-                                                    <img class="img-responsive" src="../images/sanpham/<?php echo $value['anh_chinh'] ?>" alt="" />
+                                                <a href="?controller=product-detail&id=<?php  echo $value['id_sanpham'] ?>"><img class="img-responsive" src="../images/sanpham/<?php echo $value['anh_chinh'] ?>" alt="" /></a>
                                                     <h5><?php echo $value['tensanpham']?></h5>
                                                 </div>
                                                 <div class="bottom">
@@ -449,7 +449,7 @@
                             <div class="carousel-inner">
                                 <div class="item active">
                                 <?php
-                                 $sanpham_danhmuc_main=$db->get('sanpham',array('id_danhmuc'=>$id_dm_main));
+                                 $sanpham_danhmuc_main=$db->get('sanpham',array('id_danhmuc'=>$id_dm_main1));
                                 $dk=3;
                                 foreach ($sanpham_danhmuc_main as $key => $value) { ?>  
                                     <?php if ($key < $dk) {?>       
@@ -457,7 +457,7 @@
                                             <div class="product-image-wrapper" id="spin">
                                                 <div class="single-products text-center">
                                                     <div class="productinfo">
-                                                        <img class="img-responsive" src="../images/sanpham/<?php echo $value['anh_chinh'] ?>" alt="" />
+                                                    <a href="?controller=product-detail&id=<?php  echo $value['id_sanpham'] ?>"><img class="img-responsive" src="../images/sanpham/<?php echo $value['anh_chinh'] ?>" alt="" /></a>
                                                         <h5><?php echo $value['tensanpham']?></h5>
                                                     </div>
                                                     <div class="bottom">
@@ -493,7 +493,7 @@
                                             <div class="product-image-wrapper" id="spin">
                                                 <div class="single-products text-center">
                                                     <div class="productinfo">
-                                                        <img class="img-responsive" src="../images/sanpham/<?php echo $value['anh_chinh'] ?>" alt="" />
+                                                    <a href="?controller=product-detail&id=<?php  echo $value['id_sanpham'] ?>"><img class="img-responsive" src="../images/sanpham/<?php echo $value['anh_chinh'] ?>" alt="" /></a>
                                                         <h5><?php echo $value['tensanpham']?></h5>
                                                     </div>
                                                     <div class="bottom">

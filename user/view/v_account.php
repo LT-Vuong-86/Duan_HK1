@@ -185,7 +185,7 @@
                         ?>
                         <tr class="item_table">
                             <td><?php echo $value['id_donhang']?> </td>
-                            <td><img src="../images/sanpham/<?php echo $sanpham[0]['anh_chinh']?>" alt=""></td>
+                            <td> <a href="?controller=product-detail&id=<?php  echo $sanpham[0]['id_sanpham'] ?>"><img src="../images/sanpham/<?php echo $sanpham[0]['anh_chinh']?>" alt=""></a></td>
                             <td class="col-xs-3 col-md-3">
                                 <?php echo $sanpham[0]['tensanpham']?>
                             </td>
@@ -245,7 +245,7 @@
 
                         ?>
                         <tr class="item_table">
-                            <td><img src="../images/sanpham/<?php echo $sanpham[0]['anh_chinh']?>" alt=""></td>
+                        <td><a href="?controller=product-detail&id=<?php  echo $sanpham[0]['id_sanpham'] ?>"><img src="../images/sanpham/<?php echo $sanpham[0]['anh_chinh']?>" alt=""></a></td>
                             <td class="col-xs-4 col-md-3">
                                 <li><?php echo $sanpham[0]['tensanpham']?></li>
 
