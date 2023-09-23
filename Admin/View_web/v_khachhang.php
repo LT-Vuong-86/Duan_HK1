@@ -325,9 +325,7 @@
         .details .recentstaff table tr td:nth-child(2){
             max-width: 50px;
         }
-
-      
-
+        
         .details .recentstaff td a.chitiet{
             position: relative;
             text-decoration: none;

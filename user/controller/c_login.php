@@ -17,7 +17,6 @@
         if(!$loi){
             $password=md5($_POST['pass']);          
             $user = $db->get('taikhoan', array('username'=>$username));
-
             if (!empty($user)) {    
                 if ($user[0]['vaitro']=="user") {  
                     if(!empty($vaitro['username'])){
