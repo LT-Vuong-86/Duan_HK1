@@ -269,7 +269,7 @@
                                 <td><?php echo $value['id_sanpham']?></td>
                                 <td><?php echo $sanpham[0]['tensanpham']?></td>
                                 <td scope="row">
-                                    <img height="100" width="100"  src="../images/sanpham/<?php echo $sanpham[0]['anh_chinh']?>" > 
+                                    <img height="100" width="100" src="../images/sanpham/<?php echo $sanpham[0]['anh_chinh']?>" > 
                                 </td>
                                 <td><?php echo $value['loai_sp']?></td>
 
