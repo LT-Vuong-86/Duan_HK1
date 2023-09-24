@@ -4,11 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    <link rel="stylesheet" href="assets/css/sanpham.css">
-    <title>E-Shopper | Admin | Sản phẩm của shmop_open</title>
+    <link rel="stylesheet" href="./assets/css/adminstyle.css">
+    <title>E-Shopper | Admin</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap');
-
+       
         *{
             font-family: 'Ubuntu', sans-serif;
             margin: 0;
@@ -63,10 +62,10 @@
             border-bottom-left-radius: 30px;
         }
 
-        .navigation ul li:hover,
+        /* .navigation ul li:hover,
         .navigation ul li.hovered{
             background: var(--white);
-        }
+        } */
 
         .navigation ul li:nth-child(1){
             margin-bottom: 40px;
@@ -82,10 +81,10 @@
             color: var(--white);
         }
 
-        .navigation ul li:hover a,
+        /* .navigation ul li:hover a,
         .navigation ul li.hovered a{
             color: var(--black);
-        }
+        } */
 
         .navigation ul li a .icon{
             position: relative;
@@ -113,33 +112,6 @@
             white-space: nowrap;
         }
 
-        .navigation ul li:hover a::before,
-        .navigation ul li.hovered a::before{
-            content: '';
-            position: absolute;
-            right: 0;
-            top: -50px;
-            width: 50px;
-            height: 50px;
-            background-color: transparent;
-            border-radius: 50%;
-            box-shadow: 35px 35px 0 10px var(--white);
-            pointer-events: none;
-        }
-
-        .navigation ul li:hover a::after,
-        .navigation ul li.hovered a::after{
-            content: '';
-            position: absolute;
-            right: 0;
-            bottom: -50px;
-            width: 50px;
-            height: 50px;
-            background-color: transparent;
-            border-radius: 50%;
-            box-shadow: 35px -35px 0 10px var(--white);
-            pointer-events: none;
-        }
 
         .main{
             position: absolute;
@@ -153,7 +125,6 @@
         .main.active{
             width: calc(100% - 80px);
             left: 80px;
-
         }
 
         .topbar{
@@ -200,10 +171,18 @@
             border: 1px solid var(--black);
         }
 
-        .search label i{
+        .search label span:hover{
+            cursor: pointer;
+            opacity: 0.6;
+        }
+        .search label span{
             position: absolute;
             top: 0;
-            left: 10px;
+            margin-top: -11px;
+            border-radius: 45%;
+            margin-right: -10px;
+            right: 10px;
+           cursor: pointer;
             font-size: 1.2rem;
         }
 
@@ -235,6 +214,7 @@
         }
 
         .cardBox .card{
+            width: 550px;
             position: relative;
             background: var(--white);
             padding: 30px;
@@ -245,17 +225,12 @@
             box-shadow: 0 7px 25px rgba(0, 0, 0, 0.08);
         }
 
-        .cardBox .card .numbers{
-            position: relative;
-            font-weight: 500;
-            font-size: 2.5rem;
-            color: var(--yellow);
-        }
-
         .cardBox .card .cardName{
+            width: 100%;
             color: var(--grey);
-            font-size: 1.1rem;
+            font-size: 25px;
             margin-top: 5px;
+            text-transform: uppercase;
         }
 
         .cardBox .card .iconBx{
@@ -263,21 +238,12 @@
             color: var(--black)
         }
 
-        .cardBox .card:hover{
-            background: var(--yellow);
-        }
-
-        .cardBox .card:hover .numbers,
-        .cardBox .card:hover .cardName,
-        .cardBox .card:hover .iconBx{
-            color: var(--white);
-        }
-
         .details{
             position: relative;
             width: 100%;
             padding: 20px;
             display: grid;
+            grid-template-columns: 2fr 1fr;
             grid-gap: 30px;
             margin-top: 10px;
         }
@@ -306,7 +272,7 @@
         .cardHeader .btn{
             position: relative;
             padding: 5px 10px;
-            background: var(--black);
+            background: var(--yellow);
             text-decoration: none;
             color: var(--white);
             border-radius: 6px;
@@ -339,34 +305,48 @@
         .details .recentstaff table tr td{
             padding: 10px;
         }
-
-        .details .recentstaff table tr td:last-child {
-            text-align: center;
+        .active_admin{
+            background: var(--yellow);
         }
-
-        .details .recentstaff table tr td:nth-child(1),
-        .details .recentstaff table tr td:nth-child(3),
-        .details .recentstaff table tr td:nth-child(4),
-        .details .recentstaff table tr td:nth-child(5),
-        .details .recentstaff table tr td:nth-child(6),
-        .details .recentstaff table tr td:nth-child(7){
-            text-align: center;
+        .search_codition{
+            position: absolute;
         }
-
-        .details .recentstaff table tr td:nth-child(2){
+        .search_codition h4 {
+            margin-left: -120px;
+           
+        }
+        .search_codition select{
+            margin-left: -120px;
+            
+        }
+       .toggle form {
+            width:2000px ;
+            display: flex;
+        }
+        .information_shop{
+            width: 250px;
+            border: none;
+            font-size: 20px;
+            float: right;
             text-align: start;
+            background: transparent;
         }
-
+        .left_name{
+            color: black;
+            font-size: 20px;
+            float: left;
+            margin-right: 20px;
+        }
     </style>
+
 </head>
 <body>
     <div class="container">
-   
         <div class="navigation">
             <ul>
-            <li>
-                    <a href="?controller=trangchu">
-                        <span class="icon"><img style="width: 40px; height: 40px;" src="assets/img/iconE.png" alt=""></span>
+                <li>
+                    <a href="?controller=trangchu" >
+                        <span class="icon"><img style="width: 40px; height: 40px; " src="..images/home/logo.png" alt=""></span>
                         <span class="title"><?php if (isset( $_SESSION['name_admin'] )) {
                             echo  $_SESSION['name_admin'] ;
                         } ?></span>
@@ -374,7 +354,7 @@
                 </li>
 
                 <li>
-                    <a href="?controller=trangchu">
+                    <a href="?controller=trangchu" >
                         <span class="icon"><i class='bx bx-home'></i></span>
                         <span class="title">Trang chủ</span>
                     </a>
@@ -383,11 +363,19 @@
                 <li>
                     <a href="?controller=taikhoan">
                         <span class="icon"><i class='bx bxs-user-detail'></i></span>
-                        <span class="title">Nhân viên</span>
+                        <span class="title">Tài khoản</span>
                     </a>
                 </li>
 
                 <li>
+                    <a href="?controller=danhmuc">
+                        <span class="icon"><i class='bx bx-list-ul'></i></span>
+                        <span class="title">Danh mục</span>
+                    </a>
+                </li>
+
+                <li>
+
                     <a href="?controller=sanpham">
                         <span class="icon"><i class='bx bxl-product-hunt'></i></span>
                         <span class="title">Sản phẩm</span>
@@ -402,23 +390,16 @@
                 </li>
 
                 <li>
-                    <a href="#">
-                        <span class="icon"><i class='bx bx-line-chart'></i></span>
-                        <span class="title">Doanh thu</span>
-                    </a>
-                </li>
-
-                <li>
-                    <a href="?controller=binhluan">
-                        <span class="icon"><i class='bx bxs-comment-detail'></i></span>
-                        <span class="title">Phản hồi</span>
-                    </a>
-                </li>
-
-                <li>
                     <a href="?controller=khachhang">
                         <span class="icon"><i class='bx bx-user nav_icon'></i></span>
                         <span class="title">Khách hàng</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="?controller=thongtinshop" class='active_admin'>
+                        <span class="icon"><i class='bx bx-info-circle'></i></span>
+                        <span class="title">Thông tin Shop</span>
                     </a>
                 </li>
 
@@ -434,103 +415,57 @@
         <div class="main">
             <div class="topbar">
                 <div class="toggle">
-                    <i class='bx bx-menu' ></i>
+                    <i class='bx bx-menu'></i>
                 </div>
-
-                <div class="search">
-                    <label for="">
-                        <input type="text" placeholder="Tìm kiếm...">
-                        <i class='bx bx-search'></i>
-                    </label>
-                </div>
-
+                
                 <div class="user">
-                    <img src="" alt="">
+                    <img src="..images/home/logo.png" alt="">
                 </div>
             </div>
 
-            <!-- <div class="cardBox">
-                <div class="card">
-                    <div>
-                        <div class="numbers">1513</div>
-                        <div class="cardName">Lượt xem</div>
+            <div class="cardBox">
+               <a style="text-decoration:none" href="#">
+                    <div class="card">
+                        <div>
+                            <div class="cardName"><span>Thông tin của TVT-Shop</span></div>
+                            <?php 
+                                foreach($thongtinshop as $key => $value){
+                            ?>
+                            <div>
+                                <span class="left_name">Tên Shop:</span><input class="information_shop" disabled type="text" value="<?php echo $value['ten_shop']?>">                
+                            </div>
+                            <div>
+                                <span class="left_name">Mật khẩu ứng dụng:</span><input class="information_shop" disabled type="text" value="<?php echo $value['matkhau_shop']?>">                
+                            </div>
+                            <div>
+                                <span class="left_name">Số điện thoại:</span><input class="information_shop" disabled type="number" value="<?php echo $value['sdt_shop']?>">                
+                            </div>
+                            <div>
+                                <span class="left_name">Gmail Shop:</span><input class="information_shop" disabled type="email" value="<?php echo $value['email_shop']?>">                
+                            </div>
+                            <div>
+                                <span class="left_name">Địa chỉ Shop:</span><input class="information_shop" disabled type="text" value="<?php echo $value['diachi_shop']?>">                
+                            </div>
+                            
+                            <?php }?>
+                        </div>
                     </div>
-
-                    <div class="iconBx">
-                        <ion-icon name="eye-outline"></ion-icon>
-                    </div>
-                </div>
-
-                <div class="card">
-                    <div>
-                        <div class="numbers">100</div>
-                        <div class="cardName">Giảm giá</div>
-                    </div>
-
-                    <div class="iconBx">
-                        <ion-icon name="cart-outline"></ion-icon>
-                    </div>
-                </div>
-
-                <div class="card">
-                    <div>
-                        <div class="numbers">20</div>
-                        <div class="cardName">Bình luận</div>
-                    </div>
-
-                    <div class="iconBx">
-                        <ion-icon name="chatbubble-outline"></ion-icon>
-                    </div>
-                </div>
-
-                <div class="card">
-                    <div>
-                        <div class="numbers">15000</div>
-                        <div class="cardName">Lợi nhuận</div>
-                    </div>
-
-                    <div class="iconBx">
-                        <ion-icon name="cash-outline"></ion-icon>
-                    </div>
-                </div>
-            </div> -->
-        
-            <div>
-            <h1>Phản hồi</h1>
-                <!-- Hiển thị các bình luận đã được gửi --> 
-                <div id="comment-section">
-                <?php
-                    // Code PHP để hiển thị các bình luận đã được lưu trong cơ sở dữ liệu
-                ?>
-                </div>
-
-                <!-- Form để người dùng nhập và gửi bình luận mới -->
-                <div id="comment-form">
-                <form method="POST" action="">
-                    <label for="name">Tên:</label><br>
-                    <input type="text" id="name" name="name"><br><br>
-
-                    <label for="comment">Bình luận:</label><br>
-                    <textarea id="comment" name= "comment"></textarea><br><br>
-
-                    <input type= "submit" value= "Gửi">
-                </form>
-                </div>
+                </a>
             </div>
         </div>
-        
     </div>
 
     <script>
-        //add hovered
-        let list = document.querySelectorAll(".navigation li");
-        function activeLink(){
-            list.forEach(item=>{
-                item.classList.remove("hovered");
-            });
-            this.classList.add("hovered");
-        }
-        list.forEach((item) => item.addEventListener("mouseover", activeLink));
+                //add hovered
+               
+        // let list = document.querySelectorAll(".navigation li");
+        // function activeLink(){
+        //     list.forEach(item=>{
+        //         item.classList.remove("hovered");
+        //     });
+        //     this.classList.add("hovered");
+        // }
+        // list.forEach((item) => item.addEventListener("mouseover", activeLink));
 
         //menu toggle
         let toggle = document.querySelector(".toggle");
@@ -542,8 +477,7 @@
             main.classList.toggle("active");
         }
     </script>
-    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
-    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
     
 </body>
 </html>

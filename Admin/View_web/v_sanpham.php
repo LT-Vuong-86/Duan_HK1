@@ -62,11 +62,6 @@
             border-bottom-left-radius: 30px;
         }
 
-        /* .navigation ul li:hover,
-        .navigation ul li.hovered{
-            background: var(--white);
-        } */
-
         .navigation ul li:nth-child(1){
             margin-bottom: 40px;
             pointer-events: none;
@@ -81,10 +76,6 @@
             color: var(--white);
         }
 
-        /* .navigation ul li:hover a,
-        .navigation ul li.hovered a{
-            color: var(--black);
-        } */
 
         .navigation ul li a .icon{
             position: relative;
@@ -111,34 +102,6 @@
             text-align: start;
             white-space: nowrap;
         }
-
-        /* .navigation ul li:hover a::before,
-        .navigation ul li.hovered a::before{
-            content: '';
-            position: absolute;
-            right: 0;
-            top: -50px;
-            width: 50px;
-            height: 50px;
-            background-color: transparent;
-            border-radius: 50%;
-            box-shadow: 35px 35px 0 10px var(--white);
-            pointer-events: none;
-        } */
-
-        /* .navigation ul li:hover a::after,
-        .navigation ul li.hovered a::after{
-            content: '';
-            position: absolute;
-            right: 0;
-            bottom: -50px;
-            width: 50px;
-            height: 50px;
-            background-color: transparent;
-            border-radius: 50%;
-            box-shadow: 35px -35px 0 10px var(--white);
-            pointer-events: none;
-        } */
 
         .main{
             position: absolute;
@@ -505,19 +468,17 @@
                     </a>
                 </li>
 
-                <!-- <li>
-                    <a href="#">
-                        <span class="icon"><i class='bx bx-line-chart'></i></span>
-                        <span class="title">Doanh thu</span>
-                    </a>
-                </li> -->
-
-              
-
                 <li>
                     <a href="?controller=khachhang">
                         <span class="icon"><i class='bx bx-user nav_icon'></i></span>
                         <span class="title">Khách hàng</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="?controller=thongtinshop">
+                        <span class="icon"><i class='bx bx-info-circle'></i></span>
+                        <span class="title">Thông tin Shop</span>
                     </a>
                 </li>
 

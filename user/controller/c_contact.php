@@ -21,18 +21,19 @@ if (isset($_POST['submit'])) {
  
     // Set the sender and recipient addresses.
     $mail->setFrom($_POST['email'],$_POST['email']);
-    $mail->addAddress('nguyenhienvuong666@gmail.com');
+    $mail->addAddress('phantriss982004@gmail.com');
     $mail->isHTML(true);
     $mail->addReplyTo($_POST['email'], 'Sender Name');
     // Set the subject and body of the email.
-    $mail->Subject =$_POST['subject'];
-    $mail->Body =$_POST['message'];
+    // Sử dụng thuộc tính Encoding để đảm bảo subject email được mã hóa bằng UTF-8
+    $mail->Subject = $_POST['subject'];
+    $mail->Body = $_POST['message'];
    
     
     if ($mail->send()) {
-        echo "<script>alert('thàng công')</script>";
+        echo "<script>alert('Thàng công!')</script>";
     } else {
-        echo 'Failed to send email: ';
+        echo "<script>alert('Thất bại!')</script>";
     }
 }
     require_once("view/v_contact.php") ;

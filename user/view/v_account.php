@@ -36,12 +36,13 @@
 
         input[type='number']::-webkit-inner-spin-button,
         input[type='number']::-webkit-outer-spin-button {
-                                -webkit-appearance: none;
-                                margin: 0;
+            -webkit-appearance: none;
+            margin: 0;
         }
+
         input[type="radio"] {
-  display: none;
-}
+            display: none;
+        }
 
 
 
@@ -155,60 +156,61 @@
                 <div id="quanlidonhang" class="tabcontent body_acount_right col-xs-12 col-md-12 col-md-12 " >
                     <h3>Quản lý đơn hàng</h3>
                     <form action="" method="post">
-                    <table class="col-xs-12 col-md-12">
-                        <tr>
+                        <table class="col-xs-12 col-md-12">
+                            <tr>
 
-                            <th>Mã đơn hàng </th>
-                            <th>Ảnh</th>
-                            <th>Sản phẩm</th>
-                            <th>Size</th>
-                            <th>loại sp</th>
-                            <th>Ngày mua</th>
-                            <th>Trạng thái đơn hàng</th>
-                            <th>Tổng tiền</th>
-                        </tr>
-                        <?php
-                        $i=1;
-                        foreach ($khachhang as $key => $value) {
-                            if (isset($value['id_kh'])) {
-                                $donhang=$db->get('donhang',array('id_kh'=>$value['id_kh']));
-                            }
-
-                         if (isset($donhang)) {
-                       foreach ($donhang as $key => $value) {
-                        if ($value['id_tinhtrang']<3) {
-                        $ctdonhang=$db->get('ctdonhang',array('id_donhang'=>$value['id_donhang']));
-                        foreach($ctdonhang as $key => $value1){
-                            $sanpham=$db->get('sanpham',array('id_sanpham'=>$value1['id_sanpham']));
-                        
-                        $tinhtrang=$db->get('tinhtrang_dh',array('id_tinhtrang'=>$value['id_tinhtrang']));
-                        ?>
-                        <tr class="item_table">
-                            <td><?php echo $value['id_donhang']?> </td>
-                            <td> <a href="?controller=product-detail&id=<?php  echo $sanpham[0]['id_sanpham'] ?>"><img src="../images/sanpham/<?php echo $sanpham[0]['anh_chinh']?>" alt=""></a></td>
-                            <td class="col-xs-3 col-md-3">
-                                <?php echo $sanpham[0]['tensanpham']?>
-                            </td>
-                            <td class="col-xs-2 col-md-2"><?php echo $value1['size'] ?></td>
-                            <td class="col-xs-2 col-md-2"><?php echo $value1['loai_sp'] ?></td>
-                            <td class="col-xs-2 col-md-2"><?php echo $value1['ngaydat'] ?></td>
-                            <td class="col-xs-3 col-md-3"><?php echo $tinhtrang[0]['tinhtrang'] ?>
-
-                            <a class="status" href="?controller=account&method=huy&id=<?php echo $value['id_donhang']?>">
-                                   <?php if ($value['id_tinhtrang']==1) {
-                                            echo "<input type='button' style='background-color:red ; cursor: pointer;' value='Hủy'>";                                     
+                                <th>Mã đơn hàng </th>
+                                <th>Ảnh</th>
+                                <th>Sản phẩm</th>
+                                <th>Size</th>
+                                <th>Loại sp</th>
+                                <th>Ngày mua</th>
+                                <th>Trạng thái đơn hàng</th>
+                                <th>Tổng tiền</th>
+                            </tr>
+                            <?php
+                                $i=1;
+                                foreach ($khachhang as $key => $value) {
+                                    if (isset($value['id_kh'])) {
+                                        $donhang=$db->get('donhang',array('id_kh'=>$value['id_kh']));
+                                    }
+                                    if (isset($donhang)) {
+                                        foreach ($donhang as $key => $value) {
+                                            if ($value['id_tinhtrang']<3) {
+                                                $ctdonhang=$db->get('ctdonhang',array('id_donhang'=>$value['id_donhang']));
+                                                foreach($ctdonhang as $key => $value1){
+                                                    $sanpham=$db->get('sanpham',array('id_sanpham'=>$value1['id_sanpham']));
+                                                    $tinhtrang=$db->get('tinhtrang_dh',array('id_tinhtrang'=>$value['id_tinhtrang']));
+                                                ?>
+                            <tr class="item_table">
+                                <td><?php echo $value['id_donhang']?> </td>
+                                <td> <a href="?controller=product-detail&id=<?php  echo $sanpham[0]['id_sanpham'] ?>"><img src="../images/sanpham/<?php echo $sanpham[0]['anh_chinh']?>" alt=""></a></td>
+                                <td class="col-xs-3 col-md-3">
+                                    <?php echo $sanpham[0]['tensanpham']?>
+                                </td>
+                                <td class="col-xs-2 col-md-2"><?php echo $value1['size'] ?></td>
+                                <td class="col-xs-2 col-md-2"><?php echo $value1['loai_sp'] ?></td>
+                                <td class="col-xs-2 col-md-2"><?php echo $value1['ngaydat'] ?></td>
+                                <td class="col-xs-3 col-md-3"><?php echo $tinhtrang[0]['tinhtrang'] ?>
+                                    <a class="status" href="?controller=account&method=huy&id=<?php echo $value['id_donhang']?>">
+                                        <?php 
+                                            if ($value['id_tinhtrang']==1) {
+                                                echo "<input type='button' style='background-color:red ; cursor: pointer;' value='Hủy'>";                                     
+                                            }
+                                                
+                                        ?>
+                                    </a>   
+                                </td>
+                                <td class="col-xs-2 col-md-2"><?php echo number_format($sanpham[0]['gia']*$value1['soluongsp']) ?>đ</td>
+                            </tr>
+                            <?php           
+                                                }   
+                                            }
                                         }
-                                        
-                                      ?>
-                                      </a>
-                                  
-                        </td>
-                            <td class="col-xs-2 col-md-2"><?php echo $sanpham[0]['gia']*$value1['soluongsp'] ?></td>
-
-                        </tr>
-                        <?php  }   }}}
-                    } ?>
-                    </table>
+                                    }
+                                } 
+                            ?>
+                        </table>
                     </form>
                 </div>
 

@@ -462,20 +462,18 @@
                         <span class="title">Đơn hàng</span>
                     </a>
                 </li>
-
-                <!-- <li>
-                    <a href="#">
-                        <span class="icon"><i class='bx bx-line-chart'></i></span>
-                        <span class="title">Doanh thu</span>
-                    </a>
-                </li> -->
-
-          
                 
                 <li>
                     <a href="?controller=khachhang" class="active_admin">
                         <span class="icon"><i class='bx bx-user nav_icon'></i></span>
                         <span class="title">Khách hàng</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="?controller=thongtinshop">
+                        <span class="icon"><i class='bx bx-info-circle'></i></span>
+                        <span class="title">Thông tin Shop</span>
                     </a>
                 </li>
 

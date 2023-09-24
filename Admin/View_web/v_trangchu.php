@@ -389,11 +389,17 @@
                     </a>
                 </li>
 
-
                 <li>
                     <a href="?controller=khachhang">
                         <span class="icon"><i class='bx bx-user nav_icon'></i></span>
                         <span class="title">Khách hàng</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="?controller=thongtinshop">
+                        <span class="icon"><i class='bx bx-info-circle'></i></span>
+                        <span class="title">Thông tin Shop</span>
                     </a>
                 </li>
 
@@ -418,8 +424,7 @@
             </div>
 
             <div class="cardBox">
-
-                <a style="text-decoration:none" href="#">
+               <a style="text-decoration:none" href="#">
                     <div class="card">
                         <div>
                             <div class="numbers"><?php echo $count_rate?></div>

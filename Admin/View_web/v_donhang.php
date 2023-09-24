@@ -476,6 +476,13 @@
                 </li>
 
                 <li>
+                    <a href="?controller=thongtinshop">
+                        <span class="icon"><i class='bx bx-info-circle'></i></span>
+                        <span class="title">Thông tin Shop</span>
+                    </a>
+                </li>
+
+                <li>
                     <a href="?controller=dangxuat">
                         <span class="icon"><i class='bx bx-log-out'></i></span>
                         <span class="title">Đăng xuất</span>
@@ -553,7 +560,7 @@
                                     <a class="status" href="?controller=xulydh&method=status&id=<?php echo $value['id_donhang']?>&tt=<?php echo $value['id_tinhtrang']?>">
                                         <?php switch($value['id_tinhtrang']){
                                             case '1':
-                                                echo "<input type='submit' style='background-color:green ; cursor: pointer;' value='Duyệt'>";
+                                                echo "<input type='submit' style='background-color:green; color:white; cursor: pointer;' value='Duyệt'>";
                                                 break;
                                             case '2':
                                                 echo" <input type='submit' style='background-color:red ; cursor: pointer;' value='Hủy'>";
