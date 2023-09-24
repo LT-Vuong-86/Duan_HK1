@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
-    <title>Contact | E-Shopper</title>
+    <title>Liên hệ | TVT-Shop</title>
     <link href="../css/bootstrap.min.css" rel="stylesheet">
     <link href="../css/font-awesome.min.css" rel="stylesheet">
     <link href="../css/prettyPhoto.css" rel="stylesheet">
@@ -103,12 +103,12 @@
                     <div class="contact-info">
                         <h2 class="title text-center"> Thông tin liên lạc</h2>
                         <address>
-	    					<p>E-Shopper Inc.</p>
+	    					<p>TVT-Shop Inc.</p>
 							<p>935 W. Webster Ave New Streets Chicago, IL 60614, NY</p>
 							<p>Newyork USA</p>
 							<p>Mobile: +2346 17 38 93</p>
 							<p>Fax: 1-714-252-0026</p>
-							<p>Email: info@e-shopper.com</p>
+							<p>Email: info@TVT-Shop.com</p>
 	    				</address>
                         <div class="social-networks">
                             <h2 class="title text-center">Mạng xã hội</h2>
@@ -204,7 +204,7 @@
         <div class="footer-bottom">
             <div class="container">
                 <div class="row">
-                    <p class="pull-left">Copyright © 2013 E-SHOPPER Inc. All rights reserved.</p>
+                    <p class="pull-left">Copyright © 2013 TVT-Shop Inc. All rights reserved.</p>
                     <p class="pull-right">Thiết kế bởi <span><a target="_blank" href="http://www.themeum.com">Themeum</a></span></p>
                 </div>
             </div>

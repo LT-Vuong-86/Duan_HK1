@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
-    <title>Product Details | E-Shopper</title>
+    <title>Chi tiết sản phẩm | TVT-Shop</title>
     <link href="../css/bootstrap.min.css" rel="stylesheet">
     <link href="../css/font-awesome.min.css" rel="stylesheet">
     <link href="../css/prettyPhoto.css" rel="stylesheet">
@@ -49,9 +49,9 @@
         .warning{
             color:red;
         }
-       #click_none_replay{
-        display: none;
-       }
+        #click_none_replay{
+            display: none;
+        }
        
     </style>
 </head>
