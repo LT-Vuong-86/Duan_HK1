@@ -214,7 +214,7 @@
         }
 
         .cardBox .card{
-            width: 550px;
+            width: 650px;
             position: relative;
             background: var(--white);
             padding: 30px;
@@ -247,11 +247,12 @@
             grid-gap: 30px;
             margin-top: 10px;
         }
+       
 
         .details .recentstaff{
             position: relative;
             display: grid;
-            min-height: 500px;
+            min-height: 600px;
             background: var(--white);
             padding: 20px;
             box-shadow: 0 7px 25px var(--black);
@@ -324,7 +325,7 @@
             display: flex;
         }
         .information_shop{
-            width: 250px;
+            width: 300px;
             border: none;
             font-size: 20px;
             float: right;
@@ -337,6 +338,41 @@
             float: left;
             margin-right: 20px;
         }
+        .img_information_shop{
+            width: 150px;
+           
+        }
+        .lleff_right{
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+        }
+        .full_map{
+            position: absolute;
+            width: 1000px;
+            height: 1000px;
+            top: 0;
+            left: 0;
+            right: 0;
+            background-color: white;
+            display: none;
+        }
+        .form_Information{
+            border-radius: 20px;
+            position: absolute;
+            width: 400px;
+            top: 5%;
+            left: 30%;
+            right: 30%;
+           background-color: aliceblue;
+           padding: 20px 20px 20px 20px;
+           
+        }
+        .form_Information input{
+            width: 300px;
+            height: 30px;
+        }
+        
     </style>
 
 </head>
@@ -346,10 +382,8 @@
             <ul>
                 <li>
                     <a href="?controller=trangchu" >
-                        <span class="icon"><img style="width: 40px; height: 40px; " src="..images/home/logo.png" alt=""></span>
-                        <span class="title"><?php if (isset( $_SESSION['name_admin'] )) {
-                            echo  $_SESSION['name_admin'] ;
-                        } ?></span>
+                    <span class="icon"><img style="width: 40px; height: 40px;" src="../images/home/<?php echo $thongtinshop[0]['logo_shop'] ?>" alt=""></span>
+                        <span class="title"><?php echo $thongtinshop[0]['ten_shop'] ?>
                     </a>
                 </li>
 
@@ -419,7 +453,7 @@
                 </div>
                 
                 <div class="user">
-                    <img src="..images/home/logo.png" alt="">
+                    <img src="../images/home/<?php echo $thongtinshop[0]['logo_shop'] ?>" alt="">
                 </div>
             </div>
 
@@ -428,35 +462,94 @@
                     <div class="card">
                         <div>
                             <div class="cardName"><span>Thông tin của TVT-Shop</span></div>
-                            <?php 
-                                foreach($thongtinshop as $key => $value){
-                            ?>
+                            
                             <div>
-                                <span class="left_name">Tên Shop:</span><input class="information_shop" disabled type="text" value="<?php echo $value['ten_shop']?>">                
+                                <span class="left_name">Logo:</span>
+                                <img src="../images/home/<?php echo $thongtinshop[0]['logo_shop']?>" class=" img_information_shop" name="logo_shop" alt="">
+                                              
                             </div>
                             <div>
-                                <span class="left_name">Mật khẩu ứng dụng:</span><input class="information_shop" disabled type="text" value="<?php echo $value['matkhau_shop']?>">                
+                                <span class="left_name">Tên Shop:</span><input class="information_shop" name="ten_shop" disabled type="text" value="<?php echo $thongtinshop[0]['ten_shop']?>">                
+                            </div>
+                           
+                            <div>
+                                <span class="left_name">Số điện thoại:</span><input class="information_shop" disabled type="number" value="<?php echo $thongtinshop[0]['sdt_shop']?>">                
                             </div>
                             <div>
-                                <span class="left_name">Số điện thoại:</span><input class="information_shop" disabled type="number" value="<?php echo $value['sdt_shop']?>">                
+                                <span class="left_name">Gmail Shop:</span><input class="information_shop" disabled type="email" value="<?php echo $thongtinshop[0]['email_shop']?>">                
                             </div>
                             <div>
-                                <span class="left_name">Gmail Shop:</span><input class="information_shop" disabled type="email" value="<?php echo $value['email_shop']?>">                
+                                <span class="left_name">Mật khẩu ứng dụng:</span><input class="information_shop" name="matkhau_shop" disabled type="text" value="<?php echo $thongtinshop[0]['matkhau_shop']?>">                
                             </div>
                             <div>
-                                <span class="left_name">Địa chỉ Shop:</span><input class="information_shop" disabled type="text" value="<?php echo $value['diachi_shop']?>">                
+                                <span class="left_name">Địa chỉ Shop:</span><input class="information_shop" disabled type="text" value="<?php echo $thongtinshop[0]['diachi_shop']?>">                
                             </div>
                             
-                            <?php }?>
+                           <div class="lleff_right" ><button id="click_show_taikhoan">Thay đổi thông tin shop </button></div>
                         </div>
                     </div>
                 </a>
             </div>
-        </div>
+            <div class="full_map" id="click_none_form_taikhoan">
+                <form action="" class="form_Information" method="post" enctype="multipart/form-data">
+                            <div>
+                                <span class="left_name">Logo:</span>
+                                <input class="right1" type="file" name="logo_shop[]" id="image-input" onchange="chooseFile(this)" 
+                                            accept="image/*">
+                                <img alt="" id="image" width="250px" height="150px" src="../images/home/<?php echo $thongtinshop[0]['logo_shop']?>"></td>                  
+                            </div>
+                            <div>
+                                <span class="left_name">Tên Shop:</span><input  name="ten_shop"  type="text" value="<?php echo $thongtinshop[0]['ten_shop']?>">  
+                            <?php if (isset($loi['ten_shop'])) {
+                               echo $loi['ten_shop'];
+                            } ?>        
+                            </div>
+                           
+                            <div>
+                                <span class="left_name">Số điện thoại:</span><input name="sdt_shop"  type="number" value="<?php echo $thongtinshop[0]['sdt_shop']?>">                
+                            </div>
+                            <div>
+                                <span class="left_name">Gmail Shop:</span><input   name="email_shop" value="<?php echo $thongtinshop[0]['email_shop']?>">                
+                            </div>
+                            <div>
+                                <span class="left_name">Mật khẩu ứng dụng:</span><input  name="matkhau_shop"  type="text" value="<?php echo $thongtinshop[0]['matkhau_shop']?>">                
+                            </div>
+                            <div>
+                                <span class="left_name">Địa chỉ Shop:</span><input  name="diachi_shop" type="text" value="<?php echo $thongtinshop[0]['diachi_shop']?>">      
+                            </div>
+                            <div><button name='btn_click'>Lưu</button><button id="click_hide_taikhoan">Hủy</button></div>
+            </form>
+            </div>
     </div>
 
     <script>
-                //add hovered
+        document.getElementById("image-input").addEventListener("change", function(event) {
+        var selectedImage = document.getElementById("image");
+        var selectedFile = event.target.files[0];
+
+        if (selectedFile) {
+            var reader = new FileReader();
+
+            reader.onload = function(e) {
+                selectedImage.src = e.target.result;
+            }
+
+            reader.readAsDataURL(selectedFile);
+        } else {
+            selectedImage.src = "#"; // Đặt nguồn ảnh về một giá trị mặc định nếu không có hình ảnh được chọn
+        }
+    });
+
+    </script>
+    <script>
+        
+  document.getElementById('click_hide_taikhoan').addEventListener('click', function() {
+  document.getElementById('click_none_form_taikhoan').style.display = 'none';
+});
+
+document.getElementById('click_show_taikhoan').addEventListener('click', function() {
+  document.getElementById('click_none_form_taikhoan').style.display = 'block';
+});      //add hovered
                
         // let list = document.querySelectorAll(".navigation li");
         // function activeLink(){

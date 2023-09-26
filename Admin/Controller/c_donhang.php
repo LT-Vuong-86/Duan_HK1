@@ -4,6 +4,7 @@
 
 	if (isset($_SESSION['ss_admin'])) {
         $donhang=array();
+        $thongtinshop = $db->get('thongtinshop', array());
         //Nếu đã đăng nhập thì lấy thông tin người dùng theo ss
         $donhang=$db->get('donhang',array());
         if (isset($_POST['search'])) {

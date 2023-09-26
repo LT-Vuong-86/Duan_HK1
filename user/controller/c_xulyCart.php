@@ -3,22 +3,19 @@ $method = $_GET['method'];
 $id = $_GET['id'];
 $ful_giohang=$db->get('giohang',array('id_taikhoan'=>$_SESSION['ss_user']));
 if (isset($_SESSION['ss_user'])) {
-    
-    $size=$_GET['size'];
-    $giohang=$db->get('giohang',array('id_taikhoan'=>$_SESSION['ss_user'],'id_sanpham'=>$id,'size'=>$size));
-    switch ($method) {
+    $id_loaisp=$_GET['id_loaisp'];
+    $giohang=$db->get('giohang',array('id_loaisp'=>$id_loaisp));
+    switch ($method) {   
         case 'giam':
-            foreach ($giohang as $key => $value) {
+           
                 $sanpham=$db->get('sanpham',array('id_sanpham'=>$giohang[0]['id_sanpham']));
                 $db->update('giohang',array(
-                'soluong'=>$value['soluong']-1,
+                'soluong'=>$giohang[0]['soluong']-1,
                 'tong'=>$giohang[0]['tong']-$sanpham[0]['gia']
-                ),array('size'=>$size,'id_sanpham'=>$id));};
-                if ($value['soluong']<2) {
+                ),array('id_loaisp'=>$id_loaisp));
+                if ($giohang[0]['soluong']<2) {
                     $db->delete('giohang',array(
-                        'id_sanpham'=>$id,
-                        'id_taikhoan'=>$_SESSION['ss_user'],
-                        'size'=>$size
+                        'id_loaisp'=>$id_loaisp
                     ));
                 }
                 header('location: ?controller=cart');
@@ -29,14 +26,14 @@ if (isset($_SESSION['ss_user'])) {
                     $db->update('giohang',array(
                     'soluong'=>$value['soluong']+1,
                     'tong'=>$giohang[0]['tong']+$sanpham[0]['gia']
-                ),array('size'=>$size,'id_sanpham'=>$id));};
+                ),array('id_loaisp'=>$id_loaisp));};
                 header('location: ?controller=cart');
                 break;
         case 'xoa':
             $db->delete('giohang',array(
                 'id_sanpham'=>$id,
                 'id_taikhoan'=>$_SESSION['ss_user'],
-                'size'=>$size
+                'id_loaisp'=>$id_loaisp
             ));
             header('location: ?controller=cart');
             break;

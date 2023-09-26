@@ -1,5 +1,6 @@
 <?php
 if (isset($_SESSION['ss_user'])) {
+    $thongtinshop = $db->get('thongtinshop', array());
 if (isset($_GET['id'])) {
     $loi=[];
     $date_oder = date("d/m/y");

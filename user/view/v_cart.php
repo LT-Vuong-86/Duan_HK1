@@ -157,9 +157,9 @@
                             <td><?php echo $value['tensanpham']?></td>
                             <td><?php echo number_format($value['gia'])?>đ</td>
                             <td>
-                            <a href="?controller=xulyCart&method=giam&id=<?php echo $value['id_sanpham']?>"><input style="cursor: pointer;" type="submit"  value="-"> </a>
+                            <a href="?controller=xulyCart&method=giam&id=<?php echo $value['id_sanpham']?>&id_loaisp=<?php echo $value['id_loaisp']?>"><input style="cursor: pointer;" type="submit"  value="-"> </a>
                             <?php echo $value['sl']?>
-                            <a href="?controller=xulyCart&method=tang&id=<?php echo $value['id_sanpham']?>"><input style="cursor: pointer;" type="submit"  value="+"></a>
+                            <a href="?controller=xulyCart&method=tang&id=<?php echo $value['id_sanpham']?>&id_loaisp=<?php echo $value['id_loaisp']?>"><input style="cursor: pointer;" type="submit"  value="+"></a>
                         </td>
                             <td><div><p><?php echo $value['loai_sp']?></p></div></td>
                             <td><div><p><?php echo $value['size_name']?></p></div></td>
@@ -193,9 +193,9 @@
                         <td><?php echo number_format($sanpham[0]['gia'])?>đ</td>
                         
                         <td >
-                            <a href="?controller=xulyCart&method=giam&id=<?php echo $value['id_sanpham']?>&size=<?php echo $value['size']?>"><input style="cursor: pointer;" type="submit"  value="-"> </a>
+                            <a href="?controller=xulyCart&method=giam&id=<?php echo $value['id_sanpham']?>&id_loaisp=<?php echo $value['id_loaisp']?>"><input style="cursor: pointer;" type="submit"  value="-"> </a>
                             <?php echo $value['soluong']?>
-                            <a href="?controller=xulyCart&method=tang&id=<?php echo $value['id_sanpham']?>&size=<?php echo $value['size']?>"><input style="cursor: pointer;" type="submit"  value="+"></a>
+                            <a href="?controller=xulyCart&method=tang&id=<?php echo $value['id_sanpham']?>&id_loaisp=<?php echo $value['id_loaisp']?>"><input style="cursor: pointer;" type="submit"  value="+"></a>
                         </td>
                        
                         <td><div><p><?php echo $value['loai_sp']?></p></div></td>

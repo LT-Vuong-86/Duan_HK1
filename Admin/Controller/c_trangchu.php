@@ -1,5 +1,6 @@
 <?php
     if(isset($_SESSION['ss_admin'])){
+        $thongtinshop = $db->get('thongtinshop', array());
 $tong =$db->get('donhang',array());
 global $tongdoanhthu;
 foreach ($tong as $key => $value) {

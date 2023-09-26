@@ -1,5 +1,6 @@
 <?php
 global $sanpham;
+$thongtinshop = $db->get('thongtinshop', array());
 if (isset($_GET['keywork'])) {
 
     $keywork = str_replace('+', '',$_GET['keywork']);

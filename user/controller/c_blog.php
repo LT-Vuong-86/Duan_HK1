@@ -1,6 +1,6 @@
 <?php
 $sanpham=$db->get('sanpham',array());
-
+$thongtinshop = $db->get('thongtinshop', array());
 $reversed_array = $db->order_by('sanpham',array(
     'id_sanpham'=>'DESC',
 ));
