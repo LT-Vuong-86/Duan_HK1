@@ -93,6 +93,9 @@
         .dangky a:hover{
             color: crimson;
         }
+        #code_sent{
+            display: none;
+        }
     
        
     </style>
@@ -104,42 +107,30 @@
         <div class="container">
             <div id="form-login-over" class="row" class="col-md-4 col-md-offset-5">
                 <div class="col-sm-12">
-                    <div class="login-form">
-                        <!--login form-->
-                        <h2 style="text-align:center">Bạn đã là khách hàng</h2>
-                        <form action="#" method="post">
-                            <div class="row mt-5">
-                                <input type="text" name="username" placeholder="Tên đăng nhập" class="form-control col-md-6" 
-                                value="<?php echo (isset($username))?$username:'' ?>">
-                            </div>
-                            <div id="canhbao" class="row mt-1">
-                                <?php if (isset($loi['username'])) {?>
-                                    <p class="text-danger"><?php echo $loi['username'] ?></p>			
-                                <?php } ?>
-                            </div>
-
-                            <div class="row mt-5">
-                                <input type="password" name="pass" placeholder="Mật khẩu" class="form-control col-md-6" 
-                                value="">
-                            </div>
-                            <div id="canhbao" class="row mt-1">
-                                <?php if (isset($loi['pass'])) {?>
-                                    <p class="text-danger"><?php echo $loi['pass'] ?></p>			
-                                <?php } ?>
-                            </div>
-
-                            <input class="button" type="submit" name="btn_log" value="Đăng Nhập">
-                        
-                            
-                            <div class="dangky">
-                                <h5>Nếu chưa hãy <span><a href="?controller=signup">Đăng ký</a></span></h5>
-                                <h5>Hay <span><a href="?controller=quenmk">Quên mật khẩu?</a></span></h5>
-                            </div>
-						</form>
-					</div>
+                    <div id="email_sent">
+                        <div class="login-form">
+                            <!--login form-->
+                            <h2 style="text-align:center">Quên mật khẩu</h2>
+                            <form action="" method="post">
+                                <div class="row mt-5">
+                                    <input type="text" name="email" placeholder="Hãy điền email của bạn" class="form-control col-md-6" 
+                                    value="<?php echo (isset($email))?$email:'' ?>">
+                                </div>
+                                <div id="canhbao" class="row mt-1">
+                                    <?php if (isset($loi['email'])) {?>
+                                        <p class="text-danger"><?php echo $loi['email'] ?></p>			
+                                    <?php }?>
+                                </div>
+                                    <input id="confirm1" class="button" type="submit" name="btn_confirm1" value="Xác nhận">
+                            </form>
+                            <h5><span><a href="?controller=login">Quay lại</a></span></h5>
+                        </div>
+                    </div>
 				</div>
 			</div>
 		</div>
 	</section>
+
+    <script src="../js/jquery.js"></script>                                
 </body>
 </html>

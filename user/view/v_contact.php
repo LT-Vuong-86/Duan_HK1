@@ -19,7 +19,6 @@
             position: fixed;
             bottom: 0;
             width: 100%;
-
         }
     </style>
 </head>
@@ -73,7 +72,7 @@
 					<h2 class="title text-center">Contact <strong>Us</strong></h2>    			    				    				
 					<div id="gmap" class="contact-map">
 					</div>
-				</div>			 		 -->
+				</div>-->
             </div>
             <div class="row">
                 <div class="col-sm-8">

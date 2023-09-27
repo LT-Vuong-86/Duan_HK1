@@ -1,5 +1,4 @@
-
- function openCity( cityName) {
+function openCity( cityName) {
   let i, tabcontent;
   tabcontent = document.getElementsByClassName("tabcontent");
   for (i = 0; i < tabcontent.length; i++) {

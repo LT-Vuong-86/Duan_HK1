@@ -139,7 +139,7 @@
                               <td><input type="text"  disabled  value="<?php echo $account[0]['email']?>"></td>
                             </li>
                             <div class="all_submit_form">
-                                <input id="click_show_taikhoan" class="submit_form"  type="button" value="Cập nhập tại khoản">
+                                <input id="click_show_taikhoan" class="submit_form"  type="button" value="Cập nhập tài khoản">
                                 <!-- <input class="submit_form" type="submit" value="Đổi mật khẩu"> -->
                             </div>
                             
@@ -274,7 +274,7 @@
                 </div>
             </div>
        
-            <div  id="click_none_form_taikhoan">
+            <div id="click_none_form_taikhoan">
                 <form action="" method="post">
                     <li>
                         <label for="fullname">Tên người dùng</label>
@@ -302,7 +302,7 @@
                                 <input class="btn btn-danger" id="click_hide_taikhoan" type="text" value="hủy">
                             </div>
                     </form>
-                    </div>
+            </div>
         </div>
        
     </section>
