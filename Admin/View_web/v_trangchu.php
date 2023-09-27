@@ -346,10 +346,8 @@
             <ul>
                 <li>
                     <a href="?controller=trangchu" >
-                        <span class="icon"><img style="width: 40px; height: 40px; " src="..images/home/logo.png" alt=""></span>
-                        <span class="title"><?php if (isset( $_SESSION['name_admin'] )) {
-                            echo  $_SESSION['name_admin'] ;
-                        } ?></span>
+                    <span class="icon"><img style="width: 40px; height: 40px;" src="../images/home/<?php echo $thongtinshop[0]['logo_shop'] ?>" alt=""></span>
+                        <span class="title"><?php echo $thongtinshop[0]['ten_shop'] ?>
                     </a>
                 </li>
 
@@ -419,7 +417,7 @@
                 </div>
                 
                 <div class="user">
-                    <img src="..images/home/logo.png" alt="">
+                    <img src="../images/home/<?php echo $thongtinshop[0]['logo_shop'] ?>" alt="">
                 </div>
             </div>
 

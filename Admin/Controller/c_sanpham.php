@@ -1,7 +1,7 @@
 <?php
     if(isset($_SESSION['ss_admin'])){
         $user = $db->get('taikhoan', array('id'=>$_SESSION['ss_admin']));
-        
+        $thongtinshop = $db->get('thongtinshop', array());
         if (isset($_POST['search'])) {
             $search_codition=$_POST['search_codition'];
             $content=$_POST['content'];

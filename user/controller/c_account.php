@@ -1,5 +1,6 @@
 <?php
 if(isset($_SESSION['ss_user'])){
+    $thongtinshop = $db->get('thongtinshop', array());
     $account = $db->get('taikhoan', array('id'=>$_SESSION['ss_user']));
     $khachhang=$db->get('khachhang',array('sdt'=>$account[0]['sdt']));
     if (isset($_POST['sua_btn_form'])) {

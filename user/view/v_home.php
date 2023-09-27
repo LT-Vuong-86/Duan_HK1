@@ -127,7 +127,7 @@
                 <div class="row">
                     <div class="col-sm-4">
                         <div class="logo pull-left">
-                            <a href="?controller=home"><img src="../images/home/logo.png" alt="" /></a>
+                            <a href="?controller=home"><img src="../images/home/<?php echo $thongtinshop[0]['logo_shop'] ?>" alt="" /></a>
                         </div>
 
                     </div>
@@ -252,7 +252,18 @@
                                     <img src="../images/home/pricing.png" class="pricing" alt="" />
                                 </div>
                             </div>
-
+                            <div class="item">
+                                <div class="col-sm-12 col-md-6">
+                                    <h1><span>E</span>-SHOPPER</h1>
+                                    <h2>100% Responsive Design</h2>
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
+                                    <button type="button" class="btn btn-default get">Get it now</button>
+                                </div>
+                                <div class="col-sm-12 col-md-6">
+                                    <img src="../images/home/girl2.jpg" class="girl img-responsive" alt="" />
+                                    <img src="../images/home/pricing.png" class="pricing" alt="" />
+                                </div>
+                            </div>
                         </div>
 
                         <a href="#slider-carousel" class="left control-carousel hidden-xs" data-slide="prev">
@@ -472,10 +483,11 @@
                                     <?php }?>
                                 </div>
                                 
-                                <div class="item">
+                                
                                 <?php
                                  foreach ($id_dm as $key => $value1) { 
                                     $danhmuc_extra=$db->get('danhmuc',array('id_danhmuc'=>$value1))?>
+                                    <div class="item">
                                     <?php foreach ($danhmuc_extra as $key => $value9) {
                                 $sanpham_danhmuc1=$db->get('sanpham',array('id_danhmuc'=>$value9['id_danhmuc']));
                                 $sanpham_danhmuc = [];
@@ -507,8 +519,9 @@
                                     <?php } ?>  
                                     <?php }?>
                                 <?php }?>
-                                <?php } ?>  
                                 </div>
+                                <?php } ?>  
+                                
                                 
                             </div>
                             <a class="left recommended-item-control" href="#recommended-item-carousel" data-slide="prev">

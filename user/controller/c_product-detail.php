@@ -1,4 +1,5 @@
 <?php
+$thongtinshop = $db->get('thongtinshop', array());
     //Lấy id trên thanh url
     if (isset($_GET['id'])) {
     $id = $_GET['id'];

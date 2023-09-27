@@ -65,7 +65,7 @@
                 <div class="row">
                     <div class="col-sm-4">
                         <div class="logo pull-left">
-                            <a href="?controller=home"><img src="../images/home/logo.png" alt="" /></a>
+                            <a href="?controller=home"><img src="../images/home/<?php echo $thongtinshop[0]['logo_shop'] ?>" alt="" /></a>
                         </div>
                     </div>
                     <div class="col-sm-8">
@@ -372,7 +372,7 @@
                                             <?php   ?>
                                             <li class="media second-media" class="click_none_replay">
                                                 <a class="pull-left" href="#">
-                                                    <img class="media-object" src="../images/home/logo.png" alt="">
+                                                    <img class="media-object" src="../images/home/<?php echo $thongtinshop[0]['logo_shop'] ?>" alt="">
                                                 </a>
                                                     <?php if ($value['rate_rating']>=3) {?>
                                                         <p>Cảm ơn quý đã mua hàng của chúng tôi</p>

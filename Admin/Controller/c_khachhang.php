@@ -1,5 +1,6 @@
 <?php
     if(isset($_SESSION['ss_admin'])){
+        $thongtinshop = $db->get('thongtinshop', array());
         $user = $db->get('taikhoan', array('id'=>$_SESSION['ss_admin']));
         if (isset($_POST['search'])) {
             $search_codition=$_POST['search_codition'];

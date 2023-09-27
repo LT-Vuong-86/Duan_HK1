@@ -1,5 +1,7 @@
 <?php
+
 if (isset($_SESSION['ss_user'])) {
+    $thongtinshop = $db->get('thongtinshop', array());
     $sanphamlikeproduct=$db->get_join(
         array("tensanpham", "gia", "anh_chinh", "daban",'sanpham.id_sanpham'), 
         'sanpham','danhsachyeuthich', 'JOIN', 'danhsachyeuthich.id_sanpham = sanpham.id_sanpham',
