@@ -217,51 +217,50 @@
                         <div class="carousel-inner">
                             <div class="item active">
                                 <div class="col-sm-12 col-md-6">
-                                    <h1><span>E</span>-SHOPPER</h1>
-                                    <h2>Free E-Commerce Template</h2>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
-                                    <button type="button" class="btn btn-default get">Get it now</button>
+                                    <h1><span><?php echo $thongtinshop[0]['ten_shop'] ?></span></h1>
+                                    <h2><?php echo $banner[0]['name_baner'] ?></h2>
+                                    <p><?php echo $banner[0]['nd_baner'] ?></p>
+                                    <!-- <button type="button" class="btn btn-default get">Get it now</button> -->
                                 </div>
                                 <div class="col-sm-12 col-md-6">
-                                    <img src="../images/home/girl1.jpg" class="girl img-responsive" alt="" />
-                                    <img src="../images/home/pricing.png" class="pricing" alt="" />
-                                </div>
-                            </div>
-                            <div class="item">
-                                <div class="col-sm-12 col-md-6">
-                                    <h1><span>E</span>-SHOPPER</h1>
-                                    <h2>100% Responsive Design</h2>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
-                                    <button type="button" class="btn btn-default get">Get it now</button>
-                                </div>
-                                <div class="col-sm-12 col-md-6">
-                                    <img src="../images/home/girl2.jpg" class="girl img-responsive" alt="" />
-                                    <img src="../images/home/pricing.png" class="pricing" alt="" />
-                                </div>
-                            </div>
-
-                            <div class="item">
-                                <div class="col-sm-12 col-md-6">
-                                    <h1><span>E</span>-SHOPPER</h1>
-                                    <h2>Free Ecommerce Template</h2>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
-                                    <button type="button" class="btn btn-default get">Get it now</button>
-                                </div>
-                                <div class="col-sm-12 col-md-6">
-                                    <img src="../images/home/girl3.jpg" class="girl img-responsive" alt="" />
-                                    <img src="../images/home/pricing.png" class="pricing" alt="" />
+                                    <img src="../images/home/<?php echo $banner[0]['anh_banner'] ?>" class="girl img-responsive" alt="" />
+                                    <img src="../images/home/<?php echo $banner[0]['images_sale'] ?>" class="pricing" alt="" />
                                 </div>
                             </div>
                             <div class="item">
                                 <div class="col-sm-12 col-md-6">
-                                    <h1><span>E</span>-SHOPPER</h1>
-                                    <h2>100% Responsive Design</h2>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
-                                    <button type="button" class="btn btn-default get">Get it now</button>
+                                    <h1><span><?php echo $thongtinshop[0]['ten_shop'] ?></span></h1>
+                                    <h2><?php echo $banner[1]['name_baner'] ?></h2>
+                                    <p><?php echo $banner[1]['nd_baner'] ?> </p>
+                                    <!-- <button type="button" class="btn btn-default get">Get it now</button> -->
                                 </div>
                                 <div class="col-sm-12 col-md-6">
-                                    <img src="../images/home/girl2.jpg" class="girl img-responsive" alt="" />
-                                    <img src="../images/home/pricing.png" class="pricing" alt="" />
+                                    <img src="../images/home/<?php echo $banner[1]['anh_banner'] ?>" class="girl img-responsive" alt="" />
+                                    <img src="../images/home/<?php echo $banner[1]['images_sale'] ?>" class="pricing" alt="" />
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="col-sm-12 col-md-6">
+                                    <h1><span><?php echo $thongtinshop[0]['ten_shop'] ?></span></h1>
+                                    <h2><?php echo $banner[2]['name_baner'] ?></h2>
+                                    <p><?php echo $banner[2]['nd_baner'] ?> </p>
+                                    <!-- <button type="button" class="btn btn-default get">Get it now</button> -->
+                                </div>
+                                <div class="col-sm-12 col-md-6">
+                                    <img src="../images/home/<?php echo $banner[2]['anh_banner'] ?>" class="girl img-responsive" alt="" />
+                                    <img src="../images/home/<?php echo $banner[2]['images_sale'] ?>" class="pricing" alt="" />
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="col-sm-12 col-md-6">
+                                    <h1><span><?php echo $thongtinshop[0]['ten_shop'] ?></span></h1>
+                                    <h2><?php echo $banner[3]['name_baner'] ?></h2>
+                                    <p><?php echo $banner[3]['nd_baner'] ?> </p>
+                                    <!-- <button type="button" class="btn btn-default get">Get it now</button> -->
+                                </div>
+                                <div class="col-sm-12 col-md-6">
+                                    <img src="../images/home/<?php echo $banner[3]['anh_banner'] ?>" class="girl img-responsive" alt="" />
+                                    <img src="../images/home/<?php echo $banner[3]['images_sale'] ?>" class="pricing" alt="" />
                                 </div>
                             </div>
                         </div>
@@ -303,7 +302,7 @@
                        
                         <div class="shipping text-center">
                             <!--shipping-->
-                            <img src="../images/home/shipping.jpg" alt="" />
+                            <img src="../images/home/<?php echo $banner[0]['image_left']?>" alt="" />
                         </div>
 
                         <!--/shipping-->

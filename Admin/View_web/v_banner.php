@@ -6,6 +6,7 @@
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="./assets/css/adminstyle.css">
     <title>TVT-Shop | Admin</title>
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
     <style>
        
         *{
@@ -53,7 +54,13 @@
             left: 0;
             width: 100%;
         }
-
+        .item  p {
+	color:#363432;
+	font-size:16px;
+	font-weight:300;
+	/* font-family: 'Roboto', sans-serif; */
+ font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
         .navigation ul li{
             position: relative;
             width: 100%;
@@ -149,42 +156,7 @@
             cursor: pointer;
         }
 
-        .search{
-            position: relative;
-            width: 400px;
-            margin: 0 10px;
-        }
 
-        .search label{
-            position: relative;
-            width: 100%;
-        }
-
-        .search label input{
-            width: 100%;
-            height: 40px;
-            border-radius: 40px;
-            padding: 5px 20px;
-            padding-left: 35px;
-            font-size: 18px;
-            outline: none;
-            border: 1px solid var(--black);
-        }
-
-        .search label span:hover{
-            cursor: pointer;
-            opacity: 0.6;
-        }
-        .search label span{
-            position: absolute;
-            top: 0;
-            margin-top: -11px;
-            border-radius: 45%;
-            margin-right: -10px;
-            right: 10px;
-           cursor: pointer;
-            font-size: 1.2rem;
-        }
 
         .user{
             position: relative;
@@ -207,136 +179,21 @@
         .cardBox{
             position: relative;
             width: 100%;
-            padding: 20px;
             display: grid;
             grid-template-columns: repeat(4 ,1fr);
             grid-gap: 30px;
         }
 
-        .cardBox .card{
-            position: relative;
-            background: var(--white);
-            padding: 30px;
-            border-radius: 20px;
-            display: flex;
-            justify-content: space-between;
-            cursor: pointer;
-            box-shadow: 0 7px 25px rgba(0, 0, 0, 0.08);
-        }
-
-        .cardBox .card .numbers{
-            position: relative;
-            font-weight: 500;
-            font-size: 2.5rem;
-            color: var(--yellow);
-        }
-
-        .cardBox .card .cardName{
-            color: var(--grey);
-            font-size: 1.1rem;
-            margin-top: 5px;
-        }
-
-        .cardBox .card .iconBx{
-            font-size: 3.5rem;
-            color: var(--black)
-        }
-
-        .cardBox .card:hover{
-            background: var(--yellow);
-        }
-
-        .cardBox .card:hover .numbers,
-        .cardBox .card:hover .cardName,
-        .cardBox .card:hover .iconBx{
-            color: var(--white);
-        }
-
-        .details{
-            position: relative;
-            width: 100%;
-            padding: 20px;
-            display: grid;
-            grid-template-columns: 2fr 1fr;
-            grid-gap: 30px;
-            margin-top: 10px;
-        }
-
-        .details .recentstaff{
-            position: relative;
-            display: grid;
-            min-height: 500px;
-            background: var(--white);
-            padding: 20px;
-            box-shadow: 0 7px 25px var(--black);
-            border-radius: 20px;
-        }
-
-        .details .cardHeader{
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-        }
-
-        .cardHeader h2{
-            font-weight: 600;
-            color: var(--black);
-        }
-
-        .cardHeader .btn{
-            position: relative;
-            padding: 5px 10px;
-            background: var(--yellow);
-            text-decoration: none;
-            color: var(--white);
-            border-radius: 6px;
-        }
-
-        .details table{
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 10px;
-        }
-
-        .details table thead td{
-            font-weight: 600;
-        }
-
-        .details .recentstaff table tr{
-            color: var(--grey);
-            border-bottom: 1px solid var(--black);
-        }
-
-        .details .recentstaff table tr:last-child{
-            border-bottom: none;
-        }
-
-        .details .recentstaff table tbody tr:hover{
-            background: var(--yellow);
-            color: var(--black );
-        }
-
-        .details .recentstaff table tr td{
-            padding: 10px;
-        }
+.total_banner .item{
+  max-height: 400px;
+}
         .active_admin{
             background: var(--yellow);
         }
         .search_codition{
             position: absolute;
         }
-        .search_codition h4 {
-            margin-left: -120px;
-           
-        }
-        .search_codition select{
-            margin-left: -120px;
-            
-        }
-       .toggle form {
-            width:2000px ;
-            display: flex;
-        }
+      
     </style>
 
 </head>
@@ -352,7 +209,7 @@
                 </li>
 
                 <li>
-                    <a href="?controller=trangchu" class='active_admin'>
+                    <a href="?controller=trangchu" >
                         <span class="icon"><i class='bx bx-home'></i></span>
                         <span class="title">Trang chủ</span>
                     </a>
@@ -401,12 +258,11 @@
                     </a>
                 </li>
                 <li>
-                    <a href="?controller=banner">
+                    <a href="?controller=banner" class='active_admin'>
                         <span class="icon"><i class='bx bx-info-circle'></i></span>
                         <span class="title">Banner</span>
                     </a>
                 </li>
-
                 <li>
                     <a href="?controller=dangxuat">
                         <span class="icon"><i class='bx bx-log-out'></i></span>
@@ -425,41 +281,64 @@
                 <div class="user">
                     <img src="../images/home/<?php echo $thongtinshop[0]['logo_shop'] ?>" alt="">
                 </div>
+                <a href="?controller=sua_banner"><button>Sửa banner</button></a>
             </div>
 
-            <div class="cardBox">
-               <a style="text-decoration:none" href="#">
-                    <div class="card">
-                        <div>
-                            <div class="numbers"><?php echo $count_rate?></div>
-                            <div class="cardName">Đánh giá</div>
-
+            <div class="total_banner">
+           
+                            <div class="item active">
+                                <div class="col-sm-12 col-md-3">
+                                    <h1><span><?php echo $thongtinshop[0]['ten_shop'] ?></span></h1>
+                                    <h2><?php echo $banner[0]['name_baner'] ?></h2>
+                                    <p><?php echo $banner[0]['nd_baner'] ?></p>
+                                    <!-- <button type="button" class="btn btn-default get">Get it now</button> -->
+                                </div>
+                                <div class="col-sm-12 col-md-3">
+                                    <img src="../images/home/<?php echo $banner[0]['anh_banner'] ?>" class="girl img-responsive" alt="" />
+                                    <img src="../images/home/<?php echo $banner[0]['images_sale'] ?>" class="pricing" alt="" />
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="col-sm-12 col-md-3">
+                                    <h1><span><?php echo $thongtinshop[0]['ten_shop'] ?></span></h1>
+                                    <h2><?php echo $banner[1]['name_baner'] ?></h2>
+                                    <p><?php echo $banner[1]['nd_baner'] ?> </p>
+                                    <!-- <button type="button" class="btn btn-default get">Get it now</button> -->
+                                </div>
+                                <div class="col-sm-12 col-md-3">
+                                    <img src="../images/home/<?php echo $banner[1]['anh_banner'] ?>" class="girl img-responsive" alt="" />
+                                    <img src="../images/home/<?php echo $banner[1]['images_sale'] ?>" class="pricing" alt="" />
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="col-sm-12 col-md-3">
+                                    <h1><span><?php echo $thongtinshop[0]['ten_shop'] ?></span></h1>
+                                    <h2><?php echo $banner[2]['name_baner'] ?></h2>
+                                    <p><?php echo $banner[2]['nd_baner'] ?> </p>
+                                    <!-- <button type="button" class="btn btn-default get">Get it now</button> -->
+                                </div>
+                                <div class="col-sm-12 col-md-3">
+                                    <img src="../images/home/<?php echo $banner[2]['anh_banner'] ?>" class="girl img-responsive" alt="" />
+                                    <img src="../images/home/<?php echo $banner[2]['images_sale'] ?>" class="pricing" alt="" />
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="col-sm-12 col-md-3">
+                                    <h1><span><?php echo $thongtinshop[0]['ten_shop'] ?></span></h1>
+                                    <h2><?php echo $banner[3]['name_baner'] ?></h2>
+                                    <p><?php echo $banner[3]['nd_baner'] ?> </p>
+                                    <!-- <button type="button" class="btn btn-default get">Get it now</button> -->
+                                </div>
+                                <div class="col-sm-12 col-md-3">
+                                    <img src="../images/home/<?php echo $banner[3]['anh_banner'] ?>" class="girl img-responsive" alt="" />
+                                    <img src="../images/home/<?php echo $banner[3]['images_sale'] ?>" class="pricing" alt="" />
+                                </div>
+                            </div>
                         </div>
 
-                        <div class="iconBx">
-                            <ion-icon name="chatbubble-outline"></ion-icon>
-                        </div>
-                    </div>
-                </a>
-                
-                <a style="text-decoration:none" href="">
-                    <div class="card">
-                        <div>
-                            <div class="numbers"><?php echo number_format($tongdoanhthu) ?>đ</div>
-
-                            <div class="cardName">Tổng doanh thu</div>
-                        </div>
-
-                        <div class="iconBx">
-                            <ion-icon name="cash-outline"></ion-icon>
-                        </div>
-                    </div>
-                </a>
-
-            </div>
+            
         </div>
     </div>
-
     <script>
                 //add hovered
                
@@ -482,6 +361,7 @@
             main.classList.toggle("active");
         }
     </script>
+
 
     
 </body>
