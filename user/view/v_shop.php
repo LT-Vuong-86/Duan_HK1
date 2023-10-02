@@ -368,12 +368,11 @@
     <script src="../js/main.js"></script>
 
     <script>
-            
         let toggle = document.querySelector(".toggle");
         let navigation = document.querySelector(".navigation");
         let main = document.querySelector(".main");
         let topbar = document.querySelector(".topbar");
-
+        
         toggle.onclick = function(){
             navigation.classList.toggle("active");
             main.classList.toggle("active");

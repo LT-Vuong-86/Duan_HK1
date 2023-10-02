@@ -201,7 +201,6 @@
             left: 0;
             width: 100%;
             height: 100%;
-            object-fit: cover;
         }
 
         .cardBox{
@@ -337,6 +336,12 @@
             width:2000px ;
             display: flex;
         }
+        .navigation li .icon img{
+            position: relative;
+            border-radius: 18px;
+            width: 50%;
+            margin-top: 10px;
+        }
     </style>
 
 </head>
@@ -346,8 +351,10 @@
             <ul>
                 <li>
                     <a href="?controller=trangchu" >
-                    <span class="icon"><img style="width: 40px; height: 40px;" src="../images/home/<?php echo $thongtinshop[0]['logo_shop'] ?>" alt=""></span>
-                        <span class="title"><?php echo $thongtinshop[0]['ten_shop'] ?>
+                    <span class="icon">
+                        <img src="../images/home/<?php echo $thongtinshop[0]['logo_shop'] ?>" alt="">
+                    </span>
+
                     </a>
                 </li>
 

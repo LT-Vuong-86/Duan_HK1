@@ -406,6 +406,9 @@
             width:2000px ;
             display: flex;
         }
+        table, th, td {
+            border: 1px solid black;
+        }
 
     </style>
 </head>

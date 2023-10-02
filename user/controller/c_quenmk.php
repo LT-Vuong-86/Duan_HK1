@@ -35,8 +35,8 @@
             $mail->isSMTP();
             $mail->Host = 'smtp.gmail.com';
             $mail->SMTPAuth = true;
-            $mail->Username = 'nguyenhienvuong666@gmail.com';
-            $mail->Password = 'hziobfiqqbshbxrq';
+            $mail->Username = 'trissphan982004@gmail.com';
+            $mail->Password = 'itrmroeuzfdjwlb';
             $mail->SMTPSecure = 'ssl';// Enable TLS encryption; `PHPMailer::ENCRYPTION_SMTPS` also accepted
             $mail->Port = 465; // TCP port to connect to
         
@@ -44,7 +44,6 @@
             $mail->setFrom($_POST['email'],$_POST['email']);
             $mail->addAddress($email);
             $mail->isHTML(true);
-            $mail->addReplyTo($_POST['email'], 'Sender Name');
             // Set the subject and body of the email.
             // Sử dụng thuộc tính Encoding để đảm bảo subject email được mã hóa bằng UTF-8
             

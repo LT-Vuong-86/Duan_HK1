@@ -364,15 +364,26 @@
             top: 5%;
             left: 30%;
             right: 30%;
-           background-color: aliceblue;
-           padding: 20px 20px 20px 20px;
+            background-color: aliceblue;
+            padding: 20px 20px 20px 20px;
            
         }
         .form_Information input{
             width: 300px;
             height: 30px;
         }
-        
+
+        .form_Information button .luu{
+
+            float: left;
+        }
+
+        .form_Information button .huy{
+            float: right;
+        }
+        .form_Information .dif_change{
+            width: 100%;
+        }
     </style>
 
 </head>
@@ -485,40 +496,42 @@
                                 <span class="left_name">Địa chỉ Shop:</span><input class="information_shop" disabled type="text" value="<?php echo $thongtinshop[0]['diachi_shop']?>">                
                             </div>
                             
-                           <div class="lleff_right" ><button id="click_show_taikhoan">Thay đổi thông tin shop </button></div>
+                           <div class="lleff_right"><button id="click_show_taikhoan"><p>Thay đổi thông tin shop</p></button></div>
                         </div>
                     </div>
                 </a>
             </div>
             <div class="full_map" id="click_none_form_taikhoan">
                 <form action="" class="form_Information" method="post" enctype="multipart/form-data">
-                            <div>
-                                <span class="left_name">Logo:</span>
-                                <input class="right1" type="file" name="logo_shop[]" id="image-input" onchange="chooseFile(this)" 
-                                            accept="image/*">
-                                <img alt="" id="image" width="250px" height="150px" src="../images/home/<?php echo $thongtinshop[0]['logo_shop']?>"></td>                  
-                            </div>
-                            <div>
-                                <span class="left_name">Tên Shop:</span><input  name="ten_shop"  type="text" value="<?php echo $thongtinshop[0]['ten_shop']?>">  
-                            <?php if (isset($loi['ten_shop'])) {
-                               echo $loi['ten_shop'];
-                            } ?>        
-                            </div>
-                           
-                            <div>
-                                <span class="left_name">Số điện thoại:</span><input name="sdt_shop"  type="number" value="<?php echo $thongtinshop[0]['sdt_shop']?>">                
-                            </div>
-                            <div>
-                                <span class="left_name">Gmail Shop:</span><input   name="email_shop" value="<?php echo $thongtinshop[0]['email_shop']?>">                
-                            </div>
-                            <div>
-                                <span class="left_name">Mật khẩu ứng dụng:</span><input  name="matkhau_shop"  type="text" value="<?php echo $thongtinshop[0]['matkhau_shop']?>">                
-                            </div>
-                            <div>
-                                <span class="left_name">Địa chỉ Shop:</span><input  name="diachi_shop" type="text" value="<?php echo $thongtinshop[0]['diachi_shop']?>">      
-                            </div>
-                            <div><button name='btn_click'>Lưu</button><button id="click_hide_taikhoan">Hủy</button></div>
-            </form>
+                    <div>
+                        <span class="left_name">Logo:</span>
+                        <input class="right1" type="file" name="logo_shop[]" id="image-input" onchange="chooseFile(this)" accept="image/*">
+                        <img alt="" id="image" width="100%" height="150px" src="../images/home/<?php echo $thongtinshop[0]['logo_shop']?>">               
+                    </div>
+                    <div>
+                        <span class="left_name">Tên Shop:</span><input  name="ten_shop"  type="text" value="<?php echo $thongtinshop[0]['ten_shop']?>">  
+                    <?php if (isset($loi['ten_shop'])) {
+                        echo $loi['ten_shop'];
+                    } ?>        
+                    </div>
+                    
+                    <div>
+                        <span class="left_name">Số điện thoại:</span><input name="sdt_shop"  type="number" value="<?php echo $thongtinshop[0]['sdt_shop']?>">                
+                    </div>
+                    <div>
+                        <span class="left_name">Gmail Shop:</span><input   name="email_shop" value="<?php echo $thongtinshop[0]['email_shop']?>">                
+                    </div>
+                    <div>
+                        <span class="left_name">Mật khẩu ứng dụng:</span><input  name="matkhau_shop"  type="text" value="<?php echo $thongtinshop[0]['matkhau_shop']?>">                
+                    </div>
+                    <div>
+                        <span class="left_name">Địa chỉ Shop:</span><input  name="diachi_shop" type="text" value="<?php echo $thongtinshop[0]['diachi_shop']?>">      
+                    </div>
+                    <div class="dif_change">
+                        <button class="luu" name='btn_click'>Lưu</button>
+                        <button class="huy" id="click_hide_taikhoan">Hủy</button>
+                    </div>
+                </form>
             </div>
     </div>
 
