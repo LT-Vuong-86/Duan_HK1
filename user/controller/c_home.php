@@ -1,6 +1,7 @@
 <?php
     $index = 0;
     $thongtinshop = $db->get('thongtinshop', array());
+    $banner = $db->get('banner', array());
 	$sanpham = $db->get('sanpham', array());
     $data_danhmuc = $db->get('danhmuc', array());
     $id_dm=[];

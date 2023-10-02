@@ -472,13 +472,19 @@
                         <span class="title">Thông tin Shop</span>
                     </a>
                 </li>
-
+                <li>
+                    <a href="?controller=banner">
+                        <span class="icon"><i class='bx bx-info-circle'></i></span>
+                        <span class="title">Banner</span>
+                    </a>
+                </li>
                 <li>
                     <a href="?controller=dangxuat">
                         <span class="icon"><i class='bx bx-log-out'></i></span>
                         <span class="title">Đăng xuất</span>
                     </a>
                 </li>
+                
             </ul>
         </div>
 
