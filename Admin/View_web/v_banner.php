@@ -55,12 +55,12 @@
             width: 100%;
         }
         .item  p {
-	color:#363432;
-	font-size:16px;
-	font-weight:300;
-	/* font-family: 'Roboto', sans-serif; */
- font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-}
+        color:#363432;
+        font-size:16px;
+        font-weight:300;
+            /* font-family: 'Roboto', sans-serif; */
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        }
         .navigation ul li{
             position: relative;
             width: 100%;
@@ -184,9 +184,9 @@
             grid-gap: 30px;
         }
 
-.total_banner .item{
-  max-height: 400px;
-}
+        .total_banner .item{
+        max-height: 400px;
+        }
         .active_admin{
             background: var(--yellow);
         }
