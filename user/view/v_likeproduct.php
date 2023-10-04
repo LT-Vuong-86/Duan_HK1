@@ -136,74 +136,43 @@
         <!--Footer-->
         <div class="footer-widget col-md-12">
             <div class="container">
-                <div class="row">
-                    <div class="col-sm-2 ">
-                        <div class="single-widget">
-                            <h2>Service</h2>
-                            <ul class="nav nav-pills nav-stacked">
-                                <li><a href="">Hỗ trợ trực tuyến</a></li>
-                                <li><a href="">Liên hệ chúng tôi</a></li>
-                                <li><a href="">Tình trạng đặt hàng</a></li>
-                                <li><a href="">Thay đổi địa điểm</a></li>
-                                <li><a href="">câu hỏi thường gặp</a></li>
-                            </ul>
+                <div class="row" style="height: 20px">
+                    <div class="col-sm-2"></div>
+                    <div class="col-sm-2" style="border-right: 1px solid black; text-align: center;">
+                        <div class="single-widget" >
+                            <a href=""><h4>Hỗ trợ trực tuyến</h4></a>
                         </div>
                     </div>
-                    <div class="col-sm-2">
+                    <div class="col-sm-2" style="border-right: 1px solid black; text-align: center;">
                         <div class="single-widget">
-                            <h2>Quock Shop</h2>
-                            <ul class="nav nav-pills nav-stacked">
-                                <li><a href="">Áo thun</a></li>
-                                <li><a href="">Nam</a></li>
-                                <li><a href="">Nữ</a></li>
-                                <li><a href="">Thẻ quà tặng</a></li>
-                                <li><a href="">Giày</a></li>
-                            </ul>
+                            <a href=""><h4>Liên hệ chúng tôi</h4></a>
                         </div>
                     </div>
-                    <div class="col-sm-2">
+                    <div class="col-sm-2" style="border-right: 1px solid black; text-align: center;">
                         <div class="single-widget">
-                            <h2>Policies</h2>
-                            <ul class="nav nav-pills nav-stacked">
-                                <li><a href="">Điều khoản sử dụng</a></li>
-                                <li><a href="">Chính sách bảo mật</a></li>
-                                <li><a href="">Chính sách hoàn tiền</a></li>
-                                <li><a href=""> Hệ thống thanh toán</a></li>
-                                <li><a href="">hệ thống vé</a></li>
-                            </ul>
+                            <a href=""><h4>Chính sách bảo mật</h4></a>
                         </div>
                     </div>
-                    <div class="col-sm-2">
+                    <div class="col-sm-3">
                         <div class="single-widget">
-                            <h2>About Shopper</h2>
-                            <ul class="nav nav-pills nav-stacked">
-                                <li><a href="">Thông tin công ty</a></li>
-                                <li><a href="">nghề nghiệp</a></li>
-                                <li><a href="">Vị trí cửa hàng</a></li>
-                                <li><a href=""> Chương trình liên kết</a></li>
-                                <li><a href="">bản quyền</a></li>
-                            </ul>
+                            <a href=""><h4>Chính sách vận chuyển</h4></a>
                         </div>
                     </div>
-                    <div class="col-sm-3 col-sm-offset-1">
-                        <div class="single-widget">
-                            <h2>About Shopper</h2>
-                            <form action="#" class="searchform">
-                                <input type="text" placeholder="Your email address" />
-                                <button type="submit" class="btn btn-default"><i class="fa fa-arrow-circle-o-right"></i></button>
-                                <p>Get the most recent updates from <br />our site and be updated your self...</p>
-                            </form>
-                        </div>
-                    </div>
-
                 </div>
+                <div style="text-align: center">
+                    <img style="width: 150px; margin-right:10px" src="../images/home/logoCCDV.png" class=" img_information_shop" name="logo_shop" alt="">
+                    <img style="width: 150px" src="../images/home/logoCCDV.png" class=" img_information_shop" name="logo_shop" alt="">
+                    <h3>TVT-Shop</h3>
+                    <?php echo $thongtinshop[0]['diachi_shop']?>
+                </div>
+
             </div>
         </div>
 
         <div class="footer-bottom">
             <div class="container">
                 <div class="row">
-                    <p class="pull-left">Copyright © 2013 TVT-Shop Inc. All rights reserved.</p>
+                    <p class="pull-left">©2023 - Bản quyền thuộc về Công ty TVT-Shop</p>
                     <p class="pull-right">Designed by <span><a target="_blank" href="http://www.themeum.com">Themeum</a></span></p>
                 </div>
             </div>
