@@ -114,7 +114,6 @@
         .main.active{
             width: calc(100% - 80px);
             left: 80px;
-
         }
 
         .topbar{
@@ -357,14 +356,16 @@
         }
 
         button {
-        width: auto;
-        height: auto;
-        cursor: pointer;
-        display: flex;
-        align-items: center;
-        border: none;
-        border-radius: 5px;
-        background: transparent;
+            width: auto;
+            height: auto;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            border: none;
+            border-radius: 5px;
+            background: transparent;
+            border-right: 1px solid black;
+            border-bottom: 1px solid black;
         }
 
         button, button span {
@@ -498,7 +499,6 @@
                     <h4>Tìm kiếm theo</h4>
                     <select name="search_codition" id="">
                         <option value="username">Tên danh mục</option>
-                       
                     </select>
                 </div>
                 <div class="search">

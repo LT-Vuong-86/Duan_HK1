@@ -363,14 +363,17 @@
         }
 
         button {
-        width: auto;
-        height: auto;
-        cursor: pointer;
-        display: flex;
-        align-items: center;
-        border: none;
-        border-radius: 5px;
-        background: transparent;
+            width: auto;
+            height: auto;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            border: none;
+            border-radius: 5px;
+            background: transparent;
+            border-right: 1px solid black;
+            border-bottom: 1px solid black;
+
         }
 
         button, button span {
@@ -379,6 +382,10 @@
         
         .details .recentstaff td.xuly{
             width: 10%;
+        }
+
+        button, button span {
+            transition: all .1s;
         }
 
         .details .recentstaff td.xuly button span{
@@ -392,7 +399,7 @@
         }
 
         .details .recentstaff td.xuly button span.textxoa:hover{
-            text-shadow: 0 0 10px crimson;
+            text-shadow: 0 0 10px black;
             font-weight: bold;
         }
 

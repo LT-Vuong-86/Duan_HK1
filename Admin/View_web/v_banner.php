@@ -7,8 +7,7 @@
     <link rel="stylesheet" href="./assets/css/adminstyle.css">
     <title>TVT-Shop | Admin</title>
     <link href="../css/bootstrap.min.css" rel="stylesheet">
-    <style>
-       
+    <style>       
         *{
             font-family: 'Ubuntu', sans-serif;
             margin: 0;
@@ -54,13 +53,7 @@
             left: 0;
             width: 100%;
         }
-        .item  p {
-        color:#363432;
-        font-size:16px;
-        font-weight:300;
-            /* font-family: 'Roboto', sans-serif; */
-        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-        }
+
         .navigation ul li{
             position: relative;
             width: 100%;
@@ -68,11 +61,6 @@
             border-top-left-radius: 30px;
             border-bottom-left-radius: 30px;
         }
-
-        /* .navigation ul li:hover,
-        .navigation ul li.hovered{
-            background: var(--white);
-        } */
 
         .navigation ul li:nth-child(1){
             margin-bottom: 40px;
@@ -87,11 +75,6 @@
             text-decoration: none;
             color: var(--white);
         }
-
-        /* .navigation ul li:hover a,
-        .navigation ul li.hovered a{
-            color: var(--black);
-        } */
 
         .navigation ul li a .icon{
             position: relative;
@@ -118,7 +101,6 @@
             text-align: start;
             white-space: nowrap;
         }
-
 
         .main{
             position: absolute;
@@ -156,8 +138,6 @@
             cursor: pointer;
         }
 
-
-
         .user{
             position: relative;
             width: 40px;
@@ -176,17 +156,10 @@
             object-fit: cover;
         }
 
-        .cardBox{
-            position: relative;
-            width: 100%;
-            display: grid;
-            grid-template-columns: repeat(4 ,1fr);
-            grid-gap: 30px;
+        .total_banner .item{
+            max-height: 400px;
         }
 
-        .total_banner .item{
-        max-height: 400px;
-        }
         .active_admin{
             background: var(--yellow);
         }
@@ -259,7 +232,7 @@
                 </li>
                 <li>
                     <a href="?controller=banner" class='active_admin'>
-                        <span class="icon"><i class='bx bx-info-circle'></i></span>
+                        <span class="icon"><i class='bx bx-slideshow'></i></span>
                         <span class="title">Banner</span>
                     </a>
                 </li>

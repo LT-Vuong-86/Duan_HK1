@@ -589,7 +589,11 @@
                         </thead>
                         <tbody>
                             <?php
+                            if (isset($total_pages)) {
                                 $stt = $start_record + 1;
+                            }else {
+                                $stt=1;
+                            }
                                 foreach($data_sanpham as $key => $data_sanpham){?>
                             <tr>
                                 <td><?php echo $stt++?></td> 
@@ -637,21 +641,6 @@
             </div>
         </div>
     </div>
-
-    <script>
-        $('#products').pagination({
-        dataSource: [1, 2, 3, 4, 5, 6, 7, ... , 100],
-        pageSize: 5,
-        showPrevious: false,
-        showNext: false,
-        callback: function(data, pagination) {
-            // template method of yourself
-            var html = template(data);
-            dataContainer.html(html);
-        }
-    })
-
-    </script>
     <script>
         //menu toggle
         let toggle = document.querySelector(".toggle");

@@ -132,7 +132,7 @@
                         <?php foreach ($reversed_array as $key => $value) {?>
                      
                         <div class="single-blog-post">
-                            <h3>Áo phông hồng bé gái đã về hàng</h3>
+                            <h3><?php echo $value['tensanpham']?></h3>
                             <div class="post-meta">
                                 <ul>
                                     <li><i class="fa fa-user"></i>  <?php echo $value['nguoitao'] ?></li>

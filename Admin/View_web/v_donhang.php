@@ -348,14 +348,17 @@
         }
 
         button {
-        width: auto;
-        height: auto;
-        cursor: pointer;
-        display: flex;
-        align-items: center;
-        border: none;
-        border-radius: 5px;
-        background: transparent;
+            width: auto;
+            height: auto;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            border: none;
+            border-radius: 5px;
+            background: transparent;
+            border-right: 1px solid black;
+            border-bottom: 1px solid black;
+
         }
 
         button, button span {
@@ -557,7 +560,6 @@
                 <div class="recentstaff">
                     <div class="cardHeader">
                         <h2>Quản lý đơn hàng</h2>
-                        <a href="?controller=" class="btn">Xóa toàn bộ</a>
                         <a href="?controller=adddonhang" class="btn">Thêm đơn hàng</a>
                         
                     </div>

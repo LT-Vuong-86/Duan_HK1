@@ -9,7 +9,8 @@
                 "id_sanpham", "tensanpham", "anh_chinh", "tonkho", "gia", "xuatxu", "daban", 'danhmuc.danhmuc'),
                 'sanpham', 'danhmuc', 'JOIN', 'danhmuc.id_danhmuc = sanpham.id_danhmuc',
                 array(),array($search_codition=>$content),array("id_sanpham" => "asc"/*desc|giảm|*/));
-
+                require_once 'View_web/v_sanpham.php';
+                die;
         }
         else {
             $data_sanpham = $db->get_join(array(
