@@ -109,12 +109,12 @@
                         <h2 style="text-align:center">Bạn đã là khách hàng</h2>
                         <form action="#" method="post">
                             <div class="row mt-5">
-                                <input type="text" name="username" placeholder="Tên đăng nhập" class="form-control col-md-6" 
-                                value="<?php echo (isset($username))?$username:'' ?>">
+                                <input type="text" name="email" placeholder="Email của bạn" class="form-control col-md-6" 
+                                value="<?php echo (isset($email))?$email:'' ?>">
                             </div>
                             <div id="canhbao" class="row mt-1">
-                                <?php if (isset($loi['username'])) {?>
-                                    <p class="text-danger"><?php echo $loi['username'] ?></p>			
+                                <?php if (isset($loi['email'])) {?>
+                                    <p class="text-danger"><?php echo $loi['email'] ?></p>			
                                 <?php } ?>
                             </div>
 

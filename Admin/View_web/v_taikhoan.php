@@ -395,14 +395,16 @@
         }
 
         button {
-        width: auto;
-        height: auto;
-        cursor: pointer;
-        display: flex;
-        align-items: center;
-        border: none;
-        border-radius: 5px;
-        background: transparent;
+            width: auto;
+            height: auto;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            border: none;
+            border-radius: 5px;
+            background: transparent;
+            border-right: 1px solid black;
+            border-bottom: 1px solid black;
         }
 
         button, button span {
@@ -443,6 +445,9 @@
        .toggle form {
             width:2000px ;
             display: flex;
+        }
+        table, th, td {
+            border: 1px solid black;
         }
     </style>
 </head>
@@ -569,7 +574,7 @@
                     <table>
                         <thead>
                             <tr>
-                                <td>STT</td>
+                                <td class="stt">STT</td>
                                 <td>Tên tài khoản</td>
                                 <td>Tên đầy đủ</td>
                                 <td>SĐT</td>
@@ -585,7 +590,7 @@
                                 $i = 1;
                                 foreach($data_nhanvien as $key => $value){?>
                             <tr>
-                                <td><?php echo $i++?></td>
+                                <td class="stt"><?php echo $i++?></td>
                                 <td><?php echo $value['username']?></td>
                                 <td><?php echo $value['full_name']?></td>
                                 <td><?php echo $value['sdt']?></td>

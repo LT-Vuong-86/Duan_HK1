@@ -417,6 +417,37 @@
         .images_sp{
             width: 100px;
         }
+
+        .pagination {
+
+            position: relative;
+            align-self: center;
+            display: inline-block;
+            margin: 0 auto;
+        }
+
+        .pagination a {
+            border: 1px solid black;
+            color: black;
+            float: left;
+            padding: 8px 16px;
+            text-decoration: none;
+            display: grid;
+        }
+
+        .pagination li {
+            color: black;
+            float: left;
+            text-decoration: none;
+            list-style: none;
+        }
+        .pagination li.active {
+            background: var(--yellow);
+            
+        }
+        table, th, td {
+            border: 1px solid black;
+        }
     </style>
 </head>
 <body>
@@ -506,6 +537,7 @@
                         <select name="search_codition">
                             <option value="id_sanpham">Mã sản phẩm</option>                     
                             <option value="tensanpham">Tên sản phẩm</option>
+                            <option value="danhmuc">Danh mục</option>
                         </select>
                     </div>
 
@@ -521,14 +553,26 @@
                 </div>
             </div>
 
-            <div class="details">
+            <div class="details" id="products">
                 <div class="recentstaff">
                     <div class="cardHeader">
                         <h2>Quản lý sản phẩm</h2>
                         <a href="?controller=addsanpham" class="btn">Thêm sản phẩm</a>
                     </div>
-
-                    <table>
+                    <ul class="pagination">
+                        <?php 
+                            if (isset($total_pages)) {
+                                for ($i = 1; $i <= $total_pages; $i++) {
+                                    if ($i == $current_page) {
+                                        echo "<li class='active'><a href='?controller=sanpham&page=$i'>$i</a></li>";
+                                    }else{
+                                        echo "<li><a href='?controller=sanpham&page=$i'>$i</a></li>";
+                                    }
+                                }  
+                            }
+                        ?>
+                    </ul>
+                    <table >
                         <thead>
                             <tr>
                                 <td>STT</td>
@@ -541,18 +585,19 @@
                                 <td>Danh mục</td>
                                 <td>Đã bán</td>
                                 <td>Thao tác</td>
-                                
                             </tr>
                         </thead>
-
                         <tbody>
                             <?php
-                                $i = 1;
-                                foreach($data_sanpham as $key => $data_sanpham){
-                                    ?>
+                            if (isset($total_pages)) {
+                                $stt = $start_record + 1;
+                            }else {
+                                $stt=1;
+                            }
+                                foreach($data_sanpham as $key => $data_sanpham){?>
                             <tr>
-                                <td><?php echo $i++?></td> 
-                                <td  ><?php echo $data_sanpham['id_sanpham']?></td> 
+                                <td><?php echo $stt++?></td> 
+                                <td><?php echo $data_sanpham['id_sanpham']?></td> 
                                 <td><?php echo $data_sanpham['tensanpham']?></td>
                                 <td><img src="../images/sanpham/<?php echo $data_sanpham['anh_chinh']?>" class="images_sp" alt=""></td>
                                 <td><?php echo $data_sanpham['tonkho']?></td>
@@ -567,7 +612,6 @@
                                             <span class="textsua">Sửa</span>
                                         </button>
                                     </a>
-
                                     <a  class="xoa" onclick="return confirm('Xóa sản phẩm này?');" 
                                         href="?controller=xulysanpham&method=xoa&id=<?php echo $data_sanpham['id_sanpham']?>">
                                         <button  class="noselect">
@@ -575,48 +619,29 @@
                                         </button>
                                     </a>
                                 </td>
-                                
-
-                                 <?php } ?>
                             </tr>
+                            <?php } ?>
+                            
                         </tbody>
                     </table>
+                    <ul class="pagination">
+                        <?php
+                            if (isset($total_pages)) {
+                                for ($i = 1; $i <= $total_pages; $i++) {
+                                    if ($i == $current_page) {
+                                        echo "<li class='active'><a href='?controller=sanpham&page=$i'>$i</a></li>";
+                                    }else{
+                                        echo "<li><a href='?controller=sanpham&page=$i'>$i</a></li>";
+                                    }
+                                }  
+                            }
+                        ?>
+                    </ul>
                 </div>
             </div>
         </div>
     </div>
-
     <script>
-
-        const pagination = {
-  current_page: 1,
-  per_page: 10,
-};
-
-// Sử dụng hàm AJAX để lấy dữ liệu cho trang hiện tại
-const getRecords = async () => {
-  const response = await fetch(`/api/users?page=${pagination.current_page}&per_page=${pagination.per_page}`);
-  const data = await response.json();
-  return data;
-};
-
-// Hiển thị dữ liệu đã lấy ra
-getRecords().then((data) => {
-  // ...
-});
-    </script>
-    <script>
-
-        //add hovered
-        // let list = document.querySelectorAll(".navigation li");
-        // function activeLink(){
-        //     list.forEach(item=>{
-        //         item.classList.remove("hovered");
-        //     });
-        //     this.classList.add("hovered");
-        // }
-        // list.forEach((item) => item.addEventListener("mouseover", activeLink));
-
         //menu toggle
         let toggle = document.querySelector(".toggle");
         let navigation = document.querySelector(".navigation");

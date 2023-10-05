@@ -315,14 +315,16 @@
         .details .recentstaff table tr td:last-child {
             text-align: center;
         }
-        .details .recentstaff table tr td:nth-child(7),
         .details .recentstaff table tr td:nth-child(1),
         .details .recentstaff table tr td:nth-child(3),
-        .details .recentstaff table tr td:nth-child(6){
+        .details .recentstaff table tr td:nth-child(5),
+        .details .recentstaff table tr td:nth-child(6),
+        .details .recentstaff table tr td:nth-child(7) {
             text-align: center;
             max-width: 250px;
         }
         .details .recentstaff table tr td:nth-child(2){
+            text-align: center;
             max-width: 50px;
         }
         
@@ -361,14 +363,17 @@
         }
 
         button {
-        width: auto;
-        height: auto;
-        cursor: pointer;
-        display: flex;
-        align-items: center;
-        border: none;
-        border-radius: 5px;
-        background: transparent;
+            width: auto;
+            height: auto;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            border: none;
+            border-radius: 5px;
+            background: transparent;
+            border-right: 1px solid black;
+            border-bottom: 1px solid black;
+
         }
 
         button, button span {
@@ -377,6 +382,10 @@
         
         .details .recentstaff td.xuly{
             width: 10%;
+        }
+
+        button, button span {
+            transition: all .1s;
         }
 
         .details .recentstaff td.xuly button span{
@@ -390,28 +399,62 @@
         }
 
         .details .recentstaff td.xuly button span.textxoa:hover{
-            text-shadow: 0 0 10px crimson;
+            text-shadow: 0 0 10px black;
             font-weight: bold;
         }
+
         .active_admin{
             background: var(--yellow);
         }
+
         .search_codition{
             position: absolute;
         }
+
         .search_codition h4 {
             margin-left: -120px;
            
         }
+
         .search_codition select{
             margin-left: -120px;
             
         }
-       .toggle form {
+
+        .toggle form {
             width:2000px ;
             display: flex;
         }
 
+        .pagination {
+            position: relative;
+            align-self: center;
+            display: inline-block;
+            margin: 0 auto;
+        }
+
+        .pagination a {
+            border: 1px solid black;
+            color: black;
+            float: left;
+            padding: 8px 16px;
+            text-decoration: none;
+            display: grid;
+        }
+
+        .pagination li {
+            color: black;
+            float: left;
+            text-decoration: none;
+            list-style: none;
+        }
+
+        .pagination li.active {
+            background: var(--yellow);
+        }
+        table, th, td {
+            border: 1px solid black;
+        }
     </style>
 </head>
 <body>
@@ -499,9 +542,9 @@
                 <div class="search_codition">
                     <h4>Tìm kiếm theo</h4>
                     <select name="search_codition" id="">
-                    <option value="username">Tên khách hàng</option>
                         <option value="id_kh">Mã khách hàng</option>
-                        <option value="sdt">SĐT</option>
+                        <option value="username">Tên khách hàng</option>
+                        <option value="sdt">Số điện thoại</option>
                     </select>
                 </div>
                 <div class="search">
@@ -537,10 +580,10 @@
 
                         <tbody>
                             <?php
-                                $i = 1;
+                                $stt = $start_record + 1;
                                 foreach($data_khachhang as $key => $value){?>
                             <tr>
-                                <td><?php echo $i++?></td>
+                                <td><?php echo $stt++?></td>
                                 <td><?php echo $value['id_kh']?></td>
                                 <td><?php echo $value['username']?></td>
                                 <td><?php echo $value['sdt']?></td>
@@ -566,6 +609,19 @@
                             </tr>
                         </tbody>
                     </table>
+                    <ul class="pagination">
+                        <?php
+                            if (isset($total_pages)) {
+                                for ($i = 1; $i <= $total_pages; $i++) {
+                                    if ($i == $current_page) {
+                                        echo "<li class='active'><a href='?controller=khachhang&page=$i'>$i</a></li>";
+                                    }else{
+                                        echo "<li><a href='?controller=khachhang&page=$i'>$i</a></li>";
+                                    }
+                                }  
+                            }
+                        ?>
+                    </ul>
                 </div>
             </div>
         </div>

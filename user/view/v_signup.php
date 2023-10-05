@@ -138,12 +138,12 @@
 
                     <div class="col-sm-6 col-xs-12">
                         <h5>Mật khẩu</h5>
-                        <input class="col-sm-12 col-xs-12"  minlength="6" name="pass"  required type="password" placeholder="Mật khẩu" />
+                        <input class="col-sm-12 col-xs-12"  minlength="6" name="pass" required type="password" placeholder="Mật khẩu" />
                     </div>
 
                     <div class="col-sm-6 col-xs-12">
                         <h5>Email</h5>
-                        <input class="col-sm-12 col-xs-12" name="email" type="email" placeholder="Email" />
+                        <input class="col-sm-12 col-xs-12" name="email" type="email" placeholder="Email" required />
                     </div>
 
                     <div class="col-sm-6 col-xs-12">

@@ -277,10 +277,6 @@
             text-align: center;
         }
 
-        .details .recentstaff table tr td:nth-child(2){
-            text-align: start;
-        }
-
         .status.delivered{
             padding: 2px 4px;
             background: greenyellow;
@@ -352,14 +348,17 @@
         }
 
         button {
-        width: auto;
-        height: auto;
-        cursor: pointer;
-        display: flex;
-        align-items: center;
-        border: none;
-        border-radius: 5px;
-        background: transparent;
+            width: auto;
+            height: auto;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            border: none;
+            border-radius: 5px;
+            background: transparent;
+            border-right: 1px solid black;
+            border-bottom: 1px solid black;
+
         }
 
         button, button span {
@@ -400,21 +399,55 @@
         .details .recentstaff td a.xoa:hover{
             color: crimson;
         }
+
         .search_codition{
             position: absolute;
         }
+
         .search_codition h4 {
             margin-left: -120px;
            
         }
+
         .search_codition select{
             margin-left: -120px;
             
         }
-       .toggle form {
+
+        .toggle form {
             width:2000px ;
             display: flex;
          
+        }
+
+        .pagination {
+            position: relative;
+            align-self: center;
+            display: inline-block;
+            margin: 0 auto;
+        }
+
+        .pagination a {
+            border: 1px solid black;
+            color: black;
+            float: left;
+            padding: 8px 16px;
+            text-decoration: none;
+            display: grid;
+        }
+
+        .pagination li {
+            color: black;
+            float: left;
+            text-decoration: none;
+            list-style: none;
+        }
+
+        .pagination li.active {
+            background: var(--yellow);
+        }
+        table, th, td {
+            border: 1px solid black;
         }
     </style>
 </head>
@@ -528,6 +561,7 @@
                     <div class="cardHeader">
                         <h2>Quản lý đơn hàng</h2>
                         <a href="?controller=adddonhang" class="btn">Thêm đơn hàng</a>
+                        
                     </div>
                     <table>
                         <?php 
@@ -548,14 +582,14 @@
                         </thead>
                         <tbody id="myTable">
                             <?php
-                            $i=1;
+                                $stt = $start_record + 1;
                                 foreach ($donhang as $key => $value) {
                                     $tinhtrang=$db->get('tinhtrang_dh',array('id_tinhtrang'=>$value['id_tinhtrang']));
                                     $khachhang=$db->get('khachhang',array('id_kh'=>$value['id_kh']));
                                 ?>
 
                                 <tr id="tr">
-                                <td class='td'><?php echo $i++ ?></td>
+                                <td class='td'><?php echo $stt++ ?></td>
                                 <td class='td'><?php echo $value['id_donhang'] ?></td>
                                 <td class='td'><?php echo $value['id_kh']  ?></td>
                                 <td class='td'><?php echo $khachhang[0]['sdt']  ?></td>
@@ -597,6 +631,19 @@
                         </tbody>
                         <?php } ?>
                     </table>
+                    <ul class="pagination">
+                        <?php
+                            if (isset($total_pages)) {
+                                for ($i = 1; $i <= $total_pages; $i++) {
+                                    if ($i == $current_page) {
+                                        echo "<li class='active'><a href='?controller=donhang&page=$i'>$i</a></li>";
+                                    }else{
+                                        echo "<li><a href='?controller=donhang&page=$i'>$i</a></li>";
+                                    }
+                                }  
+                            }
+                        ?>
+                    </ul>
                 </div>
             </div>
         </div>

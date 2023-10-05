@@ -364,15 +364,26 @@
             top: 5%;
             left: 30%;
             right: 30%;
-           background-color: aliceblue;
-           padding: 20px 20px 20px 20px;
+            background-color: aliceblue;
+            padding: 20px 20px 20px 20px;
            
         }
         .form_Information input{
             width: 300px;
             height: 30px;
         }
-        
+
+        .form_Information button .luu{
+
+            float: left;
+        }
+
+        .form_Information button .huy{
+            float: right;
+        }
+        .form_Information .dif_change{
+            width: 100%;
+        }
     </style>
 
 </head>
@@ -490,10 +501,12 @@
                             <div>
                                 <span class="left_name">Địa chỉ Shop:</span><input class="information_shop" disabled type="text" value="<?php echo $thongtinshop[0]['diachi_shop']?>">                
                             </div>
+
                             <div>
                                 <span class="left_name">fanpage facebook</span><input class="information_shop" name="id_fanpage_fb" type="text" value="<?php echo $thongtinshop[0]['id_fanpage_fb']?>">      
                             </div>
                            <div class="lleff_right" ><button id="click_show_taikhoan">Thay đổi thông tin shop </button></div>
+
                         </div>
                     </div>
                 </a>
@@ -528,8 +541,9 @@
                             <div>
                                 <span class="left_name">fanpage facebook</span><input  name="id_fanpage_fb" type="text" value="<?php echo $thongtinshop[0]['id_fanpage_fb']?>">      
                             </div>
-                            <div><button name='btn_click'>Lưu</button><button id="click_hide_taikhoan">Hủy</button></div>
+                            <div class="dif_change"><button name='btn_click'>Lưu</button><button id="click_hide_taikhoan">Hủy</button></div>
             </form>
+
             </div>
     </div>
 
