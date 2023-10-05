@@ -102,12 +102,13 @@
                     <div class="contact-info">
                         <h2 class="title text-center"> Thông tin liên lạc</h2>
                         <address>
-	    					<p>TVT-Shop Inc.</p>
-							<p>935 W. Webster Ave New Streets Chicago, IL 60614, NY</p>
-							<p>Newyork USA</p>
-							<p>Mobile: +2346 17 38 93</p>
+	    					<p>Tên shop:<?php echo $thongtinshop[0]['ten_shop'] ?></p>
+							
+							<p>SĐT: <?php echo $thongtinshop[0]['sdt_shop'] ?></p>
 							<p>Fax: 1-714-252-0026</p>
-							<p>Email: info@TVT-Shop.com</p>
+							<p>Email: <?php echo $thongtinshop[0]['email_shop'] ?></p>
+                            <p>Địa chỉ: <?php echo $thongtinshop[0]['diachi_shop'] ?></p>
+                            <p>fanpage facebook: <?php echo $thongtinshop[0]['id_fanpage_fb'] ?></p>
 	    				</address>
                         <div class="social-networks">
                             <h2 class="title text-center">Mạng xã hội</h2>

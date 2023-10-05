@@ -13,7 +13,7 @@
             $sdt_shop=$_POST['sdt_shop'];
             $matkhau_shop=$_POST['matkhau_shop'];
             $diachi_shop = $_POST['diachi_shop'];
-
+            $id_fanpage_fb = $_POST['id_fanpage_fb'];
             $loi =[];
             if($ten_shop == ''){
                 $loi['ten_shop'] = 'ten_shop không được để trống';
@@ -39,7 +39,8 @@
                     'email_shop'=>$email_shop,
                     'sdt_shop'=>$sdt_shop,
                     'diachi_shop'=>$diachi_shop,
-                    'matkhau_shop'=>$matkhau_shop
+                    'matkhau_shop'=>$matkhau_shop,
+                    'id_fanpage_fb'=>$id_fanpage_fb
                    
                 ),array('id'=>1));
                

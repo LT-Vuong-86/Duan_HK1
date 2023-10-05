@@ -13,6 +13,7 @@
     <link href="../css/animate.css" rel="stylesheet">
 	<link href="../css/main.css" rel="stylesheet">
 	<link href="../css/responsive.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
     <style>
         *{
             box-sizing: border-box;
@@ -116,6 +117,31 @@
         .navigation li:hover{
             color: orange;
         }
+       
+        .float-contact {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 99999;
+        }
+
+
+        .chat-facebook,
+        .call-hotline {
+            display: block;
+            margin-bottom: 6px;
+            line-height: 0;
+        }
+
+        @media (max-width: 480px) {
+
+
+            .chat-facebook,
+            .call-hotline {
+                display: inline-block;
+            }
+        }
+   
     </style>
     </head><!--/head-->
 
@@ -536,6 +562,17 @@
                 </div>
             </div>
         </div>
+        <div class="float-contact">
+        <!-- <div class="call-hotline">
+            <a href="tel:0388937608"><i style="font-size: 48px; color: greenyellow;" class="fa-solid fa-phone"></i></a>
+        </div><br> -->
+        <div class="chat-facebook">
+            <?php
+      echo  $link = sprintf('<a href="https://m.me/%s" target="_blank"><i style="font-size: 48px; color: blue;" class="fa-brands fa-facebook-messenger"></i></a>', $thongtinshop[0]['id_fanpage_fb']);
+?>
+            <!-- <a href="https:m.me/141601539033801" target="_blank"><i style="font-size: 48px; color: blue;" class="fa-brands fa-facebook-messenger"></i></a> -->
+        </div>
+    </div>
     </section>
 
     <footer id="footer">
@@ -610,7 +647,7 @@
             <div class="container">
                 <div class="row">
                     <p class="pull-left">bản quyền © 2013 TVT-Shop Inc. All rights reserved.</p>
-                    <p class="pull-right">Thiết kế bởi <span><a target="_blank" href="http://www.themeum.com">Themeum</a></span></p>
+                    <p class="pull-right">Thiết kế bởi <span><a target="_blank" href="">TVT-Shop</a></span></p>
                 </div>
             </div>
         </div>
