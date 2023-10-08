@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-       <title>Admin | Thêm nhân viên</title></title>
+       <title>Admin | Thêm tài khoản</title></title>
     <style>
        
         *{
@@ -29,6 +29,12 @@
             color: #000;
             animation: rotate 6s infinite alternate linear;
             transition: all 1s;
+        }
+
+        input[type='number']::-webkit-inner-spin-button,
+        input[type='number']::-webkit-outer-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
         }
 
         .container{
@@ -211,7 +217,7 @@
         </div>
 
         <div id="sdt" class="form-control row mx-1">
-            <input name="sdt"  type="tel" pattern="[0-9]{10}" title="Hãy nhập lại số điện thoại." placeholder="SĐT" 
+            <input id="phone_number" name="sdt" pattern = "/^(0|\+84)?(1[3-9])[0-9]{9}$/" title="Nhập chưa đúng số điện thoại"  type="number" placeholder="SĐT" 
             value="<?php echo (isset($sdt))?$sdt:'' ?>" required>
         </div>
         <div id="canhbao" class="row mt-2">
@@ -222,7 +228,7 @@
 
         <div id="vaitro" class="form-control row mx-1">
             <input name="vaitro" type="text" placeholder="Vai trò" 
-            value="<?php echo (isset($vaitro))?$vaitro:'' ?>"  <?php  if ($user[0]['vaitro']=='manager') { echo "disabled"; }?> required>
+            value="<?php echo (isset($vaitro))?$vaitro:'' ?>" <?php if ($user[0]['vaitro']=='manager') { echo "disabled"; }?> required>
         </div>
         <div id="canhbao" class="row mt-2">
             <?php if(isset($loi['vaitro'])){?>
@@ -231,7 +237,7 @@
         </div>
 
         <div id="email" class="form-control row mx-1">
-            <input name="email" type="text" placeholder="Email" 
+            <input name="email" type="email" placeholder="Email" 
             value="" <?php  if ($user[0]['vaitro']=='manager') { echo "required"; }?> >
         </div>
         <div id="canhbao" class="row mt-2">

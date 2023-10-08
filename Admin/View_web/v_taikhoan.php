@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    <link rel="stylesheet" href="assets/css/nhanvien.css">
     <title>TVT-Shop | Admin | Nhân viên shop</title>
     <style>
        *{
@@ -61,11 +60,6 @@
             border-bottom-left-radius: 30px;
         }
 
-        /* .navigation ul li:hover,
-        .navigation ul li.hovered{
-            background: var(--white);
-        } */
-
         .navigation ul li:nth-child(1){
             margin-bottom: 40px;
             pointer-events: none;
@@ -79,11 +73,6 @@
             text-decoration: none;
             color: var(--white);
         }
-
-        /* .navigation ul li:hover a,
-        .navigation ul li.hovered a{
-            color: var(--black);
-        } */
 
         .navigation ul li a .icon{
             position: relative;
@@ -110,34 +99,6 @@
             text-align: start;
             white-space: nowrap;
         }
-
-        /* .navigation ul li:hover a::before,
-        .navigation ul li.hovered a::before{
-            content: '';
-            position: absolute;
-            right: 0;
-            top: -50px;
-            width: 50px;
-            height: 50px;
-            background-color: transparent;
-            border-radius: 50%;
-            box-shadow: 35px 35px 0 10px var(--white);
-            pointer-events: none;
-        } */
-
-        /* .navigation ul li:hover a::after,
-        .navigation ul li.hovered a::after{
-            content: '';
-            position: absolute;
-            right: 0;
-            bottom: -50px;
-            width: 50px;
-            height: 50px;
-            background-color: transparent;
-            border-radius: 50%;
-            box-shadow: 35px -35px 0 10px var(--white);
-            pointer-events: none;
-        } */
 
         .main{
             position: absolute;
@@ -449,16 +410,25 @@
         table, th, td {
             border: 1px solid black;
         }
+
+        .navigation li .icon img{
+            position: relative;
+            border-radius: 18px;
+            width: 50%;
+            margin-top: 10px;
+        }
     </style>
+
 </head>
 <body>
     <div class="container">
         <div class="navigation">
             <ul>
-            <li>
-                    <a href="?controller=trangchu">
-                    <span class="icon"><img style="width: 40px; height: 40px;" src="../images/home/<?php echo $thongtinshop[0]['logo_shop'] ?>" alt=""></span>
-                        <span class="title"><?php echo $thongtinshop[0]['ten_shop'] ?>
+                <li>
+                    <a href="?controller=trangchu" >
+                        <span class="icon">
+                            <img src="../images/home/<?php echo $thongtinshop[0]['logo_shop'] ?>" alt="">
+                        </span>
                     </a>
                 </li>
 
@@ -498,14 +468,6 @@
                     </a>
                 </li>
 
-                <!-- <li>
-                    <a href="#">
-                        <span class="icon"><i class='bx bx-line-chart'></i></span>
-                        <span class="title">Doanh thu</span>
-                    </a>
-                </li> -->
-
-
                 <li>
                     <a href="?controller=khachhang">
                         <span class="icon"><i class='bx bx-user nav_icon'></i></span>
@@ -521,7 +483,7 @@
                 </li>
                 <li>
                     <a href="?controller=banner">
-                        <span class="icon"><i class='bx bx-info-circle'></i></span>
+                        <span class="icon"><i class='bx bx-slideshow'></i></span>
                         <span class="title">Banner</span>
                     </a>
                 </li>

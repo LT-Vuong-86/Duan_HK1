@@ -14,6 +14,12 @@
     <link href="../css/main.css" rel="stylesheet">
     <link href="../css/responsive.css" rel="stylesheet">
     <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box; 
+        }
+        
         .all_submit_form{
             margin-left: -25px;
         }
@@ -127,16 +133,16 @@
                     <form action="" method="post">
                         <div class="body_acount_right_form_left col-xs-12 ">
                             <li>Tên đầy đủ:
-                                <td><input type="text"  disabled  value="<?php echo $account[0]['full_name']?>"></td>
+                                <td><input type="text" disabled  value="<?php echo $account[0]['full_name']?>"></td>
                             </li>
                             <li>Tên người dùng:
-                                <td><input type="text"  disabled  value="<?php echo $account[0]['username']?>"></td>
+                                <td><input type="text" disabled  value="<?php echo $account[0]['username']?>"></td>
                             </li>
                             <li>Số điện thoại:
-                               <td><input type="text"  disabled  value="<?php echo $account[0]['sdt']?>"></td> 
+                               <td><input type="number" disabled  value="<?php echo $account[0]['sdt']?>"></td> 
                             </li>
                             <li>Email:
-                              <td><input type="text"  disabled  value="<?php echo $account[0]['email']?>"></td>
+                              <td><input type="email" disabled  value="<?php echo $account[0]['email']?>"></td>
                             </li>
                             <div class="all_submit_form">
                                 <input id="click_show_taikhoan" class="submit_form"  type="button" value="Cập nhập tài khoản">
@@ -308,109 +314,29 @@
     </section>
 
     <footer id="footer">
-        <!--Footer-->
-        <div class="footer-top">
-            <div class="container">
-                <div class="row">
-                    <div class="col-sm-2">
-                        <div class="companyinfo">
-                            <h2><span>e</span>-shopper</h2>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit,sed do eiusmod tempor</p>
-                        </div>
-                    </div>
-                    <div class="col-sm-7">
-                        <div class="col-sm-3">
-                            <div class="video-gallery text-center">
-                                <a href="#">
-                                    <div class="iframe-img">
-                                        <img src="../images/home/iframe1.png" alt="" />
-                                    </div>
-                                    <div class="overlay-icon">
-                                        <i class="fa fa-play-circle-o"></i>
-                                    </div>
-                                </a>
-                                <p>Circle of Hands</p>
-                                <h2>24 DEC 2014</h2>
-                            </div>
-                        </div>
-
-                        <div class="col-sm-3">
-                            <div class="video-gallery text-center">
-                                <a href="#">
-                                    <div class="iframe-img">
-                                        <img src="../images/home/iframe2.png" alt="" />
-                                    </div>
-                                    <div class="overlay-icon">
-                                        <i class="fa fa-play-circle-o"></i>
-                                    </div>
-                                </a>
-                                <p>Circle of Hands</p>
-                                <h2>24 DEC 2014</h2>
-                            </div>
-                        </div>
-
-                        <div class="col-sm-3">
-                            <div class="video-gallery text-center">
-                                <a href="#">
-                                    <div class="iframe-img">
-                                        <img src="../images/home/iframe3.png" alt="" />
-                                    </div>
-                                    <div class="overlay-icon">
-                                        <i class="fa fa-play-circle-o"></i>
-                                    </div>
-                                </a>
-                                <p>Circle of Hands</p>
-                                <h2>24 DEC 2014</h2>
-                            </div>
-                        </div>
-
-                        <div class="col-sm-3">
-                            <div class="video-gallery text-center">
-                                <a href="#">
-                                    <div class="iframe-img">
-                                        <img src="../images/home/iframe4.png" alt="" />
-                                    </div>
-                                    <div class="overlay-icon">
-                                        <i class="fa fa-play-circle-o"></i>
-                                    </div>
-                                </a>
-                                <p>Circle of Hands</p>
-                                <h2>24 DEC 2014</h2>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-3">
-                        <div class="address">
-                            <img src="../images/home/map.png" alt="" />
-                            <p>505 S Atlantic Ave Virginia Beach, VA(Virginia)</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
         <div class="footer-widget">
             <div class="container">
                 <div class="row" style="height: 20px">
                     <div class="col-sm-2"></div>
-                    <div class="col-sm-2" style="border-right: 1px solid black; text-align: center;">
-                        <div class="single-widget" >
-                            <a href=""><h4>Hỗ trợ trực tuyến</h4></a>
+                    <div class="col-sm-3" style="border-right: 1px solid black; text-align: center;">
+                        <div class="single-widget">
+                            <a href="?controller=contact"><h4>Liên hệ chúng tôi qua Email</h4></a>
                         </div>
                     </div>
-                    <div class="col-sm-2" style="border-right: 1px solid black; text-align: center;">
+                    <div class="col-sm-3" style="border-right: 1px solid black; text-align: center;">
                         <div class="single-widget">
-                            <a href=""><h4>Liên hệ chúng tôi</h4></a>
+                            <a href="<?php
+                                echo $link = sprintf('https://www.facebook.com/%s', $thongtinshop[0]['id_fanpage_fb']);
+                            ?>">
+                            <h4>Fanpage Facebook</h4>
+                            </a>
                         </div>
                     </div>
-                    <div class="col-sm-2" style="border-right: 1px solid black; text-align: center;">
+                    <div class="col-sm-4" >
                         <div class="single-widget">
-                            <a href=""><h4>Chính sách bảo mật</h4></a>
-                        </div>
-                    </div>
-                    <div class="col-sm-3">
-                        <div class="single-widget">
-                            <a href=""><h4>Chính sách vận chuyển</h4></a>
+                            <a href="<?php
+                                echo $link = sprintf('https://m.me/%s', $thongtinshop[0]['id_fanpage_fb']);
+                            ?>"><h4>Liên hệ trực tuyến qua Messenger</h4></a>
                         </div>
                     </div>
                 </div>

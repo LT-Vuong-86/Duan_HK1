@@ -23,15 +23,15 @@
                         $loi['email'] = 'Tên đăng nhập không tồn tại';
                     }else{
                         if($password != $user[0]['pass']) {
-                            $loi['pass'] = 'Sai mật khẩu hoặc tài khoản  ';
+                            $loi['pass'] = 'Sai mật khẩu hoặc địa chỉ email';
                         }
                     }
                 }else {
-                    $loi['pass'] = 'Sai mật khẩu hoặc tài khoản';
+                    $loi['pass'] = 'Sai mật khẩu hoặc địa chỉ email';
                 }
                
             }else{
-                $loi['pass'] = 'Sai mật khẩu hoặc tài khoản';
+                $loi['pass'] = 'Sai mật khẩu hoặc địa chỉ email';
                 }        
         }
         

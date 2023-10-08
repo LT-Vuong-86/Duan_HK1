@@ -22,7 +22,7 @@ if (isset($_POST['submit'])) {
  
     // Set the sender and recipient addresses.
     $mail->setFrom($_POST['email'],$_POST['email']);
-    $mail->addAddress('phantriss982004@gmail.com');
+    $mail->addAddress('trissphan982004@gmail.com');
     $mail->isHTML(true);
     $mail->addReplyTo($_POST['email'], 'Sender Name');
     // Set the subject and body of the email.

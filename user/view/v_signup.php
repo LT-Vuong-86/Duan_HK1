@@ -148,7 +148,7 @@
 
                     <div class="col-sm-6 col-xs-12">
                         <h5>Điện thoại</h5>
-                        <input class="col-sm-12 col-xs-12" type="tel" pattern="[0-9]{10}" title="Hãy nhập lại." required name="sdt"  placeholder="Điện thoại" />
+                        <input class="col-sm-12 col-xs-12" type="tel" pattern="[0-9]{10}" title="Không đúng dạng số xin NHẬP LẠI!" required name="sdt"  placeholder="Nhập số điện thoại" />
                     </div>
                     
                     <div class="col-sm-6 col-xs-12">
@@ -156,18 +156,19 @@
                         <div >
                             <div id="role_khachhang" class="form-check form-check-inline">
                                 <input class="form-check-input" name="vaitro" type="radio" checked id="nguoidung" value="user"/>
-                                <label class="form-check-label" for="nguoidung">Người dùng</label>
+                                <label class="form-check-label" for="nguoidung">User</label>
                             </div>
                         </div>
                     </div>
 
                     <div class="col-sm-12 col-xs-12">
                         <h5>Địa chỉ</h5>
-                        <input class="col-sm-12 col-xs-12" type="text"  pattern="^[a-zA-Z0-9- ]+$"  required name="diachi" placeholder="Nơi ở hiện tại"></input>
+                        <input class="col-sm-12 col-xs-12" type="text" pattern="^[a-zA-Z0-9- ]+$"  required name="diachi" placeholder="Nơi ở hiện tại | Địa chỉ giao hàng"></input>
                     </div>
                 
                     <div class="col-sm-12 col-xs-12">
                         <input type="submit" class="button" name="btn_signup" value="đăng ký ">
+                        <h5><span><a href="?controller=login">Quay lại</a></span></h5>
                     </div>
                 </div>
                 <!--/sign up form -->

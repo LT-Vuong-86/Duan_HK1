@@ -1,10 +1,10 @@
 <?php
 global $sanpham;
 $thongtinshop = $db->get('thongtinshop', array());
+$banner = $db->get('banner', array());
+
 if (isset($_GET['keywork'])) {
-
     $keywork = str_replace('+', '',$_GET['keywork']);
-
     $data_danhmuc = $db->get('danhmuc', array());
     $sanpham=$db->get_like('sanpham','tensanpham',$keywork,array());
     require_once "view/v_shop.php";
@@ -12,7 +12,6 @@ if (isset($_GET['keywork'])) {
 }elseif (isset($_GET['id_dm'])){
     $id_dm = $_GET['id_dm'];
     $data_danhmuc = $db->get('danhmuc', array());
-
     $sanpham=$db->get('sanpham',array('id_danhmuc'=>$id_dm));
     require_once "view/v_shop.php";
     die;

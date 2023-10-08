@@ -19,6 +19,11 @@ if(isset($_SESSION['ss_admin'])){
             if($danhmuc){
                 $loi['id_danhmuc'] = 'Mã danh mục đã được sử dụng';
             }
+
+            $ten_danhmuc = $db->get('danhmuc', array('danhmuc'=>$tendanhmuc));
+            if($ten_danhmuc){
+                $loi['danhmuc'] = 'Tên danh mục đã được sử dụng';
+            }
             
             if(!$loi){
                         

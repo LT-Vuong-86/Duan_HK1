@@ -36,7 +36,7 @@
             $mail->Host = 'smtp.gmail.com';
             $mail->SMTPAuth = true;
             $mail->Username = 'trissphan982004@gmail.com';
-            $mail->Password = 'itrmroeuzfdjwlb';
+            $mail->Password = 'ivhz uhhz wrxn chgs';
             $mail->SMTPSecure = 'ssl';// Enable TLS encryption; `PHPMailer::ENCRYPTION_SMTPS` also accepted
             $mail->Port = 465; // TCP port to connect to
         

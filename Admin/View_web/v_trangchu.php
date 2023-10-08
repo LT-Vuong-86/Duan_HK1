@@ -351,10 +351,9 @@
             <ul>
                 <li>
                     <a href="?controller=trangchu" >
-                    <span class="icon">
-                        <img src="../images/home/<?php echo $thongtinshop[0]['logo_shop'] ?>" alt="">
-                    </span>
-
+                        <span class="icon">
+                            <img src="../images/home/<?php echo $thongtinshop[0]['logo_shop'] ?>" alt="">
+                        </span>
                     </a>
                 </li>
 
@@ -409,7 +408,7 @@
                 </li>
                 <li>
                     <a href="?controller=banner">
-                        <span class="icon"><i class='bx bx-info-circle'></i></span>
+                        <span class="icon"><i class='bx bx-slideshow'></i></span>
                         <span class="title">Banner</span>
                     </a>
                 </li>
@@ -435,7 +434,7 @@
             </div>
 
             <div class="cardBox">
-               <a style="text-decoration:none" href="#">
+                <a style="text-decoration:none" href="#">
                     <div class="card">
                         <div>
                             <div class="numbers"><?php echo $count_rate?></div>

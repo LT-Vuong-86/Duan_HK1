@@ -4,9 +4,8 @@ if(isset($_SESSION['ss_user'] )){
 }elseif( isset($_SESSION['cart'])){
 
 }else{
-   
     echo "<script>alert('Chức năng này cần đăng nhập')</script>";
-    echo "<script>window.location.href = '?controller=home';</script>";
+    echo "<script>window.location.href = '?controller=login';</script>";
 }
 
     require ("view/v_cart.php");

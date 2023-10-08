@@ -110,23 +110,7 @@
                             <p>Địa chỉ: <?php echo $thongtinshop[0]['diachi_shop'] ?></p>
                             <p>fanpage facebook: <?php echo $thongtinshop[0]['id_fanpage_fb'] ?></p>
 	    				</address>
-                        <div class="social-networks">
-                            <h2 class="title text-center">Mạng xã hội</h2>
-                            <ul>
-                                <li>
-                                    <a href="#"><i class="fa fa-facebook"></i></a>
-                                </li>
-                                <li>
-                                    <a href="#"><i class="fa fa-twitter"></i></a>
-                                </li>
-                                <li>
-                                    <a href="#"><i class="fa fa-google-plus"></i></a>
-                                </li>
-                                <li>
-                                    <a href="#"><i class="fa fa-youtube"></i></a>
-                                </li>
-                            </ul>
-                        </div>
+                        
                     </div>
                 </div>
             </div>
@@ -139,24 +123,25 @@
             <div class="container">
             <div class="row" style="height: 20px">
                     <div class="col-sm-2"></div>
-                    <div class="col-sm-2" style="border-right: 1px solid black; text-align: center;">
-                        <div class="single-widget" >
-                            <a href=""><h4>Hỗ trợ trực tuyến</h4></a>
+                    <div class="col-sm-3" style="border-right: 1px solid black; text-align: center;">
+                        <div class="single-widget">
+                            <a href="?controller=contact"><h4>Liên hệ chúng tôi qua Email</h4></a>
                         </div>
                     </div>
-                    <div class="col-sm-2" style="border-right: 1px solid black; text-align: center;">
+                    <div class="col-sm-3" style="border-right: 1px solid black; text-align: center;">
                         <div class="single-widget">
-                            <a href=""><h4>Liên hệ chúng tôi</h4></a>
+                            <a href="<?php
+                                echo $link = sprintf('https://www.facebook.com/%s', $thongtinshop[0]['id_fanpage_fb']);
+                            ?>">
+                            <h4>Fanpage Facebook</h4>
+                            </a>
                         </div>
                     </div>
-                    <div class="col-sm-2" style="border-right: 1px solid black; text-align: center;">
+                    <div class="col-sm-4" >
                         <div class="single-widget">
-                            <a href=""><h4>Chính sách bảo mật</h4></a>
-                        </div>
-                    </div>
-                    <div class="col-sm-3">
-                        <div class="single-widget">
-                            <a href=""><h4>Chính sách vận chuyển</h4></a>
+                            <a href="<?php
+                                echo $link = sprintf('https://m.me/%s', $thongtinshop[0]['id_fanpage_fb']);
+                            ?>"><h4>Liên hệ trực tuyến qua Messenger</h4></a>
                         </div>
                     </div>
                 </div>

@@ -410,18 +410,24 @@
         table, th, td {
             border: 1px solid black;
         }
-
+        .navigation li .icon img{
+            position: relative;
+            border-radius: 18px;
+            width: 50%;
+            margin-top: 10px;
+        }
     </style>
+
 </head>
 <body>
     <div class="container">
         <div class="navigation">
             <ul>
-            <li>
-                    <a href="?controller=trangchu">
-                        <span class="icon"><img style="width: 40px; height: 40px;" src="../images/home/<?php echo $thongtinshop[0]['logo_shop'] ?>" alt=""></span>
-                        <span class="title"><?php echo $thongtinshop[0]['ten_shop'] ?>
-                         </span>
+                <li>
+                    <a href="?controller=trangchu" >
+                        <span class="icon">
+                            <img src="../images/home/<?php echo $thongtinshop[0]['logo_shop'] ?>" alt="">
+                        </span>
                     </a>
                 </li>
 
@@ -475,7 +481,7 @@
                 </li>
                 <li>
                     <a href="?controller=banner">
-                        <span class="icon"><i class='bx bx-info-circle'></i></span>
+                        <span class="icon"><i class='bx bx-slideshow'></i></span>
                         <span class="title">Banner</span>
                     </a>
                 </li>

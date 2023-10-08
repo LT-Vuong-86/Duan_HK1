@@ -104,9 +104,8 @@
                         <div class="mainmenu pull-left">
                             <ul class="nav navbar-nav collapse navbar-collapse">
                                 <li><a href="?controller=home" class="active">Trang chủ</a></li>
-                                <li class="dropdown"><a href="#">Mail<i class="fa fa-angle-down"></i></a>
+                                <li class="dropdown"><a href="#">Cửa hàng<i class="fa fa-angle-down"></i></a>
                                     <ul role="menu" class="sub-menu">
-                                        <li><a href="?controller=shop">Cửa hàng</a></li>
                                         <li><a href="?controller=checkout">Thủ tục thanh toán</a></li>
                                         <li><a href="?controller=cart">Giỏ hàng</a></li>
                                     </ul>
@@ -187,7 +186,7 @@
                                 <div class="product-content-right-product-name">
                                     <strong>
                                         <h1 >
-                                           <input type="text" name="tensanpham" value=" <?php echo $product[0]['tensanpham']?> ">
+                                           <input style="border: none; color: black" type="text" name="tensanpham" disabled value=" <?php echo $product[0]['tensanpham']?> ">
                                         </h1>
                                     </strong>
                                     <p>Web ID: <?php echo $product[0]['id_sanpham']?></p>
@@ -288,9 +287,6 @@
                                 </div>
 
                                 </span>
-                                <p><b>Sẵn có:</b> Còn hàng</p>
-                                <p><b>Tình trạng:</b> Mới</p>
-                                <a href=""><img src="../images/product-details/share.png" class="share img-responsive" alt="" /></a>
                             </div>
                             </form>
                             <!--/product-information-->
@@ -331,7 +327,7 @@
                                         </li>
                                             <li class="color">(<?php if (isset($rating)) {?><?php echo $count_rate; ?> <?php }else{
                                                 echo 0;
-                                            } ?> phiếu)</li>
+                                            } ?> Phiếu)</li>
                                         </ul>
                                         <h2><?php if (isset($rating)) {?><?php echo $count_rate; ?> <?php }else{
                                                 echo 0;
@@ -339,7 +335,8 @@
                                     </div>
                                     
                                     <?php foreach ($rate_star as $key => $value) { 
-                                                    $taikhoan_rate=$db->get('taikhoan',array('id'=>$value['id_taikhoan']))
+                                                    $taikhoan_rate=$db->get('taikhoan',array('id'=>$value['id_taikhoan']));
+                                                    
                                                     ?>
                                                     
                                     <div class="response-area">
@@ -363,22 +360,22 @@
                                                             }else{
                                                                 $color="color:";
                                                             } }?>
-                                                        <span style=" font-size: 20px;<?php echo $color ?>"> &#9733;</span>
-                                                        <?php } ?>
-                                                            <p><?php echo $value['rate_content'] ?></p>
-                                                            <span class="btn btn-primary" class="click_replay"><i class="fa fa-reply"></i>phát lại</span>
+                                                        <span style="font-size: 20px;<?php echo $color ?>"> &#9733;</span>
+                                                    <?php } ?>
+                                                    <p><?php echo $value['rate_content'] ?></p>
+                                                    <span class="btn btn-primary" class="click_replay"><i class="fa fa-reply"></i>Phát lại</span>
                                                 </div>
                                             </li>
                                             <?php   ?>
                                             <li class="media second-media" class="click_none_replay">
                                                 <a class="pull-left" href="#">
-                                                    <img class="media-object" src="../images/home/<?php echo $thongtinshop[0]['logo_shop'] ?>" alt="">
+                                                    <img style="width: 250px" class="media-object" src="../images/home/<?php echo $thongtinshop[0]['logo_shop'] ?>" alt="">
                                                 </a>
                                                     <?php if ($value['rate_rating']>=3) {?>
-                                                        <p>Cảm ơn quý đã mua hàng của chúng tôi</p>
-                                                  <?php  }else{?>
-                                                    <p>Cảm ơn quý đã mua hàng của chúng tôi, chúng tôi rất xin lỗi vì trải nghiệm ko hài lòng của quý khách </p>
-                                                <?php  } ?>
+                                                        <p>Cảm ơn quý khách hàng đã mua hàng của chúng tôi</p>
+                                                    <?php }else{?>
+                                                        <p>Cảm ơn quý khách hàng đã mua hàng của chúng tôi, chúng tôi rất xin lỗi vì trải nghiệm ko hài lòng của quý khách</p>
+                                                    <?php  } ?>
                                             </li>
                                         </ul>
                                         </div>
@@ -397,11 +394,11 @@
                                                     
                                                     <?php 
                                                     if (isset($rating)) {
-                                                    if($i<$rating){
-                                                    $color="color:#FFA617";
-                                                    }else{
-                                                    $color="color:";
-                                                    } }?>
+                                                        if($i<$rating){
+                                                            $color="color:#FFA617";
+                                                        }else{
+                                                            $color="color:";
+                                                        } }?>
                                                    <span style=" font-size: 20px;<?php echo $color ?>"> &#9733;</span>
                                                <?php } ?>
                                         </li>
@@ -434,209 +431,35 @@
 
                     </div>
                     <!--/category-tab-->
-
-                    <div class="recommended_items">
-                        <!--recommended_items-->
-                        <h2 class="title text-center">Các đề mục được đề xuất</h2>
-
-                        <div id="recommended-item-carousel" class="carousel slide" data-ride="carousel">
-                            <div class="carousel-inner">
-                                <div class="item active">
-                                    <div class="col-sm-4">
-                                        <div class="product-image-wrapper">
-                                            <div class="single-products">
-                                                <div class="productinfo text-center">
-                                                    <img src="../images/home/recommend1.jpg" alt="" />
-                                                    <h2>$56</h2>
-                                                    <p>Easy Polo Black Edition</p>
-                                                    <button type="button" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</button>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-4">
-                                        <div class="product-image-wrapper">
-                                            <div class="single-products">
-                                                <div class="productinfo text-center">
-                                                    <img src="../images/home/recommend2.jpg" alt="" />
-                                                    <h2>$56</h2>
-                                                    <p>Easy Polo Black Edition</p>
-                                                    <button type="button" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</button>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-4">
-                                        <div class="product-image-wrapper">
-                                            <div class="single-products">
-                                                <div class="productinfo text-center">
-                                                    <img src="../images/home/recommend3.jpg" alt="" />
-                                                    <h2>$56</h2>
-                                                    <p>Easy Polo Black Edition</p>
-                                                    <button type="button" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</button>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="item">
-                                    <div class="col-sm-4">
-                                        <div class="product-image-wrapper">
-                                            <div class="single-products">
-                                                <div class="productinfo text-center">
-                                                    <img src="../images/home/recommend1.jpg" alt="" />
-                                                    <h2>$56</h2>
-                                                    <p>Easy Polo Black Edition</p>
-                                                    <button type="button" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</button>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-4">
-                                        <div class="product-image-wrapper">
-                                            <div class="single-products">
-                                                <div class="productinfo text-center">
-                                                    <img src="../images/home/recommend2.jpg" alt="" />
-                                                    <h2>$56</h2>
-                                                    <p>Easy Polo Black Edition</p>
-                                                    <button type="button" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</button>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-4">
-                                        <div class="product-image-wrapper">
-                                            <div class="single-products">
-                                                <div class="productinfo text-center">
-                                                    <img src="../images/home/recommend3.jpg" alt="" />
-                                                    <h2>$56</h2>
-                                                    <p>Easy Polo Black Edition</p>
-                                                    <button type="button" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</button>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <a class="left recommended-item-control" href="#recommended-item-carousel" data-slide="prev">
-                                <i class="fa fa-angle-left"></i>
-                            </a>
-                            <a class="right recommended-item-control" href="#recommended-item-carousel" data-slide="next">
-                                <i class="fa fa-angle-right"></i>
-                            </a>
-                        </div>
-                    </div>
-                    <!--/recommended_items-->
-
                 </div>
             </div>
         </div>
     </section>
 
     <footer id="footer">
-        <!--Footer-->
-        <div class="footer-top">
-            <div class="container">
-                <div class="row">
-                    <div class="col-sm-2">
-                        <div class="companyinfo">
-                            <h2><span>e</span>-shopper</h2>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit,sed do eiusmod tempor</p>
-                        </div>
-                    </div>
-                    <div class="col-sm-7">
-                        <div class="col-sm-3">
-                            <div class="video-gallery text-center">
-                                <a href="#">
-                                    <div class="iframe-img">
-                                        <img src="../images/home/iframe1.png" alt="" />
-                                    </div>
-                                    <div class="overlay-icon">
-                                        <i class="fa fa-play-circle-o"></i>
-                                    </div>
-                                </a>
-                                <p>Circle of Hands</p>
-                                <h2>24 DEC 2014</h2>
-                            </div>
-                        </div>
-
-                        <div class="col-sm-3">
-                            <div class="video-gallery text-center">
-                                <a href="#">
-                                    <div class="iframe-img">
-                                        <img src="../images/home/iframe2.png" alt="" />
-                                    </div>
-                                    <div class="overlay-icon">
-                                        <i class="fa fa-play-circle-o"></i>
-                                    </div>
-                                </a>
-                                <p>Circle of Hands</p>
-                                <h2>24 DEC 2014</h2>
-                            </div>
-                        </div>
-
-                        <div class="col-sm-3">
-                            <div class="video-gallery text-center">
-                                <a href="#">
-                                    <div class="iframe-img">
-                                        <img src="../images/home/iframe3.png" alt="" />
-                                    </div>
-                                    <div class="overlay-icon">
-                                        <i class="fa fa-play-circle-o"></i>
-                                    </div>
-                                </a>
-                                <p>Circle of Hands</p>
-                                <h2>24 DEC 2014</h2>
-                            </div>
-                        </div>
-
-                        <div class="col-sm-3">
-                            <div class="video-gallery text-center">
-                                <a href="#">
-                                    <div class="iframe-img">
-                                        <img src="../images/home/iframe4.png" alt="" />
-                                    </div>
-                                    <div class="overlay-icon">
-                                        <i class="fa fa-play-circle-o"></i>
-                                    </div>
-                                </a>
-                                <p>Circle of Hands</p>
-                                <h2>24 DEC 2014</h2>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-3">
-                        <div class="address">
-                            <img src="../images/home/map.png" alt="" />
-                            <p>505 S Atlantic Ave Virginia Beach, VA(Virginia)</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
         <div class="footer-widget">
             <div class="container">
                 <div class="row" style="height: 20px">
                     <div class="col-sm-2"></div>
-                    <div class="col-sm-2" style="border-right: 1px solid black; text-align: center;">
-                        <div class="single-widget" >
-                            <a href=""><h4>Hỗ trợ trực tuyến</h4></a>
+                    <div class="col-sm-3" style="border-right: 1px solid black; text-align: center;">
+                        <div class="single-widget">
+                            <a href="?controller=contact"><h4>Liên hệ chúng tôi qua Email</h4></a>
                         </div>
                     </div>
-                    <div class="col-sm-2" style="border-right: 1px solid black; text-align: center;">
+                    <div class="col-sm-3" style="border-right: 1px solid black; text-align: center;">
                         <div class="single-widget">
-                            <a href=""><h4>Liên hệ chúng tôi</h4></a>
+                            <a href="<?php
+                                echo $link = sprintf('https://www.facebook.com/%s', $thongtinshop[0]['id_fanpage_fb']);
+                            ?>">
+                            <h4>Fanpage Facebook</h4>
+                            </a>
                         </div>
                     </div>
-                    <div class="col-sm-2" style="border-right: 1px solid black; text-align: center;">
+                    <div class="col-sm-4" >
                         <div class="single-widget">
-                            <a href=""><h4>Chính sách bảo mật</h4></a>
-                        </div>
-                    </div>
-                    <div class="col-sm-3">
-                        <div class="single-widget">
-                            <a href=""><h4>Chính sách vận chuyển</h4></a>
+                            <a href="<?php
+                                echo $link = sprintf('https://m.me/%s', $thongtinshop[0]['id_fanpage_fb']);
+                            ?>"><h4>Liên hệ trực tuyến qua Messenger</h4></a>
                         </div>
                     </div>
                 </div>

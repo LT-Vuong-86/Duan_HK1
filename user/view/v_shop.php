@@ -31,10 +31,11 @@
         }
 
     
-        h4{
+        section .container .row #main_shop .features_items h4{
             float: left; 
             color: crimson;
         }
+
         h5{
             color: black; 
             position: absolute; 
@@ -196,7 +197,7 @@
             <img src="../images/shop/advertisement.jpg" alt="" />
         </div>
     </section>
-
+ 
     <section>
         <div class="container">
             <div class="row">
@@ -218,13 +219,13 @@
                         </div>
 
                         <div class="shipping text-center">
-                            <img src="../images/home/shipping.jpg" alt="" />
+                            <img src="../images/home/<?php echo $banner[0]['image_left']?>" alt="" />
                         </div>
 
                     </div>
                 </div>
 
-                <div class="col-sm-9 padding-right">
+                <div id="main_shop" class="col-sm-9 padding-right">
                     <div class="features_items" >
                         <!--features_items-->
                         <h2 class="title text-center">Cửa hàng</h2>
@@ -284,24 +285,26 @@
             <div class="container">
                 <div class="row" style="height: 20px">
                     <div class="col-sm-2"></div>
-                    <div class="col-sm-2" style="border-right: 1px solid black; text-align: center;">
-                        <div class="single-widget" >
-                            <a href=""><h4>Hỗ trợ trực tuyến</h4></a>
+                    
+                    <div class="col-sm-3" style="border-right: 1px solid black; text-align: center;">
+                        <div class="single-widget">
+                            <a href="?controller=contact"><h4>Liên hệ chúng tôi qua Email</h4></a>
                         </div>
                     </div>
-                    <div class="col-sm-2" style="border-right: 1px solid black; text-align: center;">
+                    <div class="col-sm-3" style="border-right: 1px solid black; text-align: center;">
                         <div class="single-widget">
-                            <a href=""><h4>Liên hệ chúng tôi</h4></a>
+                            <a href="<?php
+                                echo $link = sprintf('https://www.facebook.com/%s', $thongtinshop[0]['id_fanpage_fb']);
+                            ?>">
+                            <h4>Fanpage Facebook</h4>
+                            </a>
                         </div>
                     </div>
-                    <div class="col-sm-2" style="border-right: 1px solid black; text-align: center;">
+                    <div class="col-sm-4" >
                         <div class="single-widget">
-                            <a href=""><h4>Chính sách bảo mật</h4></a>
-                        </div>
-                    </div>
-                    <div class="col-sm-3">
-                        <div class="single-widget">
-                            <a href=""><h4>Chính sách vận chuyển</h4></a>
+                            <a href="<?php
+                                echo $link = sprintf('https://m.me/%s', $thongtinshop[0]['id_fanpage_fb']);
+                            ?>"><h4>Liên hệ trực tuyến qua Messenger</h4></a>
                         </div>
                     </div>
                 </div>

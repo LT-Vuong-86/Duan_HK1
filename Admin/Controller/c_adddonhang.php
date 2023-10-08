@@ -19,41 +19,32 @@ if(isset($_SESSION['ss_admin'])){
              $names[] = $_POST["masp$i"];
              $soluong[]=$_POST["soluong$i"];
             }
-            // $id_kh=0;
-            // $khachhang=$db->get('khachhang',array());
-            // foreach ($khachhang as $key => $value) {
-            //     $id_kh = $value['id_kh']+1;
-            // }
-            // $id_dh=0;
-            // $donhang=$db->get('donhang',array());
-            // foreach ($donhang as $key => $value) {
-            //     $id_dh = $value['id_donhang']+1;
-            // }
+            
             $loi=[];
             if($loai_sp == ''){
-                $loi['loai_sp'] = 'Mục không được để trống';
+                $loi['loai_sp'] = 'Loại sản phẩm không được để trống';
             }
             if($size_name == ''){
-                $loi['size'] = 'Mục không được để trống';
+                $loi['size'] = 'Kích thước không được để trống';
             }
             if($ten == ''){
-                $loi['ten'] = 'Danh mục không được để trống';
+                $loi['ten'] = 'Tên sản phẩm không được để trống';
             }
 
             if($sdt == ''){
-                $loi['sdt'] = 'Tên sản phẩm không được để trống';
+                $loi['sdt'] = 'Số điện thoại người nhận không được để trống';
             }
 
             if($diachi == ''){
-                $loi['diachi'] = 'Số lượng sản phẩm không được để trống';
+                $loi['diachi'] = 'Địa chỉ nhận hàng không được để trống';
             }
 
             if($slmasp == ''){
-                $loi['slmasp'] = 'Giá không được để trống';
+                $loi['slmasp'] = 'Số lượng mã sản phẩm không được để trống';
             }
 
             if($tong == ''){
-                $loi['tong'] = 'Xuất xứ không được để trống';
+                $loi['tong'] = 'Tổng tiền không được để trống';
             }
             
             if($ghichu == ''){

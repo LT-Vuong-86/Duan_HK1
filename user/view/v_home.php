@@ -205,11 +205,7 @@
                                         <li><a href="?controller=cart">Giỏ hàng</a></li>
                                     </ul>
                                 </li>
-                                <li class="dropdown"><a href="#">Blog<i class="fa fa-angle-down"></i></a>
-                                    <ul role="menu" class="sub-menu">
-                                        <li><a href="?controller=blog">Blog List</a></li>
-                                    </ul>
-                                </li>
+                                <li class="dropdown"><a href="?controller=blog">Blog</a></li>
                                 <li><a href="?controller=contact">Liên hệ</a></li>
                             </ul>
                         </div>
@@ -240,6 +236,7 @@
                             <li data-target="#slider-carousel" data-slide-to="0" class="active"></li>
                             <li data-target="#slider-carousel" data-slide-to="1"></li>
                             <li data-target="#slider-carousel" data-slide-to="2"></li>
+                            <li data-target="#slider-carousel" data-slide-to="3"></li>
                         </ol>
 
                         <div class="carousel-inner">
@@ -327,12 +324,9 @@
                             </ul>
                         </div>
 
-                       
                         <div class="shipping text-center">
-                            <!--shipping-->
                             <img src="../images/home/<?php echo $banner[0]['image_left']?>" alt="" />
                         </div>
-
                         <!--/shipping-->
 
                     </div>
@@ -481,7 +475,7 @@
 
                     <div class="recommended_items">
                         <!--recommended_items-->
-                        <h2 class="title text-center">recommended items</h2>
+                        <h2 class="title text-center">Recommended items</h2>
 
                         <div id="recommended-item-carousel" class="carousel slide" data-ride="carousel">
                             <div class="carousel-inner">
@@ -570,8 +564,8 @@
         </div><br> -->
         <div class="chat-facebook">
             <?php
-      echo  $link = sprintf('<a href="https://m.me/%s" target="_blank"><i style="font-size: 48px; color: blue;" class="fa-brands fa-facebook-messenger"></i></a>', $thongtinshop[0]['id_fanpage_fb']);
-?>
+            echo $link = sprintf('<a href="https://m.me/%s" target="_blank"><i style="font-size: 48px; color: blue;" class="fa-brands fa-facebook-messenger"></i></a>', $thongtinshop[0]['id_fanpage_fb']);
+            ?>
             <!-- <a href="https:m.me/141601539033801" target="_blank"><i style="font-size: 48px; color: blue;" class="fa-brands fa-facebook-messenger"></i></a> -->
         </div>
     </div>
@@ -581,26 +575,28 @@
         <!--Footer-->
         <div class="footer-widget">
             <div class="container">
-                <div class="row" style="height: 20px">
+                <div class="row" style="height: 20px">     
                     <div class="col-sm-2"></div>
-                    <div class="col-sm-2" style="border-right: 1px solid black; text-align: center;">
-                        <div class="single-widget" >
-                            <a href=""><h4>Hỗ trợ trực tuyến</h4></a>
+                    
+                    <div class="col-sm-3" style="border-right: 1px solid black; text-align: center;">
+                        <div class="single-widget">
+                            <a href="?controller=contact"><h4>Liên hệ chúng tôi qua Email</h4></a>
                         </div>
                     </div>
-                    <div class="col-sm-2" style="border-right: 1px solid black; text-align: center;">
+                    <div class="col-sm-3" style="border-right: 1px solid black; text-align: center;">
                         <div class="single-widget">
-                            <a href=""><h4>Liên hệ chúng tôi</h4></a>
+                            <a href="<?php
+                                echo $link = sprintf('https://www.facebook.com/%s', $thongtinshop[0]['id_fanpage_fb']);
+                            ?>">
+                            <h4>Fanpage Facebook</h4>
+                            </a>
                         </div>
                     </div>
-                    <div class="col-sm-2" style="border-right: 1px solid black; text-align: center;">
+                    <div class="col-sm-4">
                         <div class="single-widget">
-                            <a href=""><h4>Chính sách bảo mật</h4></a>
-                        </div>
-                    </div>
-                    <div class="col-sm-3">
-                        <div class="single-widget">
-                            <a href=""><h4>Chính sách vận chuyển</h4></a>
+                            <a href="<?php
+                                echo $link = sprintf('https://m.me/%s', $thongtinshop[0]['id_fanpage_fb']);
+                            ?>"><h4>Liên hệ trực tuyến qua Messenger</h4></a>
                         </div>
                     </div>
                 </div>

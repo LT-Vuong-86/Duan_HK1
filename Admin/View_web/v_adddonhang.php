@@ -158,6 +158,7 @@
                 <p class="text-danger"><?php echo $loi['ten']?></p> 
             <?php }?>
         </div>
+
         <p>Số điện thoại</p>
         <div id="sdt" class="form-control row mx-1">
             <input name="sdt" type="text" placeholder="Số điện thoại người nhận" 
@@ -169,7 +170,6 @@
        
         <p>Địa chỉ</p>
         <div id="diachi" class="form-control row mx-1">
-        
             <input name="diachi" type="text" placeholder="Địa chỉ nhận hàng" 
             value="<?php echo (isset($diachi))?$diachi:'' ?>" >
             <?php if(isset($loi['diachi'])){?>
@@ -179,8 +179,7 @@
        
         <p>Mã sản phẩm</p>
         <div id="masp" class="form-control row mx-1">
-           
-            <input   id="quantity" min="1" max="10" name="slmasp" pattern="[0-9]+"  type="number" placeholder="Số lượng mã sản phẩm" 
+            <input id="quantity" min="1" max="10" name="slmasp" pattern="[0-9]+"  type="number" placeholder="Số lượng mã sản phẩm" 
             value="<?php echo (isset($masp))?$masp:'' ?>" >
             <div id="inputs"></div>
             <?php if(isset($loi['masp'])){?>
@@ -190,7 +189,6 @@
 
         <p>Tên loại sản phẩm</p>
         <div id="loaisp" class="form-control row mx-1">
-            
             <input name="loai_sp" type="text" placeholder="Sản phẩm thuộc loại" 
             value="<?php echo (isset($tong))?$tong:'' ?>" >
             <?php if(isset($loi['loai_sp'])){?>
@@ -200,13 +198,13 @@
 
         <p>Kích cỡ:</p>
         <div id="size" class="form-control row mx-1">
-            
             <input name="size" type="text" placeholder="Size" 
             value="<?php echo (isset($tong))?$tong:'' ?>" >
             <?php if(isset($loi['size'])){?>
                 <p class="text-danger"><?php echo $loi['size']?></p> 
             <?php }?>
         </div>
+
         <p>Tổng tiền</p>
         <div id="size_name" class="form-control row mx-1">
             
@@ -216,6 +214,7 @@
                 <p class="text-danger"><?php echo $loi['tong']?></p> 
             <?php }?>
         </div>
+
         <p>Ghi chú</p>
         <div id="ghichu" class="form-control row mx-1">
             
@@ -226,10 +225,6 @@
             <?php }?>
         </div>
         
-
-
-       
-    
         <button style="border: none; border-radius:25px; background: white; width: 100%;" 
         class="button" name="btn_adddonhang" type="submit">
             <span>add</span>
@@ -252,7 +247,7 @@ quantityInput.addEventListener("change", function() {
     const input = document.createElement("input");
     input.type = "text";
     input.name = "masp" + i;
-    input.placeholder = "Nhập mã sản phẩm  mục " + (i + 1);
+    input.placeholder = "Nhập mã sản phẩm mục " + (i + 1);
     inputsContainer.appendChild(input);
     const input1 = document.createElement("input");
     input1.type = "text";

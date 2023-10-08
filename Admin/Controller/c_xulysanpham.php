@@ -54,30 +54,30 @@ if(isset($_SESSION['ss_admin'])){
                         $loi['diachi'] = 'Địa chỉ không được để trống';
                     }
                     if(!$loi){
-                         if (!empty($anh_chinh)) {
-                        $db->update('sanpham',array(
-                            'tensanpham'=>$tensanpham,  
-                            'anh_chinh' =>$anh_chinh,
-                            'tonkho'=>$tonkho,
-                            'gia'=>$gia,
-                            'xuatxu'=>$xuatxu,
-                            'daban'=>$daban,
-                            'id_danhmuc'=>$danhmuc
-                        ),array('id_sanpham'=>$id));
+                        if (!empty($anh_chinh)) {
+                            $db->update('sanpham',array(
+                                'tensanpham'=>$tensanpham,  
+                                'anh_chinh' =>$anh_chinh,
+                                'tonkho'=>$tonkho,
+                                'gia'=>$gia,
+                                'xuatxu'=>$xuatxu,
+                                'daban'=>$daban,
+                                'id_danhmuc'=>$danhmuc
+                            ),array('id_sanpham'=>$id));
+                            
+                        }else {
+                            $db->update('sanpham',array(
+                                'tensanpham'=>$tensanpham,  
+                                'tonkho'=>$tonkho,
+                                'gia'=>$gia,
+                                'xuatxu'=>$xuatxu,
+                                'daban'=>$daban,
+                                'id_danhmuc'=>$danhmuc
+                            ),array('id_sanpham'=>$id));
                         
-                    }else {
-                        $db->update('sanpham',array(
-                            'tensanpham'=>$tensanpham,  
-                            'tonkho'=>$tonkho,
-                            'gia'=>$gia,
-                            'xuatxu'=>$xuatxu,
-                            'daban'=>$daban,
-                            'id_danhmuc'=>$danhmuc
-                        ),array('id_sanpham'=>$id));
-                       
-                    }
-                    header('location: ?controller=sanpham');
-                 }  
+                        }
+                        header('location: ?controller=sanpham');
+                    }  
                 }
                 require 'View_web/v_suasanpham.php';
                 break;

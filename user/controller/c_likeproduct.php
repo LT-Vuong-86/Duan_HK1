@@ -6,32 +6,35 @@ if (isset($_SESSION['ss_user'])) {
         array("tensanpham", "gia", "anh_chinh", "daban",'sanpham.id_sanpham'), 
         'sanpham','danhsachyeuthich', 'JOIN', 'danhsachyeuthich.id_sanpham = sanpham.id_sanpham',
     array(),array());
-if (isset($_GET['method'])) {
-    if (isset($_GET['id'])) {
-        global $id_sanpham;
-        $id_sanpham=$_GET['id'];
-    }
-    $method=$_GET['method'];
-    switch ($method) {
-        case 'xoa':
-            $db->delete('danhsachyeuthich',array(
-                'id_sanpham'=>$id_sanpham,
-                'id_taikhoan'=>$_SESSION['ss_user']
-            ));
-            echo "<script>window.location.href = '?controller=likeproduct';</script>";
+    if (isset($_GET['method'])) {
+        if (isset($_GET['id'])) {
+            global $id_sanpham;
+            $id_sanpham=$_GET['id'];
+        }
+        $method=$_GET['method'];
+        switch ($method) {
+            case 'xoa':
+                $db->delete('danhsachyeuthich',array(
+                    'id_sanpham'=>$id_sanpham,
+                    'id_taikhoan'=>$_SESSION['ss_user']
+                ));
+                echo "<script>window.location.href = '?controller=likeproduct';</script>";
+                break;
+            case 'xoatat':
+                $db->delete('danhsachyeuthich',array(
+                    'id_taikhoan'=>$_SESSION['ss_user']
+                ));
+                echo "<script>window.location.href = '?controller=likeproduct';</script>";
             break;
-        case 'xoatat':
-            $db->delete('danhsachyeuthich',array(
-                'id_taikhoan'=>$_SESSION['ss_user']
-            ));
-            echo "<script>window.location.href = '?controller=likeproduct';</script>";
-        break;
 
-        default:
-        break;
+            default:
+            break;
+        }
+
     }
-
-}
+}else{
+    echo "<script>alert('Chức năng này cần đăng nhập')</script>";
+    echo "<script>window.location.href = '?controller=login';</script>";
 }
 require "view/v_likeproduct.php"
 ?>

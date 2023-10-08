@@ -182,8 +182,8 @@
         </div>
         <h6>Mã danh mục:</h6>
         <div id="id_danhmuc" class="form-control row mx-1">
-            <input name="id_danhmuc" type="text" placeholder="Hãy điền mã danh mục..." 
-            value="<?php echo $data_danhmuc[0]['id_danhmuc'] ?>" >
+            <input style="background: transparent" name="id_danhmuc" type="text" placeholder="Hãy điền mã danh mục..." 
+            value="<?php echo $data_danhmuc[0]['id_danhmuc'] ?>">
         </div> 
 
         <h6>Tên danh mục:</h6>

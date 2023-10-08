@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="assets/css/sanpham.css">
-    <title>TVT-Shop | Admin | Sản phẩm của shmop_open</title>
+    <title>TVT-Shop | Admin | Sản phẩm của TVT-Shop</title>
     <style>
       
         *{
@@ -448,16 +448,24 @@
         table, th, td {
             border: 1px solid black;
         }
+        .navigation li .icon img{
+            position: relative;
+            border-radius: 18px;
+            width: 50%;
+            margin-top: 10px;
+        }
     </style>
+
 </head>
 <body>
     <div class="container">
         <div class="navigation">
             <ul>
-            <li>
-                    <a href="?controller=trangchu">
-                    <span class="icon"><img style="width: 40px; height: 40px;" src="../images/home/<?php echo $thongtinshop[0]['logo_shop'] ?>" alt=""></span>
-                        <span class="title"><?php echo $thongtinshop[0]['ten_shop'] ?>
+                <li>
+                    <a href="?controller=trangchu" >
+                        <span class="icon">
+                            <img src="../images/home/<?php echo $thongtinshop[0]['logo_shop'] ?>" alt="">
+                        </span>
                     </a>
                 </li>
 
@@ -512,7 +520,7 @@
                 </li>
                 <li>
                     <a href="?controller=banner">
-                        <span class="icon"><i class='bx bx-info-circle'></i></span>
+                        <span class="icon"><i class='bx bx-slideshow'></i></span>
                         <span class="title">Banner</span>
                     </a>
                 </li>

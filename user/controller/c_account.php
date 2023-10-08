@@ -2,7 +2,7 @@
 if(isset($_SESSION['ss_user'])){
     $thongtinshop = $db->get('thongtinshop', array());
     $account = $db->get('taikhoan', array('id'=>$_SESSION['ss_user']));
-    $khachhang=$db->get('khachhang',array('sdt'=>$account[0]['sdt']));
+    $khachhang=$db->get('khachhang',array('email'=>$account[0]['email']));
     if (isset($_POST['sua_btn_form'])) {
         $full_name = $_POST['full_name'];
             $username = $_POST['username'];
@@ -25,7 +25,7 @@ if(isset($_SESSION['ss_user'])){
 if (isset($_GET['id'])) {
     $id=$_GET['id'];
 if (isset($_GET['method'])) {
-$method=$_GET['method'];
+    $method=$_GET['method'];
 if ($method == 'huy') {   
     $db->update('donhang',array(
         'id_tinhtrang'=>4

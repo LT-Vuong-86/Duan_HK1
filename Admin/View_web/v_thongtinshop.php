@@ -208,13 +208,12 @@
             position: relative;
             width: 100%;
             padding: 20px;
-            display: grid;
-            grid-template-columns: repeat(4 ,1fr);
-            grid-gap: 30px;
+
         }
 
         .cardBox .card{
-            width: 650px;
+            width: 100%;
+            height: auto;
             position: relative;
             background: var(--white);
             padding: 30px;
@@ -226,18 +225,12 @@
         }
 
         .cardBox .card .cardName{
-            width: 100%;
+            text-align: center;
             color: var(--grey);
-            font-size: 25px;
+            font-size: 28px;
             margin-top: 5px;
-            text-transform: uppercase;
         }
-
-        .cardBox .card .iconBx{
-            font-size: 3.5rem;
-            color: var(--black)
-        }
-
+        
         .details{
             position: relative;
             width: 100%;
@@ -324,33 +317,54 @@
             width:2000px ;
             display: flex;
         }
+
         .information_shop{
-            width: 300px;
+            width: 550px;
             border: none;
             font-size: 20px;
             float: right;
             text-align: start;
             background: transparent;
         }
+
         .left_name{
+            width: 400px;
             color: black;
             font-size: 20px;
             float: left;
-            margin-right: 20px;
         }
+        .logo_main_shop{
+            text-align:center;
+            width: auto;
+            color: black;
+            font-size: 20px;
+        }
+        .left_logo{
+            width: auto;
+            color: black;
+            font-size: 20px;
+        }
+
         .img_information_shop{
             width: 150px;
-           
         }
+
         .lleff_right{
             position: absolute;
             bottom: 10px;
             right: 10px;
+            padding: 5px 10px;
+            background: var(--black);
+            text-decoration: none;
+            color: var(--white);
+            border-radius: 6px;
+            cursor: pointer;
         }
+        
         .full_map{
             position: absolute;
-            width: 1000px;
-            height: 1000px;
+            width: 100%;
+            height: 100%;
             top: 0;
             left: 0;
             right: 0;
@@ -384,6 +398,19 @@
         .form_Information .dif_change{
             width: 100%;
         }
+        .navigation li .icon img{
+            position: relative;
+            border-radius: 18px;
+            width: 50%;
+            margin-top: 10px;
+        }
+        .full_info{
+            width: 100%;
+            line-height: auto;
+        }
+        .full_table_info{
+            width: 100%;
+        }
     </style>
 
 </head>
@@ -393,8 +420,9 @@
             <ul>
                 <li>
                     <a href="?controller=trangchu" >
-                    <span class="icon"><img style="width: 40px; height: 40px;" src="../images/home/<?php echo $thongtinshop[0]['logo_shop'] ?>" alt=""></span>
-                        <span class="title"><?php echo $thongtinshop[0]['ten_shop'] ?>
+                        <span class="icon">
+                            <img src="../images/home/<?php echo $thongtinshop[0]['logo_shop'] ?>" alt="">
+                        </span>
                     </a>
                 </li>
 
@@ -449,7 +477,7 @@
                 </li>
                 <li>
                     <a href="?controller=banner">
-                        <span class="icon"><i class='bx bx-info-circle'></i></span>
+                        <span class="icon"><i class='bx bx-slideshow'></i></span>
                         <span class="title">Banner</span>
                     </a>
                 </li>
@@ -477,73 +505,75 @@
             <div class="cardBox">
                <a style="text-decoration:none" href="#">
                     <div class="card">
-                        <div>
-                            <div class="cardName"><span>Thông tin của TVT-Shop</span></div>
+                        <div class="full_table_info">
+                            <div class="cardName"><span>Thông tin của <?php echo $thongtinshop[0]['ten_shop']?></span></div>
                             
-                            <div>
-                                <span class="left_name">Logo:</span>
+                            <div class="logo_main_shop">
+                                <span class="left_logo">Logo:</span>
                                 <img src="../images/home/<?php echo $thongtinshop[0]['logo_shop']?>" class=" img_information_shop" name="logo_shop" alt="">
-                                              
-                            </div>
-                            <div>
-                                <span class="left_name">Tên Shop:</span><input class="information_shop" name="ten_shop" disabled type="text" value="<?php echo $thongtinshop[0]['ten_shop']?>">                
-                            </div>
-                           
-                            <div>
-                                <span class="left_name">Số điện thoại:</span><input class="information_shop" disabled type="number" value="<?php echo $thongtinshop[0]['sdt_shop']?>">                
-                            </div>
-                            <div>
-                                <span class="left_name">Gmail Shop:</span><input class="information_shop" disabled type="email" value="<?php echo $thongtinshop[0]['email_shop']?>">                
-                            </div>
-                            <div>
-                                <span class="left_name">Mật khẩu ứng dụng:</span><input class="information_shop" name="matkhau_shop" disabled type="text" value="<?php echo $thongtinshop[0]['matkhau_shop']?>">                
-                            </div>
-                            <div>
-                                <span class="left_name">Địa chỉ Shop:</span><input class="information_shop" disabled type="text" value="<?php echo $thongtinshop[0]['diachi_shop']?>">                
                             </div>
 
-                            <div>
-                                <span class="left_name">fanpage facebook</span><input class="information_shop" name="id_fanpage_fb" type="text" value="<?php echo $thongtinshop[0]['id_fanpage_fb']?>">      
+                            <div class="full_info">
+                                <div>
+                                    <span class="left_name">Tên Shop:</span><input class="information_shop" name="ten_shop" disabled type="text" value="<?php echo $thongtinshop[0]['ten_shop']?>">                
+                                </div>
+                            
+                                <div>
+                                    <span class="left_name">Số điện thoại:</span><input class="information_shop" disabled type="number" value="<?php echo $thongtinshop[0]['sdt_shop']?>">                
+                                </div>
+                                <div>
+                                    <span class="left_name">Gmail Shop:</span><input class="information_shop" disabled type="email" value="<?php echo $thongtinshop[0]['email_shop']?>">                
+                                </div>
+                                <div>
+                                    <span class="left_name">Mật khẩu ứng dụng:</span><input class="information_shop" name="matkhau_shop" disabled type="text" value="<?php echo $thongtinshop[0]['matkhau_shop']?>">                
+                                </div>
+                                <div>
+                                    <span class="left_name">Địa chỉ Shop:</span><input class="information_shop" disabled type="text" value="<?php echo $thongtinshop[0]['diachi_shop']?>">                
+                                </div>
+                                <div>
+                                    <span class="left_name">Fanpage facebook</span><input class="information_shop" disabled name="id_fanpage_fb" type="text" value="<?php echo $thongtinshop[0]['id_fanpage_fb']?>">      
+                                </div>
                             </div>
-                           <div class="lleff_right" ><button id="click_show_taikhoan">Thay đổi thông tin shop </button></div>
-
+                            
+                            <div><button id="click_show_taikhoan" class="lleff_right"><p>Thay đổi thông tin shop</p></button></div>
                         </div>
                     </div>
                 </a>
             </div>
             <div class="full_map" id="click_none_form_taikhoan">
                 <form action="" class="form_Information" method="post" enctype="multipart/form-data">
-                            <div>
-                                <span class="left_name">Logo:</span>
-                                <input class="right1" type="file" name="logo_shop[]" id="image-input" onchange="chooseFile(this)" 
-                                            accept="image/*">
-                                <img alt="" id="image" width="250px" height="150px" src="../images/home/<?php echo $thongtinshop[0]['logo_shop']?>"></td>                  
-                            </div>
-                            <div>
-                                <span class="left_name">Tên Shop:</span><input  name="ten_shop"  type="text" value="<?php echo $thongtinshop[0]['ten_shop']?>">  
-                            <?php if (isset($loi['ten_shop'])) {
-                               echo $loi['ten_shop'];
-                            } ?>        
-                            </div>
-                           
-                            <div>
-                                <span class="left_name">Số điện thoại:</span><input name="sdt_shop"  type="number" value="<?php echo $thongtinshop[0]['sdt_shop']?>">                
-                            </div>
-                            <div>
-                                <span class="left_name">Gmail Shop:</span><input   name="email_shop" value="<?php echo $thongtinshop[0]['email_shop']?>">                
-                            </div>
-                            <div>
-                                <span class="left_name">Mật khẩu ứng dụng:</span><input  name="matkhau_shop"  type="text" value="<?php echo $thongtinshop[0]['matkhau_shop']?>">                
-                            </div>
-                            <div>
-                                <span class="left_name">Địa chỉ Shop:</span><input  name="diachi_shop" type="text" value="<?php echo $thongtinshop[0]['diachi_shop']?>">      
-                            </div>
-                            <div>
-                                <span class="left_name">fanpage facebook</span><input  name="id_fanpage_fb" type="text" value="<?php echo $thongtinshop[0]['id_fanpage_fb']?>">      
-                            </div>
-                            <div class="dif_change"><button name='btn_click'>Lưu</button><button id="click_hide_taikhoan">Hủy</button></div>
-            </form>
-
+                    <div>
+                        <span class="left_name">Logo:</span>
+                        <input class="right1" type="file" name="logo_shop[]" id="image-input" onchange="chooseFile(this)" accept="image/*">
+                        <img alt="" id="image" width="100%" height="150px" src="../images/home/<?php echo $thongtinshop[0]['logo_shop']?>">               
+                    </div>
+                    <div>
+                        <span class="left_name">Tên Shop:</span><input  name="ten_shop"  type="text" value="<?php echo $thongtinshop[0]['ten_shop']?>">  
+                    <?php if (isset($loi['ten_shop'])) {
+                        echo $loi['ten_shop'];
+                    } ?>        
+                    </div>
+                    
+                    <div>
+                        <span class="left_name">Số điện thoại:</span><input name="sdt_shop"  type="number" value="<?php echo $thongtinshop[0]['sdt_shop']?>">                
+                    </div>
+                    <div>
+                        <span class="left_name">Gmail Shop:</span><input name="email_shop" value="<?php echo $thongtinshop[0]['email_shop']?>">                
+                    </div>
+                    <div>
+                        <span class="left_name">Mật khẩu ứng dụng:</span><input name="matkhau_shop"  type="text" value="<?php echo $thongtinshop[0]['matkhau_shop']?>">                
+                    </div>
+                    <div>
+                        <span class="left_name">Địa chỉ Shop:</span><input name="diachi_shop" type="text" value="<?php echo $thongtinshop[0]['diachi_shop']?>">      
+                    </div>
+                    <div>
+                        <span class="left_name">Fanpage facebook</span><input name="id_fanpage_fb" type="text" value="<?php echo $thongtinshop[0]['id_fanpage_fb']?>">      
+                    </div>
+                    <div class="dif_change">
+                        <button class="luu" name='btn_click'>Lưu</button>
+                        <button class="huy" id="click_hide_taikhoan">Hủy</button>
+                    </div>
+                </form>
             </div>
     </div>
 
