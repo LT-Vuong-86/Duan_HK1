@@ -177,6 +177,10 @@
         form div{
             padding-left: 20px;
         }
+        p{
+            margin-top: -15px;
+            color: crimson;
+        }
     </style>
 </head>
 <body>
@@ -188,7 +192,7 @@
         
         <div id="username" class="form-control row mx-1">
             <input name="username"  type="text" placeholder="Tên đăng nhập" 
-            value="" required>
+            value="">
         </div>
         <div id="canhbao" class="row mt-2">
             <?php if(isset($loi['username'])){?>
@@ -198,7 +202,7 @@
 
         <div id="full_name" class="form-control row mx-1">
             <input name="full_name"  type="text" placeholder="Tên đầy đủ" 
-            value="" required>
+            value="">
         </div>
         <div id="canhbao" class="row mt-2">
             <?php if(isset($loi['full_name'])){?>
@@ -206,9 +210,9 @@
             <?php }?>
         </div>
 
-        <div id="matkhau"  minlength="6" class="form-control  row mx-1">
-            <input name="pass"  type="password" placeholder="Mật khẩu" 
-            value="" required>
+        <div id="matkhau" minlength="6" class="form-control  row mx-1">
+            <input name="pass" type="password" placeholder="Mật khẩu" 
+            value="">
         </div>
         <div id="canhbao" class="row mt-2">
             <?php if(isset($loi['pass'])){?>
@@ -217,8 +221,8 @@
         </div>
 
         <div id="sdt" class="form-control row mx-1">
-            <input id="phone_number" name="sdt" pattern="^0[3-9][0-9]{8}" title="Nhập chưa đúng số điện thoại"  type="number" placeholder="SĐT" 
-            value="<?php echo (isset($sdt))?$sdt:'' ?>" required>
+            <input id="phone_number" name="sdt" pattern="^0[3-9][0-9]{8}" title="Số điện thoại không hợp lệ!"  type="tel" placeholder="SĐT" 
+            value="<?php echo (isset($sdt))?$sdt:'' ?>">
         </div>
         <div id="canhbao" class="row mt-2">
             <?php if(isset($loi['sdt'])){?>
@@ -227,8 +231,8 @@
         </div>
 
         <div id="vaitro" class="form-control row mx-1">
-            <input name="vaitro" required type="text"  placeholder="Vai trò" 
-            value="<?php echo (isset($vaitro))?$vaitro:'' ?>" <?php if ($user[0]['vaitro']=='manager') { echo "disabled"; }?> required>
+            <input name="vaitro" type="text"  placeholder="Vai trò" 
+            value="<?php echo (isset($vaitro))?$vaitro:'' ?>" <?php if ($user[0]['vaitro']=='manager') { echo "disabled"; }?>>
         </div>
         <div id="canhbao" class="row mt-2">
             <?php if(isset($loi['vaitro'])){?>
@@ -237,8 +241,8 @@
         </div>
 
         <div id="email" class="form-control row mx-1">
-            <input name="email" required type="email" placeholder="Email" 
-            value="" <?php  if ($user[0]['vaitro']=='manager') { echo "required"; }?> >
+            <input name="email" type="email" placeholder="Email"
+            value="" <?php if ($user[0]['vaitro']=='manager') { echo "required"; }?> >
         </div>
         <div id="canhbao" class="row mt-2">
             <?php if(isset($loi['email'])){?>

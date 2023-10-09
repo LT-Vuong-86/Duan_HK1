@@ -161,7 +161,7 @@
 
         <p>Số điện thoại</p>
         <div id="sdt" class="form-control row mx-1">
-            <input name="sdt" required pattern="^0[3-9][0-9]{8}" type="text" placeholder="Số điện thoại người nhận" 
+            <input name="sdt" required pattern="^0[3-9][0-9]{8}" type="tel"  placeholder="Số điện thoại người nhận" 
             value="<?php echo (isset($sdt))?$sdt:'' ?>" >
             <?php if(isset($loi['sdt'])){?>
                 <p class="text-danger"><?php echo $loi['sdt']?></p> 

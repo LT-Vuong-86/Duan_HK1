@@ -151,6 +151,12 @@
         .text-danger{
             color: red;
         }
+
+        input[type='number']::-webkit-inner-spin-button,
+        input[type='number']::-webkit-outer-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
     </style>
 </head>
 <body>
@@ -162,7 +168,7 @@
         <br>
 
         <div id="id_danhmuc" class="form-control row mx-1">
-            <input name="id_danhmuc" pattern="[0-9]+"   type="text" placeholder="Mã của danh mục đó là?" 
+            <input name="id_danhmuc" type="number" placeholder="Mã của danh mục đó là?" 
             value="<?php echo (isset($id_danhmuc))?$id_danhmuc:'' ?>" >
             <?php if(isset($loi['id_danhmuc'])){?>
                 <p class="text-danger"><?php echo $loi['id_danhmuc']?></p> 
