@@ -40,10 +40,14 @@
                         <div class="shop-menu pull-right">
                             <ul class="nav navbar-nav">
                                <li><a href="?controller=account"><i class="fa fa-user"></i> Tài khoản</a></li>
-                                <li><a href=""><i class="fa fa-star"></i>Danh sách yêu thích</a></li>
+                                <li><a href="?controller=likeproduct"><i class="fa fa-star"></i>Danh sách yêu thích</a></li>
                                 <li><a href="?controller=checkout"><i class="fa fa-crosshairs"></i>Thanh toán</a></li>
                                 <li><a href="?controller=cart"><i class="fa fa-shopping-cart"></i>Giỏ hàng</a></li>
-                                <li><a href="?controller=logout"><i class="fa fa-lock"></i>Đăng xuất</a></li>
+                                <li><?php if (isset($_SESSION['ss_user'])) {
+                                    echo "<a href='?controller=logout'><i class='fa fa-lock'></i>Đăng xuất</a>";
+                                }else{
+                                    echo "<a href='?controller=login'><i class='fa fa-lock'></i>Đăng nhập</a>";
+                                } ?></li>
                              </ul>
                         </div>
                     </div>
@@ -81,7 +85,7 @@
                         <div class="status alert alert-success" style="display: none"></div>
                         <form id="main-contact-form" class="contact-form row" method="post">
                             <div class="form-group col-md-6">
-                                <input type="text" name="name" class="form-control" required="required" placeholder="Tên">
+                                <input type="text" name="name" class="form-control" required="required" placeholder="SĐT">
                             </div>
                             <div class="form-group col-md-6">
                                 <input type="email" name="email" class="form-control" required="required" placeholder="Email">
@@ -105,7 +109,6 @@
 	    					<p>Tên shop:<?php echo $thongtinshop[0]['ten_shop'] ?></p>
 							
 							<p>SĐT: <?php echo $thongtinshop[0]['sdt_shop'] ?></p>
-							<p>Fax: 1-714-252-0026</p>
 							<p>Email: <?php echo $thongtinshop[0]['email_shop'] ?></p>
                             <p>Địa chỉ: <?php echo $thongtinshop[0]['diachi_shop'] ?></p>
                             <p>fanpage facebook: <?php echo $thongtinshop[0]['id_fanpage_fb'] ?></p>

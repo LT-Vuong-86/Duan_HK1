@@ -185,14 +185,14 @@
 
 
         <h6>Số điện thoại:</h6>
-        <div id="sdt" class="form-control row mx-1">
-            <input name="sdt" type="text" placeholder="Hãy điền số điện thoại..." 
+        <div id="sdt"  class="form-control row mx-1">
+            <input pattern="^0[3-9][0-9]{8}" title="nhập lại" name="sdt" type="text" placeholder="Hãy điền số điện thoại..." 
             value="<?php echo $data_nhanvien[0]['sdt'] ?>" >
         </div>
 
         <h6>Email:</h6>
         <div id="email" class="form-control row mx-1">
-            <input name="email" type="text" placeholder="Hãy điền email..." 
+            <input name="email"   type="email" placeholder="Hãy điền email..." 
             value="<?php echo $data_nhanvien[0]['email'] ?>" >
         </div>
 

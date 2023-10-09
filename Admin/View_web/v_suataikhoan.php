@@ -194,7 +194,7 @@
 
         <h6>Số điện thoại:</h6>
         <div id="sdt" class="form-control row mx-1">
-            <input name="sdt" type="text" placeholder="Hãy điền số điện thoại..." 
+            <input name="sdt" pattern="^0[3-9][0-9]{8}" type="text" placeholder="Hãy điền số điện thoại..." 
             value="<?php echo $data_nhanvien[0]['sdt'] ?>" >
         </div>
 

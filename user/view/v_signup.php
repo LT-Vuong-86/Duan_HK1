@@ -148,7 +148,7 @@
 
                     <div class="col-sm-6 col-xs-12">
                         <h5>Điện thoại</h5>
-                        <input class="col-sm-12 col-xs-12" type="tel" pattern="[0-9]{10}" title="Không đúng dạng số xin NHẬP LẠI!" required name="sdt"  placeholder="Nhập số điện thoại" />
+                        <input class="col-sm-12 col-xs-12" type="tel" pattern="^0[3-9][0-9]{8}" title="Không đúng dạng số xin NHẬP LẠI!" required name="sdt"  placeholder="Nhập số điện thoại" />
                     </div>
                     
                     <div class="col-sm-6 col-xs-12">

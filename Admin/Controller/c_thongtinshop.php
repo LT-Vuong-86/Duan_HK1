@@ -1,6 +1,6 @@
 <?php 
     if(isset($_SESSION['ss_admin'])){
-        $user = $db->get('thongtinshop', array('id'=>$_SESSION['ss_admin']));
+        $user = $db->get('taikhoan', array('id'=>$_SESSION['ss_admin']));
         $thongtinshop = $db->get('thongtinshop', array());
         
             if(isset($_POST['btn_click'])){
