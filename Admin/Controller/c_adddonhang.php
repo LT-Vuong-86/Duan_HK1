@@ -49,8 +49,16 @@ if(isset($_SESSION['ss_admin'])){
             
             if($ghichu == ''){
                 $loi['ghichu'] = 'Đã bán không được để trống';
-            }           
+            }     
+            for ($i=0; $i < $slmasp; $i++) { 
+                $sanpham=$db->get('sanpham',array('id_sanpham'=>$names[$i]));  
+
+                if(empty($sanpham[0]['id_sanpham'])){
+                    $loi['masp'] = 'Sản phẩm ko tồn tại';
+                }
+              }      
             if(!$loi){
+               
                 $db->insert('khachhang',array(                    
                     'username'=>$ten,
                     'sdt'=>$sdt,
@@ -63,8 +71,8 @@ if(isset($_SESSION['ss_admin'])){
                     "id_tinhtrang"=>1              
                 )); 
                 $id_dh=$db->insert_id();
-                for ($i=0; $i < $slmasp; $i++) { 
-                                      
+               
+                for ($i=0; $i < $slmasp; $i++) {             
                 $db->insert('ctdonhang',array(
                     'id_donhang'=>$id_dh,
                     'id_sanpham'=>$names[$i],

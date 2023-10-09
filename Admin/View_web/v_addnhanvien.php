@@ -187,7 +187,7 @@
         </div>
         
         <div id="username" class="form-control row mx-1">
-            <input name="username" type="text" placeholder="Tên đăng nhập" 
+            <input name="username"  type="text" placeholder="Tên đăng nhập" 
             value="" required>
         </div>
         <div id="canhbao" class="row mt-2">
@@ -197,7 +197,7 @@
         </div> 
 
         <div id="full_name" class="form-control row mx-1">
-            <input name="full_name" type="text" placeholder="Tên đầy đủ" 
+            <input name="full_name"  type="text" placeholder="Tên đầy đủ" 
             value="" required>
         </div>
         <div id="canhbao" class="row mt-2">
@@ -207,7 +207,7 @@
         </div>
 
         <div id="matkhau"  minlength="6" class="form-control  row mx-1">
-            <input name="pass" type="password" placeholder="Mật khẩu" 
+            <input name="pass"  type="password" placeholder="Mật khẩu" 
             value="" required>
         </div>
         <div id="canhbao" class="row mt-2">
@@ -217,7 +217,7 @@
         </div>
 
         <div id="sdt" class="form-control row mx-1">
-            <input id="phone_number" name="sdt" pattern = "/^(0|\+84)?(1[3-9])[0-9]{9}$/" title="Nhập chưa đúng số điện thoại"  type="number" placeholder="SĐT" 
+            <input id="phone_number" name="sdt" pattern="^0[3-9][0-9]{8}" title="Nhập chưa đúng số điện thoại"  type="number" placeholder="SĐT" 
             value="<?php echo (isset($sdt))?$sdt:'' ?>" required>
         </div>
         <div id="canhbao" class="row mt-2">
@@ -227,7 +227,7 @@
         </div>
 
         <div id="vaitro" class="form-control row mx-1">
-            <input name="vaitro" type="text" placeholder="Vai trò" 
+            <input name="vaitro" required type="text"  placeholder="Vai trò" 
             value="<?php echo (isset($vaitro))?$vaitro:'' ?>" <?php if ($user[0]['vaitro']=='manager') { echo "disabled"; }?> required>
         </div>
         <div id="canhbao" class="row mt-2">
@@ -237,7 +237,7 @@
         </div>
 
         <div id="email" class="form-control row mx-1">
-            <input name="email" type="email" placeholder="Email" 
+            <input name="email" required type="email" placeholder="Email" 
             value="" <?php  if ($user[0]['vaitro']=='manager') { echo "required"; }?> >
         </div>
         <div id="canhbao" class="row mt-2">

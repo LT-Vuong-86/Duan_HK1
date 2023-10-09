@@ -152,7 +152,7 @@
         
         <p>Tên khách hàng</p>
         <div id="ten" class="form-control row mx-1">
-            <input name="ten" type="text" placeholder="Tên người nhận" 
+            <input name="ten" required type="text" placeholder="Tên người nhận" 
             value="<?php echo (isset($ten))?$ten:'' ?>" >
             <?php if(isset($loi['ten'])){?>
                 <p class="text-danger"><?php echo $loi['ten']?></p> 
@@ -161,7 +161,7 @@
 
         <p>Số điện thoại</p>
         <div id="sdt" class="form-control row mx-1">
-            <input name="sdt" type="text" placeholder="Số điện thoại người nhận" 
+            <input name="sdt" required pattern="^0[3-9][0-9]{8}" type="text" placeholder="Số điện thoại người nhận" 
             value="<?php echo (isset($sdt))?$sdt:'' ?>" >
             <?php if(isset($loi['sdt'])){?>
                 <p class="text-danger"><?php echo $loi['sdt']?></p> 
@@ -170,7 +170,7 @@
        
         <p>Địa chỉ</p>
         <div id="diachi" class="form-control row mx-1">
-            <input name="diachi" type="text" placeholder="Địa chỉ nhận hàng" 
+            <input name="diachi"  required type="text" placeholder="Địa chỉ nhận hàng" 
             value="<?php echo (isset($diachi))?$diachi:'' ?>" >
             <?php if(isset($loi['diachi'])){?>
                 <p class="text-danger"><?php echo $loi['diachi']?></p> 
@@ -179,7 +179,7 @@
        
         <p>Mã sản phẩm</p>
         <div id="masp" class="form-control row mx-1">
-            <input id="quantity" min="1" max="10" name="slmasp" pattern="[0-9]+"  type="number" placeholder="Số lượng mã sản phẩm" 
+            <input id="quantity" required min="1" max="10" name="slmasp" pattern="[0-9]+"  type="number" placeholder="Số lượng mã sản phẩm" 
             value="<?php echo (isset($masp))?$masp:'' ?>" >
             <div id="inputs"></div>
             <?php if(isset($loi['masp'])){?>
@@ -189,7 +189,7 @@
 
         <p>Tên loại sản phẩm</p>
         <div id="loaisp" class="form-control row mx-1">
-            <input name="loai_sp" type="text" placeholder="Sản phẩm thuộc loại" 
+            <input name="loai_sp" required type="text" placeholder="Sản phẩm thuộc loại" 
             value="<?php echo (isset($tong))?$tong:'' ?>" >
             <?php if(isset($loi['loai_sp'])){?>
                 <p class="text-danger"><?php echo $loi['loai_sp']?></p> 
@@ -198,7 +198,7 @@
 
         <p>Kích cỡ:</p>
         <div id="size" class="form-control row mx-1">
-            <input name="size" type="text" placeholder="Size" 
+            <input name="size" required type="text" placeholder="Size" 
             value="<?php echo (isset($tong))?$tong:'' ?>" >
             <?php if(isset($loi['size'])){?>
                 <p class="text-danger"><?php echo $loi['size']?></p> 
@@ -208,7 +208,7 @@
         <p>Tổng tiền</p>
         <div id="size_name" class="form-control row mx-1">
             
-            <input name="tong" pattern="[0-9]+" type="text" placeholder="Tổng tiền" 
+            <input name="tong" required pattern="[0-9]+" type="text" placeholder="Tổng tiền" 
             value="<?php echo (isset($tong))?$tong:'' ?>" >
             <?php if(isset($loi['tong'])){?>
                 <p class="text-danger"><?php echo $loi['tong']?></p> 
@@ -218,7 +218,7 @@
         <p>Ghi chú</p>
         <div id="ghichu" class="form-control row mx-1">
             
-            <input name="ghichu" type="text" placeholder="Ghi chú..." 
+            <input name="ghichu" required type="text" placeholder="Ghi chú..." 
             value="<?php echo (isset($ghichu))?$ghichu:'' ?>" >
             <?php if(isset($loi['ghichu'])){?>
                 <p class="text-danger"><?php echo $loi['ghichu']?></p> 

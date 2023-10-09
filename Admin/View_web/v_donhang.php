@@ -547,7 +547,6 @@
                     <select name="codition_search" id="">
                         <option value="id_kh" selected >Mã khách hàng</option>
                         <option value="id_donhang">Mã đơn hàng</option>
-                        <option value="sdt">Số điện thoại</option>
                     </select>
                 </div>
                 <div class="search">

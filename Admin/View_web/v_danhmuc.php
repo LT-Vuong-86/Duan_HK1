@@ -504,7 +504,7 @@
                 <div class="search_codition">
                     <h4>Tìm kiếm theo</h4>
                     <select name="search_codition" id="">
-                        <option value="username">Tên danh mục</option>
+                        <option value="danhmuc">Tên danh mục</option>
                     </select>
                 </div>
                 <div class="search">

@@ -185,7 +185,7 @@
         <h5>Ảnh chính sản phẩm</h5>
         <div id="anh" class="form-control row mx-1">
        
-            <input name="img_main[]"   type="file" accept="image/*" placeholder="Ảnh chính sản phẩm" 
+            <input name="img_main[]" required  type="file" accept="image/*" placeholder="Ảnh chính sản phẩm" 
             value="<?php echo (isset($anh))?$anh:'' ?>" >
             <img width="200px" src="" id="loaisp_size1" alt="">
             <?php if(isset($loi['anh'])){?>
@@ -206,9 +206,11 @@
         <h5>Loại sản phẩm</h5>
         
         <div id="loaisp" class="form-control row mx-1">      
-            <input min="1" max="6" name="slmasp"  type="number" id="loaisp" pattern="[0-9]+" placeholder="Nhập số loại sản phẩm"
+            <input min="1" max="6" name="slmasp" required type="number" id="loaisp" pattern="[0-9]+" placeholder="Nhập số loại sản phẩm"
             onchange=" showInputs(this.value)">                                       
-
+            <?php if(isset($loi['slmasp'])){?>
+                <p class="text-danger"><?php echo $loi['slmasp']?></p> 
+            <?php }?>
 
         </div>
         <div id="loaisp_size" class="form-control"></div>

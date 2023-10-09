@@ -61,7 +61,7 @@ if(isset($_SESSION['ss_admin'])){
             $taikhoan = $db->get('taikhoan',array('email'=> $email));
             $taikhoan_check = $db->get('taikhoan',array('username'=> $username));
             $taikhoan_check_sdt = $db->get('taikhoan',array('sdt'=> $sdt));
-
+            if(!$loi){
             if (empty($taikhoan)) {
                 if(!empty($full_name) && !empty($username) && !empty($password) && !empty($sdt) && 
                 !empty($diachi)){
@@ -88,6 +88,7 @@ if(isset($_SESSION['ss_admin'])){
             }else {
                 echo 'Email đã tồn tại';
             }
+        }
             
         }
     }

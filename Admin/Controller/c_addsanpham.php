@@ -11,9 +11,9 @@ if(isset($_SESSION['ss_admin'])){
             $date_oder = date("d/m/y");
             $xuatxu = $_POST['xuatxu'];
             $uploadedFile_main = $_FILES['img_main'];
-
+            $imglink = $db->uploadfile($uploadedFile_main);
             if(isset($_POST['anh_phu'])){
-                $imglink = $db->uploadfile($uploadedFile_main);
+               
                 $uploadedFile_extra=$_FILES['anh_phu'];
                 $uploadedFile_extrar=$_FILES['anh_phu']['name'];
                 $imglink_extra = $db->uploadfile($uploadedFile_extra);
@@ -33,6 +33,7 @@ if(isset($_SESSION['ss_admin'])){
         //     print_r($uploadedFile_extrar[1]);
         //     die;
             global $tonkho;
+            
             for ($i = 1; $i <= $slmasp; $i++) {
                 
                 $productName[] = $_POST["productName$i"];
@@ -42,10 +43,14 @@ if(isset($_SESSION['ss_admin'])){
                 $productSizeXL[] = $_POST["productSizeXL$i"];
                 $productSizeXXL[] = $_POST["productSizeXXL$i"];
             }
+            if($productName[0]!=''){
             for($i = 0; $i < $slmasp; $i++){
 
                 $tonkho+=$productSizeS[$i]+$productSizeM[$i]+$productSizeL[$i]+$productSizeXL[$i]+$productSizeXXL[$i];
             }
+        }else{
+            $loi['slmasp'] = ' không được để trống';
+        }
             // print_r(pathinfo('1.2.jpg'));
             // die;
             $daban=0;
@@ -59,6 +64,9 @@ if(isset($_SESSION['ss_admin'])){
             // die;
             if($id_dm == ''){
                 $loi['id_dm'] = 'Danh mục không được để trống';
+            }
+            if($slmasp == ''){
+                $loi['slmasp'] = ' không được để trống';
             }
 
             if($tensanpham == ''){
