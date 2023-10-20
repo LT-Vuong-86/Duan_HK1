@@ -20,16 +20,15 @@ if(isset($_SESSION['ss_admin'])){
                     $tendanhmuc = $_POST['danhmuc'];
                     
                     $loi = array();
-                    if($id_danhmuc == ''){
+                    if(empty($id_danhmuc)){
                         $loi['id_danhmuc'] = 'Mã danh mục không được để trống';
                     }
 
-                    if($tendanhmuc == ''){
+                    if(empty($tendanhmuc)){
                         $loi['danhmuc'] = 'Tên danh mục không được để trống';
                     }
 
-                    
-                    if(!$loi){
+                    if(empty($loi)){
                         $db->update('danhmuc',array(
                             'id_danhmuc'=>$id_danhmuc,  
                             'danhmuc' =>$tendanhmuc

@@ -299,16 +299,19 @@
         .details .recentstaff table tr td{
             padding: 10px;
         }
+
         .active_admin{
             background: var(--yellow);
         }
+
         .search_codition{
             position: absolute;
         }
+
         .search_codition h4 {
             margin-left: -120px;
-           
         }
+
         .search_codition select{
             margin-left: -120px;
             
@@ -347,13 +350,15 @@
 
         .img_information_shop{
             width: 150px;
+            border: 1px solid black;
+            border-radius: 18px;
         }
 
         .lleff_right{
             position: absolute;
             bottom: 10px;
             right: 10px;
-            padding: 5px 10px;
+            padding: 10px 15px;
             background: var(--black);
             text-decoration: none;
             color: var(--white);
@@ -387,22 +392,34 @@
             height: 30px;
         }
 
-        .form_Information button .luu{
-
-            float: left;
-        }
-
-        .form_Information button .huy{
-            float: right;
-        }
-        .form_Information .dif_change{
+        .form_Information .dif_change{ 
+            text-align: center;
+            padding-top: 10px;
             width: 100%;
         }
+        .form_Information .dif_change button{
+            margin: 0 5px 0 5px;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 18px;
+            background: var(--black);
+            cursor: pointer;
+            color: white;
+        }
+
+        .form_Information .dif_change button:hover{
+            border: 1px solid black;
+            background: var(--yellow);
+            color: black;
+        }
+
         .navigation li .icon img{
             position: relative;
             border-radius: 18px;
-            width: 50%;
-            margin-top: 10px;
+            width: 180px;
+            height: 80px;
+            margin: 10px 0 10px 45px;
+            object-fit: cover;
         }
         .full_info{
             width: 100%;
@@ -510,7 +527,7 @@
                             
                             <div class="logo_main_shop">
                                 <span class="left_logo">Logo:</span>
-                                <img src="../images/home/<?php echo $thongtinshop[0]['logo_shop']?>" class=" img_information_shop" name="logo_shop" alt="">
+                                <img src="../images/home/<?php echo $thongtinshop[0]['logo_shop']?>" class="img_information_shop" name="logo_shop" alt="">
                             </div>
 
                             <div class="full_info">
@@ -548,7 +565,7 @@
                         <img alt="" id="image" width="100%" height="150px" src="../images/home/<?php echo $thongtinshop[0]['logo_shop']?>">               
                     </div>
                     <div>
-                        <span class="left_name">Tên Shop:</span><input  name="ten_shop"  type="text" value="<?php echo $thongtinshop[0]['ten_shop']?>">  
+                        <span class="left_name">Tên Shop:</span><input  name="ten_shop" type="text" value="<?php echo $thongtinshop[0]['ten_shop']?>">  
                     <?php if (isset($loi['ten_shop'])) {
                         echo $loi['ten_shop'];
                     } ?>        
@@ -567,7 +584,7 @@
                         <span class="left_name">Địa chỉ Shop:</span><input name="diachi_shop" type="text" value="<?php echo $thongtinshop[0]['diachi_shop']?>">      
                     </div>
                     <div>
-                        <span class="left_name">Fanpage facebook</span><input name="id_fanpage_fb" type="text" value="<?php echo $thongtinshop[0]['id_fanpage_fb']?>">      
+                        <span class="left_name">Fanpage facebook</span><input name="id_fanpage_fb" type="number" value="<?php echo $thongtinshop[0]['id_fanpage_fb']?>">      
                     </div>
                     <div class="dif_change">
                         <button class="luu" name='btn_click'>Lưu</button>
@@ -581,7 +598,6 @@
         document.getElementById("image-input").addEventListener("change", function(event) {
         var selectedImage = document.getElementById("image");
         var selectedFile = event.target.files[0];
-
         if (selectedFile) {
             var reader = new FileReader();
 
@@ -597,24 +613,13 @@
 
     </script>
     <script>
-        
-  document.getElementById('click_hide_taikhoan').addEventListener('click', function() {
-  document.getElementById('click_none_form_taikhoan').style.display = 'none';
-});
+        document.getElementById('click_hide_taikhoan').addEventListener('click', function() {
+            document.getElementById('click_none_form_taikhoan').style.display = 'none';
+        });
 
-document.getElementById('click_show_taikhoan').addEventListener('click', function() {
-  document.getElementById('click_none_form_taikhoan').style.display = 'block';
-});      //add hovered
-               
-        // let list = document.querySelectorAll(".navigation li");
-        // function activeLink(){
-        //     list.forEach(item=>{
-        //         item.classList.remove("hovered");
-        //     });
-        //     this.classList.add("hovered");
-        // }
-        // list.forEach((item) => item.addEventListener("mouseover", activeLink));
-
+        document.getElementById('click_show_taikhoan').addEventListener('click', function() {
+            document.getElementById('click_none_form_taikhoan').style.display = 'block';
+        });     
         //menu toggle
         let toggle = document.querySelector(".toggle");
         let navigation = document.querySelector(".navigation");

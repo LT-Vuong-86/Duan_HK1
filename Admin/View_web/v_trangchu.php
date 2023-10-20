@@ -112,7 +112,6 @@
             white-space: nowrap;
         }
 
-
         .main{
             position: absolute;
             width: calc(100% - 300px);
@@ -336,11 +335,14 @@
             width:2000px ;
             display: flex;
         }
+
         .navigation li .icon img{
             position: relative;
             border-radius: 18px;
-            width: 50%;
-            margin-top: 10px;
+            width: 180px;
+            height: 80px;
+            margin: 10px 0 10px 45px;
+            object-fit: cover;
         }
     </style>
 
@@ -432,7 +434,6 @@
                     <img src="../images/home/<?php echo $thongtinshop[0]['logo_shop'] ?>" alt="">
                 </div>
             </div>
-
             <div class="cardBox">
                 <a style="text-decoration:none" href="#">
                     <div class="card">
@@ -447,13 +448,27 @@
                         </div>
                     </div>
                 </a>
+
+                <a style="text-decoration:none" href="#">
+                    <div class="card">
+                        <div>
+                            <div class="numbers"><?php echo $tongdaban?></div>
+                            <div class="cardName">Sản phẩm đã được bán</div>
+
+                        </div>
+
+                        <div class="iconBx">
+                            <ion-icon name="chatbubble-outline"></ion-icon>
+                        </div>
+                    </div>
+                </a>
                 
                 <a style="text-decoration:none" href="">
                     <div class="card">
                         <div>
-                            <div class="numbers"><?php echo number_format($tongdoanhthu) ?>đ</div>
+                            <div class="numbers"><?php echo number_format($tongdoanhthu)?>đ</div>
 
-                            <div class="cardName">Tổng doanh thu</div>
+                            <div class="cardName">Tổng doanh thu sản phẩm đã bán được</div>
                         </div>
 
                         <div class="iconBx">

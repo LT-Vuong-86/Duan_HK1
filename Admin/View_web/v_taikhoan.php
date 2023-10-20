@@ -414,8 +414,10 @@
         .navigation li .icon img{
             position: relative;
             border-radius: 18px;
-            width: 50%;
-            margin-top: 10px;
+            width: 180px;
+            height: 80px;
+            margin: 10px 0 10px 45px;
+            object-fit: cover;
         }
     </style>
 

@@ -7,8 +7,6 @@ if(isset($_SESSION['ss_admin'])){
         $id = $_GET['id'];
         switch ($method) {
             case 'xoa':
-
-
                 $id = $_GET['id'];
                 $db->delete('khachhang', array('id_kh'=>$id));
                 header('Location: ?controller=khachhang');
@@ -24,24 +22,23 @@ if(isset($_SESSION['ss_admin'])){
                     $diachi = $_POST['diachi'];
 
                     $loi = array();
-                    if($username == ''){
+                    if(empty($username)){
                         $loi['username'] = 'Tên đăng nhập không được để trống';
                     }
 
-
-                    if($email == ''){
+                    if(empty($email)){
                         $loi['email'] = 'Email không được để trống';
                     }
 
-                    if($sdt == ''){
+                    if(empty($sdt)){
                         $loi['sdt'] = 'SĐT không được để trống';
                     }
 
-                    
-                    if($diachi == ''){
+                    if(empty($diachi)){
                         $loi['diachi'] = 'Địa chỉ không được để trống';
                     }
-                    if(!$loi){
+
+                    if(empty($loi)){
                         $db->update('khachhang',array(
                             'username'=>$username,
                             'email'=>$email,

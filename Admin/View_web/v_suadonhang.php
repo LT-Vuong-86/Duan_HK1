@@ -234,9 +234,7 @@
                 <thead>
                     <tr>
                         <td>Mã đơn hàng</td>
-
                         <td>Tổng giá trị</td>
-                        
                         <td>Ghi chú</td>
                         <td>Địa chỉ</td>
                         <td>Trạng thái</td>
@@ -257,7 +255,8 @@
                                 <option value="4"  <?php if ($donhang[0]['id_tinhtrang']==4) {echo "selected";} ?>>Hàng đã bị hủy</option>
                                 <option value="5"  <?php if ($donhang[0]['id_tinhtrang']==5) {echo "selected";} ?>>Đã mua</option>
                             </select>
-                        </span></td>
+                        </span>
+                        </td>
                     </tr>
 
                 </tbody>

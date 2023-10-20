@@ -13,77 +13,80 @@ if(isset($_SESSION['ss_admin'])){
             $size_name=$_POST['size'];
             $ghichu=$_POST['ghichu'];
             $date_oder = date("d/m/y");
+
             $names = [];
             $soluong=[];
             for ($i = 0; $i < $slmasp; $i++) {
-             $names[] = $_POST["masp$i"];
-             $soluong[]=$_POST["soluong$i"];
+                $names[] = $_POST["masp$i"];
+                $soluong[]=$_POST["soluong$i"];
             }
             
             $loi=[];
-            if($loai_sp == ''){
+            if(empty($loai_sp)){
                 $loi['loai_sp'] = 'Loại sản phẩm không được để trống';
             }
-            if($size_name == ''){
+            if(empty($size_name)){
                 $loi['size'] = 'Kích thước không được để trống';
             }
-            if($ten == ''){
+            if(empty($ten)){
                 $loi['ten'] = 'Tên sản phẩm không được để trống';
             }
 
-            if($sdt == ''){
+            if(empty($sdt)){
                 $loi['sdt'] = 'Số điện thoại người nhận không được để trống';
             }
 
-            if($diachi == ''){
+            if(empty($diachi)){
                 $loi['diachi'] = 'Địa chỉ nhận hàng không được để trống';
             }
 
-            if($slmasp == ''){
+            if(empty($slmasp)){
                 $loi['slmasp'] = 'Số lượng mã sản phẩm không được để trống';
             }
 
-            if($tong == ''){
+            if(empty($tong)){
                 $loi['tong'] = 'Tổng tiền không được để trống';
             }
             
-            if($ghichu == ''){
+            if(empty($ghichu)){
                 $loi['ghichu'] = 'Đã bán không được để trống';
-            }     
-            for ($i=0; $i < $slmasp; $i++) { 
+            }
+            //Kiểm tra xem sản phẩm có tồn tại hay không.
+            for ($i=0; $i<$slmasp; $i++) { 
                 $sanpham=$db->get('sanpham',array('id_sanpham'=>$names[$i]));  
-
+                //Nếu ko tồn tại báo lỗi
                 if(empty($sanpham[0]['id_sanpham'])){
                     $loi['masp'] = 'Sản phẩm ko tồn tại';
                 }
-              }      
-            if(!$loi){
-               
+            }
+
+            if(empty($loi)){
                 $db->insert('khachhang',array(                    
                     'username'=>$ten,
                     'sdt'=>$sdt,
                     'diachi'=>$diachi                   
-                ));    
-                $id_kh=$db->insert_id();
+                ));
+
+                $id_kh = $db->insert_id();
                 $db->insert('donhang',array(                    
                     'id_kh'=>$id_kh,
                     'tong'=>$tong,
                     "id_tinhtrang"=>1              
                 )); 
+                
                 $id_dh=$db->insert_id();
-               
                 for ($i=0; $i < $slmasp; $i++) {             
-                $db->insert('ctdonhang',array(
-                    'id_donhang'=>$id_dh,
-                    'id_sanpham'=>$names[$i],
-                    'size'=>$size_name,
-                    'loai_sp'=>$loai_sp,
-                    'soluongsp'=>$soluong[$i],
-                    'ghichu'=>$ghichu,
-                    'ngaydat'=>$date_oder
-                ));
-            }
-                header('location: ?controller=donhang');
+                    $db->insert('ctdonhang',array(
+                        'id_donhang'=>$id_dh,
+                        'id_sanpham'=>$names[$i],
+                        'size'=>$size_name,
+                        'loai_sp'=>$loai_sp,
+                        'soluongsp'=>$soluong[$i],
+                        'ghichu'=>$ghichu,
+                        'ngaydat'=>$date_oder
+                    ));
+                }
+                    header('location: ?controller=donhang');
             }
         }
     }else{

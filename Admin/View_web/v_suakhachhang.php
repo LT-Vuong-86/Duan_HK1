@@ -180,29 +180,44 @@
         <div id="username" class="form-control row mx-1">
             <input name="username" type="text" placeholder="Hãy điền tên đăng nhập..." 
             value="<?php echo $data_nhanvien[0]['username'] ?>" >
-        </div> 
-
-
+        </div>
+        <div id="canhbao" class="row mt-2">
+            <?php if(isset($loi['username'])){?>
+                <p class="text-danger"><?php echo $loi['username']?></p> 
+            <?php }?>
+        </div>
 
         <h6>Số điện thoại:</h6>
         <div id="sdt"  class="form-control row mx-1">
             <input pattern="^0[3-9][0-9]{8}" title="nhập lại" name="sdt" type="text" placeholder="Hãy điền số điện thoại..." 
             value="<?php echo $data_nhanvien[0]['sdt'] ?>" >
         </div>
+        <div id="canhbao" class="row mt-2">
+            <?php if(isset($loi['sdt'])){?>
+                <p class="text-danger"><?php echo $loi['sdt']?></p> 
+            <?php }?>
+        </div>
 
         <h6>Email:</h6>
         <div id="email" class="form-control row mx-1">
-            <input name="email"   type="email" placeholder="Hãy điền email..." 
+            <input name="email" type="email" placeholder="Hãy điền email..." 
             value="<?php echo $data_nhanvien[0]['email'] ?>" >
         </div>
+        <div id="canhbao" class="row mt-2">
+            <?php if(isset($loi['email'])){?>
+                <p class="text-danger"><?php echo $loi['email']?></p> 
+            <?php }?>
+        </div>
 
-
-
-        
         <h6>Địa chỉ:</h6>
         <div id="diachi" class="form-control row mx-1">
             <input name="diachi" type="text" placeholder="Nơi ở hiện tại..." 
             value="<?php echo $data_nhanvien[0]['diachi'] ?>" >
+        </div>
+        <div id="canhbao" class="row mt-2">
+            <?php if(isset($loi['diachi'])){?>
+                <p class="text-danger"><?php echo $loi['diachi']?></p> 
+            <?php }?>
         </div>
 
         <button type="submit" style="border: none; border-radius:25px; background: white; width: 100%;" 

@@ -390,8 +390,10 @@
         .navigation li .icon img{
             position: relative;
             border-radius: 18px;
-            width: 50%;
-            margin-top: 10px;
+            width: 180px;
+            height: 80px;
+            margin: 10px 0 10px 45px;
+            object-fit: cover;
         }
 
         .total_banner{
@@ -428,7 +430,8 @@
 
         .box_over{
             margin: 0 0 20px 0;
-            box-shadow: 0 0 10px yellow;
+            box-shadow: 0 0 10px black;
+            border-radius: 18px;
         }
     </style>
 
@@ -523,7 +526,7 @@
                 <div class="total_banner">
                     <div class="box_over">
                         <div class="card">
-                            <div class="item active">
+                            <div class="item">
                                 <div class="col-sm-12 col-md-3">
                                     <h1><span><?php echo $thongtinshop[0]['ten_shop'] ?></span></h1>
                                     <h2><?php echo $banner[0]['name_baner'] ?></h2>

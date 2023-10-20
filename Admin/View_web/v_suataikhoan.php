@@ -37,6 +37,12 @@
             transition: all 1s;
         }
 
+        input[type='number']::-webkit-inner-spin-button,
+        input[type='number']::-webkit-outer-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+
         .container{
             width: 800px;
             height: auto;
@@ -49,11 +55,13 @@
         .container h2{
             text-align: center;
         }
+
         .form-control{
             width: 100%;
             position: relative;
             border: 1px solid grey;
         }
+
         .form-control:hover{
             border: 1px solid var(--success-color);
             box-shadow: 2px 2px 2px blue;
@@ -140,56 +148,47 @@
         }
 
         #canhbao{
-            padding-top: -20px;
             position: absolute;
             margin-left: 5px;
         }
-        h3{
-            margin-bottom: 25px;
-        }
 
-        #username{
-            margin-bottom: 35px;
+        #username, #matkhau, #full_name, #email, #sdt, #vaitro, #diachi{
+            margin-top: 15px;
         }
-
-        #full_name{
-            margin-bottom: 35px;        
+        h6{
+            margin-top: 40px;
         }
-
-        #email{
-            margin-bottom: 35px;        
+        h2{
+            margin-bottom: -50px;
         }
-
-        #sdt{
-            margin-bottom: 35px;        
-        }
-
-        #vaitro{
-            margin-bottom: 35px;       
-        }
-
-        #diachi{
-            margin-bottom: 35px;       
-        }
-
     </style>
 </head>
 <body>
 <div class="container">
     <form action="#" method="post">
         <div>
-            <h3 class="text-uppercase text-center">Cập nhật tài khoản</h3>
+            <h2 class="text-uppercase text-center">Cập nhật tài khoản</h2>
         </div>
         <h6>Tên người dùng:</h6>
         <div id="username" class="form-control row mx-1">
             <input name="username" type="text" placeholder="Hãy điền tên đăng nhập..." 
-            value="<?php echo $data_nhanvien[0]['username'] ?>" >
+            value="<?php echo $data_nhanvien[0]['username']?>" >
         </div> 
+        <div id="canhbao" class="row mt-2">
+            <?php if(isset($loi['username'])){?>
+                <p class="text-danger"><?php echo $loi['username']?></p> 
+            <?php }?>
+        </div>
 
         <h6>Tên đầy đủ:</h6>
         <div id="full_name" class="form-control row mx-1">
             <input name="full_name" type="text" placeholder="Hãy điền tên đầy đủ..." 
             value="<?php echo $data_nhanvien[0]['full_name'] ?>" >
+        </div>
+        <div id="canhbao" class="row mt-2">
+            <?php if(isset($loi['full_name'])){?>
+                <p class="text-danger"><?php echo $loi['full_name']?></p> 
+            <?php }?>
         </div>
 
         <h6>Số điện thoại:</h6>
@@ -197,17 +196,33 @@
             <input name="sdt" pattern="^0[3-9][0-9]{8}" type="text" placeholder="Hãy điền số điện thoại..." 
             value="<?php echo $data_nhanvien[0]['sdt'] ?>" >
         </div>
+        <div id="canhbao" class="row mt-2">
+            <?php if(isset($loi['sdt'])){?>
+                <p class="text-danger"><?php echo $loi['sdt']?></p> 
+            <?php }?>
+        </div>
 
         <h6>Email:</h6>
         <div id="email" class="form-control row mx-1">
             <input name="email" type="text" placeholder="Hãy điền email..." 
             value="<?php echo $data_nhanvien[0]['email'] ?>" >
         </div>
+        <div id="canhbao" class="row mt-2">
+            <?php if(isset($loi['email'])){?>
+                <p class="text-danger"><?php echo $loi['email']?></p> 
+            <?php }?>
+        </div>
+        
 
         <h6>Vai trò:</h6>
         <div id="vaitro" class="form-control row mx-1">
             <input name="vaitro" type="text" placeholder="Nhân viên quản lý gì?..." 
             value="<?php echo $data_nhanvien[0]['vaitro'] ?>" >
+        </div>
+        <div id="canhbao" class="row mt-2">
+            <?php if(isset($loi['vaitro'])){?>
+                <p class="text-danger"><?php echo $loi['vaitro']?></p> 
+            <?php }?>
         </div>
 
         
@@ -215,6 +230,11 @@
         <div id="diachi" class="form-control row mx-1">
             <input name="diachi" type="text" placeholder="Nơi ở hiện tại..." 
             value="<?php echo $data_nhanvien[0]['diachi'] ?>" >
+        </div>
+        <div id="canhbao" class="row mt-2">
+            <?php if(isset($loi['diachi'])){?>
+                <p class="text-danger"><?php echo $loi['diachi']?></p> 
+            <?php }?>
         </div>
 
         <button type="submit" style="border: none; border-radius:25px; background: white; width: 100%;" 
@@ -225,7 +245,7 @@
                 <polyline points="8 1 12 5 8 9"></polyline>
             </svg> -->
             Cập nhật</button>
-           
+        <h5><span><a onclick="return confirm('Bạn không muốn sửa. Quay lại?');" href="?controller=taikhoan">Quay lại</a></span></h5>
     </form>    
 </div>
 

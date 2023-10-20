@@ -13,65 +13,60 @@ if(isset($_SESSION['ss_admin'])){
             $username = $_POST['username'];
             $dang_username = '/^[a-zA-Z0-9-]+$/';
             $full_name = $_POST['full_name'];
-            $password = $_POST['pass'];
+            $password = md5($_POST['pass']);  
             $email = $_POST['email'];
             $dang_email = '/^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z]+$/';
             $sdt = $_POST['sdt'];
             $vaitro = trim($_POST['vaitro']);
-            $date_oder = date("d/m/y");
+            $date_create = date("d/m/y");
             $diachi = $_POST['diachi'];
             
             $loi = array();
-            $password=md5($_POST['pass']);          
-            if (!preg_match($dang_username, $username)) {
-                $loi['username'] = 'Tài khoản cần viết liền ko dấu';
-            }
-            if($username == ''){
-                $loi['username'] = 'Tên đăng nhập không được để trống';
+            if(empty($username)){
+                $loi['username'] = 'Tên tài khoản không được để trống';
+            }elseif(!preg_match($dang_username, $username)) {
+                $loi['username'] = 'Tên tài khoản cần viết liền ko dấu';
             }
 
-            if($full_name == ''){
+            if(empty($full_name)){
                 $loi['full_name'] = 'Tên đầy đủ không được để trống';
             }
 
-            if($password == ''){
+            if(empty($password)){
                 $loi['pass'] = 'Mật khẩu không được để trống';
             }
 
-            if($email == ''){
+            if(empty($email)){
                 $loi['email'] = 'Email không được để trống';
+            }elseif(!preg_match($dang_email, $email)) {
+                $loi['email'] = "Email không hợp lệ. Vui lòng nhập lại.";
             }
 
-            if($sdt == ''){
+            if(empty($sdt)){
                 $loi['sdt'] = 'SĐT không được để trống';
             }
 
-            if($vaitro == ''){
+            if(empty($vaitro)){
                 $loi['vaitro'] = 'Vai trò không được để trống';
             }elseif(!in_array($vaitro, ['user', 'admin', 'manager'])) {
                 $loi['vaitro'] = 'Vai trò phải là user hoặc admin hoặc manager';
             }
             
-            if($diachi == ''){
+            if(empty($diachi)){
                 $loi['diachi'] = 'Địa chỉ không được để trống';
             }
-
-            // Kiểm tra email
-            if (!preg_match($dang_email, $email)) {
-                // Email không hợp lệ
-                $loi['email'] = "Email không hợp lệ. Vui lòng nhập lại.";
-            }
-
-            $mk=md5($password);
+            
+            //Kiểm tra khi insert dữ liệu mới vào bảng taikhoan có bị trùng với dữ liệu sẵn có ở trong bảng taikhoan nếu bị trùng thì báo lỗi đã tồn tại
+            //và ko insert được phải nhập lại
+            
             $taikhoan = $db->get('taikhoan',array('email'=> $email));
             $taikhoan_check = $db->get('taikhoan',array('username'=> $username));
             $taikhoan_check_sdt = $db->get('taikhoan',array('sdt'=> $sdt));
-            if(!$loi){
-                if (empty($taikhoan)){
-                    if(!empty($full_name) && !empty($username) && !empty($password) && !empty($sdt) && 
-                    !empty($diachi)){
-                        if(empty($taikhoan_check)) {
-                            if(empty($taikhoan_check_sdt)){
+            if(empty($loi)){
+                if(empty($taikhoan_check)){
+                    if(!empty($full_name) && !empty($username) && !empty($password) && !empty($sdt) && !empty($vaitro) && !empty($diachi)){
+                        if(empty($taikhoan_check_sdt)) {
+                            if(empty($taikhoan)){
                                 $db->insert('taikhoan',array(
                                     'username'=>$username,
                                     'full_name'=>$full_name,
@@ -79,19 +74,19 @@ if(isset($_SESSION['ss_admin'])){
                                     'email'=>$email,
                                     'sdt'=>$sdt,
                                     'vaitro'=>$vaitro,
-                                    'ngaytao'=>$date_oder,
+                                    'ngaytao'=>$date_create,
                                     'diachi'=>$diachi
                                 ));        
                                 echo "<script>window.location.href = '?controller=taikhoan';</script>";
                             }else{
-                                $loi['sdt'] = 'Số điện thoại đã tồn tại';
+                                $loi['email'] = 'Email đã tồn tại';
                             }
                         }else {
-                            $loi['username'] = 'Tên đăng nhập đã tồn tại';
+                            $loi['sdt'] = 'Số điện thoại đã tồn tại';
                         }
                     }
                 }else {
-                    $loi['email'] = 'Email đã tồn tại';
+                    $loi['username'] = 'Tên tài khoản đã tồn tại';
                 }
             }
         }

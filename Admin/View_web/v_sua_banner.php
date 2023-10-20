@@ -209,8 +209,17 @@
             max-width: 300px;;
         }
         .save__banner{
+            border: none;
+            border-radius: 18px;
+            background: var(--black);
+            color: white;
             margin-left: 45%;
             padding: 10px 20px;
+            cursor: pointer;
+        }
+        .save__banner:hover{
+            background: var(--yellow);
+            color: black;
         }
     </style>
 </head>
@@ -222,19 +231,17 @@
 
 
         <div class="user">
-            <img src="./img/iconE.png" alt="">
+            <img src="../images/home/<?php echo $thongtinshop[0]['logo_shop'] ?> ?>" alt="">
         </div>
     </div>
 
     <div class="details">
         <div class="recentstaff">
-        <h2>Trạng thái đơn hàng</h2>
+        <h2>Sửa banner</h2>
         <a href="?controller=banner">Quay lại</a>
         <form action="" method="post" enctype="multipart/form-data">
-        <button class="btn save__banner" name="btn_luu">Lưu banner </button>
+        <button class="btn save__banner" name="btn_luu">Lưu banner</button>
             <div class="cardHeader">
-                
-
             <table>
                 <thead>
                     <tr>
@@ -242,7 +249,6 @@
                        <td>Ảnh sale  banner</td>
                        <td>Tên banner</td>
                        <td>Nội dung </td>
-                       
                     </tr>
                 </thead>
 

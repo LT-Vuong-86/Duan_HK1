@@ -7,7 +7,6 @@
     <link rel="stylesheet" href="assets/css/sanpham.css">
     <title>TVT-Shop | Admin | Sản phẩm của TVT-Shop</title>
     <style>
-      
         *{
             font-family: 'Ubuntu', sans-serif;
             margin: 0;
@@ -451,8 +450,10 @@
         .navigation li .icon img{
             position: relative;
             border-radius: 18px;
-            width: 50%;
-            margin-top: 10px;
+            width: 180px;
+            height: 80px;
+            margin: 10px 0 10px 45px;
+            object-fit: cover;
         }
     </style>
 
@@ -461,10 +462,10 @@
     <div class="container">
         <div class="navigation">
             <ul>
-                <li>
+                <li >
                     <a href="?controller=trangchu" >
-                        <span class="icon">
-                            <img src="../images/home/<?php echo $thongtinshop[0]['logo_shop'] ?>" alt="">
+                        <span class="icon" >
+                            <img src="../images/home/<?php echo $thongtinshop[0]['logo_shop']?>" alt="">
                         </span>
                     </a>
                 </li>

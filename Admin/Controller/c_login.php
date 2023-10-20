@@ -7,13 +7,13 @@
         $password = $_POST['password'];
 
         $loi = array();
-        if($username == ''){
+        if(empty($username)){
             $loi['username'] = 'Username không được để trống';
         }
-        if($password == ''){
+        if(empty($password)){
             $loi['password'] = 'Password không được để trống';
         }
-        if(!$loi){
+        if(empty($loi)){
             $password=md5($_POST['password']);          
             $admin = $db->get('taikhoan', array('username'=>$username));
             if(empty($admin)){
@@ -23,11 +23,11 @@
                     $loi['password'] = 'Sai tài khoản hoặc mật khẩu';
                 }
                 if ($admin[0]['vaitro']=='user') {
-                    $loi['admin']='bạn không có quyền';
+                    $loi['admin']='Bạn không có quyền';
                 }
             }
         }
-        if(!$loi){
+        if(empty($loi)){
             $_SESSION['ss_admin'] = $admin[0]['id'];    
 
             header('location: ?controller=trangchu');

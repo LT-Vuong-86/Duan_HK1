@@ -452,8 +452,10 @@
         .navigation li .icon img{
             position: relative;
             border-radius: 18px;
-            width: 50%;
-            margin-top: 10px;
+            width: 180px;
+            height: 80px;
+            margin: 10px 0 10px 45px;
+            object-fit: cover;
         }
     </style>
 
@@ -547,6 +549,7 @@
                     <select name="codition_search" id="">
                         <option value="id_kh" selected >Mã khách hàng</option>
                         <option value="id_donhang">Mã đơn hàng</option>
+                        <option value="sdt">SĐT</option>
                     </select>
                 </div>
                 <div class="search">

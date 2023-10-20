@@ -37,6 +37,12 @@
             transition: all 1s;
         }
 
+        input[type='number']::-webkit-inner-spin-button,
+        input[type='number']::-webkit-outer-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+
         .container{
             width: 800px;
             height: auto;
@@ -49,11 +55,13 @@
         .container h2{
             text-align: center;
         }
+
         .form-control{
             width: 100%;
             position: relative;
             border: 1px solid grey;
         }
+
         .form-control:hover{
             border: 1px solid var(--success-color);
             box-shadow: 2px 2px 2px blue;
@@ -140,12 +148,20 @@
         }
 
         #canhbao{
-            padding-top: -20px;
             position: absolute;
             margin-left: 5px;
         }
-        h3{
-            margin-bottom: 25px;
+
+        #tensanpham, #gia, #xuatxu, #daban{
+            margin-top: 15px;
+        }
+
+        h6{
+            margin-top: 40px;
+        }
+
+        h2{
+            margin-bottom: -50px;
         }
 
         #id_dm select{
@@ -158,46 +174,17 @@
             margin-bottom: 35px;
         }
 
-        #tensanpham{
-            margin-bottom: 35px;        
-        }
-
-        #tonkho{
-            margin-bottom: 35px;        
-        }
-
-        #anh{
-            margin-bottom: 35px;        
-        }
-
-        #gia{
-            margin-bottom: 35px;       
-        }
-
-        #xuatxu{
-            margin-bottom: 35px;       
-        }
-
-        #trangthai{
-            margin-bottom: 35px;       
-        }
-
-        #daban{
-            margin-bottom: 35px;       
-        }
-
     </style>
 </head>
 <body>
 <div class="container">
     <form action="#" method="post"  enctype="multipart/form-data">
         <div>
-            <h3 class="text-uppercase text-center">Cập nhật sản phẩm</h3>
+            <h2 class="text-uppercase text-center">Cập nhật sản phẩm</h2>
         </div>
         <h6>Tên danh mục:</h6>
         <div id="id_dm"  >
-
-            <select name="id_dm"  >
+            <select name="id_dm">
                 <option value="1"<?php if ($data_sanpham[0]['id_danhmuc']==1) {
                     echo "selected";
                 } ?>>Áo nữ</option>
@@ -233,6 +220,11 @@
             <input name="tensanpham" type="text" placeholder="Hãy điền tên sản phẩm..." 
             value="<?php echo $data_sanpham[0]['tensanpham'] ?>" >
         </div>
+        <div id="canhbao" class="row mt-2">
+            <?php if(isset($loi['tensanpham'])){?>
+                <p class="text-danger"><?php echo $loi['tensanpham']?></p> 
+            <?php }?>
+        </div>
 
         <h6>Ảnh sản phẩm:</h6>
         <div id="anh" class="form-control row mx-1">
@@ -241,7 +233,7 @@
                 <?php echo $data_sanpham[0]['anh_chinh'] ?> <?php } ?>" >
             <?php if (isset( $data_sanpham[0]['anh_chinh'])) { ?>          
             <img  src="../images/sanpham/<?php echo $data_sanpham[0]['anh_chinh'] ?>" alt="">
-       <?php } ?>
+        <?php } ?>
         </div>
 
         <h6>Tồn kho:</h6>
@@ -250,25 +242,38 @@
             value="<?php echo $data_sanpham[0]['tonkho'] ?>" >
         </div>
 
-        <h6>Giá trị:</h6>
+        <h6>Giá tiền:</h6>
         <div id="gia" class="form-control row mx-1">
             <input name="gia" type="text" placeholder="Giá của 1 sản phẩm?..." 
             value="<?php echo $data_sanpham[0]['gia'] ?>" >
         </div>
-
+        <div id="canhbao" class="row mt-2">
+            <?php if(isset($loi['gia'])){?>
+                <p class="text-danger"><?php echo $loi['gia']?></p> 
+            <?php }?>
+        </div>
         
+
         <h6>Xuất xứ:</h6>
         <div id="xuatxu" class="form-control row mx-1">
             <input name="xuatxu" type="text" placeholder="Nơi ở hiện tại..." 
             value="<?php echo $data_sanpham[0]['xuatxu'] ?>" >
         </div>
-
-        
+        <div id="canhbao" class="row mt-2">
+            <?php if(isset($loi['xuatxu'])){?>
+                <p class="text-danger"><?php echo $loi['xuatxu']?></p> 
+            <?php }?>
+        </div>
 
         <h6>Đã bán:</h6>
         <div id="daban" class="form-control row mx-1">
             <input name="daban" type="text" placeholder="Đã bán được ..." 
             value="<?php echo $data_sanpham[0]['daban'] ?>" >
+        </div>
+        <div id="canhbao" class="row mt-2">
+            <?php if(isset($loi['daban'])){?>
+                <p class="text-danger"><?php echo $loi['daban']?></p> 
+            <?php }?>
         </div>
 
         <button type="submit" style="border: none; border-radius:25px; background: white; width: 100%;" 
@@ -279,7 +284,6 @@
                 <polyline points="8 1 12 5 8 9"></polyline>
             </svg> -->
             Cập nhật</button>
-           
     </form>    
 </div>
 

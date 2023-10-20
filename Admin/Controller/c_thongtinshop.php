@@ -16,38 +16,20 @@
                 $matkhau_shop=$_POST['matkhau_shop'];
                 $diachi_shop = $_POST['diachi_shop'];
                 $id_fanpage_fb = $_POST['id_fanpage_fb'];
-                $loi =[];
-                if($ten_shop == ''){
-                    $loi['ten_shop'] = 'ten_shop không được để trống';
-                }
-
-
-                if($email_shop == ''){
-                    $loi['email_shop'] = 'Email không được để trống';
-                }
-
-                if($sdt_shop == ''){
-                    $loi['sdt_shop'] = 'SĐT không được để trống';
-                }
-
+            
+                $db->update('thongtinshop',array(
+                    'logo_shop'=>$logo_shop,
+                    'ten_shop'=>$ten_shop,
+                    'email_shop'=>$email_shop,
+                    'sdt_shop'=>$sdt_shop,
+                    'diachi_shop'=>$diachi_shop,
+                    'matkhau_shop'=>$matkhau_shop,
+                    'id_fanpage_fb'=>$id_fanpage_fb
                 
-                if($diachi_shop == ''){
-                    $loi['diachi_shop'] = 'Địa chỉ không được để trống';
-                }
-                if(!$loi){
-                    $db->update('thongtinshop',array(
-                        'logo_shop'=>$logo_shop,
-                        'ten_shop'=>$ten_shop,
-                        'email_shop'=>$email_shop,
-                        'sdt_shop'=>$sdt_shop,
-                        'diachi_shop'=>$diachi_shop,
-                        'matkhau_shop'=>$matkhau_shop,
-                        'id_fanpage_fb'=>$id_fanpage_fb
-                    
-                    ),array('id'=>1));
+                ),array('id'=>1));
+            
+                header('location: ?controller=thongtinshop');
                 
-                    header('location: ?controller=thongtinshop');
-                }
             }else{
                 echo '<script type="text/javascript">alert("Bạn không có quyền hạn");           
                 </script>';

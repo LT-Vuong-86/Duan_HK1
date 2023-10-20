@@ -413,8 +413,36 @@
         .navigation li .icon img{
             position: relative;
             border-radius: 18px;
-            width: 50%;
-            margin-top: 10px;
+            width: 180px;
+            height: 80px;
+            margin: 10px 0 10px 45px;
+            object-fit: cover;
+        }
+        .pagination {
+            position: relative;
+            align-self: center;
+            display: inline-block;
+            margin: 0 auto;
+        }
+
+        .pagination a {
+            border: 1px solid black;
+            color: black;
+            float: left;
+            padding: 8px 16px;
+            text-decoration: none;
+            display: grid;
+        }
+
+        .pagination li {
+            color: black;
+            float: left;
+            text-decoration: none;
+            list-style: none;
+        }
+
+        .pagination li.active {
+            background: var(--yellow);
         }
     </style>
 
@@ -559,6 +587,19 @@
                             </tr>
                         </tbody>
                     </table>
+                    <ul class="pagination">
+                        <?php
+                            if (isset($total_pages)) {
+                                for ($i = 1; $i <= $total_pages; $i++) {
+                                    if ($i == $current_page) {
+                                        echo "<li class='active'><a href='?controller=donhang&page=$i'>$i</a></li>";
+                                    }else{
+                                        echo "<li><a href='?controller=donhang&page=$i'>$i</a></li>";
+                                    }
+                                }  
+                            }
+                        ?>
+                    </ul>
                 </div>
             </div>
         </div>

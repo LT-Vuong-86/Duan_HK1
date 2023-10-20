@@ -13,7 +13,6 @@ if(isset($_SESSION['ss_admin'])){
             $uploadedFile_main = $_FILES['img_main'];
             $imglink = $db->uploadfile($uploadedFile_main);
             if(isset($_POST['anh_phu'])){
-               
                 $uploadedFile_extra=$_FILES['anh_phu'];
                 $uploadedFile_extrar=$_FILES['anh_phu']['name'];
                 $imglink_extra = $db->uploadfile($uploadedFile_extra);
@@ -44,13 +43,12 @@ if(isset($_SESSION['ss_admin'])){
                 $productSizeXXL[] = $_POST["productSizeXXL$i"];
             }
             if($productName[0]!=''){
-            for($i = 0; $i < $slmasp; $i++){
-
-                $tonkho+=$productSizeS[$i]+$productSizeM[$i]+$productSizeL[$i]+$productSizeXL[$i]+$productSizeXXL[$i];
+                for($i = 0; $i < $slmasp; $i++){
+                    $tonkho+=$productSizeS[$i]+$productSizeM[$i]+$productSizeL[$i]+$productSizeXL[$i]+$productSizeXXL[$i];
+                }
+            }else{
+                $loi['slmasp'] = ' không được để trống';
             }
-        }else{
-            $loi['slmasp'] = ' không được để trống';
-        }
             // print_r(pathinfo('1.2.jpg'));
             // die;
             $daban=0;
@@ -62,30 +60,30 @@ if(isset($_SESSION['ss_admin'])){
             }
             // var_dump($anhphu);
             // die;
-            if($id_dm == ''){
+            if(empty($id_dm)){
                 $loi['id_dm'] = 'Danh mục không được để trống';
             }
-            if($slmasp == ''){
+            if(empty($slmasp)){
                 $loi['slmasp'] = ' không được để trống';
             }
 
-            if($tensanpham == ''){
+            if(empty($tensanpham)){
                 $loi['tensanpham'] = 'Tên sản phẩm không được để trống';
             }
 
-            if($gia == ''){
+            if(empty($gia)){
                 $loi['gia'] = 'Giá không được để trống';
             }
 
-            if($xuatxu == ''){
+            if(empty($xuatxu)){
                 $loi['xuatxu'] = 'Xuất xứ không được để trống';
             }
 
-            if($daban == ''){
+            if(empty($daban)){
                 $loi['daban'] = 'Đã bán không được để trống';
             }
 
-            if(!$loi){
+            if(empty($loi)){
                 $db->insert('sanpham',array(
                     'tensanpham'=>$tensanpham,
                     'tonkho'=>$tonkho,

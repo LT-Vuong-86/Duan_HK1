@@ -67,6 +67,7 @@
             outline: none;
             font-size: 16px;
         }
+        
         .form-control span{
             position: absolute;
         }
@@ -191,7 +192,7 @@
         </div>
         
         <div id="username" class="form-control row mx-1">
-            <input name="username"  type="text" placeholder="Tên đăng nhập" 
+            <input name="username"  type="text" placeholder="Tên tài khoản" 
             value="">
         </div>
         <div id="canhbao" class="row mt-2">
@@ -222,7 +223,7 @@
 
         <div id="sdt" class="form-control row mx-1">
             <input id="phone_number" name="sdt" pattern="^0[3-9][0-9]{8}" title="Số điện thoại không hợp lệ!"  type="tel" placeholder="SĐT" 
-            value="<?php echo (isset($sdt))?$sdt:'' ?>">
+            value="">
         </div>
         <div id="canhbao" class="row mt-2">
             <?php if(isset($loi['sdt'])){?>
@@ -231,8 +232,8 @@
         </div>
 
         <div id="vaitro" class="form-control row mx-1">
-            <input name="vaitro" type="text"  placeholder="Vai trò" 
-            value="<?php echo (isset($vaitro))?$vaitro:'' ?>" <?php if ($user[0]['vaitro']=='manager') { echo "disabled"; }?>>
+            <input name="vaitro" type="text"  placeholder="Vai trò (admin, user, manager)" 
+            value="" <?php if ($user[0]['vaitro']=='manager') { echo "disabled"; }?>>
         </div>
         <div id="canhbao" class="row mt-2">
             <?php if(isset($loi['vaitro'])){?>
@@ -252,7 +253,7 @@
 
         <div id="diachi" class="form-control row mx-1">
             <input name="diachi" type="text" placeholder="Địa chỉ " 
-            value="<?php echo (isset($diachi))?$diachi:'' ?>" <?php  if ($user[0]['vaitro']=='manager') { echo "required"; }?>>
+            value="" <?php  if ($user[0]['vaitro']=='manager') { echo "required"; }?>>
         </div>
         <div id="canhbao" class="row mt-2">
             <?php if(isset($loi['diachi'])){?>

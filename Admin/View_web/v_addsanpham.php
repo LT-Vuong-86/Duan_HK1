@@ -165,7 +165,6 @@
         </div> 
         <li><h5>Danh mục</h5></li>
         <div id="id_dm" class="form-control "   >
-
             <select name="id_dm">
                 <?php 
                 foreach($data_danhmuc as $key => $value){
@@ -184,7 +183,6 @@
         </div>
         <h5>Ảnh chính sản phẩm</h5>
         <div id="anh" class="form-control row mx-1">
-       
             <input name="img_main[]" required  type="file" accept="image/*" placeholder="Ảnh chính sản phẩm" 
             value="<?php echo (isset($anh))?$anh:'' ?>" >
             <img width="200px" src="" id="loaisp_size1" alt="">
@@ -211,7 +209,6 @@
             <?php if(isset($loi['slmasp'])){?>
                 <p class="text-danger"><?php echo $loi['slmasp']?></p> 
             <?php }?>
-
         </div>
         <div id="loaisp_size" class="form-control"></div>
         

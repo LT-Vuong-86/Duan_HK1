@@ -8,9 +8,7 @@
             $data_nhanvien = $db->get_like('taikhoan',$search_codition,$content,array());
         }else {
             $data_nhanvien = $db->get('taikhoan', array());
-        }
-
-        
+        }    
     }else{
         header('location: ?controller=login');
     }

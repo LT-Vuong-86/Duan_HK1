@@ -169,6 +169,7 @@
             transform: scale(.95);
         }
         #canhbao{
+            margin-top: -50px;
             position: absolute;
             margin-left: 5px;
         }
@@ -201,12 +202,17 @@
 <div class="container">
     <form action="?controller=login" method="post">
         <div><h2 class="text-uppercase text-center">Đăng nhập</h2></div>
-        <?php if(isset($loi['admin'])){?>
+            <?php if(isset($loi['admin'])){?>
                 <p class="text-danger"><?php echo $loi['admin']?></p> 
             <?php }?>
         <div class="form-control row mx-1">
             <input class="input" name="username"  type="text" placeholder="Tên đăng nhập" 
             value="<?php echo (isset($username))?$username:'' ?>" >
+        </div>
+        <div id="canhbao" class="row mt-2">
+            <?php if(isset($loi['password'])){?>
+                <p class="text-danger"><?php echo $loi['password']?></p> 
+            <?php }?>
         </div>
          
 
@@ -214,11 +220,7 @@
             <input class="input" name="password" type="password" placeholder="Mật khẩu" 
             value="" >
         </div>
-        <div id="canhbao" class="row mt-2">
-            <?php if(isset($loi['password'])){?>
-                <p class="text-danger"><?php echo $loi['password']?></p> 
-            <?php }?>
-        </div>
+        
         <div id="canhbao" class="row mt-2">
             <?php if(isset($loi['username'])){?>
                 <p class="text-danger"><?php echo $loi['username']?></p> 

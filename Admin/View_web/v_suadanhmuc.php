@@ -184,12 +184,22 @@
         <div id="id_danhmuc" class="form-control row mx-1">
             <input style="background: transparent" name="id_danhmuc" type="text" placeholder="Hãy điền mã danh mục..." 
             value="<?php echo $data_danhmuc[0]['id_danhmuc'] ?>">
-        </div> 
+        </div>
+        <div id="canhbao" class="row mt-2">
+            <?php if(isset($loi['id_danhmuc'])){?>
+                <p class="text-danger"><?php echo $loi['id_danhmuc']?></p> 
+            <?php }?>
+        </div>
 
         <h6>Tên danh mục:</h6>
         <div id="danhmuc" class="form-control row mx-1">
             <input name="danhmuc" type="text" placeholder="Hãy điền tên danh mục..." 
             value="<?php echo $data_danhmuc[0]['danhmuc'] ?>" >
+        </div>
+        <div id="canhbao" class="row mt-2">
+            <?php if(isset($loi['danhmuc'])){?>
+                <p class="text-danger"><?php echo $loi['danhmuc']?></p> 
+            <?php }?>
         </div>
 
         <button type="submit" style="border: none; border-radius:25px; background: white; width: 100%;" 

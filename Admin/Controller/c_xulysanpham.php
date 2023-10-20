@@ -23,37 +23,33 @@ if(isset($_SESSION['ss_admin'])){
                     $gia = isset($_POST['gia']) ? $_POST['gia'] : $data_sanpham[0]['gia'];
                     $xuatxu = isset($_POST['xuatxu']) ? $_POST['xuatxu'] : $data_sanpham[0]['xuatxu'];
                     $daban = isset($_POST['daban']) ? $_POST['daban'] : $data_sanpham[0]['daban'];
-                    $danhmuc=isset($_POST['id_dm']) ? $_POST['id_dm'] : $data_sanpham[0]['id_dm'];
+                    $danhmuc = isset($_POST['id_dm']) ? $_POST['id_dm'] : $data_sanpham[0]['id_dm'];
                     $uploadedFile=$_FILES['anh_chinh'];
                     $uploadedFilevdb=$_FILES['anh_chinh']['tmp_name'];
                                    
                         $anh_chinh=$db->uploadfile($uploadedFile );
                      
                     $loi = array();
-                    if($tensanpham == ''){
-                        $loi['username'] = 'không được để trống';
+                    if(empty($tensanpham)){
+                        $loi['tensanpham'] = 'Tên sản phẩm không được để trống';
                     }
 
-                    if($tonkho == ''){
-                        $loi['full_name'] = 'Tên đầy đủ không được để trống';
+                    if(empty($daban)){
+                        $loi['daban'] = 'Số lượng đã bán không được để trống';
                     }
 
-                    if($daban == ''){
-                        $loi['email'] = 'Email không được để trống';
+                    if(empty($xuatxu)){
+                        $loi['xuatxu'] = 'Xuất xứ không được để trống';
                     }
 
-                    if($danhmuc == ''){
-                        $loi['sdt'] = 'SĐT không được để trống';
-                    }
-
-                    if($uploadedFile == ''){
-                        $loi['vaitro'] = 'Vai trò không được để trống';
+                    if(empty($uploadedFile)){
+                        $loi['anh_chinh'] = 'Ảnh sp không được để trống';
                     }
                     
-                    if($gia == ''){
-                        $loi['diachi'] = 'Địa chỉ không được để trống';
+                    if(empty($gia)){
+                        $loi['gia'] = 'Giá tiền không được để trống';
                     }
-                    if(!$loi){
+                    if(empty($loi)){
                         if (!empty($anh_chinh)) {
                             $db->update('sanpham',array(
                                 'tensanpham'=>$tensanpham,  
