@@ -13,7 +13,7 @@ if(isset($_SESSION['ss_admin'])){
             $username = $_POST['username'];
             $dang_username = '/^[a-zA-Z0-9-]+$/';
             $full_name = $_POST['full_name'];
-            $password = md5($_POST['pass']);  
+            $password = $_POST['pass'];  
             $email = $_POST['email'];
             $dang_email = '/^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z]+$/';
             $sdt = $_POST['sdt'];

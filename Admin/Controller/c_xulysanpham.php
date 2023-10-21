@@ -34,10 +34,6 @@ if(isset($_SESSION['ss_admin'])){
                         $loi['tensanpham'] = 'Tên sản phẩm không được để trống';
                     }
 
-                    if(empty($daban)){
-                        $loi['daban'] = 'Số lượng đã bán không được để trống';
-                    }
-
                     if(empty($xuatxu)){
                         $loi['xuatxu'] = 'Xuất xứ không được để trống';
                     }

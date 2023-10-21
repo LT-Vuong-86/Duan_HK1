@@ -270,11 +270,7 @@
             <input name="daban" type="text" placeholder="Đã bán được ..." 
             value="<?php echo $data_sanpham[0]['daban'] ?>" >
         </div>
-        <div id="canhbao" class="row mt-2">
-            <?php if(isset($loi['daban'])){?>
-                <p class="text-danger"><?php echo $loi['daban']?></p> 
-            <?php }?>
-        </div>
+        
 
         <button type="submit" style="border: none; border-radius:25px; background: white; width: 100%;" 
         class="button" name="btn_suasanpham" onclick="return confirm('Bạn đồng ý sửa?');">

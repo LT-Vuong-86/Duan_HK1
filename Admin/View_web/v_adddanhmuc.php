@@ -197,88 +197,85 @@
 
 </body>
 <script>
- document.addEventListener('DOMContentLoaded', function() {
-      // Lắng nghe sự kiện thay đổi của tất cả các thẻ input file
-      const inputFiles = document.querySelectorAll('input[type="file"]');
-      inputFiles.forEach(inputFile => {
-        inputFile.addEventListener('change', function() {
-          // Lấy đối tượng File của tập tin đã được chọn
-          const file = this.files[0];
-          // Tạo một đối tượng FileReader để đọc dữ liệu của tập tin
-          const reader = new FileReader();
-          // Lắng nghe sự kiện đọc dữ liệu của FileReader
-          reader.addEventListener('load', function() {
-            // Hiển thị ảnh ở id="loaisp_size"
-            document.getElementById('loaisp_size1').src = reader.result;
-          });
-          // Đọc dữ liệu của tập tin
-          reader.readAsDataURL(file);
+    document.addEventListener('DOMContentLoaded', function() {
+        // Lắng nghe sự kiện thay đổi của tất cả các thẻ input file
+        const inputFiles = document.querySelectorAll('input[type="file"]');
+        inputFiles.forEach(inputFile => {
+            inputFile.addEventListener('change', function() {
+            // Lấy đối tượng File của tập tin đã được chọn
+            const file = this.files[0];
+            // Tạo một đối tượng FileReader để đọc dữ liệu của tập tin
+            const reader = new FileReader();
+            // Lắng nghe sự kiện đọc dữ liệu của FileReader
+            reader.addEventListener('load', function() {
+                // Hiển thị ảnh ở id="loaisp_size"
+                document.getElementById('loaisp_size1').src = reader.result;
+            });
+            // Đọc dữ liệu của tập tin
+            reader.readAsDataURL(file);
+            });
         });
-      });
-    });
-    function showInputs(numProducts) {
-  // Tạo mảng chứa các ô input
-  var inputs = [];
-  for (var i = 1; i <= numProducts; i++) {
-    //hienthi anh
-    
-    //label anh phu
-    var label = document.createElement('label');
-    label.setAttribute('for', 'label_file');
-    label.textContent = 'Chọn ảnh phụ thứ '+i;
-    //anh phu
-    var inputfile = document.createElement('input');
-    inputfile.setAttribute('type', 'file');
-    inputfile.setAttribute('accept', 'image/*');
-    inputfile.setAttribute('name', 'anh_phu[]');
-    inputfile.setAttribute('id', 'label_file');
-    // Tạo ô input cho tên sản phẩm
-    var inputName = document.createElement("input");
-    inputName.type = "text";
-    inputName.name = "productName" + i;
-    inputName.placeholder = "Tên sản phẩm "+i;
+        });
+        function showInputs(numProducts) {
+    // Tạo mảng chứa các ô input
+    var inputs = [];
+    for (var i = 1; i <= numProducts; i++) {
+        //hienthi anh
+        
+        //label anh phu
+        var label = document.createElement('label');
+        label.setAttribute('for', 'label_file');
+        label.textContent = 'Chọn ảnh phụ thứ '+i;
+        //anh phu
+        var inputfile = document.createElement('input');
+        inputfile.setAttribute('type', 'file');
+        inputfile.setAttribute('accept', 'image/*');
+        inputfile.setAttribute('name', 'anh_phu[]');
+        inputfile.setAttribute('id', 'label_file');
+        // Tạo ô input cho tên sản phẩm
+        var inputName = document.createElement("input");
+        inputName.type = "text";
+        inputName.name = "productName" + i;
+        inputName.placeholder = "Tên sản phẩm "+i;
 
-    // Tạo ô input cho giá sản phẩm
-
-
-    // Tạo các ô input cho số lượng size
-    var inputS = document.createElement("input");
-    inputS.type = "number";
-    inputS.name = "productSizeS" + i;
-    inputS.placeholder = "số lượng Size S của sp"+i;
-
-    var inputM = document.createElement("input");
-    inputM.type = "number";
-    inputM.name = "productSizeM" + i;
-    inputM.placeholder = "số lượng Size M của sp"+i;
-
-    var inputL = document.createElement("input");
-    inputL.type = "number";
-    inputL.name = "productSizeL" + i;
-    inputL.placeholder = "số lượng Size L của sp"+i;
-
-    var inputXL = document.createElement("input");
-    inputXL.type = "number";
-    inputXL.name = "productSizeXL" + i;
-    inputXL.placeholder = "số lượng Size XL của sp"+i;
-
-    var inputXXL = document.createElement("input");
-    inputXXL.type = "number";
-    inputXXL.name = "productSizeXXL" + i;
-    inputXXL.placeholder = "số lượng Size XXL của sp"+i;
-    var ivbsbs=document.body.appendChild(document.createElement("br"));
-    inputs.push(label,inputfile,inputName, inputS, inputM, inputL, inputXL, inputXXL,ivbsbs);
-  }
-
-  // Thêm các ô input vào thẻ form
-  var form = document.querySelector("#loaisp_size");
-  for (var input of inputs) {
-    form.appendChild(input);
-  }
-}
+        // Tạo ô input cho giá sản phẩm
 
 
+        // Tạo các ô input cho số lượng size
+        var inputS = document.createElement("input");
+        inputS.type = "number";
+        inputS.name = "productSizeS" + i;
+        inputS.placeholder = "số lượng Size S của sp"+i;
 
+        var inputM = document.createElement("input");
+        inputM.type = "number";
+        inputM.name = "productSizeM" + i;
+        inputM.placeholder = "số lượng Size M của sp"+i;
+
+        var inputL = document.createElement("input");
+        inputL.type = "number";
+        inputL.name = "productSizeL" + i;
+        inputL.placeholder = "số lượng Size L của sp"+i;
+
+        var inputXL = document.createElement("input");
+        inputXL.type = "number";
+        inputXL.name = "productSizeXL" + i;
+        inputXL.placeholder = "số lượng Size XL của sp"+i;
+
+        var inputXXL = document.createElement("input");
+        inputXXL.type = "number";
+        inputXXL.name = "productSizeXXL" + i;
+        inputXXL.placeholder = "số lượng Size XXL của sp"+i;
+        var ivbsbs=document.body.appendChild(document.createElement("br"));
+        inputs.push(label,inputfile,inputName, inputS, inputM, inputL, inputXL, inputXXL,ivbsbs);
+    }
+
+    // Thêm các ô input vào thẻ form
+    var form = document.querySelector("#loaisp_size");
+    for (var input of inputs) {
+        form.appendChild(input);
+    }
+    }
 
 </script>
 </html>

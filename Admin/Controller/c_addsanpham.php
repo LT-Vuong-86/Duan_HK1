@@ -43,12 +43,13 @@ if(isset($_SESSION['ss_admin'])){
                 $productSizeXXL[] = $_POST["productSizeXXL$i"];
             }
             if($productName[0]!=''){
-                for($i = 0; $i < $slmasp; $i++){
-                    $tonkho+=$productSizeS[$i]+$productSizeM[$i]+$productSizeL[$i]+$productSizeXL[$i]+$productSizeXXL[$i];
-                }
-            }else{
-                $loi['slmasp'] = ' không được để trống';
+            for($i = 0; $i < $slmasp; $i++){
+
+                $tonkho+=$productSizeS[$i]+$productSizeM[$i]+$productSizeL[$i]+$productSizeXL[$i]+$productSizeXXL[$i];
             }
+        }else{
+            $loi['slmasp'] = ' không được để trống';
+        }
             // print_r(pathinfo('1.2.jpg'));
             // die;
             $daban=0;
@@ -60,30 +61,30 @@ if(isset($_SESSION['ss_admin'])){
             }
             // var_dump($anhphu);
             // die;
-            if(empty($id_dm)){
+            if($id_dm == ''){
                 $loi['id_dm'] = 'Danh mục không được để trống';
             }
-            if(empty($slmasp)){
+            if($slmasp == ''){
                 $loi['slmasp'] = ' không được để trống';
             }
 
-            if(empty($tensanpham)){
+            if($tensanpham == ''){
                 $loi['tensanpham'] = 'Tên sản phẩm không được để trống';
             }
 
-            if(empty($gia)){
+            if($gia == ''){
                 $loi['gia'] = 'Giá không được để trống';
             }
 
-            if(empty($xuatxu)){
+            if($xuatxu == ''){
                 $loi['xuatxu'] = 'Xuất xứ không được để trống';
             }
 
-            if(empty($daban)){
+            if($daban == ''){
                 $loi['daban'] = 'Đã bán không được để trống';
             }
 
-            if(empty($loi)){
+            if(!$loi){
                 $db->insert('sanpham',array(
                     'tensanpham'=>$tensanpham,
                     'tonkho'=>$tonkho,
@@ -91,7 +92,7 @@ if(isset($_SESSION['ss_admin'])){
                     'anh_chinh'=>$imglink,
                     'xuatxu'=>$xuatxu, 
                     'id_danhmuc'=>$id_dm,
-                    'daban'=>$daban,
+                    'daban'=>0,
                     'ngaytao'=>$date_oder,
                     'nguoitao'=>$user[0]['username']
                 ));    
@@ -101,7 +102,7 @@ if(isset($_SESSION['ss_admin'])){
             for ($i=0; $i < $slmasp; $i++) {
                  $db->insert('loai_sp',array( 
                     'id_sanpham '=>$anhphu_idsp, 
-                    'anh_phu'=>$uploadedFile_extrar[$i],
+                    'anh_phu'=>$uploadedFile_extra[$i],
                     'type_name'=>$productName[$i], 
                     's'=>$productSizeS[$i],
                     'm'=>$productSizeM[$i],

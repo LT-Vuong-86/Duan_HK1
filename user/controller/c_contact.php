@@ -17,15 +17,12 @@ if (isset($_POST['submit'])) {
     $mail->SMTPAuth = true;
     $mail->Username = $thongtinshop[0]['email_shop'];
     $mail->Password = $thongtinshop[0]['matkhau_shop'];
-    $mail->SMTPSecure = 'ssl';// Enable TLS encryption; `PHPMailer::ENCRYPTION_SMTPS` also accepted
-    $mail->Port = 465; // TCP port to connect to
+    $mail->SMTPSecure = 'ssl';
+    $mail->Port = 465;
  
-    // Set the sender and recipient addresses.
     $mail->setFrom($_POST['name'],$_POST['email']);
     $mail->addAddress($thongtinshop[0]['email_shop']);
     $mail->isHTML(true);
-    // Set the subject and body of the email.
-    // Sử dụng thuộc tính Encoding để đảm bảo subject email được mã hóa bằng UTF-8
     $mail->Subject = $_POST['subject'];
     $mail->Body = $_POST['message'];
    

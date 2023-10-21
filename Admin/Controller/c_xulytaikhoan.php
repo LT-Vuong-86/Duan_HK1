@@ -5,11 +5,18 @@ if(isset($_SESSION['ss_admin'])){
 
         $method = $_GET['method'];
         $id = $_GET['id'];
+        $taikhoan = $db->get('taikhoan', array('id'=>$id));
         switch ($method) {
             case 'xoa':
                 $id = $_GET['id'];
-                $db->delete('taikhoan', array('id'=>$id));
-                header('Location: ?controller=taikhoan');
+                if($taikhoan[0]['username']=='admin11'){
+                    echo "<script>alert('Tài khoản này ko được xóa')</script>";
+                    echo "<script>window.location.href = '?controller=taikhoan';</script>";
+
+                }else{
+                    $db->delete('taikhoan', array('id'=>$id));
+                    header('Location: ?controller=taikhoan');
+                }
                 break;
 
             case 'sua':
