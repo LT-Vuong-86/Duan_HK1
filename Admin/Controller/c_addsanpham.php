@@ -12,10 +12,9 @@ if(isset($_SESSION['ss_admin'])){
             $xuatxu = $_POST['xuatxu'];
             $uploadedFile_main = $_FILES['img_main'];
             $imglink = $db->uploadfile($uploadedFile_main);
-            if(isset($_POST['anh_phu'])){
+            if(isset($_FILES['anh_phu'])){
                 $uploadedFile_extra=$_FILES['anh_phu'];
-                $uploadedFile_extrar=$_FILES['anh_phu']['name'];
-                $imglink_extra = $db->uploadfile($uploadedFile_extra);
+                $imglink_extra = $db->uploadfile1($uploadedFile_extra);
             }
             $slmasp=$_POST['slmasp'];
             $productName = [];
@@ -44,11 +43,10 @@ if(isset($_SESSION['ss_admin'])){
             }
             if($productName[0]!=''){
             for($i = 0; $i < $slmasp; $i++){
-
                 $tonkho+=$productSizeS[$i]+$productSizeM[$i]+$productSizeL[$i]+$productSizeXL[$i]+$productSizeXXL[$i];
             }
         }else{
-            $loi['slmasp'] = ' không được để trống';
+            $loi['slmasp'] = 'Số lượng sản phẩm không được để trống';
         }
             // print_r(pathinfo('1.2.jpg'));
             // die;
@@ -61,30 +59,24 @@ if(isset($_SESSION['ss_admin'])){
             }
             // var_dump($anhphu);
             // die;
-            if($id_dm == ''){
-                $loi['id_dm'] = 'Danh mục không được để trống';
-            }
-            if($slmasp == ''){
-                $loi['slmasp'] = ' không được để trống';
+
+            if(empty($slmasp)){
+                $loi['slmasp'] = 'Số lượng sản phẩm không được để trống';
             }
 
-            if($tensanpham == ''){
+            if(empty($tensanpham)){
                 $loi['tensanpham'] = 'Tên sản phẩm không được để trống';
             }
 
-            if($gia == ''){
+            if(empty($gia)){
                 $loi['gia'] = 'Giá không được để trống';
             }
 
-            if($xuatxu == ''){
+            if(empty($xuatxu)){
                 $loi['xuatxu'] = 'Xuất xứ không được để trống';
             }
 
-            if($daban == ''){
-                $loi['daban'] = 'Đã bán không được để trống';
-            }
-
-            if(!$loi){
+            if(empty($loi)){
                 $db->insert('sanpham',array(
                     'tensanpham'=>$tensanpham,
                     'tonkho'=>$tonkho,
@@ -99,21 +91,21 @@ if(isset($_SESSION['ss_admin'])){
                 $anhphu_idsp=$db->insert_id();
                 
        
-            for ($i=0; $i < $slmasp; $i++) {
-                 $db->insert('loai_sp',array( 
-                    'id_sanpham '=>$anhphu_idsp, 
-                    'anh_phu'=>$uploadedFile_extra[$i],
-                    'type_name'=>$productName[$i], 
-                    's'=>$productSizeS[$i],
-                    'm'=>$productSizeM[$i],
-                    'l'=>$productSizeL[$i],
-                    'xl'=>$productSizeXL[$i], 
-                    'xxl'=>$productSizeXXL[$i]
+                for ($i=0; $i < $slmasp; $i++) {
+                    $db->insert('loai_sp',array( 
+                        'id_sanpham '=>$anhphu_idsp, 
+                        'anh_phu'=>$imglink_extra[$i],
+                        'type_name'=>$productName[$i], 
+                        's'=>$productSizeS[$i],
+                        'm'=>$productSizeM[$i],
+                        'l'=>$productSizeL[$i],
+                        'xl'=>$productSizeXL[$i], 
+                        'xxl'=>$productSizeXXL[$i]
                     ));
-            }
-                    
-                header('location: ?controller=sanpham');
-            }
+                }
+                        
+                    header('location: ?controller=sanpham');
+                }
         }
     }else{
     header('location: ?controller=login');

@@ -114,6 +114,34 @@
             $query = mysqli_query($this->conn, $sql);
             return $query;
         }
+
+        public function uploadfile1($uploadedFile)  {   
+            $files = array();   
+            $errors = array();    
+            foreach ($uploadedFile as $key => $values) { 
+                foreach ($values as $index => $value) {
+                     $files[$index][$key] = $value;
+                }
+            }
+            
+            $uploadPath = "../images/sanpham";
+            if (!is_dir($uploadPath)) {
+             mkdir($uploadPath);
+            }
+            
+            foreach ($files as $file) {
+            // $file = self::validateUploadFile($file, $uploadPath);
+            if ($files != false) {
+                 move_uploaded_file($file["tmp_name"], $uploadPath .'/'.$file["name"]);
+                 $errors[] = $file["name"];
+            }else {
+                $errors[]="the file".basename($file["name"]). "isn't valid";
+            }
+            
+            }
+            return $errors;
+        }
+
         public function uploadfile($uploadedFile)  {   
             $files = array();   
             $errors = array();    
@@ -138,6 +166,7 @@
             }
             return $errors=($file["name"]);
         }
+        
         public function validateUploadFile($file, $uploadPath) {
             //Kiểm tra xem có vượt quá dung lượng cho phép không?
        
@@ -145,8 +174,8 @@
            //max upload is 2 Mb = 2 *
                    return false;
                }
-       $validTypes = array("jpg","jpeg","png","bmp","mp4");
-       $fileType = substr($file['name'], strrpos($file['name'], ".")+1);
+        $validTypes = array("jpg","jpeg","png","bmp","mp4");
+        $fileType = substr($file['name'], strrpos($file['name'], ".")+1);
                if (!in_array($fileType, $validTypes)) {
                    return false;
                }

@@ -176,11 +176,7 @@
 
             </select>
         </div>
-        <div id="canhbao" class="row mt-2">
-            <?php if(isset($loi['id_dm'])){?>
-                <p class="text-danger"><?php echo $loi['id_dm']?></p> 
-            <?php }?>
-        </div>
+
         <h5>Ảnh chính sản phẩm</h5>
         <div id="anh" class="form-control row mx-1">
             <input name="img_main[]" required type="file" accept="images/*" placeholder="Ảnh chính sản phẩm" 
@@ -202,9 +198,8 @@
 
     
         <h5>Loại sản phẩm</h5>
-        
         <div id="loaisp" class="form-control row mx-1">      
-            <input min="1" max="6"  name="slmasp" accept="images/*" required type="number" id="loaisp" pattern="[0-9]+" placeholder="Nhập số loại sản phẩm"
+            <input min="1" max="6" name="slmasp" accept="/images/*" required type="number" id="loaisp" pattern="[0-9]+" placeholder="Nhập số loại sản phẩm"
             onchange=" showInputs(this.value)">                                       
             <?php if(isset($loi['slmasp'])){?>
                 <p class="text-danger"><?php echo $loi['slmasp']?></p> 
@@ -212,9 +207,8 @@
         </div>
         <div id="loaisp_size" class="form-control"></div>
         
-        <h5>Giá </h5>
+        <h5>Giá</h5>
         <div id="gia" class="form-control row mx-1">
-           
             <input name="gia" type="text" pattern="[0-9]+" placeholder="Giá 1 sản phẩm" 
             value="<?php echo (isset($gia))?$gia:'' ?>" >
             <?php if(isset($loi['gia'])){?>
@@ -224,7 +218,6 @@
        
         <h5>Xuất xứ</h5>
         <div id="xuatxu" class="form-control row mx-1">
-            
             <input name="xuatxu" type="text" placeholder="Xuất xứ" 
             value="<?php echo (isset($xuatxu))?$xuatxu:'' ?>" >
             <?php if(isset($loi['xuatxu'])){?>
